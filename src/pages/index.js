@@ -1,118 +1,176 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import {
+  getTopPosts,
+  getTuViPosts
+} from "@/api/apiRequest";
+import LoadGoogleAds from "@/components/Ads/googleAds";
+import CalendarScreen from "@/components/Calendar/CalendarScreen";
+import CungHoangDaoPost from "@/components/Post/CungHoangDaoPost";
+import Info from "@/components/Post/Info";
+import TopPost from "@/components/Post/TopPost";
+import TuViPost from "@/components/Post/TuViPost";
+import Banners from "@/layout/Banners/banner";
+import Card from "@/layout/Card/Card";
+import { Inter } from "next/font/google";
+import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({
+  topPosts = [],
+  kienThucTuViPosts = [],
+  kienThucPhongThuyPosts = [],
+  conSoMayManHomNayPosts = [],
+  giaiMaGiacMoPosts = [],
+}) {
+  useEffect(() => {
+    console.log("[topPosts]:", topPosts);
+  }, []);
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <Container>
+      <div className={"banner"}>
+        <Banners />
       </div>
+      <Row>
+        <Col lg={8} sm xl={8} className="pr-lg-3 m-xs-0 p-xs-0">
+          <section className={"px-2 px-md-0"}>
+            <div style={{ marginTop: 48, padding: "0 5px" }}>
+              <CalendarScreen />
+            </div>
+          </section>
+          <article>
+            <Card title="Tử Vi" isShowMore={"/tu-vi/kien-thuc-tu-vi"} top={30}>
+              <TuViPost
+                posts={kienThucTuViPosts}
+                md={7}
+                category={"kien-thuc-tu-vi"}
+                delay={600}
+              />
+            </Card>
+            <Card
+              title="Phong Thuỷ"
+              isShowMore={"/phong-thuy/kien-thuc-phong-thuy"}
+              top={30}
+            >
+              <TuViPost
+                posts={kienThucPhongThuyPosts}
+                md={7}
+                category={"kien-thuc-phong-thuy"}
+                delay={800}
+              />
+            </Card>
+            <Card
+              title="Cung Hoàng Đạo"
+              isShowMore={"/cung-hoang-dao/mat-ngu-chom-sao"}
+              top={30}
+              id={"post-cung-hoang-dao"}
+            >
+              <CungHoangDaoPost category={"mat-ngu-chom-sao"} delay={1000} />
+            </Card>
+            <Container style={{ padding: 0, position: "relative" }}>
+              <Row style={{ width: "100%", margin: 0 }}>
+                <Col md={6} xs={12} className={"pl-0 pr-2 p-xs-0"}>
+                  <Card
+                    title="Con Số May Mắn"
+                    isShowMore={"/tu-vi/con-so-may-man-hom-nay"}
+                  >
+                    <TuViPost
+                      md={12}
+                      borderTopFirstChild={1}
+                      category={"con-so-may-man-hom-nay"}
+                      delay={4000}
+                      posts={conSoMayManHomNayPosts}
+                    />
+                  </Card>
+                </Col>
+                <Col md={6} xs={12} className={"pr-0 pl-2 p-xs-0"}>
+                  <Card
+                    title="Giải Mã Giấc Mơ"
+                    isShowMore={"/tien-ich-hay/giai-ma-giac-mo"}
+                  >
+                    <TuViPost
+                      md={12}
+                      borderTopFirstChild={1}
+                      category={"giai-ma-giac-mo"}
+                      delay={4400}
+                      posts={giaiMaGiacMoPosts}
+                    />
+                  </Card>
+                </Col>
+              </Row>
+            </Container>
+          </article>
+        </Col>
+        <Col lg={4} xl={4} className="pl-xl-3 p-xs-0">
+          <aside>
+            {/* <div ref={element} className={"top-post-list"}> */}
+            <div>
+              <TopPost topPosts={topPosts} />
+            </div>
+            <div>
+              <Info />{" "}
+            </div>
+            <div
+              style={{
+                margin: "20px 0 0 0",
+                width: "100%",
+                position: "relative",
+              }}
+              className={"p-0"}
+            >
+              <LoadGoogleAds slot={3089617988} />
+            </div>
+            <div
+              style={{
+                margin: "20px 0 0 0",
+                width: "100%",
+                position: "relative",
+              }}
+              className={"p-0"}
+            >
+              <LoadGoogleAds slot={3780717276} />
+            </div>
+            <div
+              style={{
+                margin: "20px 0 0 0",
+                width: "100%",
+                position: "relative",
+              }}
+              className={"p-0"}
+            >
+              {/*{width && <FaceBookFanpage width={width} height={600}/>}*/}
+            </div>
+          </aside>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+// export async function getStaticProps() {
+//
+//   return {
+//     props: {
+//       allPostsData,
+//     },
+//   };
+// }
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+export async function getServerSideProps(context) {
+  const topPosts = await getTopPosts();
+  const kienThucTuViPosts = await getTuViPosts("kien-thuc-tu-vi");
+  const kienThucPhongThuyPosts = await getTuViPosts("kien-thuc-phong-thuy");
+  const conSoMayManHomNayPosts = await getTuViPosts("con-so-may-man-hom-nay");
+  const giaiMaGiacMoPosts = await getTuViPosts("giai-ma-giac-mo");
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+  console.log(topPosts);
+  return {
+    props: {
+      topPosts,
+      kienThucTuViPosts,
+      kienThucPhongThuyPosts,
+      conSoMayManHomNayPosts,
+      giaiMaGiacMoPosts,
+    },
+  };
 }
