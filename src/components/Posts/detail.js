@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 // import './posts.css';
-import Widget from "./widget";
-import { CallApiBackend } from "../Ui/CallApiBackend";
-import LoaderData from "../Ui/Loader";
 import { useRouter } from "next/router";
-import { getPostDetail } from "@/api/apiRequest";
+import LoaderData from "../Ui/Loader";
+import Widget from "./widget";
 
 const PostsDetail = (props) => {
   const { postData } = props;

@@ -29,16 +29,16 @@
 }
 .modal-user-detail {
     position: absolute;
-    transition: all .5s ease;
-    background: #FFFFFF;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.315996);
+    transition: all .5s ease ;
+    background: #FFFFFF ;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.315996) ;
     border-radius: 8px;
-    top: calc(100% + 27px);
-    padding-top: 20px;
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0;
-    right: -25px;
+    top: calc(100% + 27px) ;
+    padding-top: 20px ;
+    z-index: 1000 ;
+    pointer-events: none ;
+    opacity: 0 ;
+    right: -25px ;
     /*transform: translateX(-50%);*/
 }
 .modal-user-detail:before{

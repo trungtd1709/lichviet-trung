@@ -27,7 +27,7 @@ export const CallApiBackend = (data, url, method, type = 1) => {
   let headers = {
     apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
     accept: "application/json",
-    "device-id": "12312webjfhbwejhfb",
+    "device-id": device_id,
   };
   let formData = new FormData();
 
@@ -46,9 +46,10 @@ export const CallApiBackend = (data, url, method, type = 1) => {
     method: method,
     headers: headers,
     url: BASE_URL + url + params,
-    // data: formData,
+    data: formData,
   });
   out.catch(function (error) {
+    debugger
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";

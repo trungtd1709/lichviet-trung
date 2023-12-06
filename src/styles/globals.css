@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components;
+@tailwind utilities; */
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -94,10 +94,6 @@ body {
 
 .border-all span {
   vertical-align: middle;
-}
-
-.input-group {
-  flex-wrap: nowrap;
 }
 
 .nav-item .back-to-menu {
@@ -1489,7 +1485,7 @@ button[type="button"]:focus {
 .reload-qr-code {
   color: #35c03c !important;
   background: #ffffff !important;
-  border: 1px solid #eaeaea;
+  border: 1px solid #35c03c !important;
   text-transform: uppercase;
   padding: 8px 18px;
   font-weight: 400;
@@ -1653,7 +1649,7 @@ button[type="button"]:focus {
 
 img.avatar {
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: cover !important;
   border: 1px solid #e0e0e0;
 }
 
@@ -2522,15 +2518,17 @@ img {
 .input-group {
   border: 1px solid #ced4da;
   border-radius: 5px;
+  flex-wrap: nowrap !important;
 }
 
 .input-group-text {
-  background-color: #ffffff;
-  border: none;
+  background-color: #ffffff !important;
+  border: none !important;
 }
 
 .form-control {
-  border: none;
+  border: none !important;
+  /* background-color: white !important; */
 }
 
 .btn-primary {
@@ -3859,11 +3857,11 @@ svg {
     padding-right: 0 !important;
   }
 
-  .navbar div{
+  .navbar div {
     min-width: 33%;
   }
 
-  .navbar a{
+  .navbar a {
     display: flex;
     justify-content: center;
     min-width: 33%;
@@ -4090,12 +4088,16 @@ svg {
   }
 
   .carousel-caption {
-    position: relative;
+    position: relative !important;
     margin-top: 35px;
-    padding: 0 10px;
-    left: 0;
+    padding: 0 10px !important;
+    /* padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-left: 10px; */
+    left: 0 !important;
     width: 100%;
-    color: black;
+    color: black !important;
   }
 
   .sroll {
@@ -4518,7 +4520,7 @@ svg {
   }
 
   .package-pro .card-subtitle img {
-    max-width: 35px;
+    max-width: 35px !important;
   }
 
   .month.card-title {
@@ -4526,11 +4528,11 @@ svg {
   }
 
   .package-pro .number-promotion {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 
   .package-pro .card-body {
-    padding: 10px;
+    padding: 10px !important;
   }
 
   .box-style {

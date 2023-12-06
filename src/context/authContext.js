@@ -14,13 +14,13 @@ export const AppProvider = ({children}) => {
     const updateUserData = (data) => {
         if (data) {
             const updateLinkAvatar = (link) => {
-                let domainLv = process.env.REACT_APP_BASE_DOMAIN_LV_IMAGE;
+                let domainLv = process.env.NEXT_PUBLIC_BASE_DOMAIN_LV_IMAGE;
                 if (link && link.search('http') === -1 && link.search('cdn.lichviet.org') === -1) {
                     return domainLv + link;
                 }else if (link){
                     return link;
                 }
-                const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE
+                const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE
                 return BASE_URL_IMAGE + "/images/icon/default-profile.png";
             }
             let dataLocal = data;

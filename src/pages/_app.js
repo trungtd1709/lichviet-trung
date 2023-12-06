@@ -3,6 +3,8 @@ import "@/components/Title/title.css";
 import "@/components/Calendar/calendar.css";
 import "@/layout/Card/card.css";
 import "@/components/Posts/posts.css";
+import "@/components/Header/layout/headerAvatar.css";
+
 import Header from "@/components/Header";
 // import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.css";

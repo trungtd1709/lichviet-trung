@@ -1,6 +1,5 @@
 import {Col, Image, Stack} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-// import {CallApiBackend} from "../Ui/CallApiBackend";
 import LoaderData from "../Ui/Loader";
 import CardImage from "../../layout/Card/CardImage";
 import { CallApiBackend } from "@/api/apiRequest";

@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 // import Slider from "../Ui/Slider";
 // import ImageProduct from "../Ui/ImageProduct";
 
-const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const Product = () => {
   return (
     <>

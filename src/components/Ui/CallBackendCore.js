@@ -24,7 +24,7 @@ const RefreshLogin = () => {
 
 const CallBackendUrl = (data, url, method, login_require = false, is_retry = false) => {
     var headers = null;
-    const API_CORE_URL= process.env.REACT_APP_API_CORE_URL;
+    const API_CORE_URL= process.env.NEXT_PUBLIC_API_CORE_URL;
     var secretKey = localStorage.getItem('secretKey');
     if (secretKey && login_require) {
         headers = {

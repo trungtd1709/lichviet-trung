@@ -17,7 +17,7 @@ import IconZalo from "../../../public/icons/IconZalo";
 // import IconAndroid from "../../assets/Icons/IconAndroid";
 // import IconMessage from "../../assets/Icons/IconMessage";
 
-const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
 const Footers = () => {
   const heightFooter = useRef();

@@ -15,7 +15,7 @@ import IconWeather from "../../../public/icons/IconWeather";
 import IconMoon from "../../../public/icons/IconMoon";
 import IconSun from "../../../public/icons/IconSun";
 
-const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
 const CalendarScreen = () => {
   // tính năm nhuận

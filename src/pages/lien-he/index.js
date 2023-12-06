@@ -2,11 +2,10 @@ import { CallApiBackend } from "@/api/apiRequest";
 import LoaderData from "@/components/Ui/Loader";
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-// import {CallApiBackend} from "../Ui/CallApiBackend";
 // import LoaderData from "../Ui/Loader";
 import { Helmet } from "react-helmet";
 
-const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const Contact = () => {
   const [modalIsOpen, setmodalIsOpen] = useState(false);
   const [load, setLoad] = useState(false);
