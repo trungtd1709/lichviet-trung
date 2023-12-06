@@ -13,7 +13,7 @@ function makeid(length) {
     return result;
 }
 export const CallApiBackend = (data, url, method, type = 1) => {
-    const BASE_URL = process.env.REACT_APP_URL_API;
+    const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
     let device_id = localStorage.getItem('device_id');
     if (!device_id){
         device_id = makeid(40);

@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Link from "next/link";
+
+import IconCrown from "../../../public/icons/IconCrown";
 import LoginPC from "./layout/LoginPC";
-// import { AuthContext } from "../../Context/AuthContext";
-// import IconCrown from "../../assets/Icons/IconCrown";
-// import LoginPC from "./layout/LoginPc";
+import { AuthContext } from "@/context/authContext";
 
 const BASE_URL_IMAGE = process.env.REACT_APP_BASE_URL_IMAGE;
 
@@ -80,7 +80,7 @@ const MenuTabBar = [
 
 const Header = () => {
   const route_link = useRef();
-  // const { userData, userLogout } = useContext(AuthContext);
+  const { userData, userLogout } = useContext(AuthContext);
   useEffect(() => {
     const url = window.location.pathname.replace("/", "").split("/");
     if (route_link.current) {
@@ -150,30 +150,30 @@ const Header = () => {
             <div className="align-items-center d-flex">
               <a
                 href="/kich-hoat-pro"
-                className={
-                  "button-active-pro hidden-xs d-flex align-items-center"
-                }
+                className={"button-active-pro hidden-xs"}
               >
                 <span
                   style={{ display: "inline-flex", alignItems: "center" }}
                   className="mr-2"
                 >
-                  {/* <IconCrown /> */}
+                  <IconCrown />
                 </span>
                 <span>Nâng cấp lịch việt PRO</span>
               </a>
-              {/* <LoginPC
+              <LoginPC
                 user={userData}
                 closeMenu={() => closeMenuMb}
                 logout={() => userLogout({ redireact: "login" })}
-              /> */}
+              />
             </div>
           </Nav>
         </Container>
       </Navbar>
       <Navbar
         expand="lg"
-        className={classMenuMB ? "ipad-flex open container" : "ipad-flex container"}
+        className={
+          classMenuMB ? "ipad-flex open container" : "ipad-flex container"
+        }
       >
         <Container id={"navbar-style"} className="p-0 w-100">
           <ul className={"nav route-link"} ref={route_link}>

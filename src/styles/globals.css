@@ -105,7 +105,7 @@ body {
 }
 
 .nav-item h2 {
-  font-size: 1.02rem;
+  font-size: 1.02rem !important;
   font-weight: 600;
   margin-bottom: auto;
   color: #606469;
@@ -781,11 +781,12 @@ button:focus {
   white-space: nowrap;
   filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
   border-radius: 5px;
-  display: inline;
+  display: flex;
   margin-right: 10px;
   padding: 6.5px 10px;
   background: #ffffff;
   cursor: pointer;
+  align-items: center;
 }
 
 .css-8mmkcg {
@@ -1069,7 +1070,7 @@ canvas.cursor-move {
 }
 
 .text-green {
-  color: #35c03c;
+  color: #35c03c !important;
 }
 
 .text-blue {
@@ -2750,34 +2751,34 @@ label.item-chon {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-image: none;
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   border-radius: 50%;
   border: 2px solid #adb1b5;
   box-shadow: -1px 13px 20px #f0f2f4;
   position: relative;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   filter: none;
 }
 
 .carousel-control-prev {
-  left: -90px;
-  width: 50px;
+  left: -90px !important;
+  width: 50px !important;
 }
 
 .carousel-control-next {
-  right: -90px;
-  width: 50px;
+  right: -90px !important;
+  width: 50px !important;
 }
 
 .carousel-control-prev-icon:before,
 .carousel-control-next-icon:before {
   position: absolute;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 10px !important;
+  height: 10px !important;
   border-right: 2px solid #0b2e13;
   border-top: 2px solid #0b2e13;
   transform-origin: center;
@@ -2962,11 +2963,11 @@ label.item-chon {
   }
 
   h1 {
-    font-size: 1.9rem;
+    font-size: 1.9rem !important;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
 
   .calendar {
@@ -3150,10 +3151,10 @@ label .box-payment {
 }
 
 .carousel-caption {
-  top: 15%;
+  /* top: 15%; */
   right: auto;
-  left: 10%;
-  text-align: left;
+  left: 10% !important;
+  text-align: left !important;
   width: 30%;
 }
 
@@ -3853,6 +3854,21 @@ svg {
 }
 
 @media screen and (max-width: 547px) {
+  .navbar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .navbar div{
+    min-width: 33%;
+  }
+
+  .navbar a{
+    display: flex;
+    justify-content: center;
+    min-width: 33%;
+  }
+
   .float-footer {
     right: 15px;
   }
@@ -3926,9 +3942,9 @@ svg {
   }
 
   .nav-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     width: 100%;
   }
 
@@ -4554,7 +4570,8 @@ svg {
   }
 
   .dropdown {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 5px;
   }
 

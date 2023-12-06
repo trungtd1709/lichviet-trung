@@ -1,7 +1,4 @@
-import {
-  getTopPosts,
-  getTuViPosts
-} from "@/api/apiRequest";
+import { getTuViPosts } from "@/api/apiRequest";
 import LoadGoogleAds from "@/components/Ads/googleAds";
 import CalendarScreen from "@/components/Calendar/CalendarScreen";
 import CungHoangDaoPost from "@/components/Post/CungHoangDaoPost";
@@ -11,23 +8,24 @@ import TuViPost from "@/components/Post/TuViPost";
 import Banners from "@/layout/Banners/banner";
 import Card from "@/layout/Card/Card";
 import { Inter } from "next/font/google";
-import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({
-  topPosts = [],
-  kienThucTuViPosts = [],
-  kienThucPhongThuyPosts = [],
-  conSoMayManHomNayPosts = [],
-  giaiMaGiacMoPosts = [],
-}) {
-  useEffect(() => {
-    console.log("[topPosts]:", topPosts);
-  }, []);
+export default function Home(
+  {
+    // kienThucTuViPosts = [],
+    // kienThucPhongThuyPosts = [],
+    // conSoMayManHomNayPosts = [],
+    // giaiMaGiacMoPosts = [],
+  }
+) {
   return (
     <Container>
+      {/* <Head>
+        <title>Lịch Vạn Niên 2024</title>
+      </Head> */}
       <div className={"banner"}>
         <Banners />
       </div>
@@ -40,24 +38,14 @@ export default function Home({
           </section>
           <article>
             <Card title="Tử Vi" isShowMore={"/tu-vi/kien-thuc-tu-vi"} top={30}>
-              <TuViPost
-                posts={kienThucTuViPosts}
-                md={7}
-                category={"kien-thuc-tu-vi"}
-                delay={600}
-              />
+              <TuViPost md={7} category={"kien-thuc-tu-vi"} delay={600} />
             </Card>
             <Card
               title="Phong Thuỷ"
               isShowMore={"/phong-thuy/kien-thuc-phong-thuy"}
               top={30}
             >
-              <TuViPost
-                posts={kienThucPhongThuyPosts}
-                md={7}
-                category={"kien-thuc-phong-thuy"}
-                delay={800}
-              />
+              <TuViPost md={7} category={"kien-thuc-phong-thuy"} delay={800} />
             </Card>
             <Card
               title="Cung Hoàng Đạo"
@@ -79,7 +67,6 @@ export default function Home({
                       borderTopFirstChild={1}
                       category={"con-so-may-man-hom-nay"}
                       delay={4000}
-                      posts={conSoMayManHomNayPosts}
                     />
                   </Card>
                 </Col>
@@ -93,7 +80,6 @@ export default function Home({
                       borderTopFirstChild={1}
                       category={"giai-ma-giac-mo"}
                       delay={4400}
-                      posts={giaiMaGiacMoPosts}
                     />
                   </Card>
                 </Col>
@@ -105,7 +91,7 @@ export default function Home({
           <aside>
             {/* <div ref={element} className={"top-post-list"}> */}
             <div>
-              <TopPost topPosts={topPosts} />
+              <TopPost />
             </div>
             <div>
               <Info />{" "}
@@ -157,20 +143,19 @@ export default function Home({
 // }
 
 export async function getServerSideProps(context) {
-  const topPosts = await getTopPosts();
+  // const topPosts = await getTopPosts();
   const kienThucTuViPosts = await getTuViPosts("kien-thuc-tu-vi");
   const kienThucPhongThuyPosts = await getTuViPosts("kien-thuc-phong-thuy");
   const conSoMayManHomNayPosts = await getTuViPosts("con-so-may-man-hom-nay");
   const giaiMaGiacMoPosts = await getTuViPosts("giai-ma-giac-mo");
 
-  console.log(topPosts);
   return {
     props: {
-      topPosts,
-      kienThucTuViPosts,
-      kienThucPhongThuyPosts,
-      conSoMayManHomNayPosts,
-      giaiMaGiacMoPosts,
+      // topPosts,
+      // kienThucTuViPosts,
+      // kienThucPhongThuyPosts,
+      // conSoMayManHomNayPosts,
+      // giaiMaGiacMoPosts,
     },
   };
 }

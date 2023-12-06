@@ -1,0 +1,38 @@
+@media screen  and (max-width: 547px) {
+    .day-now {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .calendar-day p {
+        font-size: 12px;
+    }
+
+    .calendar-day img {
+        height: 16px;
+    }
+
+    .bt-day {
+        display: none;
+    }
+
+    .weather img {
+        height: 40px;
+    }
+
+    .title-card-cl span {
+        display: block;
+        text-align: center;
+    }
+
+    .caledar-days .day-item {
+        padding: 3px 5px;
+        height: auto;
+    }
+
+    .calendar-week .week-item p {
+        font-size: 8px;
+        font-weight: 600;
+    }
+
+}

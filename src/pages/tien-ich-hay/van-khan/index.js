@@ -5,5 +5,5 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
   const {} = props;
-  return <Posts category={"kien-thuc-tu-vi"} />;
+  return <Posts category={"van-khan"} />;
 }

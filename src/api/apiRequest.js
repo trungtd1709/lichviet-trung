@@ -159,3 +159,19 @@ export const getTuViPosts = async (category) => {
     return [];
   }
 };
+
+export const getPostDetail = async (slug_post) => {
+  const res = await CallApiServerSide(
+    {
+      slug_post,
+    },
+    "/api/blog/get-detail-post",
+    "GET"
+  );
+  if (res?.data?.status === 1) {
+    const postData = res.data.data;
+    return postData;
+  } else {
+    return [];
+  }
+};
