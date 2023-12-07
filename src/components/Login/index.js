@@ -1,16 +1,16 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Tab, Tabs, Button } from "react-bootstrap";
-import GoogleLogin from "react-google-login";
+import { useCallback, useContext, useEffect, useState } from "react";
 import AppleLogin from "react-apple-login";
+import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import GoogleLogin from "react-google-login";
+import QRCode from "react-qr-code";
 import LoaderData from "../Ui/Loader";
 import Popup from "../Ui/Popup";
-import QRCode from "react-qr-code";
-import { Helmet } from "react-helmet";
 import { FormForgotPassword } from "./Form/FormForgotPassword";
 import { FormLogin } from "./Form/FormLogin";
 // import {useSearchParams} from "react-router-dom";
-import { AuthContext } from "@/context/authContext";
 import { CallApiBackend } from "@/api/apiRequest";
+import { AuthContext } from "@/context/authContext";
+import MetaHead from "../MetaHead";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const ZALO_APP_ID = process.env.NEXT_PUBLIC_ZALO_APP_ID;
@@ -279,9 +279,7 @@ const Login = () => {
   const responseApple = (response) => {};
   return (
     <Container>
-      <Helmet>
-        <title>Lịch Việt | Đăng nhập</title>
-      </Helmet>
+      <MetaHead title="Lịch Việt | Đăng nhập" />
       <LoaderData size={"big"} showLoad={loadLogin} fixed={true} />
       <div className={"text-center tl-mobile title-1 py-4"}>
         {" "}

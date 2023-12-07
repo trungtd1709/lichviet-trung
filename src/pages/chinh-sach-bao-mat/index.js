@@ -1,14 +1,11 @@
+import MetaHead from "@/components/MetaHead";
 import Link from "next/link";
-import React from "react";
 import { Container } from "react-bootstrap";
-import { Helmet } from "react-helmet";
 // import "./../../assets/css/csbm.css";
 const ChinhSachBM = () => {
   return (
     <>
-      <Helmet>
-        <title>Lịch Việt</title>
-      </Helmet>
+      <MetaHead title="Lịch Việt" />
       <Container className={"my-4"}>
         <div className={"book"}>
           <div>
@@ -18,7 +15,7 @@ const ChinhSachBM = () => {
                 dir="ltr"
                 style={{
                   listStyleType: "upper-roman",
-                  // fontSize: "12pt", 
+                  // fontSize: "12pt",
                   fontFamily: "Arial,sans-serif",
                   color: "#000000",
                   backgroundColor: "transparent",

@@ -1,8 +1,6 @@
 import MetaHead from "@/components/MetaHead";
 import Link from "next/link";
-import React from "react";
 import { Container } from "react-bootstrap";
-import { Helmet } from "react-helmet";
 
 const DieuKhoanSuDung = () => {
   return (

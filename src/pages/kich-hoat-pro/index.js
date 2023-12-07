@@ -1,12 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Container, Row, Col, Button, InputGroup, FormControl} from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Button, Col, Container, FormControl, InputGroup, Row } from "react-bootstrap";
 
-import {Helmet} from "react-helmet";
-import { AuthContext } from "@/context/authContext";
 import { CallApiBackend } from "@/api/apiRequest";
+import AvatarUser from "@/components/Header/AvatarUser";
 import LoaderData from "@/components/Ui/Loader";
 import Popup from "@/components/Ui/Popup";
-import AvatarUser from "@/components/Header/AvatarUser";
+import { AuthContext } from "@/context/authContext";
 // import {AuthContext} from "../../Context/AuthContext";
 
 

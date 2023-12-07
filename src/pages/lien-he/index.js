@@ -1,10 +1,10 @@
 import { CallApiBackend } from "@/api/apiRequest";
+import MetaHead from "@/components/MetaHead";
 import LoaderData from "@/components/Ui/Loader";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 // import LoaderData from "../Ui/Loader";
-import { Helmet } from "react-helmet";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const Contact = () => {
@@ -45,10 +45,9 @@ const Contact = () => {
   };
   return (
     <>
+      <MetaHead title="Lịch Việt | Liên hệ" />
       <LoaderData size={"big page"} showLoad={load} fixed={true} />
-      <Helmet>
-        <title>Lịch Việt | Liên hệ</title>
-      </Helmet>
+      
       <div className="container">
         <div className="position-relative" id="about-us">
           <div className="row">

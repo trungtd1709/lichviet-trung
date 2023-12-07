@@ -2,7 +2,6 @@ import MetaHead from "@/components/MetaHead";
 import ImageProduct from "@/components/Ui/ImageProduct";
 import Slider from "@/components/Ui/Slider";
 import Link from "next/link";
-import React from "react";
 import { Container } from "react-bootstrap";
 // import Slider from "../Ui/Slider";
 // import ImageProduct from "../Ui/ImageProduct";
@@ -11,11 +10,7 @@ const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const Product = () => {
   return (
     <>
-      {/*<Helmet>*/}
-      {/*    <title>Lịch Việt | Ứng dụng</title>*/}
-      {/*    <meta property="og:title" content="Lịch Việt - Lịch Vạn Niên 2022"/>*/}
-      {/*    <meta name="description" content="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."/>*/}
-      {/*</Helmet>*/}
+      
       <MetaHead
         title="Lịch Việt | Ứng dụng"
         subtitle="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."
