@@ -1,18 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 // import './posts.css';
-import Widget from "./widget";
-import ReactPaginate from "react-paginate";
-import LoadGoogleAds from "../Ads/googleAds";
 import { CallApiBackend } from "@/api/apiRequest";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
+import LoadGoogleAds from "../Ads/googleAds";
+import Widget from "./widget";
 
 const Posts = (element) => {
   //   const { topPosts } = element;
-  const params = useParams();
+ 
   const [catePost, setCatePost] = useState(null);
-//   const base_url = window.location.origin;
+  const router = useRouter();
+  const { category_child } = router.query;
+  //   const base_url = window.location.origin;
   const [baseURL, setBaseURL] = useState("");
   const [listPost, setListPost] = useState([]);
   const [paginate, setPaginate] = useState([]);
@@ -44,14 +46,15 @@ const Posts = (element) => {
   }, []);
 
   useEffect(() => {
-    let cateP = params.category_child ?? element.category;
+    let cateP = category_child ?? element.category;
     let pageInfo = localStorage.getItem("PAGE_" + cateP) ?? 1;
     if (pageInfo !== currenPage) {
       setCurrenPage(pageInfo);
       setCatePost(cateP);
       getPosts(pageInfo, 0, cateP);
     }
-  }, [params, element, getPosts]);
+  
+  }, [category_child, element, getPosts]);
 
   const handlePageClick = (event) => {
     let currenP = Number(event.selected) + 1;
@@ -59,7 +62,7 @@ const Posts = (element) => {
     setCurrenPage(currenP);
     getPosts(currenP, 1, catePost);
   };
-  
+
   return (
     <>
       <Container>
