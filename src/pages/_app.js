@@ -18,9 +18,6 @@ export default function App({ Component, pageProps }) {
   return (
     <AppProvider>
       <div className="App">
-        <Head>
-          <title>Lịch Vạn Niên 2024</title>
-        </Head>
         <Header {...pageProps} />
         <Component {...pageProps} />
         <Footers />

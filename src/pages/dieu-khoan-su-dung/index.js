@@ -1,3 +1,4 @@
+import MetaHead from "@/components/MetaHead";
 import Link from "next/link";
 import React from "react";
 import { Container } from "react-bootstrap";
@@ -6,11 +7,9 @@ import { Helmet } from "react-helmet";
 const DieuKhoanSuDung = () => {
   return (
     <Container className={"py-4 "}>
-      <Helmet>
-        <title>Lịch Việt</title>
-      </Helmet>
+      <MetaHead title="Lịch Việt | Điều khoản sử dụng"/>
       <div className={"book"}>
-        <h4 className={"tb"}>Điều khoản sử dụng</h4>
+        <h4 className={"tb"}> Điều khoản sử dụng</h4>
 
         <div>
           <span>

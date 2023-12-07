@@ -1,3 +1,4 @@
+import MetaHead from "@/components/MetaHead";
 import ImageProduct from "@/components/Ui/ImageProduct";
 import Slider from "@/components/Ui/Slider";
 import Link from "next/link";
@@ -15,6 +16,10 @@ const Product = () => {
       {/*    <meta property="og:title" content="Lịch Việt - Lịch Vạn Niên 2022"/>*/}
       {/*    <meta name="description" content="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."/>*/}
       {/*</Helmet>*/}
+      <MetaHead
+        title="Lịch Việt | Ứng dụng"
+        subtitle="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."
+      />
       <Slider
         banner={[BASE_URL_IMAGE + "/images/slider/slider2.jpg"]}
         title={"Lịch Việt - Xem Ngày Tốt, Tử vi & Phong Thuỷ"}
@@ -61,7 +66,9 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <span>Những tiện ích hay khi bạn đăng nhập ứng dụng Lịch Việt::</span>
+              <span>
+                Những tiện ích hay khi bạn đăng nhập ứng dụng Lịch Việt::
+              </span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>

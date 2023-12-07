@@ -7,15 +7,16 @@ import { useRouter } from "next/router";
 import ReactPaginate from "react-paginate";
 import LoadGoogleAds from "../Ads/googleAds";
 import Widget from "./widget";
+import MetaHead from "../MetaHead";
 
 const Posts = (element) => {
-  //   const { topPosts } = element;
- 
+  const { currentMetaData } = element;
+
   const [catePost, setCatePost] = useState(null);
   const router = useRouter();
   const { category_child } = router.query;
   //   const base_url = window.location.origin;
-  const [baseURL, setBaseURL] = useState("");
+  // const [baseURL, setBaseURL] = useState("");
   const [listPost, setListPost] = useState([]);
   const [paginate, setPaginate] = useState([]);
   const [currenPage, setCurrenPage] = useState();
@@ -40,10 +41,11 @@ const Posts = (element) => {
     });
   }, []);
 
-  useEffect(() => {
-    const base_url = window.location.origin;
-    setBaseURL(base_url);
-  }, []);
+  // useEffect(() => {
+  //   const base_url = window.location.origin;
+  //   debugger;
+  //   setBaseURL(base_url);
+  // }, []);
 
   useEffect(() => {
     let cateP = category_child ?? element.category;
@@ -53,7 +55,6 @@ const Posts = (element) => {
       setCatePost(cateP);
       getPosts(pageInfo, 0, cateP);
     }
-  
   }, [category_child, element, getPosts]);
 
   const handlePageClick = (event) => {
@@ -66,20 +67,7 @@ const Posts = (element) => {
   return (
     <>
       <Container>
-        {/*<div className={'blog-category'}>*/}
-        {/*    <ul className={'blog-category-list'}>*/}
-        {/*        {*/}
-        {/*            category.map(function (item, key) {*/}
-        {/*                let active = (catePost == item.slug) || (catePost == cate && key == 0) ? "active" : "";*/}
-        {/*                return (*/}
-        {/*                    <li className={'blog-category-name ' + active} key={key}>*/}
-        {/*                        <a href={item.slug}>{item.name}</a>*/}
-        {/*                    </li>*/}
-        {/*                )*/}
-        {/*            })*/}
-        {/*        }*/}
-        {/*    </ul>*/}
-        {/*</div>*/}
+        <MetaHead {...currentMetaData} />
         <div className={"ads-google"}>
           <LoadGoogleAds slot={5524209637} />
         </div>
@@ -91,7 +79,7 @@ const Posts = (element) => {
               <div>
                 {hot ? (
                   <div className={"blog_list"}>
-                    <Link href={baseURL + "/" + hot.slug}>
+                    <Link href={"/" + hot.slug}>
                       <div className={"card hot"}>
                         <div className={"post_thumb"}>
                           <figure className={"imghover"}>
@@ -126,7 +114,7 @@ const Posts = (element) => {
                           return (
                             <Link
                               className="card"
-                              href={baseURL + "/" + item.slug}
+                              href={"/" + item.slug}
                               key={k}
                             >
                               <div className={"card_title hidden-md"}>

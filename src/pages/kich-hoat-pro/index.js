@@ -57,9 +57,7 @@ const Active = () => {
 
         return (
             <>
-                <Helmet>
-                    <title>Lịch Việt | Kích hoạt Pro</title>
-                </Helmet>
+                <MetaHead title="Lịch Việt | Kích hoạt Pro"/>
                 <Container className={'pb-md-5'}>
                     <LoaderData size={'big'} showLoad={load} fixed={true}/>
                     <div className={"text-center title-1 py-4 tl-mobile "}> Kích hoạt Lịch Việt Pro bằng mã</div>

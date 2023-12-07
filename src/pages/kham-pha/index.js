@@ -1,3 +1,4 @@
+import MetaHead from "@/components/MetaHead";
 import Slider from "@/components/Ui/Slider";
 import Link from "next/link";
 import React from "react";
@@ -39,6 +40,7 @@ const KhamPha = () => {
   ];
   return (
     <>
+      <MetaHead title="Lịch Việt | Khám phá" />
       <Slider
         banner={["image/slider/slider5.jpg"]}
         title={"Khám phá các tính năng của Lịch Việt"}

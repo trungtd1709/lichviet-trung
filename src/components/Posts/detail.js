@@ -5,11 +5,16 @@ import { useRouter } from "next/router";
 import LoaderData from "../Ui/Loader";
 import Widget from "./widget";
 import Link from "next/link";
+import Head from "next/head";
+import MetaHead from "../MetaHead";
 
 const PostsDetail = (props) => {
-  const { postData } = props;
+  const { postData, pageUrl } = props;
   const postDetail = postData?.item ?? null;
   const postOther = postData?.other ?? null;
+  const { item } = postData;
+  const { title, subtitle, image } = item;
+  console.log(pageUrl);
 
   const router = useRouter();
   // const [postDetail, setPostDetail] = useState(false);
@@ -39,6 +44,7 @@ const PostsDetail = (props) => {
 
   return (
     <>
+      <MetaHead {...item} />
       <Container>
         {/*<div className={'blog-category'}>*/}
         {/*    <ul className={'blog-category-list'}>*/}
