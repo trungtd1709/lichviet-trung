@@ -11,7 +11,6 @@ import Header from "@/components/Header";
 import "bootstrap/dist/css/bootstrap.css";
 import Footers from "@/components/Footer";
 import "../../public/fontawesome/css/all.css";
-import Head from "next/head";
 import { AppProvider } from "@/context/authContext";
 
 export default function App({ Component, pageProps }) {
