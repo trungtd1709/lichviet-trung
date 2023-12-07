@@ -1,5 +1,6 @@
 import { CallApiBackend } from "@/api/apiRequest";
 import LoaderData from "@/components/Ui/Loader";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 // import LoaderData from "../Ui/Loader";
@@ -165,7 +166,7 @@ const Contact = () => {
                 <h5 className="style-text3 tb mb-4">
                   Công ty cổ phần phát triển Lịch Việt
                 </h5>
-                <a
+                <Link
                   className="style-text4"
                   rel="noreferrer"
                   target={"_blank"}
@@ -173,30 +174,30 @@ const Contact = () => {
                 >
                   Số 10, ngõ 379 đường Hoàng Hoa Thám, phường Liễu Giai, quận Ba
                   Đình, thành phố Hà Nội
-                </a>
+                </Link>
                 <div className="textwidget" />
                 <div className="row w-100 mt-4 phone-email">
                   <div className="widget col-md-5 col-6">
                     <p className="style-text4 mb-1">Số điện thoại</p>
-                    <a
+                    <Link
                       href={"tel:0766002689"}
                       rel="noreferrer"
                       className={"style-text4 tb"}
                       target={"_blank"}
                     >
                       0766.002.689
-                    </a>
+                    </Link>
                   </div>
                   <div className="widget col-md-5 col-6">
                     <p className="style-text4 mb-1">E-mail</p>
-                    <a
+                    <Link
                       href="mailto:lichviet@ppclink.com"
                       rel="noreferrer"
                       className={"style-text4 tb"}
                       target={"_blank"}
                     >
                       lichviet@ppclink.com
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={"mt-1"}>

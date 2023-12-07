@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {Col, Row} from "react-bootstrap";
 // import "./style.css";
 
@@ -15,7 +16,7 @@ export default function TitleHeader({isShowMore, title}) {
             </Col>
             {isShowMore && (
                 <Col className="more-text text-right pr-0" style={{minWidth: 80}}>
-                    <a href={isShowMore} className={'text-green'}>Xem thêm</a>
+                    <Link href={isShowMore} className={'text-green'}>Xem thêm</Link>
                 </Col>
             )}
         </Row>

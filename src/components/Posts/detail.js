@@ -4,6 +4,7 @@ import { Carousel, Container } from "react-bootstrap";
 import { useRouter } from "next/router";
 import LoaderData from "../Ui/Loader";
 import Widget from "./widget";
+import Link from "next/link";
 
 const PostsDetail = (props) => {
   const { postData } = props;
@@ -70,14 +71,14 @@ const PostsDetail = (props) => {
                 {postDetail.btn_deeplink ? (
                   <div className="post-content mt-0">
                     <p style={{ textAlign: "center" }}>
-                      <a href="https://onelink.to/a37gpg">
+                      <Link href="https://onelink.to/a37gpg">
                         <img
                           src="https://cdn.lichviet.org/upload/lichviet/2023/06/06/web_lichviet/tai-ung-dung-lich-viet-tai-day.png"
                           alt="tải ứng dụng lịch việt"
                           width="900"
                           height="150"
                         />
-                      </a>
+                      </Link>
                     </p>
                   </div>
                 ) : (
@@ -106,7 +107,7 @@ const PostsDetail = (props) => {
                             .map(function (item, key) {
                               return (
                                 <div className="slider-item card" key={key}>
-                                  <a href={item.slug}>
+                                  <Link href={item.slug}>
                                     <div className="img-thumb">
                                       <img
                                         className={"image-hover"}
@@ -123,7 +124,7 @@ const PostsDetail = (props) => {
                                     <div className={"card-date"}>
                                       {item.date}
                                     </div>
-                                  </a>
+                                  </Link>
                                 </div>
                               );
                             })}
@@ -139,7 +140,7 @@ const PostsDetail = (props) => {
                     <Carousel.Item key={k}>
                       <div className={"group-item-slider"}>
                         <div className="slider-item">
-                          <a href={v.slug} className="card">
+                          <Link href={v.slug} className="card">
                             <div className="img-thumb">
                               <img
                                 className={"image-hover"}
@@ -152,7 +153,7 @@ const PostsDetail = (props) => {
                               <div className="card-title">{v.title}</div>
                               <div className={"card-date"}>{v.date}</div>
                             </div>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </Carousel.Item>

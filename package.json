@@ -31,6 +31,7 @@
     "jwt-decode": "^3.1.2",
     "next": "14.0.3",
     "node-fetch": "^3.1.0",
+    "pm2": "^5.3.0",
     "qs": "^6.11.2",
     "react": "^18",
     "react-apple-login": "^1.1.6",

@@ -1,6 +1,7 @@
 import {Carousel} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import { CallApiBackend } from "@/api/apiRequest";
+import Link from "next/link";
 
 export default function Banners() {
     const [data, setData] = useState(null);
@@ -19,7 +20,7 @@ export default function Banners() {
                         data.map((item, key) => {
                             return (
                                 <Carousel.Item key={key}>
-                                    <a href={item.link}>
+                                    <Link href={item.link}>
                                         <img
                                             className="w-100 hidden-xs"
                                             src={item.image}
@@ -30,7 +31,7 @@ export default function Banners() {
                                             src={item.image_mobile ?? item.image}
                                             alt={item.title}
                                         />
-                                    </a>
+                                    </Link>
                                 </Carousel.Item>
                             )
                         })

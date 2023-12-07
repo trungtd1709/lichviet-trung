@@ -5,6 +5,7 @@ import Card from "../../layout/Card/Card";
 import CardImage from "../../layout/Card/CardImage";
 import TitleHeader from "../Title";
 import LoaderData from "../Ui/Loader";
+import Link from "next/link";
 
 export default function TopPost({ marginTop = 40 }) {
   const [data, setData] = useState([]);
@@ -33,9 +34,9 @@ export default function TopPost({ marginTop = 40 }) {
         <LoaderData size={"small"} showLoad={load} fixed={false} />
         <Stack>
           {data.map((item, key) => (
-            <a href={"/" + item?.slug} key={key}>
+            <Link href={"/" + item?.slug} key={key}>
               <CardImage content={item?.title} url={item?.image} />
-            </a>
+            </Link>
           ))}
         </Stack>
       </Card>

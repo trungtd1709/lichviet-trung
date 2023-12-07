@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {Carousel} from "react-bootstrap";
 
@@ -15,13 +16,13 @@ const Slider = props =>{
                                     <div className={'img-slider'}>
                                         {
                                             props.click ?
-                                                <a href={'/tai-app-nhan-qua'} target={'_blank'} rel="noopener noreferrer">
+                                                <Link href={'/tai-app-nhan-qua'} target={'_blank'} rel="noopener noreferrer">
                                                     <img
                                                         className="d-block w-100"
                                                         src={i}
                                                         alt="First slide"
                                                     />
-                                                </a>
+                                                </Link>
                                                 :
                                                 <img
                                                     className="d-block w-100"
@@ -54,12 +55,12 @@ const Slider = props =>{
                 {
                     props.link &&
                         <div className={'link-product-silder'}>
-                            <a href="https://itunes.apple.com/app/id585253443?mt=8" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://itunes.apple.com/app/id585253443?mt=8" target="_blank" rel="noopener noreferrer">
                                 <img src={BASE_URL_IMAGE+"/images/icon/link/appstore.png"} alt=""/>
-                            </a>
-                            <a  href="https://play.google.com/store/apps/details?id=com.somestudio.lichvietnam" target="_blank" rel="noopener noreferrer">
+                            </Link>
+                            <Link  href="https://play.google.com/store/apps/details?id=com.somestudio.lichvietnam" target="_blank" rel="noopener noreferrer">
                                 <img src={BASE_URL_IMAGE+"/images/icon/link/googleplay.png"} alt=""/>
-                            </a>
+                            </Link>
                         </div>
                 }
 

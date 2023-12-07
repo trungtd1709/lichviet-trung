@@ -1,6 +1,7 @@
 // import AvatarUser from "../AvatarUser";
 import React from "react";
 import AvatarUser from "../AvatarUser";
+import Link from "next/link";
 // import "./headerAvatar.css";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
@@ -188,9 +189,9 @@ export default function LoginPC({
           </div>
         </div>
       ) : (
-        <a onClick={closeMenu} href="/login">
+        <Link onClick={closeMenu} href="/login">
           <div className={"day-now"}>Đăng nhập</div>
-        </a>
+        </Link>
       )}
     </>
   );

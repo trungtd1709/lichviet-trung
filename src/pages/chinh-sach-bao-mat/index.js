@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Helmet } from "react-helmet";
@@ -152,7 +153,7 @@ const ChinhSachBM = () => {
                 Chính Sách Bảo Mật này được Lịch Việt công bố tại địa chỉ
                 website:{" "}
               </span>
-              <a
+              <Link
                 style={{ textDecoration: "none" }}
                 href="https://lichviet.app/chinh-sach-bao-mat"
               >
@@ -174,7 +175,7 @@ const ChinhSachBM = () => {
                 >
                   https://lichviet.app/chinh-sach-bao-mat
                 </span>
-              </a>
+              </Link>
               <span
                 style={{
                   // fontSize: "12pt",
@@ -1449,7 +1450,7 @@ const ChinhSachBM = () => {
                 Chúng Tôi tuân thủ tất cả các điều khoản trong Chính sách quyền
                 riêng tư của Google (
               </span>
-              <a
+              <Link
                 style={{ textDecoration: "none" }}
                 href="https://policies.google.com/privacy?hl=en-US"
               >
@@ -1471,7 +1472,7 @@ const ChinhSachBM = () => {
                 >
                   https://policies.google.com/privacy?hl=en-US
                 </span>
-              </a>
+              </Link>
               <span
                 style={{
                   // fontSize: "12pt",
@@ -1488,7 +1489,7 @@ const ChinhSachBM = () => {
               >
                 )&amp; Youtube TOS (
               </span>
-              <a
+              <Link
                 style={{ textDecoration: "none" }}
                 href="https://www.youtube.com/static?gl=VN&template=terms"
               >
@@ -1510,7 +1511,7 @@ const ChinhSachBM = () => {
                 >
                   https://www.youtube.com/static?gl=VN&amp;template=terms
                 </span>
-              </a>
+              </Link>
               <span
                 style={{
                   // fontSize: "12pt",

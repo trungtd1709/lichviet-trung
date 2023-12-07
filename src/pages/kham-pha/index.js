@@ -1,4 +1,5 @@
 import Slider from "@/components/Ui/Slider";
+import Link from "next/link";
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
@@ -53,7 +54,7 @@ const KhamPha = () => {
             return (
               <div key={index}>
                 {
-                  <a href={i.link} target="_blank" rel={"noreferrer"}>
+                  <Link href={i.link} target="_blank" rel={"noreferrer"}>
                     <img
                       src={
                         BASE_URL_IMAGE +
@@ -65,7 +66,7 @@ const KhamPha = () => {
                       loading={"lazy"}
                     />
                     <p className={"title-2"}>{i.name}</p>
-                  </a>
+                  </Link>
                 }
               </div>
             );

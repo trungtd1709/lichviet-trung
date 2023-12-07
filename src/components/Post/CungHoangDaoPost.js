@@ -2,6 +2,7 @@ import { Card, Col } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import LoaderData from "../Ui/Loader";
 import { CallApiBackend } from "@/api/apiRequest";
+import Link from "next/link";
 
 export default function CungHoangDaoPost({ category }) {
   const [data, setData] = useState([]);
@@ -26,7 +27,7 @@ export default function CungHoangDaoPost({ category }) {
       <LoaderData size={"small"} showLoad={load} fixed={false} />
       {data.slice(0, 3).map((item, key) => (
         <Col md={4} key={key} className="mt-md-0 mt-sm-3 mt-3">
-          <a href={"/" + item?.slug} className={"d-flex h-100"}>
+          <Link href={"/" + item?.slug} className={"d-flex h-100"}>
             <Card>
               <Card.Img src={item?.image} />
               {item?.title && (
@@ -35,7 +36,7 @@ export default function CungHoangDaoPost({ category }) {
                 </Card.Body>
               )}
             </Card>
-          </a>
+          </Link>
         </Col>
       ))}
     </>

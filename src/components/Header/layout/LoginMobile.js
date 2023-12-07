@@ -1,6 +1,7 @@
 import {Button} from "react-bootstrap";
 import AvatarUser from "../AvatarUser";
 import React from "react";
+import Link from "next/link";
 
 export default function LoginMobile({user , closeMenu = () => {} , logout = () => {}}) {
     const checkPremium = user?.premiums.length;
@@ -22,9 +23,9 @@ export default function LoginMobile({user , closeMenu = () => {} , logout = () =
                         </div>
                     </div>
                     :
-                    <a onClick={closeMenu} href="/login" className={'ml-2'}>
+                    <Link onClick={closeMenu} href="/login" className={'ml-2'}>
                         <Button>Đăng nhập</Button>
-                    </a>
+                    </Link>
             }
         </>
     )

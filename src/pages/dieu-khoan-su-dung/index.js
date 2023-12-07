@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Helmet } from "react-helmet";
@@ -15,7 +16,7 @@ const DieuKhoanSuDung = () => {
           <span>
             Vui lòng đọc kỹ Thỏa Thuận Sử Dụng (“Thỏa Thuận”) trước khi bạn tiến
             hành tải, cài đặt, sử dụng tất cả hoặc bất kỳ phần nào của ứng
-            dụng“Lịch Việt"" (“Ứng Dụng”) (bao gồm nhưng không giới hạn phần
+            dụng “Lịch Việt (“Ứng Dụng”) (bao gồm nhưng không giới hạn phần
             mềm, các file và các tài liệu liên quan) hoặc sử dụng các dịch vụ do
             Công Ty Cổ Phần Phát triển Lịch Việt (Lịch Việt) cung cấp để kết nối
             đến Ứng Dụng. Bạn chấp thuận và đồng ý bị ràng buộc bởi các quy định
@@ -33,13 +34,13 @@ const DieuKhoanSuDung = () => {
           <p>
             Thỏa Thuận này có thể được cập nhật thường xuyên bởi Lịch Việt,
             phiên bản cập nhật sẽ được chúng tôi công bố tại website{" "}
-            <a
+            <Link
               href="https://lichviet.app/dieu-khoan-su-dung"
               rel={"noreferrer"}
               target="_blank"
             >
               https://lichviet.app/dieu-khoan-su-dung
-            </a>
+            </Link>
           </p>
           <p>
             Phiên bản cập nhật sẽ thay thế cho các quy định và điều kiện trong

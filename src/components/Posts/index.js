@@ -6,6 +6,7 @@ import Widget from "./widget";
 import ReactPaginate from "react-paginate";
 import LoadGoogleAds from "../Ads/googleAds";
 import { CallApiBackend } from "@/api/apiRequest";
+import Link from "next/link";
 
 const Posts = (element) => {
   //   const { topPosts } = element;
@@ -87,7 +88,7 @@ const Posts = (element) => {
               <div>
                 {hot ? (
                   <div className={"blog_list"}>
-                    <a href={baseURL + "/" + hot.slug}>
+                    <Link href={baseURL + "/" + hot.slug}>
                       <div className={"card hot"}>
                         <div className={"post_thumb"}>
                           <figure className={"imghover"}>
@@ -105,7 +106,7 @@ const Posts = (element) => {
                           <div className={"card_date"}>{hot.date}</div>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 ) : (
                   <></>
@@ -120,7 +121,7 @@ const Posts = (element) => {
                       <div className={"other_list"}>
                         {listPost.map(function (item, k) {
                           return (
-                            <a
+                            <Link
                               className="card"
                               href={baseURL + "/" + item.slug}
                               key={k}
@@ -147,7 +148,7 @@ const Posts = (element) => {
                                 </div>
                                 <div className={"card_date"}>{item.date}</div>
                               </div>
-                            </a>
+                            </Link>
                           );
                         })}
                       </div>

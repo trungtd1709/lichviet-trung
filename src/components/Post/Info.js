@@ -3,6 +3,7 @@ import React from "react";
 import IconDownloadAppStore from "../../../public/icons/IconDownloadAppStore";
 import IconDownloadGooglePlay from "../../../public/icons/IconDownloadGooglePlay";
 import TitleHeader from "../Title";
+import Link from "next/link";
 
 export default function Info() {
   return (
@@ -59,20 +60,20 @@ export default function Info() {
           <Col></Col>
         </Row>
         <div id={"download-app"}>
-          <a
+          <Link
             href="https://itunes.apple.com/app/id585253443?mt=8"
             target="_blank"
             rel="noreferrer"
           >
             <IconDownloadAppStore />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://play.google.com/store/apps/details?id=com.somestudio.lichvietnam"
             target="_blank"
             rel="noreferrer"
           >
             <IconDownloadGooglePlay />
-          </a>
+          </Link>
         </div>
       </div>
     </Container>

@@ -148,7 +148,7 @@ const Header = () => {
           </Link>
           <Nav className={"button-nav align-items-end"}>
             <div className="align-items-center d-flex">
-              <a
+              <Link
                 href="/kich-hoat-pro"
                 className={"button-active-pro hidden-xs"}
               >
@@ -159,7 +159,7 @@ const Header = () => {
                   <IconCrown />
                 </span>
                 <span>Nâng cấp lịch việt PRO</span>
-              </a>
+              </Link>
               <LoginPC
                 user={userData}
                 closeMenu={() => closeMenuMb}
@@ -184,14 +184,14 @@ const Header = () => {
                 key={key}
               >
                 {!item.children ? (
-                  <a
+                  <Link
                     onClick={closeMenuMb}
                     href={item.link}
                     data-href={item.link.replace("/", "")}
                     className="nav-link pr-0 pl-0"
                   >
                     <h2 className="pr-0 pl-0">{item.name}</h2>
-                  </a>
+                  </Link>
                 ) : (
                   <>
                     <h2
@@ -207,9 +207,9 @@ const Header = () => {
                       </li>
                       {item.children.map((i, k) => (
                         <li key={k}>
-                          <a onClick={closeMenuMb} href={i.link} className="">
+                          <Link onClick={closeMenuMb} href={i.link} className="">
                             {i.name}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>

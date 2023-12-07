@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import LoaderData from "../Ui/Loader";
 import CardImage from "../../layout/Card/CardImage";
 import { CallApiBackend } from "@/api/apiRequest";
+import Link from "next/link";
 
 export default function TuViPost({md, category, borderTopFirstChild}) {
     const [data, setData] = useState({});
@@ -23,7 +24,7 @@ export default function TuViPost({md, category, borderTopFirstChild}) {
             <Col md={md}>
                 {
                     data.hot ?
-                        <a href={'/'+data.hot.slug}>
+                        <Link href={'/'+data.hot.slug}>
                             <div className="justify-content-md-center">
                                 <Image loading='lazy' src={data.hot.image} alt="Ảnh" style={{width: "100%"}}/>
                             </div>
@@ -35,7 +36,7 @@ export default function TuViPost({md, category, borderTopFirstChild}) {
                                     {data.hot.subtitle}
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                         : <></>
                 }
             </Col>
@@ -45,12 +46,12 @@ export default function TuViPost({md, category, borderTopFirstChild}) {
                     {
                         data.list?.slice(0, 4).map(function (item, key) {
                             return (
-                                <a key={key} href={'/'+item.slug}>
+                                <Link key={key} href={'/'+item.slug}>
                                     <CardImage
                                         url={item.image}
                                         content={item.title}
                                     />
-                                </a>
+                                </Link>
                             )
 
                         })

@@ -1,5 +1,6 @@
 import ImageProduct from "@/components/Ui/ImageProduct";
 import Slider from "@/components/Ui/Slider";
+import Link from "next/link";
 import React from "react";
 import { Container } from "react-bootstrap";
 // import Slider from "../Ui/Slider";
@@ -41,24 +42,26 @@ const Product = () => {
         <div className={"mt-md-5"}>
           <ImageProduct />
         </div>
-        <h2 className={"py-4"}>Thông tin chi tiết</h2>
+        <h2 className={"py-4"}>Về ứng dụng Lịch Việt</h2>
         <div className={"content-product"}>
           <div className="content-description">
             <div>
               <span>
-                Lịch Việt - Ứng dụng xem ng&agrave;y tốt, tử vi &amp; phong thủy
-                theo ng&agrave;y giờ sinh, tra cứu lịch &acirc;m dương v&agrave;
-                quản l&yacute; lịch sự kiện c&aacute; nh&acirc;n phổ biến nhất
-                hiện nay - Tự h&agrave;o l&agrave; ứng dụng lịch đầu ti&ecirc;n
-                cho người Việt c&aacute;n mốc 15 TRIỆU lượt tải. Tải ứng dụng
-                ngay để Lịch Việt gi&uacute;p bạn thấu hiểu về bản th&acirc;n,
-                đưa ra c&aacute;c quyết định t&agrave;i lộc, may mắn v&agrave;
-                quản l&yacute; c&ocirc;ng việc hằng ng&agrave;y dễ d&agrave;ng.
+                Lịch Việt - Lịch vạn niên 2024 là ứng dụng tra cứu lịch âm
+                dương, lịch tháng, lịch ngày, ngày tốt, tử vi & phong thủy theo
+                ngày giờ sinh, xem thần số học, quản lý lịch sự kiện cá nhân phổ
+                biến nhất hiện nay. Chúng tôi tự hào là ứng dụng lịch đầu tiên
+                cho người Việt cán mốc 15 TRIỆU lượt tải.
+              </span>
+              <br />
+              <span>
+                Lịch Việt giúp bạn thấu hiểu về bản thân, đưa ra các quyết định
+                tài lộc, may mắn và quản lý công việc hằng ngày dễ dàng.
               </span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <span>C&aacute;c t&iacute;nh năng nổi bật của Lịch Việt:</span>
+              <span>Những tiện ích hay khi bạn đăng nhập ứng dụng Lịch Việt::</span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
@@ -356,69 +359,69 @@ const Product = () => {
             </div>
             <div>
               <span>► Tải ứng dụng miễn ph&iacute; (iOS &amp; Android): </span>{" "}
-              <a
+              <Link
                 className={"text-green"}
                 target={"_blank"}
                 href="https://onelink.to/nh298f"
               >
                 https://onelink.to/nh298f
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Website : &nbsp;</span>
-              <a
+              <Link
                 className={"text-green"}
                 target={"_blank"}
                 href="https://lichviet.app"
               >
                 https://lichviet.app/
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Tiktok: </span>
-              <a
+              <Link
                 className={"text-green"}
                 target={"_blank"}
                 href="https://www.tiktok.com/@lichviet.official"
               >
                 https://www.tiktok.com/@lichviet.official
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Youtube: </span>
-              <a
+              <Link
                 className={"text-green"}
                 target={"_blank"}
                 href="https://www.youtube.com/@lichviet.official"
               >
                 https://www.youtube.com/@lichviet.official
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Facebook : </span>
-              <a
+              <Link
                 className={"text-green"}
                 target={"_blank"}
                 href="https://www.facebook.com/lichviet.official"
               >
                 https://www.facebook.com/lichviet.official
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Cộng đồng Lịch Việt : </span>
-              <a
+              <Link
                 className={"text-green"}
                 href="https://www.facebook.com/groups/225652377851108"
                 target={"_blank"}
               >
                 https://www.facebook.com/groups/225652377851108
-              </a>
+              </Link>
             </div>
             <div>
               <span>► Hotline : </span>
-              <a className={"text-green"} href="tel:0766002689">
+              <Link className={"text-green"} href="tel:0766002689">
                 076 600 2689
-              </a>
+              </Link>
             </div>
           </div>
         </div>

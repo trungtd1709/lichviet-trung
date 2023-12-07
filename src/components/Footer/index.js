@@ -8,6 +8,7 @@ import IconIphone from "../../../public/icons/IconIphone";
 import IconAndroid from "../../../public/icons/IconAndroid";
 import IconMessage from "../../../public/icons/IconMessage";
 import IconZalo from "../../../public/icons/IconZalo";
+import Link from "next/link";
 // import IconZalo from "../../assets/Icons/IconZalo";
 // import IconFacebook from "../../assets/Icons/IconFacebook";
 // import IconYoutube from "../../assets/Icons/IconYoutube";
@@ -40,13 +41,11 @@ const Footers = () => {
   }
 
   const srcollToTop = () => {
-    document
-      .getElementsByTagName("html")[0]
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
+    document.getElementsByTagName("html")[0].scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
 
   return (
@@ -65,46 +64,50 @@ const Footers = () => {
             <ul className={"footer-address"}>
               <li>
                 <i className="fas fa-map-marker-alt"></i>
-                <a
+                <Link
                   href={"https://goo.gl/maps/ccHcu6TWPexqEuqF9"}
                   rel="noreferrer"
                   target={"_blank"}
                 >
                   Số 10, ngõ 379 đường Hoàng Hoa Thám, phường Liễu Giai, quận Ba
                   Đình, thành phố Hà Nội
-                </a>
+                </Link>
               </li>
               <li>
                 <i className="fas fa-phone-alt"></i>
-                <a href={"tel:0766002689"} rel="noreferrer" target={"_blank"}>
+                <Link
+                  href={"tel:0766002689"}
+                  rel="noreferrer"
+                  target={"_blank"}
+                >
                   {" "}
                   0766.002.689
-                </a>
+                </Link>
               </li>
               <li>
                 <i className="fas fa-envelope"></i>
                 <div className={"group-email"}>
                   <div className={"item"}>
                     <span style={{ fontWeight: 500 }}>Hỗ trợ: </span>
-                    <a
+                    <Link
                       style={{ display: "inline-block" }}
                       href="mailto:support@lichviet.app"
                       rel="noreferrer"
                       target={"_blank"}
                     >
                       support@lichviet.app
-                    </a>
+                    </Link>
                   </div>
                   <div className={"item"}>
                     <span style={{ fontWeight: 500 }}>Liên hệ hợp tác: </span>
-                    <a
+                    <Link
                       style={{ display: "inline-block" }}
                       href="mailto:partner@lichviet.app"
                       rel="noreferrer"
                       target={"_blank"}
                     >
                       partner@lichviet.app
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -114,25 +117,25 @@ const Footers = () => {
             <div className="font-weight-bold title-footer">Danh mục</div>
             <ul className={"mt-3"}>
               <li>
-                <a href="/">Trang chủ</a>
+                <Link href="/">Trang chủ</Link>
               </li>
               <li>
-                <a href="/tu-vi">Tử vi</a>
+                <Link href="/tu-vi">Tử vi</Link>
               </li>
               <li>
-                <a href="/kham-pha">Khám phá</a>
+                <Link href="/kham-pha">Khám phá</Link>
               </li>
               <li>
-                <a href="/lich-van-nien">Ứng dụng Lịch Việt</a>
+                <Link href="/lich-van-nien">Ứng dụng Lịch Việt</Link>
               </li>
               <li>
-                <a href="/mua-lich-viet-pro">Nâng cấp Lịch Việt Pro</a>
+                <Link href="/mua-lich-viet-pro">Nâng cấp Lịch Việt Pro</Link>
               </li>
               <li>
-                <a href="/dieu-khoan-su-dung">Điều khoản sử dụng</a>
+                <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
               </li>
               <li>
-                <a href="/chinh-sach-bao-mat">Chính sách bảo mật</a>
+                <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
               </li>
             </ul>
           </Col>
@@ -143,7 +146,7 @@ const Footers = () => {
               </div>
               <Row className="py-4">
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://www.facebook.com/lichviet.official"
                     target="_blank"
                     rel="noreferrer"
@@ -151,10 +154,10 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconFacebook />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://www.youtube.com/@lichviet.official"
                     target="_blank"
                     rel="noreferrer"
@@ -162,10 +165,10 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconYoutube />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://www.tiktok.com/@lichviet.official"
                     target="_blank"
                     rel="noreferrer"
@@ -173,10 +176,10 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconTikTok />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://ppclink.com/apps/contact-us/"
                     target="_blank"
                     rel="noreferrer"
@@ -184,7 +187,7 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconEmail />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
               </Row>
             </Col>
@@ -194,7 +197,7 @@ const Footers = () => {
               </div>
               <Row className="py-4">
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://itunes.apple.com/app/id585253443?mt=8"
                     target="_blank"
                     rel="noreferrer"
@@ -202,10 +205,10 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconIphone />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
                 <Col md={3} xs={3}>
-                  <a
+                  <Link
                     href="https://play.google.com/store/apps/details?id=com.somestudio.lichvietnam"
                     target="_blank"
                     rel="noreferrer"
@@ -213,7 +216,7 @@ const Footers = () => {
                     <span className="icon-svg">
                       <IconAndroid />
                     </span>
-                  </a>
+                  </Link>
                 </Col>
               </Row>
             </Col>
@@ -224,9 +227,9 @@ const Footers = () => {
           <span className={"text-black "}>
             © Copyright 2022 by PPCLINK. Read our{" "}
           </span>
-          <a href="/chinh-sach-bao-mat" className={"copyright"}>
+          <Link href="/chinh-sach-bao-mat" className={"copyright"}>
             &nbsp;Privacy policy.
-          </a>
+          </Link>
         </div>
       </Container>
       <div className="float-footer">
@@ -238,30 +241,30 @@ const Footers = () => {
         <div className="button-contact message">
           <div className="phone-vr-circle-fill"></div>
           <div className="phone-vr">
-            <a
+            <Link
               target="_blank"
               rel="noreferrer"
               href="https://m.me/lichviet.official"
             >
               <IconMessage />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="button-contact zalo">
           <div className="phone-vr-circle-fill"></div>
           <div className="phone-vr">
-            <a
+            <Link
               target="_blank"
               rel="noreferrer"
               href="https://zalo.me/0766002689"
             >
               <IconZalo />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
       <div className={"d-flex justify-content-center"}>
-        <a
+        <Link
           href="//www.dmca.com/Protection/Status.aspx?ID=398ad721-aa1d-4a9c-9523-91b726749d27"
           title="DMCA.com Protection Status"
           className="dmca-badge"
@@ -270,7 +273,7 @@ const Footers = () => {
             src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=398ad721-aa1d-4a9c-9523-91b726749d27"
             alt="DMCA.com Protection Status"
           />
-        </a>
+        </Link>
       </div>
     </footer>
   );
