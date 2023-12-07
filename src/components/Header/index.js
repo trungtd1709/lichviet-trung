@@ -6,6 +6,7 @@ import Link from "next/link";
 import IconCrown from "../../../public/icons/IconCrown";
 import LoginPC from "./layout/LoginPC";
 import { AuthContext } from "@/context/authContext";
+import { useRouter } from "next/router";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
@@ -81,18 +82,26 @@ const MenuTabBar = [
 const Header = () => {
   const route_link = useRef();
   const { userData, userLogout } = useContext(AuthContext);
+  const router = useRouter();
   useEffect(() => {
     const url = window.location.pathname.replace("/", "").split("/");
+
     if (route_link.current) {
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      navLinks.forEach(function (link) {
+        link.classList.remove("active");
+      });
       for (let item of route_link.current.children) {
         let link = item.children[0];
         let href = link?.getAttribute("data-href");
+
         if (href === url[0]) {
           link.classList.add("active");
         }
       }
     }
-  }, []);
+  }, [router.asPath]);
 
   const [classMenuMB, setClassMenuMB] = useState(false);
   const openMenuMB = () => {
@@ -207,7 +216,11 @@ const Header = () => {
                       </li>
                       {item.children.map((i, k) => (
                         <li key={k}>
-                          <Link onClick={closeMenuMb} href={i.link} className="">
+                          <Link
+                            onClick={closeMenuMb}
+                            href={i.link}
+                            className=""
+                          >
                             {i.name}
                           </Link>
                         </li>
