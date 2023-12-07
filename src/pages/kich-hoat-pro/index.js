@@ -6,6 +6,7 @@ import AvatarUser from "@/components/Header/AvatarUser";
 import LoaderData from "@/components/Ui/Loader";
 import Popup from "@/components/Ui/Popup";
 import { AuthContext } from "@/context/authContext";
+import MetaHead from "@/components/MetaHead";
 // import {AuthContext} from "../../Context/AuthContext";
 
 
