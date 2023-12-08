@@ -124,6 +124,7 @@ figure {
 
 .slider-other-news {
     margin-top: 42px;
+    /* margin-bottom: 50px; */
 }
 
 .other_news .card {
@@ -384,6 +385,9 @@ figure {
     grid-row-gap: 0;
     width: 100%;
     display: grid;
+    /* padding-bottom: 20px; */
+    padding: 10px;
+    /* z-index: 5; */
 }
 
 .carousel-inner:hover {
