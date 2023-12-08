@@ -9,6 +9,7 @@ import IconAndroid from "../../../public/icons/IconAndroid";
 import IconMessage from "../../../public/icons/IconMessage";
 import IconZalo from "../../../public/icons/IconZalo";
 import Link from "next/link";
+import { imgSrc } from "@/const/AppResource";
 // import IconZalo from "../../assets/Icons/IconZalo";
 // import IconFacebook from "../../assets/Icons/IconFacebook";
 // import IconYoutube from "../../assets/Icons/IconYoutube";
@@ -55,10 +56,10 @@ const Footers = () => {
 
         <Row className={"pt-2"}>
           <Col md={4} className={"address-i"}>
-            {/*<div className="d-block hidden-xs">*/}
-            {/*    <img src={logo} width={180}></img>*/}
-            {/*</div>*/}
-            <div className="font-weight-bold pb-3">
+            <div className="d-block hidden-xs ">
+              <img src={imgSrc.ppclinkLogo} width={180}></img>
+            </div>
+            <div className="font-weight-bold pb-3 mt-3">
               Công ty TNHH phát triển Lịch Việt
             </div>
             <ul className={"footer-address"}>
@@ -75,11 +76,7 @@ const Footers = () => {
               </li>
               <li>
                 <i className="fas fa-phone-alt"></i>
-                <a
-                  href={"tel:0766002689"}
-                  rel="noreferrer"
-                  target={"_blank"}
-                >
+                <a href={"tel:0766002689"} rel="noreferrer" target={"_blank"}>
                   {" "}
                   0766.002.689
                 </a>
@@ -224,11 +221,14 @@ const Footers = () => {
         </Row>
         <hr></hr>
         <div className={" mb-2 copy-footer"}>
-          <span className={"text-black "}>
+          <span style={{ color: "#35C03C" }}>
             © Copyright 2022 by PPCLINK. Read our{" "}
           </span>
-          <Link href="/chinh-sach-bao-mat" className={"copyright"}>
-            &nbsp;Privacy policy.
+          <Link
+            href="/chinh-sach-bao-mat"
+            style={{ color: "#35C03C", marginBottom: "0" }}
+          >
+            <span style={{ color: "#35C03C" }}>&nbsp;Privacy policy.</span>
           </Link>
         </div>
       </Container>

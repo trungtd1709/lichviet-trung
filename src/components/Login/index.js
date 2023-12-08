@@ -11,6 +11,7 @@ import { FormLogin } from "./Form/FormLogin";
 import { CallApiBackend } from "@/api/apiRequest";
 import { AuthContext } from "@/context/authContext";
 import MetaHead from "../MetaHead";
+import { imgSrc } from "@/const/AppResource";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const ZALO_APP_ID = process.env.NEXT_PUBLIC_ZALO_APP_ID;
@@ -312,7 +313,7 @@ const Login = () => {
             </div>
             <div className={"item-login or-login"}>
               <p className={"line-login"}></p>
-              <p className={"m-0"}>Hoặc đăng nhập</p>
+              <p className={"m-0"}>Hoặc đăng nhập qua</p>
               <p className={"line-login"}></p>
             </div>
             <Row className={"w-100 justify-content-center"}>
@@ -333,12 +334,12 @@ const Login = () => {
                       disabled={renderProps.disabled}
                       className={"item-login login-with google"}
                     >
-                      <div className={"d-flex"}>
-                        <img
+                      <div className={"d-flex login-button"}>
+                        {/* <img
                           src={BASE_URL_IMAGE + "/images/icon/login-google.png"}
                           alt=""
                           width={18}
-                        />
+                        /> */}
                         <p>Đăng nhập bằng Google</p>
                       </div>
                     </div>
@@ -352,12 +353,12 @@ const Login = () => {
                   style={{ userSelect: "none" }}
                   className={"item-login login-with google"}
                 >
-                  <div className={"d-flex"}>
-                    <img
+                  <div className={"d-flex login-button"}>
+                    {/* <img
                       src={BASE_URL_IMAGE + "/images/icon/icon_zalo.png"}
                       alt=""
                       width={18}
-                    />
+                    /> */}
                     <p>Đăng nhập bằng Zalo</p>
                   </div>
                 </div>
@@ -372,13 +373,34 @@ const Login = () => {
                       disabled={renderProps.disabled}
                       className={"item-login login-with google"}
                     >
-                      <div className={"d-flex"}>
-                        <img
+                      <div className={"d-flex login-button"}>
+                        {/* <img
                           src={BASE_URL_IMAGE + "/images/icon/apple.png"}
                           alt=""
                           width={18}
-                        />
+                        /> */}
                         <p>Đăng nhập bằng Apple</p>
+                      </div>
+                    </div>
+                  )}
+                />
+                <AppleLogin
+                  clientId={APPLE_CLIENT_ID}
+                  redirectURI={encodeURI(APPLE_CALLBACK_URL)}
+                  responseMode={"fragment"}
+                  responseType={"code id_token"}
+                  render={(renderProps) => (
+                    <div
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                      className={"item-login login-with google"}
+                    >
+                      <div className={"d-flex login-button"}>
+                        {/* <i
+                          className="fab fa-facebook login-button-icon"
+                          style={{ color: "#3B5998" }}
+                        ></i> */}
+                        <p>Đăng nhập bằng Facebook</p>
                       </div>
                     </div>
                   )}
@@ -389,13 +411,15 @@ const Login = () => {
                 className={" mx-auto d-flex justify-content-between img-active"}
               >
                 <img
-                  src={BASE_URL_IMAGE + "/images/icon/login1.png"}
+                  // src={BASE_URL_IMAGE + "/images/icon/login2.png"}
+                  src={imgSrc.boyLoginImg}
                   alt=""
                   width={250}
                   className={"img-scale-down hidden-xs"}
                 />
                 <img
-                  src={BASE_URL_IMAGE + "/images/icon/login2.png"}
+                  // src={BASE_URL_IMAGE + "/images/icon/login2.png"}
+                  src={imgSrc.girlLoginImg}
                   alt=""
                   width={250}
                   className={"img-scale-down hidden-xs"}
@@ -447,13 +471,15 @@ const Login = () => {
                   }
                 >
                   <img
-                    src={BASE_URL_IMAGE + "/images/icon/login1.png"}
+                    // src={BASE_URL_IMAGE + "/images/icon/login1.png"}
+                    src={imgSrc.boyLoginImg}
                     alt=""
                     width={250}
                     className={"img-scale-down hidden-xs"}
                   />
                   <img
-                    src={BASE_URL_IMAGE + "/images/icon/login2.png"}
+                    // src={BASE_URL_IMAGE + "/images/icon/login2.png"}
+                    src={imgSrc.girlLoginImg}
                     alt=""
                     width={250}
                     className={"img-scale-down hidden-xs"}

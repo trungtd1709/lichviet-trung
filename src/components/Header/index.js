@@ -7,6 +7,7 @@ import IconCrown from "../../../public/icons/IconCrown";
 import LoginPC from "./layout/LoginPC";
 import { AuthContext } from "@/context/authContext";
 import { useRouter } from "next/router";
+import { imgSrc } from "@/const/AppResource";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
@@ -124,7 +125,7 @@ const Header = () => {
   };
   return (
     <header>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" className="navbar-header">
         <Container className={"ipad-navbar container"}>
           <div className={"hidden-md"}>
             <div onClick={openMenuMB} className={"open-menu-mb hidden-md"}>
@@ -136,13 +137,13 @@ const Header = () => {
             className={"m-0 text-center d-flex flex-row align-items-center"}
           >
             <img
-              src={"/images/logo_lichviet.png"}
-              width={90}
+              src={imgSrc.ppclinkLogo}
+              width={130}
               //   height={90}
               className={"img-mb__150"}
               alt={""}
             />
-            <span
+            {/* <span
               className={"hidden-xs"}
               style={{
                 display: "inline",
@@ -153,7 +154,7 @@ const Header = () => {
               }}
             >
               Xem Ngày Tốt, Tử Vi & Phong Thuỷ
-            </span>
+            </span> */}
           </Link>
           <Nav className={"button-nav align-items-end"}>
             <div className="align-items-center d-flex">
