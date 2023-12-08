@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import Link from "next/link";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
-import IconCrown from "../../../public/icons/IconCrown";
-import LoginPC from "./layout/LoginPC";
+import { imgSrc } from "@/const/AppResource";
 import { AuthContext } from "@/context/authContext";
 import { useRouter } from "next/router";
-import { imgSrc } from "@/const/AppResource";
+import IconCrown from "../../../public/icons/IconCrown";
+import LoginPC from "./layout/LoginPC";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
@@ -137,13 +136,13 @@ const Header = () => {
             className={"m-0 text-center d-flex flex-row align-items-center"}
           >
             <img
-              src={imgSrc.ppclinkLogo}
-              width={130}
+              src={imgSrc.lichVietLogo}
+              width={90}
               //   height={90}
               className={"img-mb__150"}
               alt={""}
             />
-            {/* <span
+            <span
               className={"hidden-xs"}
               style={{
                 display: "inline",
@@ -153,8 +152,8 @@ const Header = () => {
                 color: "#35C03C",
               }}
             >
-              Xem Ngày Tốt, Tử Vi & Phong Thuỷ
-            </span> */}
+              Lịch Việt - Lịch Vạn Niên 2024
+            </span>
           </Link>
           <Nav className={"button-nav align-items-end"}>
             <div className="align-items-center d-flex">

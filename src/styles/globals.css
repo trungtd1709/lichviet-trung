@@ -127,6 +127,8 @@ body {
   border-radius: 1px;
   padding: 1rem 1.5rem;
   border: none;
+  top: 90%;
+  /* display: block; */
 }
 
 .banner .carousel-indicators {
@@ -1487,7 +1489,7 @@ button.d-inline.bg-white.btn.btn-outline-secondary {
 }
 
 .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active{
+.nav-tabs .nav-link.active {
   border: none !important;
   border-bottom: 2px solid #35c03c !important;
 }
@@ -1505,11 +1507,11 @@ button[type="button"]:focus {
 .reload-qr-code {
   color: #35c03c !important;
   background: #ffffff !important;
-  border: 1px solid #EAEAEA !important;
+  border: 1px solid #eaeaea !important;
   text-transform: uppercase;
   padding: 8px 18px;
   font-weight: 400;
-  box-shadow: 0px -2px 7px 0px #E8E8E8;
+  box-shadow: 0px -2px 7px 0px #e8e8e8;
 }
 
 .reload-qr-code:hover {
@@ -2559,7 +2561,7 @@ img {
 
 .btn-primary:hover {
   border: 1px solid #35c03c !important;
-  background: #ffffff !important; 
+  background: #ffffff !important;
   color: #35c03c !important;
 }
 
@@ -3879,14 +3881,14 @@ svg {
   }
 }
 
-.navbar{
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+.navbar {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
   /* background-color: #F5F8F9; */
 }
 
-.navbar-header{
-  background-color: #F5F8F9;
+.navbar-header {
+  background-color: #f5f8f9;
 }
 
 @media screen and (max-width: 547px) {
@@ -4747,6 +4749,5 @@ svg {
   }
 }
 
-.greenButton{
-
+.greenButton {
 }
