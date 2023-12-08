@@ -49,7 +49,7 @@ export const CallApiBackend = (data, url, method, type = 1) => {
     data: formData,
   });
   out.catch(function (error) {
-    debugger
+    debugger;
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";
@@ -142,6 +142,16 @@ export const getTopPosts = async () => {
   if (res?.data?.status === 1) {
     const topPosts = [res.data.data.hot].concat(res.data.data.list).slice(0, 4);
     return topPosts;
+  } else {
+    return [];
+  }
+};
+
+export const getBanners = async () => {
+  const res = await CallApiServerSide({}, "/api/get-banners", "GET");
+  if (res?.data?.status === 1) {
+    const banners = res.data.data;
+    return banners;
   } else {
     return [];
   }

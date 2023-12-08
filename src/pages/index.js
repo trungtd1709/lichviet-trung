@@ -1,3 +1,4 @@
+import { getBanners, getTopPosts } from "@/api/apiRequest";
 import LoadGoogleAds from "@/components/Ads/googleAds";
 import CalendarScreen from "@/components/Calendar/CalendarScreen";
 import MetaHead from "@/components/MetaHead";
@@ -12,20 +13,18 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home(
-  {
-    // kienThucTuViPosts = [],
-    // kienThucPhongThuyPosts = [],
-    // conSoMayManHomNayPosts = [],
-    // giaiMaGiacMoPosts = [],
-  }
-) {
+export default function Home({
+  topPosts = [],
+  banners = [],
+  // conSoMayManHomNayPosts = [],
+  // giaiMaGiacMoPosts = [],
+}) {
   return (
     <>
       <MetaHead />
       <Container>
         <div className={"banner"}>
-          <Banners />
+          <Banners banners={banners} />
         </div>
         <Row>
           <Col lg={8} sm xl={8} className="pr-lg-3 m-xs-0 p-xs-0">
@@ -97,7 +96,7 @@ export default function Home(
             <aside>
               {/* <div ref={element} className={"top-post-list"}> */}
               <div>
-                <TopPost />
+                <TopPost topPosts={topPosts} />
               </div>
               <div>
                 <Info />{" "}
@@ -150,7 +149,13 @@ export default function Home(
 // }
 
 export async function getServerSideProps(context) {
+  const topPosts = await getTopPosts();
+  const banners = await getBanners();
+
   return {
-    props: {},
+    props: {
+      topPosts,
+      banners,
+    },
   };
 }

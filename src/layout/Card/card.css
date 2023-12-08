@@ -1,125 +1,124 @@
 .text-of {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 100%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 0;
 }
 
-
 .more-text {
-    color: #27BE84;
-    margin-right: 2px;
+  color: #27be84;
+  margin-right: 2px;
 }
 
 .more-text::after {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid #27BE84;
-    border-right: 1px solid #27BE84;
-    transform-origin: center;
-    transform: rotate(45deg);
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #27be84;
+  border-right: 1px solid #27be84;
+  transform-origin: center;
+  transform: rotate(45deg);
 }
 
 .vstack a:first-child .p-pd-first {
-    padding: 0 0 16px 0;
+  padding: 0 0 16px 0;
 }
 
 .vstack a:not(:first-child) .p-pd-first {
-    padding: 16px 0 16px 0;
-    border-top: 0.7px solid #D8D8D8;
+  padding: 16px 0 16px 0;
+  border-top: 0.7px solid #d8d8d8;
 }
 
 .vstack a:last-child .p-pd-first {
-    padding: 16px 0 0 0;
+  padding: 16px 0 0 0;
 }
 
 .p-pd {
-    border-top: 0.7px solid #5a5a5a;
+  border-top: 0.7px solid #5a5a5a;
 }
 
 .card-img {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .box-card {
-
+  padding: 0px !important;
 }
 
 .list-item-card {
-    border: 1px solid #E0E0E0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-    padding: 15px 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  padding: 15px 0;
 }
 
-@media screen  and (max-width: 547px) {
-    .top-post-list .box-card {
-        margin-top: 15px !important;
-    }
+@media screen and (max-width: 547px) {
+  .top-post-list .box-card {
+    margin-top: 15px !important;
+  }
 
-    .list-item-card {
-        padding-top: 0;
-    }
+  .list-item-card {
+    padding-top: 0;
+  }
 
-    .rs-title {
-        font-size: 17px;
-    }
+  .rs-title {
+    font-size: 17px;
+  }
 
-    .more-text a {
-        font-size: 16px;
-    }
-    .box-card {
-        padding: 15px !important;
-        background-color: #FFFFFF;
-        box-shadow: rgba(0, 0, 0, 0.06) 0 10px 20px;
-    }
+  .more-text a {
+    font-size: 16px;
+  }
+  .box-card {
+    padding: 15px !important;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 10px 20px;
+  }
 
-    .box-card > div:first-child {
-        margin-bottom: 15px !important;
-    }
+  .box-card > div:first-child {
+    margin-bottom: 15px !important;
+  }
 
-    .list-item-card > div {
-        padding: 0 !important;
-    }
+  .list-item-card > div {
+    padding: 0 !important;
+  }
 
-    .card-body {
-        padding: 12px 15px;
-    }
+  .card-body {
+    padding: 12px 15px;
+  }
 
-    #post-cung-hoang-dao {
-        width: 100%;
-        overflow-x: scroll;
-    }
+  #post-cung-hoang-dao {
+    width: 100%;
+    overflow-x: scroll;
+  }
 
-    #post-cung-hoang-dao .row {
-        padding: 0 !important;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        width: 160%;
-    }
+  #post-cung-hoang-dao .row {
+    padding: 0 !important;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 160%;
+  }
 
-    #post-cung-hoang-dao .row > div {
-        max-width: 30.33%;
-        margin-top: 0 !important;
-    }
+  #post-cung-hoang-dao .row > div {
+    max-width: 30.33%;
+    margin-top: 0 !important;
+  }
 
-    #post-cung-hoang-dao .row > div:first-child {
-        padding-left: 0;
-    }
+  #post-cung-hoang-dao .row > div:first-child {
+    padding-left: 0;
+  }
 
-    #post-cung-hoang-dao .row > div:last-child {
-        padding-right: 0;
-    }
+  #post-cung-hoang-dao .row > div:last-child {
+    padding-right: 0;
+  }
 
-    .list-item-card {
-        border: none;
-    }
+  .list-item-card {
+    border: none;
+  }
 }

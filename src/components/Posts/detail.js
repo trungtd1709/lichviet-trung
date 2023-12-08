@@ -9,7 +9,7 @@ import Head from "next/head";
 import MetaHead from "../MetaHead";
 
 const PostsDetail = (props) => {
-  const { postData, pageUrl } = props;
+  const { postData, pageUrl, topPosts } = props;
   const postDetail = postData?.item ?? null;
   const postOther = postData?.other ?? null;
   const { item } = postData;

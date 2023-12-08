@@ -10,7 +10,7 @@ import Widget from "./widget";
 import MetaHead from "../MetaHead";
 
 const Posts = (element) => {
-  const { currentMetaData } = element;
+  const { currentMetaData, topPosts } = element;
 
   const [catePost, setCatePost] = useState(null);
   const router = useRouter();
@@ -168,7 +168,7 @@ const Posts = (element) => {
               />
             </div>
           </div>
-          <Widget context={element} />
+          <Widget topPosts={topPosts} context={element} />
         </div>
       </Container>
     </>

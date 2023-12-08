@@ -4,10 +4,11 @@ import Info from "../Post/Info";
 import LoadGoogleAds from "../Ads/googleAds";
 
 const Widget = (props) => {
+  const { topPosts } = props;
   return (
     <div className={"post_widget"}>
       <div className={"top-post-list"}>
-        <TopPost marginTop={0} />
+        <TopPost topPosts={topPosts} marginTop={0} />
       </div>
       <div style={{ marginBottom: "15px" }}>
         <Info />
