@@ -10,7 +10,7 @@ export default function CardImage({url, content}) {
                 <Image src={url} alt="Ảnh" fluid className="w-100 mr-3"/>
             </Col>
             <Col className="pr-2">
-                <h2 className="text-of">{content}</h2>
+                <h3 className="text-of">{content}</h3>
             </Col>
         </Container>
     );

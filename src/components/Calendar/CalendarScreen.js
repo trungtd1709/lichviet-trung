@@ -55,10 +55,12 @@ const CalendarScreen = () => {
       dayPre = daysIn(monthPre, yearPre);
       for (let i = dayPre - startIndex + 1; i <= dayPre; i++) {
         amlich = TinhAmLich(i, monthPre, yearPre);
+        console.log("[thangam]:", amlich.month);
         result.push({
           ngayduong: i,
           ngayam: amlich.day,
           thang: monthPre,
+          thangam: amlich.month,
           nam: yearPre,
           m: -1,
         });
@@ -70,6 +72,7 @@ const CalendarScreen = () => {
         ngayduong: i,
         ngayam: amlich.day,
         thang: month,
+        thangam: amlich.month,
         nam: year,
         m: 0,
       });
@@ -84,6 +87,7 @@ const CalendarScreen = () => {
           ngayduong: i + 1,
           ngayam: amlich.day,
           thang: monthNext,
+          thangam: amlich.month,
           nam: yearNext,
           m: 1,
         });
@@ -248,7 +252,12 @@ const CalendarScreen = () => {
     });
   };
   const clickLichThang = (month) => {
-    const newDate = new Date(lichThang.y + "-" + lichThang.m + "-1");
+    // alert(lichThang.y);
+    // alert(lichThang.m);
+    let formattedMonth = lichThang.m.toString().padStart(2, "0"); // month always 2 digits
+    let formattedDate = lichThang.y + "-" + formattedMonth + "-" + "01";
+    let newDate = new Date(formattedDate);
+    // alert(newDate);
     newDate.setMonth(newDate.getMonth() + month);
     let nam = Number(newDate.getFullYear());
     let thang = Number(newDate.getMonth() + 1);
@@ -782,6 +791,7 @@ const CalendarScreen = () => {
                     {Array.from({ length: 7 }, (m, n) => {
                       const index = n + k * 7;
                       const i = lichThang.print[index];
+                      console.log("[lichThang]:", i);
                       return (
                         <div
                           onClick={(e) => {
@@ -795,8 +805,15 @@ const CalendarScreen = () => {
                             addClass(index, i.ngayduong, i.thang, i.nam, n)
                           }
                         >
+                          {}
                           <p className={"duong-lich "}>{i.ngayduong}</p>
-                          <p className={"am-lich "}>{i.ngayam}</p>
+                          {i.ngayam === 1 ? (
+                            <p className={"am-lich text-red"}>
+                              {i.ngayam}/{i.thangam}
+                            </p>
+                          ) : (
+                            <p className={"am-lich "}>{i.ngayam}</p>
+                          )}
                         </div>
                       );
                     })}

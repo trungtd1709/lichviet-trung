@@ -53,24 +53,33 @@ export default function Home({
                 />
               </Card>
               <Card
-                title="Cung Hoàng Đạo"
-                isShowMore={"/cung-hoang-dao/mat-ngu-chom-sao"}
+                // title="Cung Hoàng Đạo"
+                title="Kiến thức thần số học"
+                // isShowMore={"/cung-hoang-dao/mat-ngu-chom-sao"}
+                isShowMore={"/than-so-hoc/kien-thuc-than-so-hoc"}
                 top={30}
                 id={"post-cung-hoang-dao"}
               >
-                <CungHoangDaoPost category={"mat-ngu-chom-sao"} delay={1000} />
+                {/* <CungHoangDaoPost category={"mat-ngu-chom-sao"} delay={1000} /> */}
+                <CungHoangDaoPost
+                  category={"kien-thuc-than-so-hoc"}
+                  delay={1000}
+                />
               </Card>
               <Container style={{ padding: 0, position: "relative" }}>
                 <Row style={{ width: "100%", margin: 0 }}>
                   <Col md={6} xs={12} className={"pl-0 pr-2 p-xs-0"}>
                     <Card
-                      title="Con Số May Mắn"
-                      isShowMore={"/tu-vi/con-so-may-man-hom-nay"}
+                      // title="Con Số May Mắn"
+                      title="Mật ngữ chòm sao"
+                      // isShowMore={"/tu-vi/con-so-may-man-hom-nay"}
+                      isShowMore={"/cung-hoang-dao/mat-ngu-chom-sao"}
+                      
                     >
                       <TuViPost
                         md={12}
                         borderTopFirstChild={1}
-                        category={"con-so-may-man-hom-nay"}
+                        category={"mat-ngu-chom-sao"}
                         delay={4000}
                       />
                     </Card>
