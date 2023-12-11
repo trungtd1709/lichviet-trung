@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 const ChinhSachBM = () => {
   return (
     <>
-      <MetaHead title="Lịch Việt" />
+      <MetaHead title="Lịch Việt | Chính sách bảo mật" />
       <Container className={"my-4"}>
         <div className={"book"}>
           <div>

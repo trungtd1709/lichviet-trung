@@ -117,17 +117,22 @@ const Footers = () => {
                 <Link href="/">Trang chủ</Link>
               </li>
               <li>
-                <Link href="/tu-vi">Tử vi</Link>
+                <Link href="/tu-vi">Kiến thức tử vi</Link>
               </li>
               <li>
-                <Link href="/kham-pha">Khám phá</Link>
+                <Link href="/phong-thuy/kien-thuc-phong-thuy">Kiến thức phong thuỷ</Link>
               </li>
+              <li>
+                <Link href="/than-so-hoc/kien-thuc-than-so-hoc">
+                  Thần số học
+                </Link>
+              </li>{" "}
               <li>
                 <Link href="/lich-van-nien">Ứng dụng Lịch Việt</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/mua-lich-viet-pro">Nâng cấp Lịch Việt Pro</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
               </li>

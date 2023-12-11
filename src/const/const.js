@@ -54,7 +54,7 @@ export const systemMetaData = {
       title:
         "Tải ứng dụng Lịch Việt - Lịch Vạn Niên 2024 đầy đủ, chi tiết nhất ngay hôm nay.",
       description:
-        "Ứng dụng tra cứu lịch vạn niên 2023, lịch âm dương, xem ngày tốt, tử vi & phong thủy theo ngày giờ sinh, quản lý lịch sự kiện cá nhân phổ biến nhất hiện nay. Tự hào là ứng dụng lịch đầu tiên cho người Việt cán mốc 15 TRIỆU lượt tải. Tải ứng dụng ngay để Lịch Việt giúp bạn thấu hiểu về bản thân, đưa ra các quyết định tài lộc, may mắn và quản lý công việc hằng ngày dễ dàng.",
+        "Ứng dụng tra cứu lịch vạn niên 2024, lịch âm dương, xem ngày tốt, tử vi & phong thủy theo ngày giờ sinh, quản lý lịch sự kiện cá nhân phổ biến nhất hiện nay. Lịch Việt giúp bạn thấu hiểu về bản thân, đưa ra các quyết định tài lộc, may mắn và quản lý công việc hằng ngày dễ dàng.",
     },
     "/tien-ich-hay/giai-ma-giac-mo": {
       title:

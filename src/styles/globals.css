@@ -100,7 +100,7 @@ body {
   display: none;
 }
 
-.nav-item h2 {
+.nav-item span {
   font-size: 1.02rem !important;
   font-weight: 600;
   margin-bottom: auto;
@@ -111,8 +111,8 @@ body {
 
 .route-link .nav-link.active,
 .route-link .nav-link:hover,
-.nav-link:hover h2,
-.nav-link.active h2 {
+.nav-link:hover span,
+.nav-link.active span {
   color: #000000;
   position: relative;
   cursor: default;
@@ -1505,7 +1505,7 @@ button[type="button"]:focus {
 }
 
 .reload-qr-code {
-  color: #35c03c !important;
+  color: white !important;
   background: #ffffff !important;
   border: 1px solid #eaeaea !important;
   text-transform: uppercase;
@@ -3163,7 +3163,7 @@ label .box-payment {
 }
 
 .carousel-caption {
-  /* top: 15%; */
+  top: 15%;
   right: auto;
   left: 10% !important;
   text-align: left !important;
@@ -4005,7 +4005,7 @@ svg {
     transform-origin: center;
   }
 
-  h2.nav-link {
+  span.nav-link {
     z-index: -1;
   }
 
@@ -4749,5 +4749,7 @@ svg {
   }
 }
 
-.greenButton {
+.font18 {
+  font-size: 18px;
+  margin-bottom: 0;
 }

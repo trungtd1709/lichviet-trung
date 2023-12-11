@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ReactPaginate from "react-paginate";
 import LoadGoogleAds from "../Ads/googleAds";
-import Widget from "./widget";
 import MetaHead from "../MetaHead";
+import Widget from "./widget";
 
 const Posts = (element) => {
   const { currentMetaData, topPosts } = element;
@@ -92,8 +92,18 @@ const Posts = (element) => {
                           </figure>
                         </div>
                         <div className={"card_content"}>
-                          <div className={"card_title"}>{hot.title}</div>
-                          <div className={"card_subtitle"}>{hot.subtitle}</div>
+                          <h2
+                            style={{ marginBottom: "0" }}
+                            className={"card_title"}
+                          >
+                            {hot.title}
+                          </h2>
+                          <h3
+                            style={{ marginBottom: "0" }}
+                            className={"card_subtitle"}
+                          >
+                            {hot.subtitle}
+                          </h3>
                           <div className={"card_date"}>{hot.date}</div>
                         </div>
                       </div>
@@ -117,9 +127,12 @@ const Posts = (element) => {
                               href={"/" + item.slug}
                               key={k}
                             >
-                              <div className={"card_title hidden-md"}>
+                              <h2
+                                style={{ marginBottom: "0" }}
+                                className={"card_title hidden-md"}
+                              >
                                 {item.title}
-                              </div>
+                              </h2>
                               <div className={"post_thumb"}>
                                 <figure className={"imghover"}>
                                   <img
@@ -131,12 +144,18 @@ const Posts = (element) => {
                                 </figure>
                               </div>
                               <div className={"card_content"}>
-                                <div className={"card_title hidden-xs"}>
+                                <h2
+                                  style={{ marginBottom: "0" }}
+                                  className={"card_title hidden-xs"}
+                                >
                                   {item.title}
-                                </div>
-                                <div className={"card_subtitle"}>
+                                </h2>
+                                <h3
+                                  style={{ marginBottom: "0" }}
+                                  className={"card_subtitle"}
+                                >
                                   {item.subtitle}
-                                </div>
+                                </h3>
                                 <div className={"card_date"}>{item.date}</div>
                               </div>
                             </Link>

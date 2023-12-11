@@ -9,9 +9,9 @@ import { FormForgotPassword } from "./Form/FormForgotPassword";
 import { FormLogin } from "./Form/FormLogin";
 // import {useSearchParams} from "react-router-dom";
 import { CallApiBackend } from "@/api/apiRequest";
+import { imgSrc } from "@/const/AppResource";
 import { AuthContext } from "@/context/authContext";
 import MetaHead from "../MetaHead";
-import { imgSrc } from "@/const/AppResource";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const ZALO_APP_ID = process.env.NEXT_PUBLIC_ZALO_APP_ID;
@@ -281,6 +281,7 @@ const Login = () => {
   return (
     <Container>
       <MetaHead title="Lịch Việt | Đăng nhập" />
+      
       <LoaderData size={"big"} showLoad={loadLogin} fixed={true} />
       <div className={"text-center tl-mobile title-1 py-4"}>
         {" "}

@@ -199,16 +199,16 @@ const Header = () => {
                     data-href={item.link.replace("/", "")}
                     className="nav-link pr-0 pl-0"
                   >
-                    <h2 className="pr-0 pl-0">{item.name}</h2>
+                    <span  className="pr-0 pl-0">{item.name}</span>
                   </Link>
                 ) : (
                   <>
-                    <h2
+                    <span
                       className={"show-dropdown nav-link pr-0 pl-0"}
                       data-href={item.link.replace("/", "")}
                     >
                       {item.name}
-                    </h2>
+                    </span>
                     <ul className="dropdown-menu">
                       <li onClick={backToMenu} className={"back-to-menu"}>
                         <i className="fas fa-arrow-left"></i>

@@ -10,7 +10,6 @@ const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 const Product = () => {
   return (
     <>
-      
       <MetaHead
         title="Lịch Việt | Ứng dụng"
         subtitle="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."
@@ -42,7 +41,7 @@ const Product = () => {
         <div className={"mt-md-5"}>
           <ImageProduct />
         </div>
-        <h2 className={"py-4"}>Về ứng dụng Lịch Việt</h2>
+        <h1 className={"py-4"}>Về ứng dụng Lịch Việt</h1>
         <div className={"content-product"}>
           <div className="content-description">
             <div>
@@ -62,292 +61,271 @@ const Product = () => {
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
               <span>
-                Những tiện ích hay khi bạn đăng nhập ứng dụng Lịch Việt::
+                Những tiện ích hay khi bạn đăng nhập ứng dụng Lịch Việt:
               </span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
+              <h2 className="font18">► Tra cứu Lịch âm dương</h2>
+            </div>
+            <div>
               <span>
-                ► Tra cứu lịch &acirc;m dương, ng&agrave;y l&agrave;nh
-                th&aacute;ng tốt, ng&agrave;y ki&ecirc;ng kỵ thuận tiện
-                v&agrave; nhanh ch&oacute;ng:
+                - Tại ứng dụng Lịch Việt, bạn có thể xem lịch âm dương, lịch
+                tháng, lịch ngày, các ngày tốt trong tuần, trong tháng tương ứng
+                với thông tin cá nhân của bạn.{" "}
               </span>
             </div>
             <div>
-              <span>- Xem lịch ng&agrave;y&nbsp;</span>
+              <span>
+                - Các tiện ích tìm ngày, đếm xuôi, đếm ngược cho các mốc sự kiện
+                quan trọng, đổi ngày dương thành ngày âm và ngược lại.
+              </span>
             </div>
             <div>
-              <span>- Xem lịch th&aacute;ng</span>
-            </div>
-            <div>
-              <span>- Xem lịch &acirc;m h&ocirc;m nay</span>
-            </div>
-            <div>
-              <span>- Tra cứu ng&agrave;y giờ tốt xấu</span>
-            </div>
-            <div>
-              <span>- Đổi lịch dương - lịch &acirc;m</span>
-            </div>
-            <div>
-              <span>- Widget lịch tuần, lịch th&aacute;ng</span>
+              <span>- Hỗ trợ Widget xem Lịch âm dương tiện lợi.</span>
             </div>
             <div>
               <span>
-                - Chi tiết ng&agrave;y h&ocirc;m nay: Tiết kh&iacute;, tuổi
-                xung, sao tốt - xấu, c&aacute;c việc n&ecirc;n l&agrave;m,
-                kh&ocirc;ng n&ecirc;n l&agrave;m, giờ tốt trong
-                ng&agrave;y,...ch&iacute;nh x&aacute;c theo hệ Lịch Hiệp Kỷ.
+                - Giúp bạn sắp xếp sẵn danh sách các ngày lễ, hội trong năm.
+                Tính năng TẠO SỰ KIỆN (trên phiên bản PRO) giúp bạn không lỡ các
+                sự kiện cá nhân quan trọng,{" "}
               </span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <span>
-                ► Xem ng&agrave;y tốt - Lịch Việt ph&acirc;n t&iacute;ch
-                ch&iacute;nh x&aacute;c theo ng&agrave;y sinh, l&agrave; ứng
-                dụng duy nhất chọn ng&agrave;y tốt theo đủ 3 ti&ecirc;u
-                ch&iacute; Thi&ecirc;n - Địa - Nh&acirc;n:
-              </span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y xuất h&agrave;nh</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y động thổ, l&agrave;m m&oacute;ng</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y khởi c&ocirc;ng, x&acirc;y dựng</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y nhập trạch</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y khai trương</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y cưới hỏi</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y mua nh&agrave;</span>
-            </div>
-            <div>
-              <span>- Xem ng&agrave;y mua xe</span>
+              <h2 className="font18">► Tính năng Chọn Ngày Tốt</h2>
             </div>
             <div>
               <span>
-                - Đặt lịch xem ng&agrave;y tốt trực tuyến 1-1 với chuy&ecirc;n
-                gia Lịch Việt
+                - Khách hàng có thể tìm kiếm ngày tốt dễ dàng theo danh sách 28
+                việc đại sự phổ biến nhất như: xuất hành, cưới hỏi, khai trương,
+                động thổ, xây nhà, mua xe, ...
               </span>
+            </div>
+            <div>
+              <span>
+                - Chỉ cần nhập thông tin ngày tháng năm sinh, Lịch Việt sẽ cho
+                ra kết quả chính xác đến từng cá nhân, không chỉ phân tích ngày
+                tốt xấu theo các cát tinh và hung tinh, Lịch Việt sẽ cho bạn
+                biết mệnh của bạn tốt xấu theo năm tháng ngày giờ cụ thể.{" "}
+              </span>
+            </div>
+            <div>
+              <span>
+                - Lịch Việt còn đưa ra phương hướng tốt theo năm và phương hướng
+                tốt theo tháng giúp các bạn trong việc khởi công, động thổ, xuất
+                hành, mua đất,...
+              </span>
+            </div>
+
+            <div style={{ maxHeight: "15px" }}>&nbsp;</div>
+            <div>
+              <h2 className="font18">► Tính năng Thần Số Học</h2>
+            </div>
+            <div>
+              <span>
+                Dựa trên họ và tên, ngày, tháng, năm sinh của bạn, Lịch Việt sẽ
+                tính toán và phân tích ý nghĩa của từng con số gắn với cuộc đời
+                bạn:
+              </span>
+            </div>
+            <div>
+              <span>- Con số chủ đạo</span>
+            </div>
+            <div>
+              <span>- Con số phản ứng</span>
+            </div>
+            <div>
+              <span>- Con số vận mệnh</span>
+            </div>
+            <div>
+              <span>- Con số linh hồn</span>
+            </div>
+            <div>
+              <span>- Con số thể hiện</span>
+            </div>
+            <div>
+              <span>- Giải mã biểu đồ ngày sinh</span>
+            </div>
+            <div>
+              <span>- 4 giai đoạn cuộc đời</span>
+            </div>
+            <div>
+              <span>
+                Với những luận giải chi tiết về ý nghĩa con số, bạn có thể:
+              </span>
+            </div>
+            <div>
+              <span>- Hiểu rõ mục tiêu và ý nghĩa của cuộc đời.</span>
+            </div>
+            <div>
+              <span>- Chọn nghề nghiệp phù hợp với tiềm năng của bạn.</span>
+            </div>
+            <div>
+              <span>- Xây dựng một tương lai mạnh mẽ và thịnh vượng.</span>
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
+              <h2 className="font18">► Tính năng Phong Thủy</h2>
+            </div>
+            <div>
               <span>
-                ► Xem tử vi - Lịch Việt gi&uacute;p xem trọn bộ tử vi bao gồm:
+                - Đánh giá tốt/xấu về mặt phong thủy cho ngôi nhà bạn đang ở,
+                hướng bàn làm việc, hướng cửa có phù hợp hay không từ đó hướng
+                dẫn bạn cách bố trí các phòng và đồ đạc cho hợp phong thủy và
+                gia tăng vượng khí cho gia chủ
               </span>
             </div>
             <div>
               <span>
-                - Xem Tử vi 12 con gi&aacute;p h&agrave;ng ng&agrave;y&nbsp;
+                - Thông qua năm sinh của vợ chồng đánh giá mối quan hệ vợ chồng
+                đưa ra lời khuyên về phong thuỷ cho hướng đặt bàn thờ, hướng
+                giường ngủ, hướng phòng bếp cũng như hướng bếp cho phù hợp với
+                hạnh phúc lứa đôi.
               </span>
             </div>
-            <div>
-              <span>- Xem Tử vi h&agrave;ng năm&nbsp;</span>
-            </div>
-            <div>
-              <span>- Xem Tử vi trọn đời&nbsp;</span>
-            </div>
-            <div>
-              <span>
-                - Lập l&aacute; số tử vi theo ng&agrave;y giờ sinh &amp; xem
-                luận giải chi tiết&nbsp;
-              </span>
-            </div>
-            <div>
-              <span>- Xem Tử vi 12 cung ho&agrave;ng đạo</span>
-            </div>
-            <div>
-              <span>
-                - Đặt lịch xem tử vi trực tuyến 1-1 với chuy&ecirc;n gia Lịch
-                Việt
-              </span>
-            </div>
+
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
+              <h2 className="font18">► Tính năng Tử Vi</h2>
+            </div>
+            <div>
               <span>
-                ► Xem phong thuỷ dựa tr&ecirc;n Phong thủy B&aacute;t Trạch -
-                Lịch Việt gi&uacute;p bạn:
+                - Chỉ cần nhập đầy đủ giờ sinh, ngày tháng năm sinh và giới
+                tính, lá số tử vi sẽ luận đoán chính xác nhất về quá khứ, hiện
+                tại, tương lai của một người thông qua luận giải chi tiết 12
+                cung trên lá số.
               </span>
             </div>
             <div>
               <span>
-                - Hướng tốt hợp mệnh, hướng mua đất, x&acirc;y nh&agrave;.
+                - Phần mềm lập lá số tử vi của Lịch Việt sẽ giúp bạn biết trước
+                được vận mệnh của mình dựa trên biểu đồ cuộc đời theo đại vận 10
+                năm, tiểu vận 1 năm để mưu cầu đại sự và cách hóa giải họa
+                hung,...
               </span>
             </div>
-            <div>
-              <span>
-                - Hướng đặt b&agrave;n l&agrave;m việc, ph&ograve;ng ngủ&hellip;
-                để tốt cho c&ocirc;ng việc v&agrave; sức khỏe.
-              </span>
-            </div>
-            <div>
-              <span>
-                - Vị tr&iacute; đặt ph&ograve;ng kh&aacute;ch, ph&ograve;ng thờ,
-                đặt bếp&hellip;&nbsp;
-              </span>
-            </div>
+
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <span>► Quản l&yacute; sự kiện c&aacute; nh&acirc;n:</span>
+              <h2 className="font18">► Tính năng Gieo Quẻ Hỏi Việc</h2>
             </div>
             <div>
               <span>
-                - Đặt lịch &amp; nhắc nhở ng&agrave;y giỗ, hiếu hỷ theo lịch
-                &acirc;m.
+                Khi bạn đang phân vân về một vấn đề mà chưa biết cách giải quyết
+                như thế nào tính năng Gieo quẻ hỏi việc giúp bạn giải đáp những
+                câu hỏi liên quan:
               </span>
             </div>
             <div>
-              <span>
-                - Nhắc lịch ng&agrave;y mồng 1, ng&agrave;y rằm, ng&agrave;y lễ.
-              </span>
+              <span>- Hỏi về thi cử, học hành</span>
+            </div>
+            <div>
+              <span>- Hỏi về sự nghiệp, tiền tài, công danh</span>
+            </div>
+            <div>
+              <span>- Hỏi về tình duyên, gia đạo, hôn nhân, con cái</span>
+            </div>
+            <div>
+              <span>- Chọn đối tác, hợp tác làm việc,...</span>
             </div>
             <div>
               <span>
-                - Đồng bộ lịch l&agrave;m việc, lịch c&aacute; nh&acirc;n với
-                Google Calendar&nbsp;
+                Thông qua cách gieo quẻ bằng đồng xu hoặc serie tiền sẽ định
+                hướng tiến trình công việc của bạn? những khó khăn và thuận lợi
+                gì khi bạn tiến hành công việc.
               </span>
             </div>
+
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
+
+            <div>
+              <h2 className="font18">► Tính năng Giải Mã Ngày Sinh</h2>
+            </div>
             <div>
               <span>
-                ► Kh&aacute;m ph&aacute; &amp; ph&aacute;t triển sức khoẻ tinh
-                thần:
+                - Thông qua phân tích ngày sinh, Lịch Việt sẽ giúp bạn xác định
+                các tuổi hợp, không hợp, các tuổi hỗ trợ công việc kinh doanh
+                giúp bạn phát triển giúp hài hòa các mối quan hệ.
               </span>
             </div>
             <div>
               <span>
-                - Lịch hạnh ph&uacute;c gi&uacute;p theo d&otilde;i &amp; quản
-                l&yacute; cảm x&uacute;c hằng ng&agrave;y&nbsp;
+                - Giúp bạn xác định được ngày tốt nhất theo năm, tháng tốt nhất
+                trong năm và năm tốt nhất trong đại vận 10 năm.
               </span>
             </div>
             <div>
               <span>
-                - C&aacute;c trắc nghiệm t&acirc;m l&yacute; đ&aacute;nh
-                gi&aacute; sức khoẻ tinh thần: đ&aacute;nh gi&aacute; trầm cảm,
-                rối loạn lo &acirc;u, t&igrave;nh trạng kiệt sức, chứng tăng
-                động giảm ch&uacute; &yacute; của trẻ,...
+                - “Giải mã ngày sinh” còn giúp bạn đánh giá chính xác mối quan
+                hệ giữa các thành viên trong gia đình như vợ, con và cách hóa
+                giải bằng phong thuỷ.
               </span>
             </div>
-            <div>
-              <span>
-                - Kho&aacute; học gi&uacute;p ph&aacute;t triển sức khoẻ tinh
-                thần
-              </span>
-            </div>
-            <div>
-              <span>
-                - Đặt lịch tư vấn t&acirc;m l&yacute; trực tuyến 1-1 với
-                chuy&ecirc;n gia&nbsp;
-              </span>
-            </div>
-            <div>
-              <span>
-                - C&aacute;c b&agrave;i viết/video, tiện &iacute;ch hay như tập
-                thở mỗi ng&agrave;y, đặt thử th&aacute;ch sống l&agrave;nh
-                mạnh,..
-              </span>
-            </div>
+
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
+
+            <div>
+              <h2 className="font18">► Các tiện ích khác</h2>
+            </div>
+
+            <div>
+              <span>- Xem tuổi Xông đất</span>
+            </div>
+            <div>
+              <span>- Tiện ích La bàn, Thước lỗ ban</span>
+            </div>
+            <div>
+              <span>- Xem Nhịp sinh học</span>
+            </div>
+            <div>
+              <span>- Xem Tử vi theo năm, Tử vi hàng ngày, Cung hoàng đạo</span>
+            </div>
+            <div>
+              <span>- Nội dung Văn khấn, Giải Mộng, Bói Tình duyên</span>
+            </div>
             <div>
               <span>
-                ► Ngo&agrave;i ra, Lịch Việt c&ograve;n c&oacute; c&aacute;c
-                t&iacute;nh năng, tiện &iacute;ch nổi bật kh&aacute;c như:
+                - Tính năng Sức Khỏe Tinh Thần: Lịch Việt hợp tác với các chuyên
+                gia tâm lý bệnh viện Bạch Mai và chia sẻ những video, bài viết
+                bổ ích liên quan đến sức khỏe, tinh thần cùng các công cụ như:
               </span>
             </div>
             <div>
               <span>
-                - Giải m&atilde; ng&agrave;y sinh, gi&uacute;p bản thấu hiểu bản
-                th&acirc;n, xem tuổi hợp/tuổi xung
+                + Công cụ tập thở giúp bạn thiền hành và điều chỉnh hơi thở thư
+                giãn tinh thần và tốt cho sức khỏe.
               </span>
             </div>
             <div>
               <span>
-                - Gieo quẻ hỏi việc - gieo quẻ lục h&agrave;o ứng dụng 64 quẻ
-                kinh dịch, gi&uacute;p giải đ&aacute;p c&aacute;c thắc mắc trong
-                cuộc sống
+                + Công cụ “chiếc lọ biết ơn” giúp bạn chữa lành và thực hành
+                lòng biết ơn.
               </span>
             </div>
             <div>
               <span>
-                - Kh&aacute;m ph&aacute; video v&agrave; b&agrave;i viết hay về
-                tử vi &amp; phong thuỷ hằng ng&agrave;y.
-              </span>
-            </div>
-            <div>
-              <span>- Theo d&otilde;i thời tiết hằng ng&agrave;y</span>
-            </div>
-            <div>
-              <span>- Đổi ng&agrave;y &Acirc;m Dương</span>
-            </div>
-            <div>
-              <span>- La b&agrave;n, thước lỗ ban&nbsp;</span>
-            </div>
-            <div>
-              <span>
-                - Đếm xu&ocirc;i ngược c&aacute;c sự kiện quan trọng&nbsp;
+                + Công cụ “Thử thách mỗi ngày” giúp bạn cải thiện dần dần những
+                thói quen xấu.
               </span>
             </div>
             <div>
               <span>
-                - Kh&aacute;m ph&aacute; c&aacute;c sự kiện Ng&agrave;y
-                n&agrave;y năm xưa
+                + Bạn cũng có thể tham gia các bài test kiểm tra tâm lý trên ứng
+                dụng.
               </span>
             </div>
             <div>
               <span>
-                - Xem sao giải hạn, văn khấn d&ugrave;ng cho c&aacute;c dịp
-                c&uacute;ng lễ
-              </span>
-            </div>
-            <div>
-              <span>- B&oacute;i t&igrave;nh duy&ecirc;n</span>
-            </div>
-            <div>
-              <span>- Giải m&atilde; giấc mơ&nbsp;</span>
-            </div>
-            <div>
-              <span>
-                - X&acirc;y dựng &amp; quản l&yacute; C&acirc;y gia phả cho
-                d&ograve;ng họ, gia đ&igrave;nh.
+                - Kho nội dung phong phú về kiến thức, chia sẻ các kinh nghiệm
+                hữu ích như: Có thể bạn chưa biết, Phong tục, Lễ hội, Bài viết
+                truyền cảm hứng,...
               </span>
             </div>
             <div>
               <span>
-                - Gửi thiệp ch&uacute;c mừng c&aacute;c dịp quan trọng:
-                Ch&uacute;c mừng năm mới, Valentine, 8/3, 20/10,...
-              </span>
-            </div>
-            <div>
-              <span>
-                - Chơi game nhận thưởng: Pikachu, Lines98, Solitaire,...
-              </span>
-            </div>
-            <div>
-              <span>
-                - Kh&aacute;m ph&aacute; c&aacute;c nội dung: văn ho&aacute;
-                Việt, tr&ograve; chơi d&acirc;n gian,...
-              </span>
-            </div>
-            <div>
-              <span>
-                Lịch Việt tự h&agrave;o l&agrave; c&ocirc;ng ty đầu ti&ecirc;n
-                ph&aacute;t triển ứng dụng Lịch cho người Việt tr&ecirc;n di
-                động v&agrave; l&agrave; ứng dụng Lịch phổ biến nhất Việt Nam
-                với 15 TRIỆU lượt tải. Ch&uacute;ng t&ocirc;i vẫn tiếp tục
-                n&acirc;ng cấp để sản phẩm ng&agrave;y c&agrave;ng ho&agrave;n
-                thiện hơn. Nếu gặp vấn đề khi sử dụng ứng dụng, xin vui
-                l&ograve;ng gửi phản hồi cho ch&uacute;ng t&ocirc;i qua email
-                support@lichviet.app. Xin cảm ơn Qu&yacute; kh&aacute;ch
-                v&igrave; đ&atilde; lu&ocirc;n tin tưởng v&agrave; ủng hộ Lịch
-                Việt.
+                - Các nội dung giải trí được cập nhật hàng ngày: Video hay, Góc
+                thư giãn.
               </span>
             </div>
             <div>

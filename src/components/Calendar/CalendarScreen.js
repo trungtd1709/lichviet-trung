@@ -352,7 +352,98 @@ const CalendarScreen = () => {
 
   return (
     <>
-      <div className="p-0 d-flex justify-content-between align-items-center">
+      <div>
+        <div className="p-0 col-md-10 col-7">
+          <h2
+            className="rs-title pl-md-2 pl-1"
+            style={{ borderLeft: "4px solid rgb(53, 192, 60)" }}
+          >
+            Lịch Ngày
+          </h2>
+        </div>
+        <div className={"mx-auto calendar"}>
+          <div className={"calendar-day"}>
+            <Row className={"m-0"}>
+              <Col md={6} className={"m-0 p-0"}>
+                <div
+                  className={
+                    "d-flex justify-content-center align-items-center py-3 bg-title"
+                  }
+                >
+                  <span>
+                    <IconSun />
+                  </span>
+                  <span className={"mx-1 mt-1"}>DƯƠNG LỊCH</span>
+                </div>
+              </Col>
+              <Col md={6} className={"m-0 p-0"}>
+                <div
+                  className={
+                    "d-flex justify-content-center align-items-center py-3 bg-title"
+                  }
+                >
+                  <span>
+                    <IconMoon />
+                  </span>
+                  <span className={"mx-1 mt-1"}>ÂM LỊCH</span>
+                </div>
+              </Col>
+            </Row>
+            <Row className={"m-0"}>
+              <Col md={6} className={"m-0 p-0"}>
+                <div className={"card-calendar"}>
+                  <div
+                    className={"pre-day bt-day"}
+                    onClick={() => {
+                      clickLichNgay(-1);
+                    }}
+                  ></div>
+                  <p className={"title-card-cl"}>
+                    Tháng {lichNgay.duong.m} năm {lichNgay.duong.y}
+                  </p>
+                  <div className={"day-cl"}>{lichNgay.duong.d}</div>
+                  <div className={"weather"}>
+                    <span>
+                      <IconWeather />
+                    </span>
+                    <div className={"name-year"}>
+                      <p className={"temperature"}> 24 - 30°C </p>
+                      <p className={"name-y"}>Ấm</p>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+              <Col md={6} className={"m-0 p-0"}>
+                <div className={"card-calendar"}>
+                  <div
+                    className={"next-day bt-day"}
+                    onClick={() => {
+                      clickLichNgay(1);
+                    }}
+                  ></div>
+                  <p className={"title-card-cl"}>
+                    Tháng {lichNgay.am.m} năm {lichNgay.am.y}
+                    <span>({lichNgay.am.nameY})</span>
+                  </p>
+                  <div className={"day-cl no-color"}>
+                    {lichNgay.am.d}
+                    {/*<p className={'dottor hac-dao'}></p>*/}
+                  </div>
+                  <div className={"text-amlich"}>
+                    <p>Ngày : {lichNgay.am.nameD}</p>
+                    <p>Tháng: {lichNgay.am.nameM}</p>
+                    <p> Năm: {lichNgay.am.nameY}</p>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+      <div
+        className="p-0 d-flex justify-content-between align-items-center"
+        style={{ marginTop: 48 }}
+      >
         <h2
           className="rs-title pl-md-2 pl-1"
           style={{ borderLeft: "4px solid rgb(53, 192, 60)" }}
@@ -722,94 +813,6 @@ const CalendarScreen = () => {
           {/*        <p className={'note-hac-dao'}>Ngày hắc đạo</p>*/}
           {/*    </Col>*/}
           {/*</Row>*/}
-        </div>
-      </div>
-      <div style={{ marginTop: 48 }}>
-        <div className="p-0 col-md-10 col-7">
-          <h2
-            className="rs-title pl-md-2 pl-1"
-            style={{ borderLeft: "4px solid rgb(53, 192, 60)" }}
-          >
-            Lịch Ngày
-          </h2>
-        </div>
-        <div className={"mx-auto calendar"}>
-          <div className={"calendar-day"}>
-            <Row className={"m-0"}>
-              <Col md={6} className={"m-0 p-0"}>
-                <div
-                  className={
-                    "d-flex justify-content-center align-items-center py-3 bg-title"
-                  }
-                >
-                  <span>
-                    <IconSun />
-                  </span>
-                  <span className={"mx-1 mt-1"}>DƯƠNG LỊCH</span>
-                </div>
-              </Col>
-              <Col md={6} className={"m-0 p-0"}>
-                <div
-                  className={
-                    "d-flex justify-content-center align-items-center py-3 bg-title"
-                  }
-                >
-                  <span>
-                    <IconMoon />
-                  </span>
-                  <span className={"mx-1 mt-1"}>ÂM LỊCH</span>
-                </div>
-              </Col>
-            </Row>
-            <Row className={"m-0"}>
-              <Col md={6} className={"m-0 p-0"}>
-                <div className={"card-calendar"}>
-                  <div
-                    className={"pre-day bt-day"}
-                    onClick={() => {
-                      clickLichNgay(-1);
-                    }}
-                  ></div>
-                  <p className={"title-card-cl"}>
-                    Tháng {lichNgay.duong.m} năm {lichNgay.duong.y}
-                  </p>
-                  <div className={"day-cl"}>{lichNgay.duong.d}</div>
-                  <div className={"weather"}>
-                    <span>
-                      <IconWeather />
-                    </span>
-                    <div className={"name-year"}>
-                      <p className={"temperature"}> 24 - 30°C </p>
-                      <p className={"name-y"}>Ấm</p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col md={6} className={"m-0 p-0"}>
-                <div className={"card-calendar"}>
-                  <div
-                    className={"next-day bt-day"}
-                    onClick={() => {
-                      clickLichNgay(1);
-                    }}
-                  ></div>
-                  <p className={"title-card-cl"}>
-                    Tháng {lichNgay.am.m} năm {lichNgay.am.y}
-                    <span>({lichNgay.am.nameY})</span>
-                  </p>
-                  <div className={"day-cl no-color"}>
-                    {lichNgay.am.d}
-                    {/*<p className={'dottor hac-dao'}></p>*/}
-                  </div>
-                  <div className={"text-amlich"}>
-                    <p>Ngày : {lichNgay.am.nameD}</p>
-                    <p>Tháng: {lichNgay.am.nameM}</p>
-                    <p> Năm: {lichNgay.am.nameY}</p>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </div>
         </div>
       </div>
     </>

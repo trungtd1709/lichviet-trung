@@ -29,12 +29,12 @@ export default function TuViPost({md, category, borderTopFirstChild}) {
                                 <Image loading='lazy' src={data.hot.image} alt="Ảnh" style={{width: "100%"}}/>
                             </div>
                             <div className="justify-content-md-center align-items-center">
-                                <p className="pt-3 param-title">
+                                <h2 className="pt-3 param-title">
                                     {data.hot.title}
-                                </p>
-                                <p className="param-content">
+                                </h2>
+                                <h3 className="param-content">
                                     {data.hot.subtitle}
-                                </p>
+                                </h3>
                             </div>
                         </Link>
                         : <></>

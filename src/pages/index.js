@@ -35,14 +35,14 @@ export default function Home({
             </section>
             <article>
               <Card
-                title="Tử Vi"
+                title="Kiến thức tử vi"
                 isShowMore={"/tu-vi/kien-thuc-tu-vi"}
                 top={30}
               >
                 <TuViPost md={7} category={"kien-thuc-tu-vi"} delay={600} />
               </Card>
               <Card
-                title="Phong Thuỷ"
+                title="Kiến thức phong thuỷ"
                 isShowMore={"/phong-thuy/kien-thuc-phong-thuy"}
                 top={30}
               >

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
 // import './posts.css';
+import Link from "next/link";
 import { useRouter } from "next/router";
+import MetaHead from "../MetaHead";
 import LoaderData from "../Ui/Loader";
 import Widget from "./widget";
-import Link from "next/link";
-import Head from "next/head";
-import MetaHead from "../MetaHead";
 
 const PostsDetail = (props) => {
   const { postData, pageUrl, topPosts } = props;
@@ -68,7 +67,7 @@ const PostsDetail = (props) => {
               <div className={"text-center mt-4"}>Không có dữ liệu</div>
             ) : (
               <div className="posts-detail">
-                <div className="post-title">{postDetail.title}</div>
+                <h1 className="post-title">{postDetail.title}</h1>
                 <div className="post-date">{postDetail.date}</div>
                 <div
                   className="post-content"

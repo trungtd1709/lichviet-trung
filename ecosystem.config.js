@@ -13,10 +13,12 @@ module.exports = {
       env: {
         NODE_ENV: "development",
         UV_THREADPOOL_SIZE: 128,
+        PORT: 3011
       },
       env_production: {
         NODE_ENV: "production",
         UV_THREADPOOL_SIZE: 128,
+        PORT: 3011
       },
     },
   ],
