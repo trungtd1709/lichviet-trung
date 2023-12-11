@@ -18,7 +18,7 @@ export const CallApiBackend = (data, url, method, type = 1) => {
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
   // const BASE_URL = "http://next.lichviet.org";
 
-  console.log("[BASE_URL]:", BASE_URL);
+  // console.log("[BASE_URL]:", BASE_URL);
   let device_id = localStorage.getItem("device_id");
   if (!device_id) {
     device_id = makeid(40);
@@ -98,7 +98,7 @@ export const CallApiServerSide = (data, url, method, type = 1) => {
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
   // const BASE_URL = "http://next.lichviet.org";
 
-  console.log("[BASE_URL]:", BASE_URL);
+  // console.log("[BASE_URL]:", BASE_URL);
   let headers = {
     apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
     accept: "application/json",

@@ -55,7 +55,6 @@ const CalendarScreen = () => {
       dayPre = daysIn(monthPre, yearPre);
       for (let i = dayPre - startIndex + 1; i <= dayPre; i++) {
         amlich = TinhAmLich(i, monthPre, yearPre);
-        console.log("[thangam]:", amlich.month);
         result.push({
           ngayduong: i,
           ngayam: amlich.day,
@@ -791,7 +790,6 @@ const CalendarScreen = () => {
                     {Array.from({ length: 7 }, (m, n) => {
                       const index = n + k * 7;
                       const i = lichThang.print[index];
-                      console.log("[lichThang]:", i);
                       return (
                         <div
                           onClick={(e) => {
