@@ -43,7 +43,6 @@ const Posts = (element) => {
 
   // useEffect(() => {
   //   const base_url = window.location.origin;
-  //   debugger;
   //   setBaseURL(base_url);
   // }, []);
 

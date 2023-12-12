@@ -30,7 +30,6 @@ const PostsDetail = (props) => {
   //       "GET"
   //     ).then(function (req) {
   //       setLoad(false);
-  //       debugger;
   //       if (req.data.status === 1) {
   //         // setPostDetail(req.data.data.item);
   //         setPostOther(req.data.data.other);

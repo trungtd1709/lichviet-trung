@@ -5,6 +5,7 @@ import "@/layout/Card/card.css";
 import "@/components/Posts/posts.css";
 import "@/components/Header/layout/headerAvatar.css";
 import "@/pages/chinh-sach-bao-mat/csbm.css";
+import "@/components/ThanSoHocResult/ThanSoHocResult.css";
 
 import Header from "@/components/Header";
 // import "bootstrap/dist/js/bootstrap.js";

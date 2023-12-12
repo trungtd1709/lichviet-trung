@@ -119,7 +119,6 @@ const Login = () => {
           setLoad(false);
           if (Number(response.data.status) === 1) {
             updateUserData(response.data.data);
-            debugger;
             setPopup({
               ...popup,
               checkLogin: true,
@@ -170,7 +169,6 @@ const Login = () => {
   // }
   const zaloLogin = async () => {
     CallApiBackend({}, "/api/get-challenge-zalo", "POST").then(function (req) {
-      debugger;
       if (req.data.status === 1) {
         window.localStorage.setItem(
           "code_challenge",

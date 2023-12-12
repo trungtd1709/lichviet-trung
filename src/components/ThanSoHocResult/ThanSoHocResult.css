@@ -1,0 +1,35 @@
+.than-so-hoc-result{
+    /* gap: 35px;
+    display: flex;
+    flex-direction: column; */
+}
+
+.than-so-hoc-result .tshCard {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  margin-bottom: 35px;
+}
+
+
+.than-so-hoc-result .tshCard .avatar {
+    padding: 0 20px 0 0;
+  }
+
+.than-so-hoc-result .tshCard .personalInfo {
+  color: #000;
+  /* font-family: SF UI Display; */
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 14px;
+}
+
+.than-so-hoc-result .tshCard .quote {
+  color: #000;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+}

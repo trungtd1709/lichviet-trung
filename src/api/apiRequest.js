@@ -49,7 +49,6 @@ export const CallApiBackend = (data, url, method, type = 1) => {
     data: formData,
   });
   out.catch(function (error) {
-    debugger;
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";

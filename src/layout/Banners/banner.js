@@ -10,7 +10,6 @@ export default function Banners(props) {
   //   CallApiBackend({}, "/api/get-banners", "GET").then((res) => {
   //     if (res?.data?.status === 1 && res.data?.data.length !== 0) {
   //       setData(res.data.data);
-  //       debugger;
   //     }
   //   });
   // }, []);

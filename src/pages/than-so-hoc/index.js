@@ -10,6 +10,7 @@ import MetaHead from "@/components/MetaHead";
 import Widget from "@/components/Posts/widget";
 import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import { getSystemMetaData } from "@/shared/utils";
+import ThanSoHocResult from "@/components/ThanSoHocResult";
 
 const ThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
@@ -50,7 +51,6 @@ const ThanSoHoc = (element) => {
   // }, []);
 
   useEffect(() => {
-    debugger;
     // let cateP = category_child ?? element.category;
     let cateP = category_child ?? "kien-thuc-than-so-hoc";
 
@@ -79,10 +79,12 @@ const ThanSoHoc = (element) => {
         <div id={"blog-content"}>
           <div className={"list_page_iner"}>
             {!listPost.length && !hot ? (
-              <FormThanSoHoc />
+              //   <FormThanSoHoc />
+            <></>
             ) : (
               <div>
-                <FormThanSoHoc />
+                {/* <FormThanSoHoc /> */}
+                <ThanSoHocResult />
                 <div className={"other_news"}>
                   {!listPost.length ? (
                     <></>

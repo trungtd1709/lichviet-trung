@@ -2183,11 +2183,13 @@ fieldset:disabled .btn {
 
 .day-now {
   text-transform: uppercase;
+  font-weight: 600;
   background: #e8ffe9;
   border: 1px solid #35c03c;
   border-radius: 4px;
   color: #0ab813;
   padding: 6px 25px;
+  cursor: pointer;
   /*transform: matrix(1, 0, 0, -1, 0, 0);*/
 }
 
@@ -2539,9 +2541,16 @@ img {
 }
 
 .input-group {
-  border: 1px solid #ced4da;
-  border-radius: 5px;
   flex-wrap: nowrap !important;
+  border-radius: 4px;
+  border: 1px solid #d8d8d8;
+  background: #fff;
+
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
 }
 
 .input-group-text {
@@ -4761,6 +4770,72 @@ svg {
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.06);
   padding: 24px 100px 24px 100px;
 }
-.than-so-hoc-form input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
+
+.than-so-hoc-form .ant-picker {
+  /* border-color: red ; */
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.than-so-hoc-form .ant-picker-suffix {
+  display: none; /* Hide the calendar icon */
+}
+
+.than-so-hoc-form .ant-input {
+  /* border-color: red ; */
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.than-so-hoc-form input {
+  height: 38px !important;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  /* font-weight: 500; */
+  line-height: 14px;
+  padding-right: 5px;
+  font-family: "SF UI Text", sans-serif;
+}
+
+.than-so-hoc-form input::placeholder {
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.than-so-hoc-form .ant-picker-input > input {
+  font-size: 16px;
+  /* font-weight: bold; */
+  color: #000;
+}
+/* Customize the placeholder text style */
+.than-so-hoc-form .ant-picker-input > input::placeholder {
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+/* 
+.than-so-hoc-form input[type="date"]::before {
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+} */
+
+.bold-18 {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px; 
 }
