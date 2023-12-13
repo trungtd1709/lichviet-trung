@@ -1,5 +1,5 @@
-.than-so-hoc-result{
-    /* gap: 35px;
+.than-so-hoc-result {
+  /* gap: 35px;
     display: flex;
     flex-direction: column; */
 }
@@ -13,10 +13,9 @@
   margin-bottom: 35px;
 }
 
-
 .than-so-hoc-result .tshCard .avatar {
-    padding: 0 20px 0 0;
-  }
+  padding: 0 20px 0 0;
+}
 
 .than-so-hoc-result .tshCard .personalInfo {
   color: #000;
@@ -32,4 +31,54 @@
   font-style: italic;
   font-weight: 400;
   line-height: 24px;
+}
+
+.than-so-hoc-result .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2px;
+  /* padding: 10px; */
+  margin-bottom: 10px;
+}
+
+.than-so-hoc-result .grid-item {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #7ad4dd;
+  color: white;
+  width: 55px;
+  height: 55px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.than-so-hoc-result .grid-container .haveNumber {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #099ecd;
+}
+
+.than-so-hoc-result .giai-doan-cuoc-doi-img-container {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  width: 400px;
+  height: 300px;
+}
+
+.so-do-giai-doan-cuoc-doi {
+  background: linear-gradient(180deg, #34ccda 0%, #72a3e3 102.37%);
+  height: 200px;
+  /* position: relative; */
+}
+
+.ngay-sinh{
+  
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  background-color: #007FE0;
+  /* position: absolute;
+  bottom: 40px;
+  left: 40px; */
 }

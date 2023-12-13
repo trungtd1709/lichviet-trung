@@ -14,8 +14,8 @@ function makeid(length) {
   return result;
 }
 
-export const CallApiBackend = (data, url, method, type = 1) => {
-  const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
+export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
+  const BASE_URL = baseUrl ?? process.env.NEXT_PUBLIC_URL_API;
   // const BASE_URL = "http://next.lichviet.org";
 
   // console.log("[BASE_URL]:", BASE_URL);
@@ -185,3 +185,81 @@ export const getPostDetail = async (slug_post) => {
     return [];
   }
 };
+
+const makePostRequest = async (params, url) => {
+  const baseUrl = "http://test.api.lichviet.org";
+  const fullUrl = baseUrl + url;
+  try {
+    const response = await axios.post(fullUrl, params);
+    console.log("Response:", response.data);
+    return response;
+    // Handle response here
+  } catch (error) {
+    console.error("Error:", error);
+    alert(error);
+    // Handle error here
+  }
+};
+
+export const getTSHTopics = async (params) => {
+  const url = "/json/tsh/get-topics";
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    name: "Nguyễn Văn Quý",
+    birthday: "25/01/1995",
+  });
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  fetch("http://test.api.lichviet.org/json/tsh/get-topics", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+  
+};
+
+// export async function getTest() {
+//   try {
+//     const rs = await axios.post(
+//       'http://test.api.lichviet.org/json/tsh/get-topics',
+//       {
+//         name: 'Nguyễn Văn Quý',
+//         birthday: '22/01/1995',
+//       },
+//     );
+//     console.log(JSON.stringify(rs.data, null, 2));
+//   } catch (error) {
+//     console.log(error, message);
+//   }
+// }
+
+let data = JSON.stringify({
+  name: "Nguyễn Văn Quý",
+  birthday: "25/01/1995",
+});
+
+let config = {
+  method: "post",
+  maxBodyLength: Infinity,
+  url: "http://test.api.lichviet.org/json/tsh/get-topics",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  data: data,
+};
+
+export async function makeRequest() {
+  try {
+    const response = await axios.request(config);
+    console.log(JSON.stringify(response.data));
+  } catch (error) {
+    console.log(error);
+  }
+}

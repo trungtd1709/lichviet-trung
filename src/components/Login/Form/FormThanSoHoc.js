@@ -1,17 +1,13 @@
-import { FormControl, InputGroup } from "react-bootstrap";
-import React, { useRef } from "react";
 import { DatePicker, Input } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-export const FormThanSoHoc = ({ setDataInput }) => {
+import { useRef } from "react";
+import { InputGroup } from "react-bootstrap";
+export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
   const dateInputRef = useRef(null);
   const dateFormat = "DD/MM/YYYY";
   const onCalendarIconClick = () => {
     dateInputRef.current.focus();
   };
 
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
 
   return (
     <>
@@ -22,7 +18,7 @@ export const FormThanSoHoc = ({ setDataInput }) => {
           height="20"
           viewBox="0 0 4 20"
           fill="none"
-          style={{width:"5px"}}
+          style={{ width: "5px" }}
         >
           <rect width="4" height="20" fill="#35C03C" />
         </svg>
@@ -41,7 +37,11 @@ export const FormThanSoHoc = ({ setDataInput }) => {
           onChange={setDataInput}
           placeholder="Nhập họ tên đầy đủ"
         /> */}
-          <Input placeholder="Họ tên khai sinh (đầy đủ)" />
+          <Input
+            name="name"
+            placeholder="Họ tên khai sinh (đầy đủ)"
+            onChange={onChangeName}
+          />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text
@@ -60,14 +60,17 @@ export const FormThanSoHoc = ({ setDataInput }) => {
         /> */}
           <DatePicker
             className="w-100"
-            onChange={onChange}
+            // name={"birthday"}
+            name="birthday"
+            // onChange={onChange}
+            onChange={onChangeBirthday}
             placeholder="Nhập ngày tháng năm sinh (dương lịch)"
             format={dateFormat}
           />
         </InputGroup>
-        <div className="day-now d-block" style={{ padding: "" }}>
+        <button className="day-now d-block" style={{ padding: "" }}>
           Tra cứu ngay
-        </div>
+        </button>
       </div>
     </>
   );

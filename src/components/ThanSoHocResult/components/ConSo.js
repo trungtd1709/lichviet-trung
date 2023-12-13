@@ -1,6 +1,7 @@
 const { imgSrc } = require("@/const/AppResource");
 
-const ConSo = () => {
+const ConSo = (props) => {
+  const { title, so } = props;
   return (
     <div className="d-flex flex-column" style={{ width: "100px", gap: "15px" }}>
       <div
@@ -19,7 +20,7 @@ const ConSo = () => {
             fontWeight: "700",
           }}
         >
-          5
+          {so}
         </span>
       </div>
       <span
@@ -32,7 +33,7 @@ const ConSo = () => {
           lineHeight: "24px",
         }}
       >
-        Con số chủ đạo
+        {title}
       </span>
     </div>
   );
