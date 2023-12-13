@@ -56,10 +56,10 @@ const Footers = () => {
 
         <Row className={"pt-2"}>
           <Col md={4} className={"address-i"}>
-            <div className="d-block hidden-xs ">
+            {/* <div className="d-block hidden-xs ">
               <img src={imgSrc.ppclinkLogo} width={180}></img>
-            </div>
-            <div className="font-weight-bold pb-3 mt-3">
+            </div> */}
+            <div className="font-weight-bold pb-3 ">
               Công ty TNHH phát triển Lịch Việt
             </div>
             <ul className={"footer-address"}>
@@ -117,7 +117,7 @@ const Footers = () => {
                 <Link href="/">Trang chủ</Link>
               </li>
               <li>
-                <Link href="/tu-vi">Kiến thức tử vi</Link>
+                <Link href="/tu-vi/kien-thuc-tu-vi">Kiến thức tử vi</Link>
               </li>
               <li>
                 <Link href="/phong-thuy/kien-thuc-phong-thuy">Kiến thức phong thuỷ</Link>

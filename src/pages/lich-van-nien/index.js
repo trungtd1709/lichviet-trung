@@ -18,7 +18,7 @@ const Product = () => {
         banner={[BASE_URL_IMAGE + "/images/slider/slider2.jpg"]}
         title={"Lịch Việt - Xem Ngày Tốt, Tử vi & Phong Thuỷ"}
         description={
-          "Ứng dụng tra cứu lịch vạn niên 2024, lịch âm dương, xem ngày tốt, tử vi & phong thủy theo ngày giờ sinh, quản lý lịch sự kiện cá nhân phổ biến nhất hiện nay. Tự hào là ứng dụng lịch đầu tiên cho người Việt cán mốc 15 TRIỆU lượt tải. Tải ứng dụng ngay để Lịch Việt giúp bạn thấu hiểu về bản thân, đưa ra các quyết định tài lộc, may mắn và quản lý công việc hằng ngày dễ dàng."
+          "Lịch Việt - Lịch vạn niên 2024 là ứng dụng tra cứu lịch âm dương, lịch tháng, lịch ngày, ngày tốt, tử vi & phong thủy theo ngày giờ sinh, xem thần số học, quản lý lịch sự kiện cá nhân phổ biến nhất hiện nay. Chúng tôi tự hào là ứng dụng lịch đầu tiên cho người Việt cán mốc 15 TRIỆU lượt tải. Lịch Việt giúp bạn thấu hiểu về bản thân, đưa ra các quyết định tài lộc, may mắn và quản lý công việc hằng ngày dễ dàng."
         }
         link={true}
       />
@@ -41,7 +41,9 @@ const Product = () => {
         <div className={"mt-md-5"}>
           <ImageProduct />
         </div>
-        <h1 className={"py-4"}>Về ứng dụng Lịch Việt</h1>
+        <h1 style={{ fontWeight: "bold" }} className={"py-4"}>
+          Lịch Việt | Ứng dụng
+        </h1>
         <div className={"content-product"}>
           <div className="content-description">
             <div>
@@ -66,7 +68,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tra cứu Lịch âm dương</h2>
+              <h2 className="font-18-bold">► Tra cứu Lịch âm dương</h2>
             </div>
             <div>
               <span>
@@ -93,7 +95,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tính năng Chọn Ngày Tốt</h2>
+              <h2 className="font-18-bold">► Tính năng Chọn Ngày Tốt</h2>
             </div>
             <div>
               <span>
@@ -120,7 +122,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tính năng Thần Số Học</h2>
+              <h2 className="font-18-bold">► Tính năng Thần Số Học</h2>
             </div>
             <div>
               <span>
@@ -166,7 +168,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tính năng Phong Thủy</h2>
+              <h2 className="font-18-bold">► Tính năng Phong Thủy</h2>
             </div>
             <div>
               <span>
@@ -187,7 +189,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tính năng Tử Vi</h2>
+              <h2 className="font-18-bold">► Tính năng Tử Vi</h2>
             </div>
             <div>
               <span>
@@ -208,7 +210,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font18">► Tính năng Gieo Quẻ Hỏi Việc</h2>
+              <h2 className="font-18-bold">► Tính năng Gieo Quẻ Hỏi Việc</h2>
             </div>
             <div>
               <span>
@@ -240,7 +242,7 @@ const Product = () => {
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
 
             <div>
-              <h2 className="font18">► Tính năng Giải Mã Ngày Sinh</h2>
+              <h2 className="font-18-bold">► Tính năng Giải Mã Ngày Sinh</h2>
             </div>
             <div>
               <span>
@@ -266,7 +268,7 @@ const Product = () => {
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
 
             <div>
-              <h2 className="font18">► Các tiện ích khác</h2>
+              <h2 className="font-18-bold">► Các tiện ích khác</h2>
             </div>
 
             <div>

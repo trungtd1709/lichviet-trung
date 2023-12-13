@@ -4758,8 +4758,9 @@ svg {
   }
 }
 
-.font18 {
+.font-18-bold {
   font-size: 18px;
+  font-weight: bold;
   margin-bottom: 0;
 }
 
