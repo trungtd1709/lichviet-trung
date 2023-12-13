@@ -23,8 +23,8 @@ const ThanSoHocResult = (props) => {
             <IconQuoteMark />
           </div>
           <span className="mt-3">
-            "Mọi thành công đều cần một bắt đầu. Tự tin để mở đầu cho một thành
-            công sắp tới."
+            Mọi thành công đều cần một bắt đầu. Tự tin để mở đầu cho một thành
+            công sắp tới.
           </span>
         </div>
       </div>
@@ -38,8 +38,8 @@ const ThanSoHocResult = (props) => {
         </span>
         <div className="d-flex flex-column border-top my-3">
           <span className="mt-3">
-            "Mọi thành công đều cần một bắt đầu. Tự tin để mở đầu cho một thành
-            công sắp tới."
+            Mọi thành công đều cần một bắt đầu. Tự tin để mở đầu cho một thành
+            công sắp tới.
           </span>
         </div>
       </div>
