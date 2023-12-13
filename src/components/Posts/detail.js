@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
 // import './posts.css';
 import Link from "next/link";
@@ -13,7 +13,6 @@ const PostsDetail = (props) => {
   const postOther = postData?.other ?? null;
   const { item } = postData;
   const { title, subtitle, image } = item;
-  console.log(pageUrl);
 
   const router = useRouter();
   // const [postDetail, setPostDetail] = useState(false);
@@ -42,7 +41,7 @@ const PostsDetail = (props) => {
 
   return (
     <>
-      <MetaHead {...item} />
+      <MetaHead {...item} showH1Tag={false} />
       <Container>
         {/*<div className={'blog-category'}>*/}
         {/*    <ul className={'blog-category-list'}>*/}
@@ -91,7 +90,7 @@ const PostsDetail = (props) => {
               </div>
             )}
           </div>
-          <Widget />
+          <Widget topPosts={topPosts} />
         </div>
         <div className="slider-other-news">
           {!postOther ? (

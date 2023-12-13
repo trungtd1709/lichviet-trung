@@ -32,9 +32,9 @@ export default function TuViPost({md, category, borderTopFirstChild}) {
                                 <h2 className="pt-3 param-title">
                                     {data.hot.title}
                                 </h2>
-                                <h3 className="param-content">
+                                <p className="param-content">
                                     {data.hot.subtitle}
-                                </h3>
+                                </p>
                             </div>
                         </Link>
                         : <></>

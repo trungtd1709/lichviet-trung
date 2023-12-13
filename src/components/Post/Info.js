@@ -46,14 +46,14 @@ export default function Info() {
           <p className="param-title">
             Lịch Việt - Xem Ngày Tốt, Tử vi & Phong Thuỷ
           </p>
-          <h3 className="param-content">
+          <p className="param-content">
             Ứng dụng tra cứu lịch âm dương, xem ngày tốt, tử vi & phong thủy
             theo ngày giờ sinh, quản lý lịch sự kiện cá nhân phổ biến nhất hiện
             nay. Tự hào là ứng dụng lịch đầu tiên cho người Việt cán mốc 15
             TRIỆU lượt tải. Tải ứng dụng ngay để Lịch Việt giúp bạn thấu hiểu về
             bản thân, đưa ra các quyết định tài lộc, may mắn và quản lý công
             việc hằng ngày dễ dàng.
-          </h3>
+          </p>
         </Row>
         <Row>
           <Col></Col>

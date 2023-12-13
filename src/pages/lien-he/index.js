@@ -79,7 +79,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-sm-12 col-md-6 ">
               <form action="#" onSubmit={SubmitFormContac}>
-                <h5 className="name-column tb mb-4">Nhập thông tin liên hệ</h5>
+                <p className="name-column tb mb-4">Nhập thông tin liên hệ</p>
                 <div className="form-group">
                   <label htmlFor="name" className="placeholder-input">
                     <i className="far fa-user" />
@@ -162,9 +162,9 @@ const Contact = () => {
             <div className="col-sm-12 col-md-6 ">
               <div className="name-column" />
               <div className="address-cty mt-3">
-                <h5 className="style-text3 tb mb-4">
+                <p className="style-text3 tb mb-4">
                   Công ty cổ phần phát triển Lịch Việt
-                </h5>
+                </p>
                 <Link
                   className="style-text4"
                   rel="noreferrer"

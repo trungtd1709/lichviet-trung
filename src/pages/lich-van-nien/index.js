@@ -68,7 +68,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tra cứu Lịch âm dương</h2>
+              <h2 className="font-18-bold">Tra cứu Lịch âm dương</h2>
             </div>
             <div>
               <span>
@@ -95,7 +95,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tính năng Chọn Ngày Tốt</h2>
+              <h2 className="font-18-bold">Tính năng Chọn Ngày Tốt</h2>
             </div>
             <div>
               <span>
@@ -122,7 +122,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tính năng Thần Số Học</h2>
+              <h2 className="font-18-bold">Tính năng Thần Số Học</h2>
             </div>
             <div>
               <span>
@@ -168,7 +168,7 @@ const Product = () => {
             </div>
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tính năng Phong Thủy</h2>
+              <h2 className="font-18-bold">Tính năng Phong Thủy</h2>
             </div>
             <div>
               <span>
@@ -189,7 +189,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tính năng Tử Vi</h2>
+              <h2 className="font-18-bold">Tính năng Tử Vi</h2>
             </div>
             <div>
               <span>
@@ -210,7 +210,7 @@ const Product = () => {
 
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
             <div>
-              <h2 className="font-18-bold">► Tính năng Gieo Quẻ Hỏi Việc</h2>
+              <h2 className="font-18-bold">Tính năng Gieo Quẻ Hỏi Việc</h2>
             </div>
             <div>
               <span>
@@ -242,7 +242,7 @@ const Product = () => {
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
 
             <div>
-              <h2 className="font-18-bold">► Tính năng Giải Mã Ngày Sinh</h2>
+              <h2 className="font-18-bold">Tính năng Giải Mã Ngày Sinh</h2>
             </div>
             <div>
               <span>
@@ -268,7 +268,7 @@ const Product = () => {
             <div style={{ maxHeight: "15px" }}>&nbsp;</div>
 
             <div>
-              <h2 className="font-18-bold">► Các tiện ích khác</h2>
+              <h2 className="font-18-bold">Các tiện ích khác</h2>
             </div>
 
             <div>
@@ -340,7 +340,7 @@ const Product = () => {
               </span>
             </div>
             <div>
-              <span>► Tải ứng dụng miễn ph&iacute; (iOS &amp; Android): </span>{" "}
+              <span>Tải ứng dụng miễn ph&iacute; (iOS &amp; Android): </span>{" "}
               <Link
                 className={"text-green"}
                 target={"_blank"}
@@ -350,7 +350,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Website : &nbsp;</span>
+              <span>Website : &nbsp;</span>
               <Link
                 className={"text-green"}
                 target={"_blank"}
@@ -360,7 +360,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Tiktok: </span>
+              <span>Tiktok: </span>
               <Link
                 className={"text-green"}
                 target={"_blank"}
@@ -370,7 +370,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Youtube: </span>
+              <span>Youtube: </span>
               <Link
                 className={"text-green"}
                 target={"_blank"}
@@ -380,7 +380,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Facebook : </span>
+              <span>Facebook : </span>
               <Link
                 className={"text-green"}
                 target={"_blank"}
@@ -390,7 +390,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Cộng đồng Lịch Việt : </span>
+              <span>Cộng đồng Lịch Việt : </span>
               <Link
                 className={"text-green"}
                 href="https://www.facebook.com/groups/225652377851108"
@@ -400,7 +400,7 @@ const Product = () => {
               </Link>
             </div>
             <div>
-              <span>► Hotline : </span>
+              <span>Hotline : </span>
               <Link className={"text-green"} href="tel:0766002689">
                 076 600 2689
               </Link>

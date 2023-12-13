@@ -13,6 +13,7 @@ export default function Detail(props) {
   return (
     <PostsDetail
       pageUrl={pageUrl}
+      topPosts={topPosts}
       postData={postData}
       category={"tu-vi-hang-ngay"}
     />
@@ -24,7 +25,7 @@ export async function getServerSideProps(context) {
   const { slug_post } = params;
   const postData = await getPostDetail(slug_post);
   const topPosts = await getTopPosts();
-  console.log("[slug_post]:", slug_post);
+  // console.log("[slug_post]:", slug_post);
   const protocol = req.headers["x-forwarded-proto"] || "http";
   const baseUrl = req ? `${protocol}://${req.headers.host}/` : "";
   const pageUrl = baseUrl + slug_post;

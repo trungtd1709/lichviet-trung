@@ -8,6 +8,7 @@ const MetaHead = (props) => {
     description = systemMetaData.default.description,
     image = systemMetaData.default.image,
     pageUrl,
+    showH1Tag = true
   } = props;
 
   useEffect(() => {}, []);
@@ -34,7 +35,7 @@ const MetaHead = (props) => {
         />
         <meta name="google" content="nositelinkssearchbox" />
       </Head>
-      <h1 style={{ display: "none" }}>{title}</h1>
+      {showH1Tag && <h1 style={{ display: "none" }}>{title}</h1>} 
     </>
   );
 };

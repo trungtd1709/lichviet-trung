@@ -33,6 +33,7 @@ const Posts = (element) => {
         if (data) {
           if (Number(changePage) === 0) {
             setHot(data.hot);
+            debugger
             setPaginate(data.paginate);
           }
           setListPost(data.list);
@@ -97,12 +98,12 @@ const Posts = (element) => {
                           >
                             {hot.title}
                           </h2>
-                          <h3
+                          <p
                             style={{ marginBottom: "0" }}
                             className={"card_subtitle"}
                           >
                             {hot.subtitle}
-                          </h3>
+                          </p>
                           <div className={"card_date"}>{hot.date}</div>
                         </div>
                       </div>
@@ -149,12 +150,12 @@ const Posts = (element) => {
                                 >
                                   {item.title}
                                 </h2>
-                                <h3
+                                <p
                                   style={{ marginBottom: "0" }}
                                   className={"card_subtitle"}
                                 >
                                   {item.subtitle}
-                                </h3>
+                                </p>
                                 <div className={"card_date"}>{item.date}</div>
                               </div>
                             </Link>
