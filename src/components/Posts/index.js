@@ -33,7 +33,6 @@ const Posts = (element) => {
         if (data) {
           if (Number(changePage) === 0) {
             setHot(data.hot);
-            debugger
             setPaginate(data.paginate);
           }
           setListPost(data.list);

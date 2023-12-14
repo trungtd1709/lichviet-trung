@@ -11,7 +11,7 @@ const ThanSoHocResult = (props) => {
       // style={{background:"red"}}
     >
       <TongQuan />
-      <NgayCaNhan />
+      {/* <NgayCaNhan /> */}
       <GiaiMaCacChiSo />
       <GiaiMaNgaySinh />
       <GiaiDoanCuocDoi />

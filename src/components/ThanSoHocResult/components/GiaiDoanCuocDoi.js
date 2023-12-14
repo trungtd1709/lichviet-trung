@@ -1,10 +1,15 @@
 import TitleHeader from "@/components/Title";
 import { imgSrc } from "@/const/AppResource";
 import { SoDoGiaiDoanCuocDoi } from "./SoDoGiaiDoanCuocDoi";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const sampleData = ["11", "22", "", "", "5", "", "", "", "99"];
 
-export const GiaiDoanCuocDoi = () => {
+export const GiaiDoanCuocDoi = (props) => {
+  // const { giaiDoanCuocDoiData } = props;
+  const giaiDoanCuocDoiData = useSelector(state => state.thanSoHoc.giaiDoanCuocDoi);  
+ 
   return (
     <>
       <TitleHeader title={"4 Giai Đoạn đỉnh cao cuộc đời"} />

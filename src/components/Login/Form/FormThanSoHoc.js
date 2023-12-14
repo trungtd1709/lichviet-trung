@@ -1,6 +1,8 @@
 import { DatePicker, Input } from "antd";
 import { useRef } from "react";
 import { InputGroup } from "react-bootstrap";
+
+
 export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
   const dateInputRef = useRef(null);
   const dateFormat = "DD/MM/YYYY";

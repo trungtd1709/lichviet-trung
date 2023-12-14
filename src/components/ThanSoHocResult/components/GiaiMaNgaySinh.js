@@ -1,12 +1,12 @@
 import TitleHeader from "@/components/Title";
 import IconQuoteMark from "../../../../public/icons/IconQuoteMark";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-const sampleData = ["11", "22", "", "", "5", "", "", "", "99"];
-
-const SoDoGiaiMaNgaySinh = () => {
+const SoDoGiaiMaNgaySinh = ({ conSoGiaiMaNgaySinh = [] }) => {
   return (
     <div className="grid-container">
-      {sampleData.map((conSo, index) => (
+      {conSoGiaiMaNgaySinh.map((conSo, index) => (
         <div key={index} className={`grid-item ${conSo && "haveNumber"}`}>
           {conSo}
         </div>
@@ -15,16 +15,26 @@ const SoDoGiaiMaNgaySinh = () => {
   );
 };
 
-export const GiaiMaNgaySinh = () => {
+export const GiaiMaNgaySinh = (props) => {
+  // const { giaiMaNgaySinhData } = props;
+  const giaiMaNgaySinhData = useSelector(
+    (state) => state.thanSoHoc.giaiMaNgaySinh
+  );
+
+  const conSoGiaiMaNgaySinh = giaiMaNgaySinhData?.birthday?.con_so;
   return (
     <>
-      <TitleHeader title={"Giải mã ngày sinh"} />
-      <div className="tshCard d-flex flex-column align-items-center">
-        <SoDoGiaiMaNgaySinh />
-        <button className="day-now d-block my-2" style={{ padding: "" }}>
-          Xem chi tiết
-        </button>
-      </div>
+      {giaiMaNgaySinhData && (
+        <>
+          <TitleHeader title={"Giải mã ngày sinh"} />
+          <div className="tshCard d-flex flex-column align-items-center">
+            <SoDoGiaiMaNgaySinh conSoGiaiMaNgaySinh={conSoGiaiMaNgaySinh} />
+            <button className="day-now d-block my-2" style={{ padding: "" }}>
+              Xem chi tiết
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

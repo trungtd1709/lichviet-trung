@@ -7,6 +7,8 @@ import { AuthContext } from "@/context/authContext";
 import { useRouter } from "next/router";
 import IconCrown from "../../../public/icons/IconCrown";
 import LoginPC from "./layout/LoginPC";
+import { useSelector } from "react-redux";
+import LoaderData from "../Ui/Loader";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
@@ -52,6 +54,10 @@ const MenuTabBar = [
     link: "/than-so-hoc",
     children: [
       {
+        name: "Tra cứu thần số học",
+        link: "/than-so-hoc",
+      },
+      {
         name: "Kiến thức thần số học",
         link: "/than-so-hoc/kien-thuc-than-so-hoc",
       },
@@ -81,6 +87,7 @@ const MenuTabBar = [
 
 const Header = () => {
   const route_link = useRef();
+  const appLoading = useSelector((state) => state.app.appLoading);
   const { userData, userLogout } = useContext(AuthContext);
   const router = useRouter();
   useEffect(() => {
@@ -124,6 +131,7 @@ const Header = () => {
   };
   return (
     <header>
+      <LoaderData size={"big"} showLoad={appLoading} fixed={true} />
       <Navbar expand="lg" className="navbar-header">
         <Container className={"ipad-navbar container"}>
           <div className={"hidden-md"}>

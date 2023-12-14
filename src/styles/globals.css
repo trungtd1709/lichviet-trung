@@ -4838,5 +4838,74 @@ svg {
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 27px; 
+  line-height: 27px;
+}
+
+.chi-tiet-con-so {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  padding: 24px 14px 9px 14px;
+}
+
+.chi-tiet-con-so-title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #3f85fb;
+  margin-bottom: 10px;
+}
+
+.chi-tiet-con-so-content {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.move-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: #adb1b5;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-chi-so-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 360px;
+  padding: 20px 10px;
+  background: linear-gradient(
+    180deg,
+    #42dcb9 -2.42%,
+    #27c9e4 24.21%,
+    #79c5eb 79.67%,
+    #e2d8ef 102.04%
+  );
+
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; 
+  text-transform: uppercase;
+}
+
+.img-chi-so {
+  width: 150px;
+  height: 150px;
 }

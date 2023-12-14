@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 // import './posts.css';
 import {
   CallApiBackend,
+  getTSHDetail,
   getTSHTopics,
   getTest,
   getTopPosts,
@@ -18,9 +19,20 @@ import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import { getSystemMetaData } from "@/shared/utils";
 import ThanSoHocResult from "@/components/ThanSoHocResult";
 import LoaderData from "@/components/Ui/Loader";
+import GiaiMaChiSo from "@/components/ThanSoHocResult/components/GiaiMaChiSo";
+import { useDispatch } from "react-redux";
+import {
+  setTSHData,
+  setTshUser,
+  thunkGetGiaiDoanCuocDoiData,
+  thunkGetGiaiMaNgaySinhData,
+  thunkGetThanSoHocData,
+} from "@/redux/slices/thanSoHocSlice";
+import { setAppLoading } from "@/redux/slices/appSlice";
 
 const ThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
+  const dispatch = useDispatch();
 
   const [catePost, setCatePost] = useState(null);
   const [loadLogin, setLoad] = useState(false);
@@ -34,6 +46,9 @@ const ThanSoHoc = (element) => {
   const [paginate, setPaginate] = useState([]);
   const [currenPage, setCurrenPage] = useState();
   const [hot, setHot] = useState(null);
+
+  const [thanSoHocResult, setThanSoHocResult] = useState({});
+  const [conSoData, setConSoData] = useState({});
 
   const getPosts = useCallback((page = 0, changePage = 0, cateP = "") => {
     CallApiBackend(
@@ -74,48 +89,31 @@ const ThanSoHoc = (element) => {
       alert("Bạn chưa nhập ngày sinh!");
       return;
     } else {
-      setLoad(true);
+      // setLoad(true);
+      dispatch(setAppLoading(true));
       try {
         const params = { name, birthday };
-        // const data = await getTSHTopics(params);
-        const data = await getTSHTopics();
+        // const giaiMaChiSoData = await getTSHTopics(params);
+        dispatch(setTshUser(params));
+        dispatch(thunkGetThanSoHocData(params));
+        dispatch(thunkGetGiaiDoanCuocDoiData(params));
+        dispatch(thunkGetGiaiMaNgaySinhData(params));
+        // const giaiMaNgaySinhData = await getTSHDetail({ ...params, type: "6" });
+        // const giaiDoanCuocDoiData = await getTSHDetail({
+        //   ...params,
+        //   type: "7",
+        // });
+        // setThanSoHocResult((prevData) => ({
+        //   ...prevData,
+        //   giaiMaChiSoData: giaiMaChiSoData,
+        //   giaiMaNgaySinhData: giaiMaNgaySinhData,
+        //   giaiDoanCuocDoiData: giaiDoanCuocDoiData,
+        // }));
       } catch (err) {
-        alert(err);
+        // console.log(err);
       } finally {
-        setLoad(false);
+        dispatch(setAppLoading(false));
       }
-      // CallApiBackend(dataLogin, "/api/user/login", "POST", 2).then(
-      //   function (response) {
-      //     setLoad(false);
-      //     if (Number(response.data.status) === 1) {
-      //       updateUserData(response.data.data);
-      //       setPopup({
-      //         ...popup,
-      //         checkLogin: true,
-      //         message: "Đăng nhập thành công! Bạn sẽ tự động chuyển hướng.",
-      //         isOpen: true,
-      //         handleClose: redirectLogin,
-      //         time: true,
-      //       });
-      //     } else {
-      //       setPopup({
-      //         ...popup,
-      //         checkLogin: false,
-      //         message: "Tài khoản hoặc mật khẩu không đúng!",
-      //         isOpen: true,
-      //       });
-      //     }
-      //   },
-      //   function () {
-      //     setLoad(false);
-      //     setPopup({
-      //       ...popup,
-      //       checkLogin: false,
-      //       message: "Có lỗi xảy ra vui lòng thử lại sau!",
-      //       isOpen: true,
-      //     });
-      //   }
-      // );
     }
   };
 
@@ -142,7 +140,7 @@ const ThanSoHoc = (element) => {
     <>
       <Container>
         <MetaHead {...currentMetaData} />
-        <LoaderData size={"big"} showLoad={loadLogin} fixed={true} />
+        {/* <LoaderData size={"big"} showLoad={loadLogin} fixed={true} /> */}
         <div className={"ads-google"}>
           <LoadGoogleAds slot={5524209637} />
         </div>
@@ -159,6 +157,7 @@ const ThanSoHoc = (element) => {
                   />
                 </form>
                 <ThanSoHocResult />
+                {/* <GiaiMaChiSo conSoData={conSoData} /> */}
                 <div className={"other_news"}>
                   {!listPost.length ? (
                     <></>

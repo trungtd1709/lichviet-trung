@@ -4,7 +4,7 @@
     flex-direction: column; */
 }
 
-.than-so-hoc-result .tshCard {
+.tshCard {
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   background: #fff;
@@ -13,11 +13,11 @@
   margin-bottom: 35px;
 }
 
-.than-so-hoc-result .tshCard .avatar {
+.tshCard .avatar {
   padding: 0 20px 0 0;
 }
 
-.than-so-hoc-result .tshCard .personalInfo {
+.tshCard .personalInfo {
   color: #000;
   /* font-family: SF UI Display; */
   font-size: 16px;
@@ -25,7 +25,7 @@
   line-height: 14px;
 }
 
-.than-so-hoc-result .tshCard .quote {
+.tshCard .quote {
   color: #000;
   font-size: 16px;
   font-style: italic;
@@ -60,25 +60,52 @@
 
 .than-so-hoc-result .giai-doan-cuoc-doi-img-container {
   /* background-color: rgba(255, 255, 255, 0.8); */
-  width: 400px;
-  height: 300px;
+  width: 320px;
+  /* height: 200px; */
 }
 
 .so-do-giai-doan-cuoc-doi {
   background: linear-gradient(180deg, #34ccda 0%, #72a3e3 102.37%);
-  height: 200px;
+  /* height: 200px; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   /* position: relative; */
 }
 
-.ngay-sinh{
-  
+.ngay-sinh {
   width: 30px;
   height: 30px;
   border: 2px solid white;
   border-radius: 10px;
   color: white;
-  background-color: #007FE0;
-  /* position: absolute;
-  bottom: 40px;
-  left: 40px; */
+  background-color: #007fe0;
+}
+
+.orange {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background-color: #e57d00;
+}
+
+.green {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background-color: #0d861b;
+}
+
+.red {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background-color: #e23448;
 }

@@ -5,5 +5,6 @@ export const imgSrc = {
   lichVietLogo: "/images/logo_lichviet.png",
   conSoBackground: "/images/con_so_background.png",
   giaiDoanCuocDoi: "/images/giai_doan_cuoc_doi.png",
-
+  conSoChuDaoBackground: "/images/con_so_chu_dao_background.png",
+  cacConSoKhacBackground: "/images/cac_con_so_khac_background.png",
 };
