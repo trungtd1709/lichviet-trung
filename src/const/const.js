@@ -94,3 +94,39 @@ export const systemMetaData = {
     },
   },
 };
+
+// export const appPages = {
+//   "/": {
+//     name: "trangChu",
+//     vnName: "Trang chủ",
+//     pathname: "/",
+//   },
+//   "giai-ma-chi-so": {
+//     name: "giaiMaChiSo",
+//     vnName: "Giải mã chỉ số",
+//     pathname: "giai-ma-chi-so",
+//     fullPathname: "/than-so-hoc/giai-ma-chi-so",
+//   },
+//   "giai-ma-ngay-sinh": {
+//     name: "giaiMaNgaySinh",
+//     vnName: "Giải mã ngày sinh",
+//     pathname: "giai-ma-ngay-sinh",
+//     fullPathname: "/than-so-hoc/giai-ma-ngay-sinh",
+//   },
+//   "4-giai-doan-dinh-cao-cuoc-doi": {
+//     name: "giaiDoanCuocDoi",
+//     vnName: "Giai đoạn cuộc đời",
+//     pathname: "4-giai-doan-dinh-cao-cuoc-doi",
+//     fullPathname: "/than-so-hoc/4-giai-doan-dinh-cao-cuoc-doi",
+//   },
+// };
+
+export const appPages = {
+  giaiMaChiSo: {
+    name: "giaiMaChiSo",
+    pathname: "giai-ma-chi-so",
+  },
+  giaiMaNgaySinh: { name: "giaiMaNgaySinh", pathname: "giai-ma-ngay-sinh" },
+  giaiDoanCuocDoi: { name: "giaiDoanCuocDoi", pathname: "4-giai-doan-dinh-cao-cuoc-doi" },
+};
+

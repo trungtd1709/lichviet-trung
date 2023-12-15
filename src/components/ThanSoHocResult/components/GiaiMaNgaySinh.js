@@ -1,22 +1,12 @@
 import TitleHeader from "@/components/Title";
-import IconQuoteMark from "../../../../public/icons/IconQuoteMark";
-import { useEffect } from "react";
+import _ from "lodash";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-
-const SoDoGiaiMaNgaySinh = ({ conSoGiaiMaNgaySinh = [] }) => {
-  return (
-    <div className="grid-container">
-      {conSoGiaiMaNgaySinh.map((conSo, index) => (
-        <div key={index} className={`grid-item ${conSo && "haveNumber"}`}>
-          {conSo}
-        </div>
-      ))}
-    </div>
-  );
-};
+import { SoDoGiaiMaNgaySinh } from "./SoDoGiaiMaNgaySinh";
 
 export const GiaiMaNgaySinh = (props) => {
   // const { giaiMaNgaySinhData } = props;
+  const router = useRouter();
   const giaiMaNgaySinhData = useSelector(
     (state) => state.thanSoHoc.giaiMaNgaySinh
   );
@@ -24,12 +14,18 @@ export const GiaiMaNgaySinh = (props) => {
   const conSoGiaiMaNgaySinh = giaiMaNgaySinhData?.birthday?.con_so;
   return (
     <>
-      {giaiMaNgaySinhData && (
+      {!_.isEmpty(giaiMaNgaySinhData) && (
         <>
           <TitleHeader title={"Giải mã ngày sinh"} />
           <div className="tshCard d-flex flex-column align-items-center">
             <SoDoGiaiMaNgaySinh conSoGiaiMaNgaySinh={conSoGiaiMaNgaySinh} />
-            <button className="day-now d-block my-2" style={{ padding: "" }}>
+            <button
+              onClick={() => {
+                router.push("/than-so-hoc/giai-ma-ngay-sinh");
+              }}
+              className="day-now d-block my-2"
+              style={{ padding: "" }}
+            >
               Xem chi tiết
             </button>
           </div>

@@ -4,7 +4,7 @@ import { GiaiMaNgaySinh } from "./components/GiaiMaNgaySinh";
 import NgayCaNhan from "./components/NgayCaNhan";
 import { TongQuan } from "./components/TongQuan";
 
-const ThanSoHocResult = (props) => {
+const ThanSoHoc = (props) => {
   return (
     <div
       className="than-so-hoc-result"
@@ -19,4 +19,4 @@ const ThanSoHocResult = (props) => {
   );
 };
 
-export default ThanSoHocResult;
+export default ThanSoHoc;

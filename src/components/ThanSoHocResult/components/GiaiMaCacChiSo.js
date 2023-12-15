@@ -15,7 +15,7 @@ const GiaiMaCacChiSo = (props) => {
       {giaiMaChiSoData && giaiMaChiSoData?.length > 0 && (
         <div style={{ marginBottom: "35px" }}>
           <TitleHeader title={"GIẢI MÃ CÁC CHỈ SỐ"} />
-          <div className="d-flex flex-row justify-content-between">
+          <div className="d-flex flex-row justify-content-between flex-wrap">
             {giaiMaChiSoData?.map((item, index) => {
               const { title, so } = item;
               if (so) {

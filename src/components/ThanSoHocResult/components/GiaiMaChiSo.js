@@ -1,12 +1,14 @@
 import TitleHeader from "@/components/Title";
 import ConSo from "./ConSo";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getTSHDetail } from "@/api/apiRequest";
 import { useRouter } from "next/router";
 import MoveLeftButton from "@/components/Buttons/MoveLeftButton";
 import MoveRightButton from "@/components/Buttons/MoveRightButton";
-import ImgChiSo from "./ImgChiSo";
+import ImgGiaiMaChiSo from "./ImgGiaiMaChiSo";
+import _ from "lodash";
+import { ThanSoHocTextContent } from "./ThanSoHocTextContent";
 
 const Banner = () => {
   return <div className=""></div>;
@@ -17,7 +19,12 @@ const GiaiMaChiSo = (props) => {
   const router = useRouter();
   const { type } = router.query;
   const [currentType, setCurrentType] = useState(parseInt(type));
-  const { tshUser } = useSelector((state) => state.thanSoHoc);
+  const { tshUser, topics } = useSelector((state) => state.thanSoHoc);
+
+  const currentConSo = useMemo(() => {
+    const conSo = _.find(topics, { type: currentType });
+    return conSo;
+  }, [currentType, topics]);
 
   const fetchConSoData = async (conSoType) => {
     if (tshUser && conSoType) {
@@ -35,39 +42,41 @@ const GiaiMaChiSo = (props) => {
 
   const handleIncreaseType = () => {
     if (currentType >= 5) {
+      setCurrentType(1);
       return;
     }
+
     setCurrentType(currentType + 1);
   };
 
   const handleDecreaseType = () => {
     if (currentType <= 1) {
+      setCurrentType(5);
       return;
     }
     setCurrentType(currentType - 1);
   };
 
   return (
-    <div className="chi-tiet-con-so" style={{ marginBottom: "35px" }}>
-      <ImgChiSo
+    <>
+      <ImgGiaiMaChiSo
         handleIncreaseType={handleIncreaseType}
         handleDecreaseType={handleDecreaseType}
+        conSo={currentConSo}
       />
 
-      {conSoData?.map((item, index) => {
+      <ThanSoHocTextContent data={conSoData} />
+
+      {/* {conSoData?.map((item, index) => {
         return (
-          <>
+          <div key={index}>
             {" "}
-            <div key={index} className="chi-tiet-con-so-title">
-              {item?.title}
-            </div>
-            <div key={index} className="chi-tiet-con-so-content">
-              {item?.content}
-            </div>
-          </>
+            <div className="chi-tiet-than-so-hoc-title">{item?.title}</div>
+            <div className="chi-tiet-than-so-hoc-content">{item?.content}</div>
+          </div>
         );
-      })}
-    </div>
+      })} */}
+    </>
   );
 };
 

@@ -24,7 +24,7 @@ export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
         >
           <rect width="4" height="20" fill="#35C03C" />
         </svg>
-        <h2 class="rs-title pl-md-2 pl-1">TRA CỨU THẦN SỐ HỌC CỦA BẠN</h2>
+        <h2 className="rs-title pl-md-2 pl-1">TRA CỨU THẦN SỐ HỌC CỦA BẠN</h2>
       </div>
       <div
         className={"d-flex flex-column align-items-center than-so-hoc-form "}

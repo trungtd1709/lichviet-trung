@@ -3,32 +3,24 @@ import { Container } from "react-bootstrap";
 // import './posts.css';
 import {
   CallApiBackend,
-  getTSHDetail,
-  getTSHTopics,
-  getTest,
-  getTopPosts,
-  makeRequest,
+  getTopPosts
 } from "@/api/apiRequest";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import ReactPaginate from "react-paginate";
 import LoadGoogleAds from "@/components/Ads/googleAds";
+import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import MetaHead from "@/components/MetaHead";
 import Widget from "@/components/Posts/widget";
-import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
-import { getSystemMetaData } from "@/shared/utils";
 import ThanSoHocResult from "@/components/ThanSoHocResult";
-import LoaderData from "@/components/Ui/Loader";
-import GiaiMaChiSo from "@/components/ThanSoHocResult/components/GiaiMaChiSo";
-import { useDispatch } from "react-redux";
+import { setAppLoading } from "@/redux/slices/appSlice";
 import {
-  setTSHData,
   setTshUser,
   thunkGetGiaiDoanCuocDoiData,
   thunkGetGiaiMaNgaySinhData,
-  thunkGetThanSoHocData,
+  thunkGetThanSoHocData
 } from "@/redux/slices/thanSoHocSlice";
-import { setAppLoading } from "@/redux/slices/appSlice";
+import { getSystemMetaData } from "@/shared/utils";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 const ThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
