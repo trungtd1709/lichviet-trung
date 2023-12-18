@@ -378,10 +378,15 @@ const CalendarScreen = () => {
                     "d-flex justify-content-center align-items-center py-3 bg-title"
                   }
                 >
-                  <span>
+                  <span style={{ width: "24px" }}>
                     <IconSun />
                   </span>
-                  <span className={"mx-1 mt-1"}>DƯƠNG LỊCH</span>
+                  <span
+                    style={{ whiteSpace: "nowrap" }}
+                    className={"mx-1 mt-1"}
+                  >
+                    DƯƠNG LỊCH
+                  </span>
                 </div>
               </Col>
               <Col md={6} className={"m-0 p-0"}>
@@ -390,10 +395,15 @@ const CalendarScreen = () => {
                     "d-flex justify-content-center align-items-center py-3 bg-title"
                   }
                 >
-                  <span>
+                  <span style={{ width: "24px" }}>
                     <IconMoon />
                   </span>
-                  <span className={"mx-1 mt-1"}>ÂM LỊCH</span>
+                  <span
+                    style={{ whiteSpace: "nowrap" }}
+                    className={"mx-1 mt-1"}
+                  >
+                    ÂM LỊCH
+                  </span>
                 </div>
               </Col>
             </Row>

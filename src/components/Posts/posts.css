@@ -152,7 +152,7 @@ figure {
 
 .other_news .card .card_title {
     -webkit-text-stroke: 0.2px black;
-    font-size: 18px;
+    font-size: 18px !important;
     line-height: 27px;
     color: #333333;
     overflow: hidden;
@@ -651,5 +651,9 @@ figure {
 
     .other_news .card .card_date {
         font-size: 15px;
+    }
+
+    .card_content {
+        margin: 0px 12px 12px 12px !important;
     }
 }

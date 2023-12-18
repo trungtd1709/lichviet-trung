@@ -58,7 +58,7 @@ const Contact = () => {
                 hỗ trợ bạn trong thời gian sớm nhất.
               </p>
             </div>
-            <div className="col-md-6 col-12 ml-auto">
+            <div className="col-md-6 col-12 ml-auto lien-he-img">
               <img
                 width="506"
                 height="305"
