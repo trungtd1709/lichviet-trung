@@ -9,13 +9,15 @@ const GiaiMaCacChiSo = (props) => {
   // const { giaiMaChiSoData = [] } = props;
   const giaiMaChiSoData = useSelector((state) => state.thanSoHoc.topics);
 
-
   return (
     <>
       {giaiMaChiSoData && giaiMaChiSoData?.length > 0 && (
         <div style={{ marginBottom: "35px" }}>
           <TitleHeader title={"GIẢI MÃ CÁC CHỈ SỐ"} />
-          <div className="d-flex flex-row justify-content-between flex-wrap">
+          <div
+            className="d-flex flex-row justify-content-start justify-content-md-between flex-wrap"
+            style={{ gap: "25px" }}
+          >
             {giaiMaChiSoData?.map((item, index) => {
               const { title, so } = item;
               if (so) {

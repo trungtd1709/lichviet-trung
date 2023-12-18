@@ -1,17 +1,10 @@
-import { CallApiBackend, getTopPosts } from "@/api/apiRequest";
-import LoadGoogleAds from "@/components/Ads/googleAds";
-import MetaHead from "@/components/MetaHead";
-import Widget from "@/components/Posts/widget";
-import GiaiMaChiSo from "@/components/ThanSoHocResult/components/GiaiMaChiSo";
+import { getTopPosts } from "@/api/apiRequest";
 import ThanSoHocDetail from "@/components/ThanSoHocResult/components/ThanSoHocDetail";
-import { TongQuan } from "@/components/ThanSoHocResult/components/TongQuan";
 import { getSystemMetaData } from "@/shared/utils";
 import _ from "lodash";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const ThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;

@@ -95,38 +95,101 @@ export const systemMetaData = {
   },
 };
 
-// export const appPages = {
-//   "/": {
-//     name: "trangChu",
-//     vnName: "Trang chủ",
-//     pathname: "/",
-//   },
-//   "giai-ma-chi-so": {
-//     name: "giaiMaChiSo",
-//     vnName: "Giải mã chỉ số",
-//     pathname: "giai-ma-chi-so",
-//     fullPathname: "/than-so-hoc/giai-ma-chi-so",
-//   },
-//   "giai-ma-ngay-sinh": {
-//     name: "giaiMaNgaySinh",
-//     vnName: "Giải mã ngày sinh",
-//     pathname: "giai-ma-ngay-sinh",
-//     fullPathname: "/than-so-hoc/giai-ma-ngay-sinh",
-//   },
-//   "4-giai-doan-dinh-cao-cuoc-doi": {
-//     name: "giaiDoanCuocDoi",
-//     vnName: "Giai đoạn cuộc đời",
-//     pathname: "4-giai-doan-dinh-cao-cuoc-doi",
-//     fullPathname: "/than-so-hoc/4-giai-doan-dinh-cao-cuoc-doi",
-//   },
-// };
-
-export const appPages = {
-  giaiMaChiSo: {
-    name: "giaiMaChiSo",
-    pathname: "giai-ma-chi-so",
+export const conSoMetaData = {
+  soChuDao: {
+    type: 1,
+    vnName: "Số chủ đạo",
+    enName: "so-chu-dao",
   },
-  giaiMaNgaySinh: { name: "giaiMaNgaySinh", pathname: "giai-ma-ngay-sinh" },
-  giaiDoanCuocDoi: { name: "giaiDoanCuocDoi", pathname: "4-giai-doan-dinh-cao-cuoc-doi" },
+  soPhanUng: {
+    type: 2,
+    vnName: "Số phản ứng",
+    enName: "so-phan-ung",
+  },
+  soVanMenh: {
+    type: 3,
+    vnName: "Số vận mệnh",
+    enName: "so-van-menh",
+  },
+  soLinhHon: {
+    type: 4,
+    vnName: "Số linh hồn",
+    enName: "so-linh-hon",
+  },
+  soTheHien: {
+    type: 5,
+    vnName: "Số thể hiện",
+    enName: "so-the-hien",
+  },
 };
 
+export const appPages = {
+  "/": {
+    name: "trangChu",
+    vnName: "Trang chủ",
+    pathname: "/",
+  },
+  "than-so-hoc": {
+    name: "thanSoHoc",
+    vnName: "Thần số học",
+    pathname: "than-so-hoc",
+    fullPathname: "/than-so-hoc/tra-cuu",
+  },
+  "giai-ma-chi-so": {
+    name: "giaiMaChiSo",
+    vnName: "Giải mã chỉ số",
+    pathname: "giai-ma-chi-so",
+    fullPathname: "/than-so-hoc/tra-cuu",
+  },
+  "giai-ma-ngay-sinh": {
+    name: "giaiMaNgaySinh",
+    vnName: "Giải mã ngày sinh",
+    pathname: "giai-ma-ngay-sinh",
+    fullPathname: "/than-so-hoc/giai-ma-ngay-sinh",
+  },
+  "4-giai-doan-dinh-cao-cuoc-doi": {
+    name: "giaiDoanCuocDoi",
+    vnName: "Giai đoạn cuộc đời",
+    pathname: "4-giai-doan-dinh-cao-cuoc-doi",
+    fullPathname: "/than-so-hoc/4-giai-doan-dinh-cao-cuoc-doi",
+  },
+  "so-chu-dao": {
+    name: "soChuDao",
+    vnName: "Số chủ đạo",
+    pathname: "giai-ma-chi-so",
+    fullPathname: `/than-so-hoc/giai-ma-chi-so/${conSoMetaData.soChuDao.enName}`,
+  },
+  "so-phan-ung": {
+    name: "soPhanUng",
+    vnName: "Số phản ứng",
+    pathname: "giai-ma-chi-so",
+    fullPathname: `/than-so-hoc/giai-ma-chi-so/${conSoMetaData.soPhanUng.enName}`,
+  },
+  "so-van-menh": {
+    name: "soVanMenh",
+    vnName: "Số vận mệnh",
+    pathname: "giai-ma-chi-so",
+    fullPathname: `/than-so-hoc/giai-ma-chi-so/${conSoMetaData.soVanMenh.enName}`,
+  },
+  "so-linh-hon": {
+    name: "soLinhHon",
+    vnName: "Số linh hồn",
+    pathname: "giai-ma-chi-so",
+    fullPathname: `/than-so-hoc/giai-ma-chi-so/${conSoMetaData.soLinhHon.enName}`,
+  },
+  "so-the-hien": {
+    name: "soTheHien",
+    vnName: "Số thể hiện",
+    pathname: "giai-ma-chi-so",
+    fullPathname: `/than-so-hoc/giai-ma-chi-so/${conSoMetaData.soTheHien.enName}`,
+  },
+};
+
+// export const appPages = {
+//   giaiMaChiSo: {
+//     name: "giaiMaChiSo",
+//     pathname: "giai-ma-chi-so",
+//   },
+//   giaiMaNgaySinh: { name: "giaiMaNgaySinh", pathname: "giai-ma-ngay-sinh" },
+//   giaiDoanCuocDoi: { name: "giaiDoanCuocDoi", pathname: "4-giai-doan-dinh-cao-cuoc-doi" },
+// };

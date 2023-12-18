@@ -1,4 +1,7 @@
+import { setAppLoading } from "@/redux/slices/appSlice";
 import { thunkGetConSoData } from "@/redux/slices/thanSoHocSlice";
+import { findConSoByType } from "@/shared/utils";
+import { unwrapResult } from "@reduxjs/toolkit";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,10 +14,21 @@ const ConSo = (props) => {
   const tshUser = useSelector((state) => state.thanSoHoc.tshUser);
   const dispatch = useDispatch();
 
-  const handleClickConso = () => {
+  const handleClickConso = async () => {
     const params = { ...tshUser, type };
-    dispatch(thunkGetConSoData(params));
-    router.push(`/than-so-hoc/giai-ma-chi-so/${type}`);
+    dispatch(setAppLoading(true));
+
+    try {
+      // const resultAction = await dispatch(thunkGetConSoData(params));
+      // unwrapResult(resultAction);
+
+      const conSo = findConSoByType(type);
+      router.push(`/than-so-hoc/giai-ma-chi-so/${conSo.enName}`);
+    } catch (error) {
+      console.error("Failed to get conSo data:", error);
+    } finally {
+      dispatch(setAppLoading(false));
+    }
   };
 
   return (

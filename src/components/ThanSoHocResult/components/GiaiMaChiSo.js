@@ -1,6 +1,6 @@
 import TitleHeader from "@/components/Title";
 import ConSo from "./ConSo";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 import { getTSHDetail } from "@/api/apiRequest";
 import { useRouter } from "next/router";
@@ -9,6 +9,8 @@ import MoveRightButton from "@/components/Buttons/MoveRightButton";
 import ImgGiaiMaChiSo from "./ImgGiaiMaChiSo";
 import _ from "lodash";
 import { ThanSoHocTextContent } from "./ThanSoHocTextContent";
+import { findConSoByEnName, findConSoByType } from "@/shared/utils";
+import { setAppLoading } from "@/redux/slices/appSlice";
 
 const Banner = () => {
   return <div className=""></div>;
@@ -16,22 +18,41 @@ const Banner = () => {
 
 const GiaiMaChiSo = (props) => {
   const [conSoData, setConSoData] = useState([]);
+  const dispatch = useDispatch();
   const router = useRouter();
-  const { type } = router.query;
-  const [currentType, setCurrentType] = useState(parseInt(type));
+  const { enName } = router.query;
   const { tshUser, topics } = useSelector((state) => state.thanSoHoc);
 
+  const currentType = useMemo(() => {
+    const conSo = findConSoByEnName(enName);
+    if (!_.isEmpty(conSo)) {
+      return parseInt(conSo.type);
+    } else {
+      return null;
+    }
+  }, [enName]);
+
   const currentConSo = useMemo(() => {
-    const conSo = _.find(topics, { type: currentType });
-    return conSo;
+    if (currentType) {
+      return _.find(topics, { type: parseInt(currentType) });
+    }
+    return {};
   }, [currentType, topics]);
 
   const fetchConSoData = async (conSoType) => {
     if (tshUser && conSoType) {
-      const res = await getTSHDetail({ ...tshUser, type: conSoType });
+      dispatch(setAppLoading);
+      try {
+        // dispatch(setAppLoading(true));
+        const res = await getTSHDetail({ ...tshUser, type: conSoType });
 
-      if (res) {
-        setConSoData(res);
+        if (res) {
+          setConSoData(res);
+        }
+      } catch (err) {
+        console.log(err);
+      } finally {
+        // dispatch(setAppLoading(false));
       }
     }
   };
@@ -41,20 +62,25 @@ const GiaiMaChiSo = (props) => {
   }, [currentType]);
 
   const handleIncreaseType = () => {
+    let nextConSoType = 1;
     if (currentType >= 5) {
-      setCurrentType(1);
-      return;
+      nextConSoType = 1;
+    } else {
+      nextConSoType = currentType + 1;
     }
-
-    setCurrentType(currentType + 1);
+    const conSo = findConSoByType(nextConSoType);
+    router.push(`/than-so-hoc/giai-ma-chi-so/${conSo.enName}`);
   };
 
   const handleDecreaseType = () => {
+    let prevConSoType = 1;
     if (currentType <= 1) {
-      setCurrentType(5);
-      return;
+      prevConSoType = 5;
+    } else {
+      prevConSoType = currentType - 1;
     }
-    setCurrentType(currentType - 1);
+    const conSo = findConSoByType(prevConSoType);
+    router.push(`/than-so-hoc/giai-ma-chi-so/${conSo.enName}`);
   };
 
   return (

@@ -1,15 +1,17 @@
 import { DatePicker, Input } from "antd";
 import { useRef } from "react";
 import { InputGroup } from "react-bootstrap";
+import moment from "moment";
 
-
-export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
+export const FormThanSoHoc = ({
+  name,
+  birthday,
+  onChangeName,
+  onChangeBirthday,
+  onBlurBirthday,
+}) => {
   const dateInputRef = useRef(null);
   const dateFormat = "DD/MM/YYYY";
-  const onCalendarIconClick = () => {
-    dateInputRef.current.focus();
-  };
-
 
   return (
     <>
@@ -43,13 +45,11 @@ export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
             name="name"
             placeholder="Họ tên khai sinh (đầy đủ)"
             onChange={onChangeName}
+            value={name}
           />
         </InputGroup>
         <InputGroup className="mb-3">
-          <InputGroup.Text
-            onClick={onCalendarIconClick}
-            style={{ cursor: "pointer" }}
-          >
+          <InputGroup.Text>
             <i style={{ color: "#3F85FB" }} className="fal fa-calendar"></i>
           </InputGroup.Text>
           {/* <FormControl
@@ -62,12 +62,12 @@ export const FormThanSoHoc = ({ onChangeName, onChangeBirthday }) => {
         /> */}
           <DatePicker
             className="w-100"
-            // name={"birthday"}
             name="birthday"
-            // onChange={onChange}
             onChange={onChangeBirthday}
+            onBlur={onBlurBirthday}
             placeholder="Nhập ngày tháng năm sinh (dương lịch)"
             format={dateFormat}
+            value={birthday ?? null}
           />
         </InputGroup>
         <button className="day-now d-block" style={{ padding: "" }}>

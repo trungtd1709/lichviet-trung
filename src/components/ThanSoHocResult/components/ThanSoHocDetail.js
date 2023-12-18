@@ -32,14 +32,14 @@ const ThanSoHocDetail = (element) => {
   const currentPage = useMemo(() => {
     const { pathname } = router;
 
-    if (pathname.includes(appPages.giaiMaChiSo.pathname)) {
-      return appPages.giaiMaChiSo.name;
+    if (pathname.includes(appPages["giai-ma-chi-so"].pathname)) {
+      return appPages["giai-ma-chi-so"].name;
     }
-    if (pathname.includes(appPages.giaiMaNgaySinh.pathname)) {
-      return appPages.giaiMaNgaySinh.name;
+    if (pathname.includes(appPages["giai-ma-ngay-sinh"].pathname)) {
+      return appPages["giai-ma-ngay-sinh"].name;
     }
-    if (pathname.includes(appPages.giaiDoanCuocDoi.pathname)) {
-      return appPages.giaiDoanCuocDoi.name;
+    if (pathname.includes(appPages["4-giai-doan-dinh-cao-cuoc-doi"].pathname)) {
+      return appPages["4-giai-doan-dinh-cao-cuoc-doi"].name;
     } else {
       router.push("/than-so-hoc");
     }
@@ -86,7 +86,7 @@ const ThanSoHocDetail = (element) => {
       <Container>
         <MetaHead {...currentMetaData} />
         {/* <LoaderData size={"big"} showLoad={loadLogin} fixed={true} /> */}
-        {/* <AppBreadcrumb /> */}
+        <AppBreadcrumb />
         <div className={"ads-google"}>
           <LoadGoogleAds slot={5524209637} />
         </div>
@@ -100,7 +100,8 @@ const ThanSoHocDetail = (element) => {
               {currentPage === appPages["giai-ma-ngay-sinh"].name && (
                 <GiaiMaNgaySinhDetail />
               )}
-              {currentPage === appPages["4-giai-doan-dinh-cao-cuoc-doi"].name && (
+              {currentPage ===
+                appPages["4-giai-doan-dinh-cao-cuoc-doi"].name && (
                 <GiaiDoanCuocDoiDetail />
               )}
               {/* <ThanSoHocTextContent /> */}

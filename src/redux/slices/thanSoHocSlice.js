@@ -52,9 +52,6 @@ export const thanSoHocSlice = createSlice({
       state.tshUser.name = action.payload.name;
       state.tshUser.birthday = action.payload.birthday;
     },
-    // setThanSoHocData: (state, action) => {
-    //   state.activeInvoice = action.payload;
-    // },
   },
   extraReducers: (builder) => {
     builder.addCase(thunkGetThanSoHocData.pending, (state) => {
