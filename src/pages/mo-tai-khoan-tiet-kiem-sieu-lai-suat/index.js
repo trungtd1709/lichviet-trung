@@ -20,7 +20,8 @@ const TaiAppNhanQua = () => {
         className="position-relative d-flex align-items-center"
       >
         <img
-          src="/image/banner_tai_app_nhan_qua2.jpg"
+          //   src="/images/banner_tai_app_nhan_qua2.jpg"
+          src={imgSrc.bannerTaiAppNhanQua2}
           className="object-fit-contain w-full"
           alt=""
         />
@@ -44,60 +45,50 @@ const TaiAppNhanQua = () => {
           <p>
             <strong>Điều kiện chương trình:</strong>
           </p>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img
-              src={imgSrc.checkBoxGreen}
-              width={26}
-              height={26}
-              alt=""
-            />
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
+            <img src={imgSrc.checkBoxGreen} width={26} height={26} alt="" />
             <p>
               Mở tài khoản tiền gửi kỳ hạn 6 tháng từ 20 triệu đồng - 2 tỷ đồng.
             </p>
           </div>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img
-              src={imgSrc.checkBoxGreen}
-              width={26}
-              height={26}
-              alt=""
-            />
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
+            <img src={imgSrc.checkBoxGreen} width={26} height={26} alt="" />
             <p>
               Mở tài khoản trực tuyến K PLUS và duy trì số dư cuối ngày tương
               đương 10% số tiền gửi có kỳ hạn trong suốt kỳ hạn.
             </p>
           </div>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img
-              src={imgSrc.checkBoxGreen}
-              width={26}
-              height={26}
-              alt=""
-            />
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
+            <img src={imgSrc.checkBoxGreen} width={26} height={26} alt="" />
             <p>
               Nhận thưởng tiền mặt 0,5% lên đến 10 triệu đồng vào cuối kỳ hạn
               gửi tiền.
             </p>
           </div>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img
-              src={imgSrc.checkBoxGreen}
-              width={26}
-              height={26}
-              alt=""
-            />
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
+            <img src={imgSrc.checkBoxGreen} width={26} height={26} alt="" />
             <p>
               Áp dụng cho khách hàng chưa từng mở tài khoản gửi tiền có kỳ hạn
               tại KBank.
             </p>
           </div>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img
-              src={imgSrc.checkBoxGreen}
-              width={26}
-              height={26}
-              alt=""
-            />
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
+            <img src={imgSrc.checkBoxGreen} width={26} height={26} alt="" />
             <p>
               Chương trình áp dụng cho một tài khoản tiền gửi hợp lệ trên mỗi
               khách hàng hợp lệ.
@@ -108,7 +99,10 @@ const TaiAppNhanQua = () => {
           <p>
             <strong>Thời gian áp dụng:</strong>
           </p>
-          <div className="d-flex justify-content-start align-items-start gap-2 my-1">
+          <div
+            className="d-flex justify-content-start align-items-start my-1"
+            style={{ gap: "10px" }}
+          >
             <img src={imgSrc.iconDongHo} width={26} height={26} alt="" />
             <p>4/12/2023 - 31/01/2024</p>
           </div>
@@ -131,12 +125,7 @@ const TaiAppNhanQua = () => {
               Hướng dẫn đăng ký Tài khoản tiết kiệm 6 tháng với siêu lãi suất
             </p>
           </div>
-          <img
-            src={imgSrc.bgHdKbank}
-            width={800}
-            className="w-full"
-            alt=""
-          />
+          <img src={imgSrc.bgHdKbank} width={800} className="w-full" alt="" />
         </div>
         <a
           href="https://kplusvn.onelink.me/kml2/dsozqa6u"
@@ -153,15 +142,16 @@ const TaiAppNhanQua = () => {
         </a>
       </Container>
       <div
-        className="px-4 d-flex justify-content-evenly gap-4"
+        className="px-4 d-flex justify-content-evenly"
         style={{
-          backgroundImage: "url(/image/background_footer_kbank.png)",
+          backgroundImage: `url(${imgSrc.backgroundFooterKbank})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top center",
           paddingBottom: 55,
           paddingTop: 45,
           marginTop: "-30px",
+          gap: "25px",
         }}
       >
         <a

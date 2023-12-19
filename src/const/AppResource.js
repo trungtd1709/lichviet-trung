@@ -11,10 +11,9 @@ export const imgSrc = {
   bannerTaiAppNhanQua2: "/images/banner_tai_app_nhan_qua2.jpg",
   iconDongHo: "/images/icon_dong_ho.jpg",
   bgHdKbank: "/images/bg_hd_kbank.jpg",
-  buttonDangKyNgay: "/images/button_dang_ky_ngay.jpg",
+  buttonDangKyNgay: "/images/button_dang_ky_ngay.png",
   iconDownload: "/images/icon_download.png",
   iconNotebook: "/images/icon_notebook.png",
   iconPlay: "/images/icon_play.png",
-
-
+  backgroundFooterKbank: "/images/background_footer_kbank.png",
 };
