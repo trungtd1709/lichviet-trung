@@ -1,10 +1,11 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 // import './posts.css';
-import { CallApiBackend, getTopPosts } from "@/api/apiRequest";
+import { CallApiBackend } from "@/api/apiRequest";
 import LoadGoogleAds from "@/components/Ads/googleAds";
 import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import MetaHead from "@/components/MetaHead";
+import { OtherNews } from "@/components/OtherNews";
 import Widget from "@/components/Posts/widget";
 import { AuthContext } from "@/context/authContext";
 import { setAppLoading } from "@/redux/slices/appSlice";
@@ -14,19 +15,16 @@ import {
   thunkGetGiaiMaNgaySinhData,
   thunkGetThanSoHocData,
 } from "@/redux/slices/thanSoHocSlice";
+import { getServerProps } from "@/shared/func";
 import {
   dayjsObjToString,
   getDayjsObj,
-  getSystemMetaData,
-  isDayjsDateValid,
+  isDayjsDateValid
 } from "@/shared/utils";
+import { unwrapResult } from "@reduxjs/toolkit";
 import _ from "lodash";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { getServerProps } from "@/shared/func";
-import { OtherNews } from "@/components/OtherNews";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 const TraCuuThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
