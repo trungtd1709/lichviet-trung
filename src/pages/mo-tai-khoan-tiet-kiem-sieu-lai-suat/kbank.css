@@ -1,0 +1,261 @@
+.tai-app-nhan-qua * {
+  margin-bottom: 0;
+}
+
+hr {
+  margin: 24px 0;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.icon-kbank > * {
+  margin-right: 20px;
+}
+
+.huong-dan .title p {
+  font-weight: 500;
+}
+
+.huong-dan .hd {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.huong-dan .hd > p {
+  margin-right: 40px;
+  background: #46a348;
+  padding: 4px 15px;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: #ffffff;
+  position: relative;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.huong-dan .hd {
+  margin-bottom: 20px;
+}
+
+.huong-dan .hd > p:after {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  top: 5px;
+  right: 0;
+  border-radius: 3px;
+  background: #46a348;
+  transform: translateX(45%) rotate(45deg);
+  transform-origin: center;
+  z-index: -1;
+}
+
+.huong-dan .hd div:last-child a {
+  border-bottom: 1px solid #1473e6;
+}
+
+.kbank-info {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.video-youtube {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 614px;
+  margin: 24px auto;
+  border: 12px solid #f3f3f3;
+  border-radius: 8px;
+}
+
+.video-youtube iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.kbank-preferential {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.kbank-preferential li {
+  margin: 5px 0;
+  color: #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.kbank-preferential li img {
+  margin-right: 16px;
+}
+
+.kbank-preferential li p {
+  margin-bottom: 0;
+}
+
+.lv-feature ul {
+  margin-bottom: 0;
+}
+
+.lv-feature ul li {
+  list-style: none;
+  display: flex;
+}
+
+.lv-feature ul li img {
+  margin-right: 15px;
+}
+
+.lv-feature ul li p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.title-feature {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 40px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+}
+
+.p-sx-0 {
+  padding: 0 !important;
+}
+
+.button__download {
+  z-index: 10;
+  max-width: 228px;
+  width: 50%;
+  padding: 10px 0;
+  margin: 25px auto 0;
+  text-align: center;
+  text-transform: uppercase;
+  background: #de3c3c;
+  border-radius: 45px;
+  height: 19px;
+  line-height: 19px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  display: inline-table;
+}
+
+.tai-app-nhan-qua .title-page {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.tai-app-nhan-qua .ma-gioi-thieu {
+  margin-top: 20px;
+}
+
+.note-important img {
+  max-width: 224px;
+}
+
+.title-feature:last-child {
+  margin-bottom: 0;
+}
+
+.button__download.one {
+  margin-top: 50px;
+}
+
+.icon-kbank .ma_gioi_thieu .code_mgt {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 21px;
+  color: #2f281e;
+  position: relative;
+  margin: 0;
+  padding-bottom: 2px;
+}
+
+.icon-kbank .ma_gioi_thieu .code_mgt:after {
+  background: #46a348;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.kbank-preferential-img {
+  margin-top: -45px;
+}
+
+@media screen and (max-width: 992px) {
+  .kbank-preferential-img {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 547px) {
+  .icon-lich-chon-ngay-tot {
+    order: 2;
+  }
+
+  .icon-lich-chon-ngay-tot img {
+    width: 100%;
+  }
+
+  .huong-dan .hd p:first-child {
+    margin-right: 25px;
+    word-break: unset;
+  }
+
+  .huong-dan .hd div:last-child {
+    word-break: break-word;
+  }
+
+  .button__download {
+    margin: 0;
+    font-size: 16px;
+    line-height: 19px;
+    height: 19px;
+  }
+
+  .download-css {
+    margin-top: -20px;
+  }
+
+  .title-page {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .step ._text p {
+    margin-bottom: 3px;
+    font-size: 16px;
+  }
+
+  .icon-kbank .ma_gioi_thieu .code_mgt {
+    font-size: 20px;
+  }
+
+  .video-youtube {
+    padding: 0;
+    margin-bottom: 12px;
+  }
+
+  .note-important img {
+    max-width: 100%;
+  }
+
+  .kbank-preferential {
+    margin-bottom: 0;
+  }
+
+  .icon-kbank .ma_gioi_thieu {
+    width: auto;
+  }
+}
