@@ -1,4 +1,5 @@
 import MetaHead from "@/components/MetaHead";
+import { imgSrc } from "@/const/AppResource";
 import { Container } from "react-bootstrap";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
@@ -45,7 +46,7 @@ const TaiAppNhanQua = () => {
           </p>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
             <img
-              src="/image/checkbox_green.jpg"
+              src={imgSrc.checkBoxGreen}
               width={26}
               height={26}
               alt=""
@@ -56,7 +57,7 @@ const TaiAppNhanQua = () => {
           </div>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
             <img
-              src="/image/checkbox_green.jpg"
+              src={imgSrc.checkBoxGreen}
               width={26}
               height={26}
               alt=""
@@ -68,7 +69,7 @@ const TaiAppNhanQua = () => {
           </div>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
             <img
-              src="/image/checkbox_green.jpg"
+              src={imgSrc.checkBoxGreen}
               width={26}
               height={26}
               alt=""
@@ -80,7 +81,7 @@ const TaiAppNhanQua = () => {
           </div>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
             <img
-              src="/image/checkbox_green.jpg"
+              src={imgSrc.checkBoxGreen}
               width={26}
               height={26}
               alt=""
@@ -92,7 +93,7 @@ const TaiAppNhanQua = () => {
           </div>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
             <img
-              src="/image/checkbox_green.jpg"
+              src={imgSrc.checkBoxGreen}
               width={26}
               height={26}
               alt=""
@@ -108,7 +109,7 @@ const TaiAppNhanQua = () => {
             <strong>Thời gian áp dụng:</strong>
           </p>
           <div className="d-flex justify-content-start align-items-start gap-2 my-1">
-            <img src="/image/icon_dong_ho.jpg" width={26} height={26} alt="" />
+            <img src={imgSrc.iconDongHo} width={26} height={26} alt="" />
             <p>4/12/2023 - 31/01/2024</p>
           </div>
         </div>
@@ -131,7 +132,7 @@ const TaiAppNhanQua = () => {
             </p>
           </div>
           <img
-            src="/image/bg_hd_kbank.jpg"
+            src={imgSrc.bgHdKbank}
             width={800}
             className="w-full"
             alt=""
@@ -144,7 +145,7 @@ const TaiAppNhanQua = () => {
           rel="noreferrer"
         >
           <img
-            src="/image/button_dang_ky_ngay.png"
+            src={imgSrc.buttonDangKyNgay}
             className="object-fit-contain"
             width={190}
             alt=""
@@ -177,7 +178,7 @@ const TaiAppNhanQua = () => {
           }}
         >
           <p className="text-center mb-1">
-            <img src="/image/icon_download.png" width={30} height={30} alt="" />
+            <img src={imgSrc.iconDownload} width={30} height={30} alt="" />
           </p>
           <p className="text-white text-center">Tải ứng dụng K PLUS Vietnam</p>
         </a>
@@ -195,7 +196,7 @@ const TaiAppNhanQua = () => {
           }}
         >
           <p className="text-center mb-1">
-            <img src="/image/icon_notebook.png" width={30} height={30} alt="" />
+            <img src={imgSrc.iconNotebook} width={30} height={30} alt="" />
           </p>
           <p className="text-white text-center">
             Điều khoản và điều kiện chi tiết của chương trình
@@ -215,7 +216,7 @@ const TaiAppNhanQua = () => {
           }}
         >
           <p className="text-center mb-1">
-            <img src="/image/icon_play.png" width={30} height={30} alt="" />
+            <img src={imgSrc.iconPlay} width={30} height={30} alt="" />
           </p>
           <p className="text-white text-center">
             Xem video hướng dẫn đăng ký K PLUS Vietnam
