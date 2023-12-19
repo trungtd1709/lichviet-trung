@@ -8,10 +8,8 @@ import TopPost from "@/components/Post/TopPost";
 import TuViPost from "@/components/Post/TuViPost";
 import Banners from "@/layout/Banners/banner";
 import Card from "@/layout/Card/Card";
-import { Inter } from "next/font/google";
 import { Col, Container, Row } from "react-bootstrap";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({
   topPosts = [],

@@ -55,7 +55,7 @@ const MenuTabBar = [
     children: [
       {
         name: "Tra cứu thần số học",
-        link: "/than-so-hoc",
+        link: "/than-so-hoc/tra-cuu-than-so-hoc",
       },
       {
         name: "Kiến thức thần số học",

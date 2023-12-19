@@ -11,6 +11,7 @@ const Product = () => {
   return (
     <>
       <MetaHead
+        showH1Tag={false}
         title="Lịch Việt | Ứng dụng"
         subtitle="Ứng dụng Lịch Việt - Lịch Vạn Niên được phát triển bởi PPCLINK có tác dụng xem ngày giờ tốt xấu, tra cứu ngày tháng năm âm & dương lịch."
       />

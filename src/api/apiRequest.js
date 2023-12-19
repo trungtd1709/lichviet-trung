@@ -187,7 +187,7 @@ export const getPostDetail = async (slug_post) => {
 };
 
 const makePostRequest = async (params, url) => {
-  const baseUrl = "http://test.api.lichviet.org";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
   const fullUrl = baseUrl + url;
   try {
     const response = await axios.post(fullUrl, params);

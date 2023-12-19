@@ -16,6 +16,7 @@ import GiaiMaNgaySinhDetail from "./GiaiMaNgaySinhDetail";
 import { ThanSoHocTextContent } from "./ThanSoHocTextContent";
 import GiaiDoanCuocDoiDetail from "./GiaiDoanCuocDoiDetail";
 import AppBreadcrumb from "@/components/AppBreadcrumb";
+import { OtherNews } from "@/components/OtherNews";
 
 const ThanSoHocDetail = (element) => {
   const { currentMetaData, topPosts } = element;
@@ -31,7 +32,7 @@ const ThanSoHocDetail = (element) => {
 
   const currentPage = useMemo(() => {
     const { pathname } = router;
-
+    debugger;
     if (pathname.includes(appPages["giai-ma-chi-so"].pathname)) {
       return appPages["giai-ma-chi-so"].name;
     }
@@ -40,10 +41,15 @@ const ThanSoHocDetail = (element) => {
     }
     if (pathname.includes(appPages["4-giai-doan-dinh-cao-cuoc-doi"].pathname)) {
       return appPages["4-giai-doan-dinh-cao-cuoc-doi"].name;
-    } else {
-      router.push("/than-so-hoc");
     }
+    router.push("/than-so-hoc/tra-cuu-than-so-hoc");
   }, [router]);
+
+  useEffect(() => {
+    if (_.isEmpty(tshUser)) {
+      router.push("/than-so-hoc/tra-cuu-than-so-hoc");
+    }
+  }, [tshUser]);
 
   const getPosts = useCallback((page = 0, changePage = 0, cateP = "") => {
     CallApiBackend(
@@ -107,54 +113,7 @@ const ThanSoHocDetail = (element) => {
               {/* <ThanSoHocTextContent /> */}
             </div>
 
-            <div className={"other_news"}>
-              {!listPost.length ? (
-                <></>
-              ) : (
-                <>
-                  <div className={"title_other"}>Tin tức khác</div>
-                  <div className={"other_list"}>
-                    {listPost.map(function (item, k) {
-                      return (
-                        <Link className="card" href={"/" + item.slug} key={k}>
-                          <h2
-                            style={{ marginBottom: "0" }}
-                            className={"card_title hidden-md"}
-                          >
-                            {item.title}
-                          </h2>
-                          <div className={"post_thumb"}>
-                            <figure className={"imghover"}>
-                              <img
-                                className={"image-hover"}
-                                src={item.image}
-                                alt={item.image_alt}
-                                loading={"lazy"}
-                              />
-                            </figure>
-                          </div>
-                          <div className={"card_content"}>
-                            <h2
-                              style={{ marginBottom: "0" }}
-                              className={"card_title hidden-xs"}
-                            >
-                              {item.title}
-                            </h2>
-                            <h3
-                              style={{ marginBottom: "0" }}
-                              className={"card_subtitle"}
-                            >
-                              {item.subtitle}
-                            </h3>
-                            <div className={"card_date"}>{item.date}</div>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </>
-              )}
-            </div>
+            {!listPost.length ? <></> : <OtherNews listPost={listPost} />}
           </div>
           <Widget topPosts={topPosts} context={element} />
         </div>

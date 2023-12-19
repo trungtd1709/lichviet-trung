@@ -6,7 +6,7 @@ import LoadGoogleAds from "@/components/Ads/googleAds";
 import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import MetaHead from "@/components/MetaHead";
 import Widget from "@/components/Posts/widget";
-import ThanSoHocResult from "@/components/ThanSoHocResult";
+import { AuthContext } from "@/context/authContext";
 import { setAppLoading } from "@/redux/slices/appSlice";
 import {
   setTshUser,
@@ -16,19 +16,19 @@ import {
 } from "@/redux/slices/thanSoHocSlice";
 import {
   dayjsObjToString,
-  formatDate,
   getDayjsObj,
   getSystemMetaData,
   isDayjsDateValid,
 } from "@/shared/utils";
+import _ from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import moment from "moment";
-import { AuthContext } from "@/context/authContext";
-import _ from "lodash";
+import { getServerProps } from "@/shared/func";
+import { OtherNews } from "@/components/OtherNews";
+import { unwrapResult } from "@reduxjs/toolkit";
 
-const ThanSoHoc = (element) => {
+const TraCuuThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
   const dispatch = useDispatch();
   const { userData, userLogout } = useContext(AuthContext);
@@ -52,7 +52,6 @@ const ThanSoHoc = (element) => {
         userData?.birthday,
         "YYYY-MM-DD HH:mm:ss"
       );
-      debugger;
       setBirthday(userDataBirthday);
     }
   }, [userData]);
@@ -82,27 +81,17 @@ const ThanSoHoc = (element) => {
   };
 
   const onChangeBirthday = (date, dateString) => {
-    // const dateFormatted = getDayjsObj(dateString)
     setBirthday(date);
-    // debugger;
   };
 
   const onBlurBirthday = (e) => {
     const currentDate = e.target.value;
     if (isDayjsDateValid(currentDate)) {
       const birthdayValue = getDayjsObj(e.target.value);
-      // debugger
       setBirthday(birthdayValue);
     } else {
       setBirthday(null);
     }
-
-    // if (birthdayValue.isValid()) {
-    //   setBirthday(birthdayValue);
-    // } else {
-    //   console.log("Invalid date entered");
-    //   setBirthday(null);
-    // }
   };
 
   const submitThanSoHoc = async (e) => {
@@ -123,9 +112,25 @@ const ThanSoHoc = (element) => {
         const params = { name, birthday: birthdayDate };
         // const giaiMaChiSoData = await getTSHTopics(params);
         await dispatch(setTshUser(params));
-        await dispatch(thunkGetThanSoHocData(params));
-        await dispatch(thunkGetGiaiDoanCuocDoiData(params));
-        await dispatch(thunkGetGiaiMaNgaySinhData(params));
+        const thanSoHocData = unwrapResult(
+          await dispatch(thunkGetThanSoHocData(params))
+        );
+        const giaiDoanCuocDoiData = unwrapResult(
+          await dispatch(thunkGetGiaiDoanCuocDoiData(params))
+        );
+        const giaiMaNgaySinhData = unwrapResult(
+          await dispatch(thunkGetGiaiMaNgaySinhData(params))
+        );
+        debugger;
+        if (
+          !_.isEmpty(thanSoHocData) &&
+          !_.isEmpty(giaiDoanCuocDoiData) &&
+          !_.isEmpty(giaiMaNgaySinhData)
+        ) {
+          router.push("/than-so-hoc/tra-cuu");
+        } else {
+          alert("Có lỗi khi lấy thông tin thần số học");
+        }
         // const giaiMaNgaySinhData = await getTSHDetail({ ...params, type: "6" });
         // const giaiDoanCuocDoiData = await getTSHDetail({
         //   ...params,
@@ -137,7 +142,6 @@ const ThanSoHoc = (element) => {
         //   giaiMaNgaySinhData: giaiMaNgaySinhData,
         //   giaiDoanCuocDoiData: giaiDoanCuocDoiData,
         // }));
-        router.push("/than-so-hoc/tra-cuu");
       } catch (err) {
         console.log(err);
       } finally {
@@ -175,75 +179,16 @@ const ThanSoHoc = (element) => {
         </div>
         <div id={"blog-content"}>
           <div className={"list_page_iner"}>
-            {!listPost.length && !hot ? (
-              <></>
-            ) : (
-              <div>
-                <form onSubmit={submitThanSoHoc}>
-                  <FormThanSoHoc
-                    name={name}
-                    onChangeName={onChangeName}
-                    onChangeBirthday={onChangeBirthday}
-                    birthday={birthday}
-                    onBlurBirthday={onBlurBirthday}
-                  />
-                </form>
-                {/* <ThanSoHocResult /> */}
-                {/* <GiaiMaChiSo conSoData={conSoData} /> */}
-                <div className={"other_news"}>
-                  {!listPost.length ? (
-                    <></>
-                  ) : (
-                    <>
-                      <div className={"title_other"}>Tin tức khác</div>
-                      <div className={"other_list"}>
-                        {listPost.map(function (item, k) {
-                          return (
-                            <Link
-                              className="card"
-                              href={"/" + item.slug}
-                              key={k}
-                            >
-                              <h2
-                                style={{ marginBottom: "0" }}
-                                className={"card_title hidden-md"}
-                              >
-                                {item.title}
-                              </h2>
-                              <div className={"post_thumb"}>
-                                <figure className={"imghover"}>
-                                  <img
-                                    className={"image-hover"}
-                                    src={item.image}
-                                    alt={item.image_alt}
-                                    loading={"lazy"}
-                                  />
-                                </figure>
-                              </div>
-                              <div className={"card_content"}>
-                                <h2
-                                  style={{ marginBottom: "0" }}
-                                  className={"card_title hidden-xs"}
-                                >
-                                  {item.title}
-                                </h2>
-                                <h3
-                                  style={{ marginBottom: "0" }}
-                                  className={"card_subtitle"}
-                                >
-                                  {item.subtitle}
-                                </h3>
-                                <div className={"card_date"}>{item.date}</div>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            )}
+            <form onSubmit={submitThanSoHoc}>
+              <FormThanSoHoc
+                name={name}
+                onChangeName={onChangeName}
+                onChangeBirthday={onChangeBirthday}
+                birthday={birthday}
+                onBlurBirthday={onBlurBirthday}
+              />
+            </form>
+            {!listPost.length ? <></> : <OtherNews listPost={listPost} />}
           </div>
           <Widget topPosts={topPosts} context={element} />
         </div>
@@ -251,18 +196,8 @@ const ThanSoHoc = (element) => {
     </>
   );
 };
-export default ThanSoHoc;
+export default TraCuuThanSoHoc;
 
 export async function getServerSideProps(context) {
-  const path = context.resolvedUrl;
-  console.log("[path]:", path);
-  const currentMetaData = getSystemMetaData(path);
-  const topPosts = await getTopPosts();
-
-  return {
-    props: {
-      currentMetaData,
-      topPosts,
-    },
-  };
+  return await getServerProps(context);
 }

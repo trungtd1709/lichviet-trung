@@ -133,7 +133,7 @@ export const appPages = {
     name: "thanSoHoc",
     vnName: "Thần số học",
     pathname: "than-so-hoc",
-    fullPathname: "/than-so-hoc/tra-cuu",
+    fullPathname: "/than-so-hoc/tra-cuu-than-so-hoc",
   },
   "giai-ma-chi-so": {
     name: "giaiMaChiSo",

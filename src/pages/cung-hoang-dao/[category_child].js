@@ -1,9 +1,5 @@
-import { getTopPosts } from "@/api/apiRequest";
 import Posts from "@/components/Posts";
-import { getSystemMetaData } from "@/shared/utils";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { getServerProps } from "@/shared/func";
 
 export default function Home(props) {
   const { currentMetaData, topPosts } = props;
@@ -11,15 +7,5 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  const path = context.resolvedUrl;
-  console.log("[path]:", path);
-  const currentMetaData = getSystemMetaData(path);
-  const topPosts = await getTopPosts();
-
-  return {
-    props: {
-      currentMetaData,
-      topPosts,
-    },
-  };
+  return await getServerProps(context);
 }
