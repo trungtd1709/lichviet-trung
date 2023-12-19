@@ -1,4 +1,4 @@
-import { Image, Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import React from "react";
 import IconDownloadAppStore from "../../../public/icons/IconDownloadAppStore";
 import IconDownloadGooglePlay from "../../../public/icons/IconDownloadGooglePlay";
@@ -27,11 +27,11 @@ export default function Info() {
           }}
           className="ml-0 mr-0"
         >
-          <Image
+          <img
             src="/images/bg-3.png"
             style={{ width: "100%", position: "relative" }}
           />
-          {/* <Image
+          <img
             src="/images/icon.png"
             style={{
               height: 60,
@@ -40,7 +40,7 @@ export default function Info() {
               marginLeft: 12,
               marginTop: 12,
             }}
-          /> */}
+          />
         </Row>
         <Row className="p-3 ml-0 mr-0 ">
           <p className="param-title">
