@@ -45,7 +45,7 @@ const DieuKhoanSuDung = () => {
           các thông tin bạn cung cấp cho chúng tôi là đúng, chính xác, đầy đủ với tại thời điểm được yêu cầu. Mọi quyền
           lợi và nghĩa vụ của bạn sẽ căn cứ trên thông tin tài khoản bạn đã đăng ký, do đó nếu có bất kỳ thông tin sai
           lệch nào chúng tôi sẽ không chịu trách nhiệm trong trường hợp thông tin đó làm ảnh hưởng hoặc hạn chế quyền
-          lợi của bạn.
+          lợi của bạn. 
         </div>
         <div><strong>5. Quyển sử dụng tài nguyên ứng dụng</strong></div>
         <div>Bạn có quyền sử dụng Ứng Dụng và các dịch vụ khác mà chúng tôi cung cấp, tuy nhiên việc sử dụng đó sẽ không
