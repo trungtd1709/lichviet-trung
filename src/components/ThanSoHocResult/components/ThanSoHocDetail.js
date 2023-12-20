@@ -2,25 +2,21 @@ import { CallApiBackend } from "@/api/apiRequest";
 import LoadGoogleAds from "@/components/Ads/googleAds";
 import MetaHead from "@/components/MetaHead";
 import Widget from "@/components/Posts/widget";
-
+import AppBreadcrumb from "@/components/AppBreadcrumb";
+import { OtherNews } from "@/components/OtherNews";
+import { appPages } from "@/const/const";
 import _ from "lodash";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import GiaiMaChiSo from "./GiaiMaChiSo";
-import { TongQuan } from "./TongQuan";
-import { appPages } from "@/const/const";
-import GiaiMaNgaySinhDetail from "./GiaiMaNgaySinhDetail";
-import { ThanSoHocTextContent } from "./ThanSoHocTextContent";
 import GiaiDoanCuocDoiDetail from "./GiaiDoanCuocDoiDetail";
-import AppBreadcrumb from "@/components/AppBreadcrumb";
-import { OtherNews } from "@/components/OtherNews";
+import GiaiMaChiSo from "./GiaiMaChiSo";
+import GiaiMaNgaySinhDetail from "./GiaiMaNgaySinhDetail";
+import { TongQuan } from "./TongQuan";
 
 const ThanSoHocDetail = (element) => {
   const { currentMetaData, topPosts } = element;
-  const dispatch = useDispatch();
   const { tshUser } = useSelector((state) => state?.thanSoHoc);
   const [catePost, setCatePost] = useState(null);
   const router = useRouter();
@@ -110,7 +106,6 @@ const ThanSoHocDetail = (element) => {
                 appPages["4-giai-doan-dinh-cao-cuoc-doi"].name && (
                 <GiaiDoanCuocDoiDetail />
               )}
-              {/* <ThanSoHocTextContent /> */}
             </div>
 
             {!listPost.length ? <></> : <OtherNews listPost={listPost} />}

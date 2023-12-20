@@ -41,7 +41,7 @@ const GiaiMaChiSo = (props) => {
 
   const fetchConSoData = async (conSoType) => {
     if (tshUser && conSoType) {
-      dispatch(setAppLoading);
+      dispatch(setAppLoading(true));
       try {
         // dispatch(setAppLoading(true));
         const res = await getTSHDetail({ ...tshUser, type: conSoType });
@@ -52,7 +52,7 @@ const GiaiMaChiSo = (props) => {
       } catch (err) {
         console.log(err);
       } finally {
-        // dispatch(setAppLoading(false));
+        dispatch(setAppLoading(false));
       }
     }
   };
