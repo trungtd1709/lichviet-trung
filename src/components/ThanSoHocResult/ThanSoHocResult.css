@@ -17,12 +17,12 @@
   padding: 0 20px 0 0;
 }
 
-.tshCard .avatar img{
+.tshCard .avatar img {
   height: 50px;
   width: 50px;
   object-fit: cover;
   border-radius: 50%;
-} 
+}
 
 .tshCard .personalInfo {
   color: #000;
@@ -171,4 +171,23 @@
   white-space: nowrap;
   /* bottom: -30px; */
   right: -65px;
+}
+
+@media screen and (max-width: 768px) {
+  .tshCard {
+    padding: 10px;
+  }
+
+  .img-giai-ma-chi-so-container {
+    margin-bottom: 15px;
+  }
+
+  .tshCard .avatar {
+    padding: 0 10px 0 0;
+  }
+}
+
+.img-giai-ma-chi-so-container {
+  /* padding: 0 20px 0 20px; */
+  margin-bottom: 30px;
 }

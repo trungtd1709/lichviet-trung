@@ -6,7 +6,7 @@ const ImgGiaiMaChiSo = (props) => {
   const { conSo = {}, handleDecreaseType, handleIncreaseType } = props;
   const { title, type, so } = conSo;
   return (
-    <div className="d-flex flex-row justify-content-between align-items-center mb-5 px-5">
+    <div className="d-flex flex-row justify-content-between align-items-center img-giai-ma-chi-so-container">
       <MoveLeftButton onClick={handleDecreaseType} />
       <div className="img-chi-so-container">
         <span>{title}</span>

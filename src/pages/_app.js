@@ -6,6 +6,7 @@ import "@/components/Title/title.css";
 import "@/layout/Card/card.css";
 import "@/pages/chinh-sach-bao-mat/csbm.css";
 import "@/pages/mo-tai-khoan-tiet-kiem-sieu-lai-suat/kbank.css";
+import "@/components/AppBreadcrumb/Breadcrumb.css";
 import "@/styles/globals.css";
 
 import Header from "@/components/Header";

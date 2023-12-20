@@ -4759,6 +4759,7 @@ svg {
   .banner .carousel-indicators {
     display: none;
   }
+
 }
 
 .font-18-bold {
@@ -4778,6 +4779,10 @@ svg {
 @media screen and (max-width: 768px) {
   .than-so-hoc-form {
     padding: 24px 24px 24px 24px;
+  }
+
+  .img-chi-so-container{
+    width: 240px !important;
   }
 }
 

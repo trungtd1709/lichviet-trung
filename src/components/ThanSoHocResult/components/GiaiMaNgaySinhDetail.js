@@ -17,7 +17,7 @@ const GiaiMaNgaySinhDetail = (props) => {
       >
         <SoDoGiaiMaNgaySinh conSoGiaiMaNgaySinh={conSoGiaiMaNgaySinh} />
       </div>
-      <ThanSoHocTextContent data={giaiMaNgaySinhData.birthday.data} />
+      <ThanSoHocTextContent data={giaiMaNgaySinhData?.birthday?.data} />
     </>
   );
 };
