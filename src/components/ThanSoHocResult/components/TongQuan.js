@@ -19,7 +19,9 @@ export const TongQuan = () => {
                 src={userData?.avatar}
               />
             ) : (
-              <IconProfile />
+              <div style={{ width: "50px" }}>
+                <IconProfile />
+              </div>
             )}
           </div>
           <div className="d-flex flex-column">

@@ -13,7 +13,10 @@ const GiaiMaCacChiSo = (props) => {
     <>
       {giaiMaChiSoData && giaiMaChiSoData?.length > 0 && (
         <div style={{ marginBottom: "35px" }}>
-          <TitleHeader title={"GIẢI MÃ CÁC CHỈ SỐ"} />
+          <TitleHeader className={"mb-0"} title={"GIẢI MÃ CÁC CHỈ SỐ"} />
+          <div style={{ fontStyle: "italic", marginBottom: "15px",marginTop:'8px' }}>
+            (Click vào từng ô để xem luận giải chi tiết)
+          </div>
           <div
             className="d-flex flex-row justify-content-start justify-content-md-between flex-wrap"
             style={{ gap: "25px" }}
