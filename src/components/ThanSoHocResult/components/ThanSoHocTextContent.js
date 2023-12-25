@@ -1,3 +1,4 @@
+import { imgSrc } from "@/const/AppResource";
 import { useRouter } from "next/router";
 
 export const ThanSoHocTextContent = (props) => {
@@ -37,6 +38,10 @@ export const ThanSoHocTextContent = (props) => {
           </>
         );
       })}
+      <div className="d-flex flex-column mt-5">
+        <a target="blank" href="https://onelink.to/nh298f">Mở ứng dụng Lịch Việt để biết thêm thông tin chi tiết:</a>
+        <img style={{width:'150px',marginTop:'10px'}} src={imgSrc.lichVietQr} />
+      </div>
     </>
   );
 };

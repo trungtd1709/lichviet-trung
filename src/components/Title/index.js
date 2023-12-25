@@ -8,7 +8,7 @@ export default function TitleHeader({ isShowMore, title, className }) {
       className={`justify-content-between align-items-center p-0 mx-0 mt-0 ${className}`}
       style={{
         borderLeft: "4px solid #35C03C",
-        marginBottom: "15px !important",
+        marginBottom: "15px",
       }}
     >
       <Col className="p-0" md={8} xs={7}>
