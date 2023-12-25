@@ -24,12 +24,11 @@ export default function TopPost({ marginTop = 40, topPosts = [] }) {
     //     setData(finalData);
     //   }
     // });
-
   }, []);
   return (
     <>
       <Card setTitle={false} top={marginTop}>
-        <div className={"title-header"}>
+        <div className={"ml-1 title-header"} style={{ paddingLeft: "10px" }}>
           <TitleHeader title={"Nhiều người đọc"} isShowMore={false} />
         </div>
         <LoaderData size={"small"} showLoad={load} fixed={false} />

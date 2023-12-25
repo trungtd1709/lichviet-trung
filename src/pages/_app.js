@@ -19,15 +19,15 @@ import Router from "next/router";
 import { Provider } from "react-redux";
 import "../../public/fontawesome/css/all.css";
 
-Router.events.on("routeChangeStart", () => {
-  store.dispatch(setAppLoading(true));
-});
-Router.events.on("routeChangeComplete", () => {
-  store.dispatch(setAppLoading(false));
-});
-Router.events.on("routeChangeError", () => {
-  store.dispatch(setAppLoading(false));
-});
+// Router.events.on("routeChangeStart", () => {
+//   store.dispatch(setAppLoading(true));
+// });
+// Router.events.on("routeChangeComplete", () => {
+//   store.dispatch(setAppLoading(false));
+// });
+// Router.events.on("routeChangeError", () => {
+//   store.dispatch(setAppLoading(false));
+// });
 
 export default function App({ Component, pageProps }) {
   return (

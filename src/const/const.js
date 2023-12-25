@@ -133,7 +133,7 @@ export const appPages = {
     name: "thanSoHoc",
     vnName: "Thần số học",
     pathname: "than-so-hoc",
-    fullPathname: "/than-so-hoc/tra-cuu-than-so-hoc",
+    fullPathname: "/than-so-hoc/tra-cuu",
   },
   "giai-ma-chi-so": {
     name: "giaiMaChiSo",
@@ -193,3 +193,23 @@ export const appPages = {
 //   giaiMaNgaySinh: { name: "giaiMaNgaySinh", pathname: "giai-ma-ngay-sinh" },
 //   giaiDoanCuocDoi: { name: "giaiDoanCuocDoi", pathname: "4-giai-doan-dinh-cao-cuoc-doi" },
 // };
+
+export const monthOptions = [
+  { value: '01', label: 'Tháng 1' }, // January
+  { value: '02', label: 'Tháng 2' }, // February
+  { value: '03', label: 'Tháng 3' }, // March
+  { value: '04', label: 'Tháng 4' }, // April
+  { value: '05', label: 'Tháng 5' }, // May
+  { value: '06', label: 'Tháng 6' }, // June
+  { value: '07', label: 'Tháng 7' }, // July
+  { value: '08', label: 'Tháng 8' }, // August
+  { value: '09', label: 'Tháng 9' }, // September
+  { value: '10', label: 'Tháng 10' }, // October
+  { value: '11', label: 'Tháng 11' }, // November
+  { value: '12', label: 'Tháng 12' }, // December
+];
+
+export const dayOptions = Array.from({ length: 31 }, (v, k) => {
+  const day = (k + 1).toString().padStart(2, '0');
+  return { value: day, label: `Ngày ${day}` };
+});

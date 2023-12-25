@@ -4759,7 +4759,6 @@ svg {
   .banner .carousel-indicators {
     display: none;
   }
-
 }
 
 .font-18-bold {
@@ -4781,9 +4780,29 @@ svg {
     padding: 24px 24px 24px 24px;
   }
 
-  .img-chi-so-container{
+  .than-so-hoc-form .date-input-holder {
+    width: 100% !important;
+  }
+
+  .than-so-hoc-form .date-input-container {
+    flex-direction: column !important;
+    gap: 15px;
+  }
+
+  .img-chi-so-container {
     width: 240px !important;
   }
+}
+
+.than-so-hoc-form .date-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.than-so-hoc-form .date-input-holder {
+  width: 30%;
 }
 
 .than-so-hoc-form .ant-picker {
@@ -4870,6 +4889,7 @@ svg {
   line-height: 30px;
   text-transform: uppercase;
   color: #3f85fb;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -4956,4 +4976,21 @@ svg {
   animation-duration: 6000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+.ant-input-affix-wrapper {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.ant-row {
+  width: 100% !important;
+}
+
+.ant-col {
+  min-width: 100% !important;
+}
+
+.ant-input-prefix {
+  padding-right: 5px;
 }

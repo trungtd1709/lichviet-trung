@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 // import './posts.css';
 import { CallApiBackend } from "@/api/apiRequest";
@@ -7,52 +7,16 @@ import { FormThanSoHoc } from "@/components/Login/Form/FormThanSoHoc";
 import MetaHead from "@/components/MetaHead";
 import { OtherNews } from "@/components/OtherNews";
 import Widget from "@/components/Posts/widget";
-import { AuthContext } from "@/context/authContext";
-import { setAppLoading } from "@/redux/slices/appSlice";
-import {
-  setTshUser,
-  thunkGetGiaiDoanCuocDoiData,
-  thunkGetGiaiMaNgaySinhData,
-  thunkGetThanSoHocData,
-} from "@/redux/slices/thanSoHocSlice";
 import { getServerProps } from "@/shared/func";
-import {
-  dayjsObjToString,
-  getDayjsObj,
-  isDayjsDateValid
-} from "@/shared/utils";
-import { unwrapResult } from "@reduxjs/toolkit";
-import _ from "lodash";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
 
 const TraCuuThanSoHoc = (element) => {
   const { currentMetaData, topPosts } = element;
-  const dispatch = useDispatch();
-  const { userData, userLogout } = useContext(AuthContext);
-
   const [catePost, setCatePost] = useState(null);
-  const [loadLogin, setLoad] = useState(false);
-  const [name, setName] = useState(null);
-  const [birthday, setBirthday] = useState();
   const router = useRouter();
   const { category_child } = router.query;
   const [listPost, setListPost] = useState([]);
-  const [paginate, setPaginate] = useState([]);
   const [currenPage, setCurrenPage] = useState();
-  const [hot, setHot] = useState(null);
-
-  useEffect(() => {
-    if (!_.isEmpty(userData)) {
-      setName(userData?.full_name ?? null);
-      console.log(userData?.birthday);
-      const userDataBirthday = getDayjsObj(
-        userData?.birthday,
-        "YYYY-MM-DD HH:mm:ss"
-      );
-      setBirthday(userDataBirthday);
-    }
-  }, [userData]);
 
   const getPosts = useCallback((page = 0, changePage = 0, cateP = "") => {
     CallApiBackend(
@@ -63,90 +27,11 @@ const TraCuuThanSoHoc = (element) => {
       if (req.data.status === 1) {
         let data = req.data.data;
         if (data) {
-          if (Number(changePage) === 0) {
-            setHot(data.hot);
-            setPaginate(data.paginate);
-          }
           setListPost(data.list);
         }
       }
     });
   }, []);
-
-  const onChangeName = (e) => {
-    const { value } = e.target;
-    setName(value);
-  };
-
-  const onChangeBirthday = (date, dateString) => {
-    setBirthday(date);
-  };
-
-  const onBlurBirthday = (e) => {
-    const currentDate = e.target.value;
-    if (isDayjsDateValid(currentDate)) {
-      const birthdayValue = getDayjsObj(e.target.value);
-      setBirthday(birthdayValue);
-    } else {
-      setBirthday(null);
-    }
-  };
-
-  const submitThanSoHoc = async (e) => {
-    e.preventDefault(e);
-    console.log(birthday);
-    if (!name) {
-      alert("Bạn chưa nhập họ tên!");
-      return;
-    }
-    if (!birthday) {
-      alert("Bạn chưa nhập ngày sinh!");
-      return;
-    } else {
-      // setLoad(true);
-      dispatch(setAppLoading(true));
-      try {
-        const birthdayDate = dayjsObjToString(birthday);
-        const params = { name, birthday: birthdayDate };
-        // const giaiMaChiSoData = await getTSHTopics(params);
-        await dispatch(setTshUser(params));
-        const thanSoHocData = unwrapResult(
-          await dispatch(thunkGetThanSoHocData(params))
-        );
-        const giaiDoanCuocDoiData = unwrapResult(
-          await dispatch(thunkGetGiaiDoanCuocDoiData(params))
-        );
-        const giaiMaNgaySinhData = unwrapResult(
-          await dispatch(thunkGetGiaiMaNgaySinhData(params))
-        );
-        debugger;
-        if (
-          !_.isEmpty(thanSoHocData) &&
-          !_.isEmpty(giaiDoanCuocDoiData) &&
-          !_.isEmpty(giaiMaNgaySinhData)
-        ) {
-          router.push("/than-so-hoc/tra-cuu");
-        } else {
-          alert("Có lỗi khi lấy thông tin thần số học");
-        }
-        // const giaiMaNgaySinhData = await getTSHDetail({ ...params, type: "6" });
-        // const giaiDoanCuocDoiData = await getTSHDetail({
-        //   ...params,
-        //   type: "7",
-        // });
-        // setThanSoHocResult((prevData) => ({
-        //   ...prevData,
-        //   giaiMaChiSoData: giaiMaChiSoData,
-        //   giaiMaNgaySinhData: giaiMaNgaySinhData,
-        //   giaiDoanCuocDoiData: giaiDoanCuocDoiData,
-        // }));
-      } catch (err) {
-        console.log(err);
-      } finally {
-        dispatch(setAppLoading(false));
-      }
-    }
-  };
 
   useEffect(() => {
     // let cateP = category_child ?? element.category;
@@ -177,15 +62,15 @@ const TraCuuThanSoHoc = (element) => {
         </div>
         <div id={"blog-content"}>
           <div className={"list_page_iner"}>
-            <form onSubmit={submitThanSoHoc}>
-              <FormThanSoHoc
-                name={name}
-                onChangeName={onChangeName}
-                onChangeBirthday={onChangeBirthday}
-                birthday={birthday}
-                onBlurBirthday={onBlurBirthday}
-              />
-            </form>
+            {/* <form onSubmit={submitThanSoHoc}> */}
+            <FormThanSoHoc
+            // name={name}
+            // onChangeName={onChangeName}
+            // onChangeBirthday={onChangeBirthday}
+            // birthday={birthday}
+            // onBlurBirthday={onBlurBirthday}
+            />
+            {/* </form> */}
             {!listPost.length ? <></> : <OtherNews listPost={listPost} />}
           </div>
           <Widget topPosts={topPosts} context={element} />

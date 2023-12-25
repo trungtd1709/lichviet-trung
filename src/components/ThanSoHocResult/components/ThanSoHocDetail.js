@@ -28,7 +28,6 @@ const ThanSoHocDetail = (element) => {
 
   const currentPage = useMemo(() => {
     const { pathname } = router;
-    debugger;
     if (pathname.includes(appPages["giai-ma-chi-so"].pathname)) {
       return appPages["giai-ma-chi-so"].name;
     }

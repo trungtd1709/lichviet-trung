@@ -1,17 +1,167 @@
-import { DatePicker, Input } from "antd";
-import { useRef } from "react";
-import { InputGroup } from "react-bootstrap";
-import moment from "moment";
+import { CustomSelect } from "@/components/CustomSelect";
+import { dayOptions, monthOptions } from "@/const/const";
+import { AuthContext } from "@/context/authContext";
+import { setAppLoading } from "@/redux/slices/appSlice";
+import {
+  setTshUser,
+  thunkGetGiaiDoanCuocDoiData,
+  thunkGetGiaiMaNgaySinhData,
+  thunkGetThanSoHocData,
+} from "@/redux/slices/thanSoHocSlice";
+import { getDayjsObj, isDayjsDateValid } from "@/shared/utils";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { Form, Input } from "antd";
+import { useFormik } from "formik";
+import _ from "lodash";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useMemo } from "react";
+import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 
-export const FormThanSoHoc = ({
-  name,
-  birthday,
-  onChangeName,
-  onChangeBirthday,
-  onBlurBirthday,
-}) => {
-  const dateInputRef = useRef(null);
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    minHeight: "40px",
+    height: "40px",
+    padding: "0",
+  }),
+  valueContainer: (provided) => ({
+    ...provided,
+    height: "40px",
+    padding: "0 0 0 5px",
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    fontSize: "14px",
+  }),
+  input: (provided) => ({
+    ...provided,
+    margin: "0px",
+    display: "flex",
+    alignItems: "center",
+    // fontSize: '10px'
+  }),
+};
+
+export const FormThanSoHoc = ({}) => {
+  const { userData } = useContext(AuthContext);
+  const [form] = Form.useForm();
+  const router = useRouter();
+  const dispatch = useDispatch();
+  // const [name, setName] = useState(null);
+  // const [birthday, setBirthday] = useState();
   const dateFormat = "DD/MM/YYYY";
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Vui lòng nhập họ tên đầy đủ"),
+    year: Yup.string()
+      .required("Vui lòng nhập năm sinh")
+      .min(4, "Vui lòng nhập 4 ký tự")
+      .max(4, "Vui lòng nhập 4 ký tự"),
+  });
+
+  const userInfo = useMemo(() => {
+    if (!_.isEmpty(userData)) {
+      const userDataBirthday = getDayjsObj(
+        userData?.birthday,
+        "YYYY-MM-DD HH:mm:ss"
+      );
+      return {
+        name: userData?.full_name ?? "",
+        day: userDataBirthday.format("DD"),
+        month: userDataBirthday.format("MM"),
+        year: userDataBirthday.format("YYYY"),
+      };
+    }
+    return { name: "", day: "01", month: "01", year: "" };
+  }, [userData]);
+
+  const formik = useFormik({
+    initialValues: userInfo,
+    validationSchema,
+    enableReinitialize: true,
+    onSubmit: async (values) => {
+      const { name, day, month, year } = values;
+      const birthday = day + "/" + month + "/" + year;
+      await submitThanSoHoc({ name, birthday });
+    },
+  });
+
+  // useEffect(() => {
+  // if (!_.isEmpty(userData)) {
+  //   setName(userData?.full_name ?? null);
+  //   console.log(userData?.birthday);
+  //   const userDataBirthday = getDayjsObj(
+  //     userData?.birthday,
+  //     "YYYY-MM-DD HH:mm:ss"
+  //   );
+  //   setBirthday(userDataBirthday);
+  // }
+  // }, [userData]);
+
+  // const onChangeName = (e) => {
+  //   const { value } = e.target;
+  //   setName(value);
+  // };
+
+  // const onChangeBirthday = (date, dateString) => {
+  //   setBirthday(date);
+  // };
+
+  // const onBlurBirthday = (e) => {
+  //   const currentDate = e.target.value;
+  //   if (isDayjsDateValid(currentDate)) {
+  //     const birthdayValue = getDayjsObj(e.target.value);
+  //     setBirthday(birthdayValue);
+  //   } else {
+  //     setBirthday(null);
+  //   }
+  // };
+
+  const submitThanSoHoc = async (values) => {
+    const { name, birthday } = values;
+    console.log(birthday);
+    if (!name) {
+      alert("Bạn chưa nhập họ tên!");
+      return;
+    }
+    if (!birthday) {
+      alert("Bạn chưa nhập ngày sinh!");
+      return;
+    } else {
+      // setLoad(true);
+      dispatch(setAppLoading(true));
+      try {
+        // const birthdayDate = dayjsObjToString(birthday);
+        // const params = { name, birthday: birthdayDate };
+        // const giaiMaChiSoData = await getTSHTopics(params);
+        const params = values;
+        await dispatch(setTshUser(params));
+        const thanSoHocData = unwrapResult(
+          await dispatch(thunkGetThanSoHocData(params))
+        );
+        const giaiDoanCuocDoiData = unwrapResult(
+          await dispatch(thunkGetGiaiDoanCuocDoiData(params))
+        );
+        const giaiMaNgaySinhData = unwrapResult(
+          await dispatch(thunkGetGiaiMaNgaySinhData(params))
+        );
+        if (
+          !_.isEmpty(thanSoHocData) &&
+          !_.isEmpty(giaiDoanCuocDoiData) &&
+          !_.isEmpty(giaiMaNgaySinhData)
+        ) {
+          router.push("/than-so-hoc/tra-cuu");
+        } else {
+          alert("Có lỗi khi lấy thông tin thần số học");
+        }
+      } catch (err) {
+        console.log(err);
+      } finally {
+        dispatch(setAppLoading(false));
+      }
+    }
+  };
 
   return (
     <>
@@ -28,38 +178,138 @@ export const FormThanSoHoc = ({
         </svg>
         <h2 className="rs-title pl-md-2 pl-1">TRA CỨU THẦN SỐ HỌC CỦA BẠN</h2>
       </div>
-      <div
+      {/* <div
         className={"d-flex flex-column align-items-center than-so-hoc-form "}
-      >
-        <InputGroup className="mb-3">
+      > */}
+      {/* <InputGroup className="mb-3">
           <InputGroup.Text>
             <i style={{ color: "#3F85FB" }} className="fal fa-user"></i>
           </InputGroup.Text>
-          {/* <FormControl
-          className={"w-100"}
-          name={"username"}
-          onChange={setDataInput}
-          placeholder="Nhập họ tên đầy đủ"
-        /> */}
           <Input
             name="name"
             placeholder="Họ tên khai sinh (đầy đủ)"
             onChange={onChangeName}
             value={name}
           />
-        </InputGroup>
-        <InputGroup className="mb-3">
+        </InputGroup> */}
+
+      <div
+        className={"d-flex flex-column align-items-center than-so-hoc-form"}
+        style={{ gap: "10px" }}
+      >
+        <div className="d-flex flex-column w-100">
+          <Input
+            className="w-100"
+            prefix={<i style={{ color: "#3F85FB" }} className="fal fa-user" />}
+            placeholder="Họ tên khai sinh (đầy đủ)"
+            suffix={
+              <i
+                style={{ color: "#B8B8B8", cursor: "pointer" }}
+                className="fas fa-times-circle"
+                onClick={() => {
+                  formik.setFieldValue("name", "");
+                }}
+              />
+            }
+            value={formik.values.name}
+            onChange={(e) => {
+              const { value } = e.target;
+              formik.setFieldValue("name", value);
+            }}
+
+            // value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name ? (
+            <div style={{ color: "red", fontSize: "13px" }}>
+              {formik.errors.name}
+            </div>
+          ) : null}
+        </div>
+        {/* <Form.Item
+          className="w-100"
+          name="birthday"
+          rules={[
+            {
+              required: true,
+              message: "Vui lòng nhập ngày tháng năm sinh",
+            },
+          ]}
+        >
+          <Input
+            className="w-100"
+            prefix={
+              <i style={{ color: "#3F85FB" }} className="fal fa-calendar" />
+            }
+            placeholder="Nhập ngày tháng năm sinh (dương lịch)"
+          />
+        </Form.Item> */}{" "}
+        <div
+          className=" date-input-container"
+          style={{
+            marginBottom: "20px",
+            marginTop: "5px",
+            marginRight: "0",
+            marginLeft: "0",
+          }}
+        >
+          <div className="date-input-holder">
+            <CustomSelect
+              placeholder="Chọn ngày"
+              styles={customStyles}
+              options={dayOptions}
+              currentValue={formik.values.day}
+              onChange={(option) => {
+                const { value, label } = option;
+                formik.setFieldValue("day", value);
+              }}
+            />
+          </div>
+          <div className="date-input-holder">
+            <CustomSelect
+              placeholder="Chọn tháng"
+              styles={customStyles}
+              currentValue={formik.values.month}
+              options={monthOptions}
+              onChange={(option) => {
+                const { value, label } = option;
+                formik.setFieldValue("month", value);
+              }}
+            />
+          </div>
+          <div className="date-input-holder">
+            <Input
+              className="w-100"
+              type="number"
+              prefix={
+                <i style={{ color: "#3F85FB" }} className="fal fa-calendar" />
+              }
+              suffix={
+                <i
+                  style={{ color: "#B8B8B8", cursor: "pointer" }}
+                  className="fas fa-times-circle"
+                  onClick={() => {
+                    formik.setFieldValue("year", "");
+                  }}
+                />
+              }
+              placeholder="Nhập năm sinh (dương lịch)"
+              onChange={(e) => {
+                const { value } = e.target;
+                formik.setFieldValue("year", value);
+              }}
+              value={formik.values.year}
+            />
+            {formik.touched.year && formik.errors.year ? (
+              <div style={{ color: "red", fontSize: "13px" }}>
+                {formik.errors.year}
+              </div>
+            ) : null}
+          </div>
+        </div>
+        {/* <InputGroup className="mb-3">
           <InputGroup.Text>
             <i style={{ color: "#3F85FB" }} className="fal fa-calendar"></i>
           </InputGroup.Text>
-          {/* <FormControl
-          className={"w-100"}
-          name={"birthdate"}
-          onChange={setDataInput}
-          type="date"
-          placeholder=""
-          ref={dateInputRef}
-        /> */}
           <DatePicker
             className="w-100"
             name="birthday"
@@ -69,11 +319,16 @@ export const FormThanSoHoc = ({
             format={dateFormat}
             value={birthday ?? null}
           />
-        </InputGroup>
-        <button className="day-now d-block" style={{ padding: "" }}>
+        </InputGroup> */}
+        <button
+          className="day-now d-block"
+          style={{ padding: "" }}
+          onClick={formik.handleSubmit}
+        >
           Tra cứu ngay
         </button>
       </div>
+      {/* </div> */}
     </>
   );
 };

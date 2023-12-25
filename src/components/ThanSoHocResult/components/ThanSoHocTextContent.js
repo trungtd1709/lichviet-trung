@@ -1,7 +1,4 @@
-import { appPages } from "@/const/const";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
 
 export const ThanSoHocTextContent = (props) => {
   const { data } = props;
@@ -28,8 +25,15 @@ export const ThanSoHocTextContent = (props) => {
         return (
           <>
             {" "}
-            <div key={index} className="chi-tiet-than-so-hoc-title">{item?.title}</div>
-            <div className="chi-tiet-than-so-hoc-content">{item?.content}</div>
+            <div key={index} className="chi-tiet-than-so-hoc-title">
+              {item?.title}
+            </div>
+            <span
+              style={{ whiteSpace: "pre-wrap" }}
+              className="chi-tiet-than-so-hoc-content"
+            >
+              {item?.content}
+            </span>
           </>
         );
       })}

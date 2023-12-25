@@ -31,7 +31,7 @@ const Circle = (props) => {
     peakPosition,
     birthdayTitle,
     peakYearValue,
-    peakYearPositionRight = false
+    peakYearPositionRight = false,
   } = props;
   return (
     <div
@@ -53,8 +53,12 @@ const Circle = (props) => {
         )}
       </div>
       {birthdayTitle && <span className="peak-birthday">{birthdayTitle}</span>}
-      {peakYearValue && !peakYearPositionRight && <span className="peak-year">{peakYearValue}</span>}
-      {peakYearValue && peakYearPositionRight && <span className="peak-year-position-right">{peakYearValue}</span>}
+      {peakYearValue && !peakYearPositionRight && (
+        <span className="peak-year">{peakYearValue}</span>
+      )}
+      {peakYearValue && peakYearPositionRight && (
+        <span className="peak-year-position-right">{peakYearValue}</span>
+      )}
     </div>
   );
 };
@@ -153,8 +157,8 @@ export const SoDoGiaiDoanCuocDoi = (props) => {
             right: "-70px",
           }}
           className="ngay-sinh"
-          birthdayTitle={date?.title}
-          number={date?.number}
+          birthdayTitle={month?.title}
+          number={month?.number}
         />
         <Circle
           left={true}
@@ -172,8 +176,8 @@ export const SoDoGiaiDoanCuocDoi = (props) => {
             right: "-50px",
           }}
           className="ngay-sinh"
-          birthdayTitle={month?.title}
-          number={month?.number}
+          birthdayTitle={date?.title}
+          number={date?.number}
         />
         <Circle
           left={true}

@@ -32,19 +32,21 @@ const ConSo = (props) => {
   };
 
   return (
-    <div className="d-flex flex-column" style={{ gap: "15px", width: "100px" }}>
+    <div
+      className="d-flex flex-column"
+      style={{ gap: "15px", width: "100px", cursor: "pointer" }}
+      onClick={handleClickConso}
+    >
       <div
         className="position-relative d-flex justify-content-center align-items-center"
         style={{
           width: "100px",
           height: "100px",
-          cursor: "pointer",
           borderRadius: "8px",
           padding: "20px",
           background:
             "linear-gradient(180deg,#42dcb9 -2.42%,#27c9e4 24.21%, #79c5eb 79.67%,#e2d8ef 102.04%)",
         }}
-        onClick={handleClickConso}
       >
         <img
           style={{ position: "absolute", width: "70px" }}
