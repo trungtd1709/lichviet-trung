@@ -736,6 +736,12 @@ button:focus {
   margin-right: 10px;
 }
 
+#download-app-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 30px;
+}
+
 #download-app {
   display: flex;
   justify-content: space-evenly;
@@ -1891,7 +1897,19 @@ img.avatar {
   align-items: center;
 }
 
+#download-app-qr{
+  width: 150px;
+}
+
 @media screen and (max-width: 768px) {
+  #download-app-container {
+    flex-direction: column;
+  }
+
+  #download-app-qr {
+    width: 100px;
+  }
+
   .calendar-header {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -4993,4 +5011,11 @@ svg {
 
 .ant-input-prefix {
   padding-right: 5px;
+}
+
+.highlightText {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2470f2 !important;
+  white-space: nowrap;
 }

@@ -130,7 +130,7 @@ export const FormThanSoHoc = ({}) => {
       return;
     } else {
       // setLoad(true);
-      dispatch(setAppLoading(true));
+      // dispatch(setAppLoading(true));
       try {
         // const birthdayDate = dayjsObjToString(birthday);
         // const params = { name, birthday: birthdayDate };
@@ -158,7 +158,7 @@ export const FormThanSoHoc = ({}) => {
       } catch (err) {
         console.log(err);
       } finally {
-        dispatch(setAppLoading(false));
+        // dispatch(setAppLoading(false));
       }
     }
   };

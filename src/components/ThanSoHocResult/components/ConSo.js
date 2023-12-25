@@ -16,7 +16,7 @@ const ConSo = (props) => {
 
   const handleClickConso = async () => {
     const params = { ...tshUser, type };
-    dispatch(setAppLoading(true));
+    // dispatch(setAppLoading(true));
 
     try {
       // const resultAction = await dispatch(thunkGetConSoData(params));
@@ -27,7 +27,7 @@ const ConSo = (props) => {
     } catch (error) {
       console.error("Failed to get conSo data:", error);
     } finally {
-      dispatch(setAppLoading(false));
+      // dispatch(setAppLoading(false));
     }
   };
 
