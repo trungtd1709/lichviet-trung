@@ -16,5 +16,5 @@ export const imgSrc = {
   iconNotebook: "/images/icon_notebook.png",
   iconPlay: "/images/icon_play.png",
   backgroundFooterKbank: "/images/background_footer_kbank.png",
-  lichVietQr: "/images/LichVietQR.png",
+  lichVietQr: "/images/lich_viet_qr.png",
 };
