@@ -4,10 +4,16 @@ import IconQuoteMark from "../../../../public/icons/IconQuoteMark";
 import _ from "lodash";
 import { useContext } from "react";
 import { AuthContext } from "@/context/authContext";
+import { quoteArray } from "@/const/const";
 
 export const TongQuan = () => {
   const { tshUser } = useSelector((state) => state.thanSoHoc);
   const { userData } = useContext(AuthContext);
+
+  const getRandomQuote = () => {
+    const quote = quoteArray[Math.floor(Math.random() * quoteArray.length)];
+    return quote;
+  };
   return (
     <>
       {!_.isEmpty(tshUser) && (
@@ -24,7 +30,7 @@ export const TongQuan = () => {
               </div>
             )}
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column w-100">
             <div className="d-flex flex-row justify-content-between">
               <div className="d-flex flex-column" style={{ gap: "8px" }}>
                 <span className="personalInfo">{tshUser?.name}</span>
@@ -32,10 +38,7 @@ export const TongQuan = () => {
               </div>
               <IconQuoteMark />
             </div>
-            <span className="mt-3">
-              Mọi thành công đều cần một bắt đầu. Tự tin để mở đầu cho một thành
-              công sắp tới.
-            </span>
+            <span className="mt-3">{getRandomQuote()}</span>
           </div>
         </div>
       )}

@@ -195,21 +195,135 @@ export const appPages = {
 // };
 
 export const monthOptions = [
-  { value: '01', label: 'Tháng 1' }, // January
-  { value: '02', label: 'Tháng 2' }, // February
-  { value: '03', label: 'Tháng 3' }, // March
-  { value: '04', label: 'Tháng 4' }, // April
-  { value: '05', label: 'Tháng 5' }, // May
-  { value: '06', label: 'Tháng 6' }, // June
-  { value: '07', label: 'Tháng 7' }, // July
-  { value: '08', label: 'Tháng 8' }, // August
-  { value: '09', label: 'Tháng 9' }, // September
-  { value: '10', label: 'Tháng 10' }, // October
-  { value: '11', label: 'Tháng 11' }, // November
-  { value: '12', label: 'Tháng 12' }, // December
+  { value: "01", label: "Tháng 1" }, // January
+  { value: "02", label: "Tháng 2" }, // February
+  { value: "03", label: "Tháng 3" }, // March
+  { value: "04", label: "Tháng 4" }, // April
+  { value: "05", label: "Tháng 5" }, // May
+  { value: "06", label: "Tháng 6" }, // June
+  { value: "07", label: "Tháng 7" }, // July
+  { value: "08", label: "Tháng 8" }, // August
+  { value: "09", label: "Tháng 9" }, // September
+  { value: "10", label: "Tháng 10" }, // October
+  { value: "11", label: "Tháng 11" }, // November
+  { value: "12", label: "Tháng 12" }, // December
 ];
 
 export const dayOptions = Array.from({ length: 31 }, (v, k) => {
-  const day = (k + 1).toString().padStart(2, '0');
+  const day = (k + 1).toString().padStart(2, "0");
   return { value: day, label: `Ngày ${day}` };
 });
+
+// export const quoteArray = [
+//   "Khi bạn thành thật với chính mình, thế giới sẽ không ai lừa dối bạn.",
+//   "Mỗi một vết thương đều là một sự trưởng thành.",
+//   "Hiểu được người khác là khôn ngoan, hiểu được chính mình mới là thông tuệ.",
+//   "Nếu có điều gì đáng làm, hãy làm nó bằng tất cả trái tim.",
+//   "Bình yên đến từ bên trong. Đừng tìm nó bên ngoài.",
+//   "Người không biết yêu mình thì không thể yêu được người khác.",
+//   "Chân lý của nhân sinh chỉ là giấu trong cái bình thường đơn điệu.",
+//   "Hận thù người khác là một mất mát lớn nhất đối với chính mình."
+// ];
+
+export const quoteArray = [
+  "Khi bạn thành thật với chính mình, thế giới sẽ không ai lừa dối bạn.",
+  "Mỗi một vết thương đều là một sự trưởng thành.",
+  "Hiểu được người khác là khôn ngoan, hiểu được chính mình mới là thông tuệ.",
+  "Nếu có điều gì đáng làm, hãy làm nó bằng tất cả trái tim.",
+  "Bình yên đến từ bên trong. Đừng tìm nó bên ngoài.",
+  "Người không biết yêu mình thì không thể yêu được người khác.",
+  "Chân lý của nhân sinh chỉ là giấu trong cái bình thường đơn điệu.",
+  "Hận thù người khác là một mất mát lớn nhất đối với chính mình.",
+  "Cách tốt nhất để khởi đầu là ngừng nói và bắt đầu làm.",
+  "Nỗi sợ hãi sinh ra khi bạn ngồi chờ. Hành động là cách duy nhất để vượt qua nó.",
+  "Hãy làm những gì bạn có thể với tất cả những gì bạn có.",
+  "Sáng tạo là khi bạn cho phép trí thông minh được chơi đùa.",
+  "Đôi khi bạn chiến thắng nhưng đôi khi bạn cũng cần phải học hỏi.",
+  "Trốn tránh thất bại nghĩa là bạn đang bỏ qua sự tiến bộ.",
+  "Không có con đường nào dẫn đến hạnh phúc. Hạnh phúc chính là một con đường.",
+  "Bạn cần phải thay đổi theo cách bạn muốn để khám phá thế giới.",
+  "Dù cuộc sống có vần xoay thế nào, hãy sống thật tử tế.",
+  "Sức mạnh vĩ đại nhất mà nhân loại có trong tay chính là tình yêu.",
+  "Nếu cơ hội không gõ cửa nhà bạn, có nghĩa là nhà bạn chưa có cửa. Hãy gắn 1 cái.",
+  "Nếu bạn không tự xây ước mơ của mình thì người khác sẽ thuê bạn xây ước mơ của họ.",
+  "Hạnh phúc tối thượng của cuộc đời là có niềm tin rằng chúng ta được yêu thương.",
+  "Bạn sinh ra là một bản gốc, đừng chết như một bản sao.",
+  "Tương lai thuộc về người có năng lực. Hãy cố gắng giỏi, giỏi hơn và giỏi nhất.",
+  "Tôi biết ơn những người đã nói “KHÔNG” với tôi. Bởi nhờ họ, tôi đã tự mình làm điều đó.",
+  "Người có học thì mới có tiến bộ. Càng học thì sẽ càng tiến bộ.",
+  "Cuộc sống của bạn là do chính bạn quyết định.",
+  "Bạn hãy sống và thử thật nhiều điều mới mẻ, lo sợ chỉ làm bạn bước lùi đi mà thôi.",
+  "Khó khăn không trường tồn, chỉ có con người cứng rắn trường tồn.",
+  "Kiến thức là thứ trường tồn vĩnh viễn và khẳng định được giá trị của con người.",
+  "Những điều làm bạn sợ hãi đó chính là thứ phải học hỏi.",
+  "Học càng nhiều, con đường đi đến thành công càng ngắn.",
+  "Học tập là hạt giống của kiến thức còn kiến thức lại là mầm non của hạnh phúc.",
+  "Tri thức là tài sản lớn nhất mà bạn có thể đạt được.",
+  "Hãy tích cực lên, cuộc sống cũng như thời tiết có ngày nắng đẹp và có ngày mưa buồn.",
+  "Xóa tan nỗi buồn là khởi đầu cho một tương lai hạnh phúc.",
+  "Nụ cười của bạn đôi khi mang đến hy vọng cho người khác.",
+  "Bản lĩnh lớn nhất là biết đứng dậy sau khi vấp ngã.",
+  "Đừng nói câu “tôi không thể làm được” nếu như bạn chưa thử hết mọi cách.",
+  "Bước chân của bạn có thể đang rất đau nhưng hãy cứ đi tiếp vì thành quả sẽ rất ngọt.",
+  "Bạn không sinh ra để từ bỏ.",
+  "Không ai có thể cản thành công đến với bạn nếu bạn vẫn còn cố gắng.",
+  "Thành công không phải là đích đến mà là cả một quá trình.",
+  "Nếu bạn suy nghĩ quá nhiều về tương lai, có thể bạn sẽ quên mất hiện tại.",
+  "Đừng chờ đợi cho đến ngày mai, hãy bắt đầu từ ngày hôm nay.",
+  "Đừng mơ cuộc sống, hãy sống vì những ước mơ.",
+  "Mỗi ngày mới là một cơ hội để bắt đầu lại và sống tích cực hơn.",
+  "Hãy thắp sáng thế giới u tối bằng những ngọn nến lấp lánh của chính bạn.",
+  "Sống tích cực chưa bao giờ là muộn để bạn có thể bắt đầu 1 giấc mơ khác.",
+  "Học cách lờ đi mọi thứ là cách tốt nhất để có được cuộc sống an yên.",
+  "Chẳng có gì là đáng giá nếu bạn không cảm thấy mình hạnh phúc.",
+  "Hãy là chính mình, bình thường nhưng không hề tầm thường.",
+  "Gian nan vất vả cho ta lớn, thử thách gập ghềnh giúp ta khôn.",
+  "Chỉ khi sâu bướm nghĩ cuộc đời nó kết thúc, nó mới bắt đầu biến thành con bướm.",
+  "Người bi quan thấy khó khăn trong cơ hội, người lạc quan tìm thấy cơ hội trong khó khăn.",
+  "Không có sự thành công nào đáng giá mà không đi kèm với sự cố gắng và vượt qua.",
+  "Có người không dám bước qua vì sợ gãy chân, nhưng không bước khác nào chân đã gãy.",
+  "Những điều tốt nhất sẽ đến với ai không bỏ cuộc.",
+  "Đừng mong cuộc sống sẽ dễ dàng, hãy mong có đủ sức mạnh để vượt qua cuộc sống khó khăn.",
+  "Hôm nay khó khăn, ngày mai có thể khó khăn hơn nhưng ngày kia sẽ tuyệt vời.",
+  "Đừng bỏ cuộc. Sẽ luôn có một đỉnh cao sau mỗi thất bại.",
+  "Thành công không phải là chìa khóa để hạnh phúc. Hạnh phúc mới là chìa khóa để thành công.",
+  "Hãy là phiên bản tốt nhất của chính mình, không phải phiên bản sao của người khác.",
+  "Không có công việc nào quá khó nếu bạn chăm chỉ học hỏi và làm việc.",
+  "Hãy tin vào khả năng của bản thân. Bạn có thể làm những điều phi thường.",
+  "Hãy tạo ra cuộc sống mà bạn muốn sống. Đừng để người khác xác định giá trị của bạn.",
+  "Khi tin mình có thể, bạn đã đạt được một nửa thành công.",
+  "Hãy thúc đẩy bản thân, bởi vì không ai khác có thể làm điều đó cho bạn.",
+  "Thiết lập mục tiêu và nỗ lực thực hiện mỗi ngày là bí quyết để sống một cuộc đời đáng mơ ước.",
+  "Không bao giờ là quá muộn để bạn bắt đầu giấc mơ của cuộc đời mình.",
+  "Vấn đề không phải là bạn có bị hạ gục hay không, mà là bạn có đứng dậy hay không.",
+  "Đừng để ngày hôm qua ảnh hưởng quá nhiều đến ngày hôm nay.",
+  "Làm những điều bạn có thể làm với tất cả những gì bạn có, dù bạn đang ở đâu.",
+  "Bạn không cần phải tuyệt vời lúc bắt đầu, nhưng bạn phải bắt đầu một cách tuyệt vời.",
+  "Người có niềm tin vào bản thân mình sẽ có được lòng tin của người khác.",
+  "Biết điều đó là đúng mà không làm là do thiếu can đảm.",
+  "Cuộc sống giống như việc chụp ảnh. Bạn cần có những điểm mờ để tạo nên một bức hình đẹp.",
+  "Đừng lo lắng về thất bại, hãy lo về những cơ hội bạn bỏ lỡ khi bạn không hề cố gắng.",
+  "Để thành công, khao khát thành công của bạn phải lớn hơn nỗi sợ thất bại.",
+  "Sự trả thù tốt nhất là một thành công vĩ đại.",
+  "Bạn có thể tốt hơn và tốt hơn vào ngày mai, nên đừng dừng việc hoàn thiện bản thân mình.",
+  "Bạn quá trẻ để thế giới này hạ gục bạn.",
+  "Hãy tận hưởng từng khoảnh khắc và biến những giấc mơ của bạn thành hiện thực.",
+  "Rạng rỡ như ánh nắng mặt trời, hãy chiếm lĩnh ngày hôm nay với sự lạc quan và sức sống.",
+  "Hôm nay là một ngày mới để tận hưởng mọi khoảnh khắc và tràn đầy năng lượng tích cực.",
+  "Hãy yêu bản thân và coi mình là nguồn cảm hứng vĩ đại trong cuộc sống này.",
+  "Hãy sống mỗi ngày với đầy đủ niềm tin và đam mê. Bạn là tác giả của chính cuộc đời của mình.",
+  "Thành công không tự nhiên tìm đến với những ai chỉ nỗ lực một vài lần.",
+  "Muốn mua đồ mà không nhìn giá, hãy lao động mà không nhìn đồng hồ.",
+  "Kẻ chiến thắng không bao giờ bỏ cuộc, kẻ bỏ cuộc không bao giờ chiến thắng.",
+  "Cuộc sống là món quà, hãy sống nó với đầy đủ, tự tin và lòng biết ơn.",
+  "Mỗi khi có ý định muốn từ bỏ mọi thứ, hãy nghĩ đến lý do giúp bạn đi đến ngày hôm nay.",
+  "Nghị lực cùng sự kiên cường là hai điều kiện cần để vượt qua mọi thử thách.",
+  "Đừng để nỗi lo âu, muộn phiền của ngày hôm qua làm phai mờ vẻ đẹp của ngày hôm nay.",
+  "Tương lai được mua bằng sự nỗ lực ở hiện tại.",
+  "Hãy giữ khuôn mặt bạn luôn hướng về ánh mặt trời, và bóng tối sẽ ngả phía sau bạn.",
+  "Nếu bạn không thể là mặt trời thì cũng đừng làm một đám mây trôi lững lờ trên bầu trời vô định.",
+  "Chẳng có gì trở nên dễ dàng hơn. Chỉ là bạn trở nên mạnh mẽ hơn mà thôi.",
+  "Hãy nhìn ra thế giới xung quanh để bạn thấy rằng mình vẫn còn rất hạnh phúc so với những đau khổ.",
+  "Hãy tin tưởng vào chính mình, hãy mở rộng trái tim và để tâm hồn thể hiện tất cả.",
+  "Đừng bao giờ nói không thể bởi chưa ai từng nhìn thấy giới hạn của tiềm năng.",
+];
