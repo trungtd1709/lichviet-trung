@@ -92,18 +92,18 @@ const Footers = () => {
                       rel="noreferrer"
                       target={"_blank"}
                     >
-                      support@lichviet.app
+                     support@lichviet.org
                     </a>
                   </div>
                   <div className={"item"}>
                     <span style={{ fontWeight: 500 }}>Liên hệ hợp tác: </span>
                     <a
                       style={{ display: "inline-block" }}
-                      href="mailto:partner@lichviet.app"
+                      href="mailto:partner@lichviet.org"
                       rel="noreferrer"
                       target={"_blank"}
                     >
-                      partner@lichviet.app
+                      partner@lichviet.org
                     </a>
                   </div>
                 </div>

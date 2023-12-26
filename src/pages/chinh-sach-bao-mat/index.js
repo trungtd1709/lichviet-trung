@@ -1643,7 +1643,7 @@ const ChinhSachBM = () => {
                 Lịch Việt lưu giữ nội dung của Người Dùng trong khoảng thời gian
                 cần thiết để cung cấp dịch vụ của mình. Nếu Người Dùng muốn từ
                 chối dịch vụ hoặc xem lại hoặc xóa thông tin của mình, vui lòng
-                liên hệ với chúng tôi theo địa chỉ support@lichviet.app.
+                liên hệ với chúng tôi theo địa chỉsupport@lichviet.org.
               </span>
             </p>
             <p
@@ -1699,7 +1699,7 @@ const ChinhSachBM = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                - Địa chỉ email: support@lichviet.app
+                - Địa chỉ email:support@lichviet.org
               </span>
             </p>
             <p

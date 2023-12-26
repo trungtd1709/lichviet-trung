@@ -32,7 +32,7 @@ export const TongQuan = () => {
           </div>
           <div className="d-flex flex-column w-100">
             <div className="d-flex flex-row justify-content-between">
-              <div className="d-flex flex-column" style={{ gap: "8px" }}>
+              <div className="d-flex flex-column pt-1" style={{ gap: "8px" }}>
                 <span className="personalInfo">{tshUser?.name}</span>
                 <span className="personalInfo">{tshUser?.birthday}</span>
               </div>

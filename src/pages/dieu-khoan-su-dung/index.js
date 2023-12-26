@@ -384,7 +384,7 @@ const DieuKhoanSuDung = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  support@lichviet.app
+                 support@lichviet.org
                 </a>{" "}
                 và nêu rõ email bạn đã sử dụng để đăng ký tài khoản tại
                 lichviet.app. Ngoài ra, bạn có thể sử dụng biểu mẫu hủy sau đây:
@@ -438,7 +438,7 @@ const DieuKhoanSuDung = () => {
           </div>
           <ul>
             <li>
-              <div>Địa chỉ email support@lichviet.app</div>
+              <div>Địa chỉ emailsupport@lichviet.org</div>
             </li>
             <li>
               <div>

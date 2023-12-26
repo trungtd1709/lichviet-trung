@@ -187,7 +187,7 @@ const Contact = () => {
                       0766.002.689
                     </Link>
                   </div>
-                  <div className="widget col-md-5 col-6">
+                  {/* <div className="widget col-md-5 col-6">
                     <p className="style-text4 mb-1">E-mail</p>
                     <Link
                       href="mailto:lichviet@ppclink.com"
@@ -197,7 +197,7 @@ const Contact = () => {
                     >
                       lichviet@ppclink.com
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
                 <div className={"mt-1"}>
                   <iframe
