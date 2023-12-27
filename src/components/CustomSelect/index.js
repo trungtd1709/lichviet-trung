@@ -8,6 +8,10 @@ export const CustomSelect = (props) => {
   });
   return (
     <Select
+      components={{
+        // DropdownIndicator: () => null,
+        IndicatorSeparator: () => null,
+      }}
       value={value}
       {...props}
     />
