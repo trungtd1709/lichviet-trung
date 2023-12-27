@@ -30,6 +30,7 @@ export default function Info() {
           <img
             src="/images/bg-3.png"
             style={{ width: "100%", position: "relative" }}
+            alt="lich viet app"
           />
           {/* <img
             src="/images/icon.png"
