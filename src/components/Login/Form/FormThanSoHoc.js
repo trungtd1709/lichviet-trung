@@ -1,47 +1,23 @@
 import { CustomSelect } from "@/components/CustomSelect";
 import { dayOptions, monthOptions } from "@/const/const";
 import { AuthContext } from "@/context/authContext";
-import { setAppLoading } from "@/redux/slices/appSlice";
 import {
   setTshUser,
   thunkGetGiaiDoanCuocDoiData,
   thunkGetGiaiMaNgaySinhData,
   thunkGetThanSoHocData,
 } from "@/redux/slices/thanSoHocSlice";
-import { getDayjsObj, isDayjsDateValid } from "@/shared/utils";
+import { getDayjsObj } from "@/shared/utils";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { Form, Input } from "antd";
 import { useFormik } from "formik";
 import _ from "lodash";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import Select from "react-select";
 
-const customStyles = {
-  control: (provided) => ({
-    ...provided,
-    minHeight: "40px",
-    height: "40px",
-    padding: "0",
-  }),
-  valueContainer: (provided) => ({
-    ...provided,
-    height: "40px",
-    padding: "0 0 0 5px",
-  }),
-  singleValue: (provided) => ({
-    ...provided,
-    fontSize: "14px",
-  }),
-  input: (provided) => ({
-    ...provided,
-    margin: "0px",
-    display: "flex",
-    alignItems: "center",
-    // fontSize: '10px'
-  }),
-};
 
 export const FormThanSoHoc = ({}) => {
   const { userData } = useContext(AuthContext);
@@ -255,7 +231,6 @@ export const FormThanSoHoc = ({}) => {
           <div className="date-input-holder">
             <CustomSelect
               placeholder="Chọn ngày"
-              styles={customStyles}
               options={dayOptions}
               currentValue={formik.values.day}
               onChange={(option) => {
@@ -267,7 +242,6 @@ export const FormThanSoHoc = ({}) => {
           <div className="date-input-holder">
             <CustomSelect
               placeholder="Chọn tháng"
-              styles={customStyles}
               currentValue={formik.values.month}
               options={monthOptions}
               onChange={(option) => {
@@ -275,7 +249,11 @@ export const FormThanSoHoc = ({}) => {
                 formik.setFieldValue("month", value);
               }}
             />
+            
           </div>
+          {/* <div className="date-input-holder">
+            <Select />
+          </div> */}
           <div className="date-input-holder">
             <Input
               className="w-100"
