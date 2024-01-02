@@ -49,11 +49,12 @@ const Posts = (element) => {
   useEffect(() => {
     let cateP = category_child ?? element.category;
     let pageInfo = localStorage.getItem("PAGE_" + cateP) ?? 1;
-    if (pageInfo !== currenPage) {
+    // if (pageInfo !== currenPage) {
       setCurrenPage(pageInfo);
       setCatePost(cateP);
       getPosts(pageInfo, 0, cateP);
-    }
+    // }
+    debugger
   }, [category_child, element, getPosts]);
 
   const handlePageClick = (event) => {

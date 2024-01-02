@@ -90,7 +90,7 @@ const Footers = () => {
                       style={{ display: "inline-block" }}
                       href="mailto:support@lichviet.app"
                       rel="noreferrer"
-                      target={"_blank"}
+                      // target={"_blank"}
                     >
                      support@lichviet.org
                     </a>
@@ -101,7 +101,7 @@ const Footers = () => {
                       style={{ display: "inline-block" }}
                       href="mailto:partner@lichviet.org"
                       rel="noreferrer"
-                      target={"_blank"}
+                      // target={"_blank"}
                     >
                       partner@lichviet.org
                     </a>

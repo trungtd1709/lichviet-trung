@@ -381,7 +381,7 @@ const DieuKhoanSuDung = () => {
                 chúng tôi qua email theo địa chỉ{" "}
                 <a
                   href="mailto:support@lichviet.app"
-                  target="_blank"
+                  // target="_blank"
                   rel="noreferrer"
                 >
                  support@lichviet.org
