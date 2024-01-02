@@ -221,3 +221,19 @@ export const getTSHDetail = async (params) => {
     return [];
   }
 };
+
+export const getWeatherApi = async () => {
+  const url = "/json/weather";
+  const baseUrl = "http://test.api.lichviet.org/json/weather";
+  let params = {
+    cityName: ["Auto"],
+    deviceType: 1,
+  };
+
+  const res = await makePostRequest(params, url);
+  if (res) {
+    return res;
+  } else {
+    return {};
+  }
+};

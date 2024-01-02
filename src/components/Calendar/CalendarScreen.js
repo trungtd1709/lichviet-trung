@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Select from "react-select";
 // import TinhAmLich from "../../Ui/AmLich";
@@ -14,10 +14,30 @@ import TinhAmLich from "../Ui/AmLich";
 import IconWeather from "../../../public/icons/IconWeather";
 import IconMoon from "../../../public/icons/IconMoon";
 import IconSun from "../../../public/icons/IconSun";
+import { getWeatherApi } from "@/api/apiRequest";
+import _ from "lodash";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
 const CalendarScreen = () => {
+  const [weatherData, setWeatherData] = useState({});
+  useEffect(() => {
+    const getWeather = async () => {
+      try {
+        const response = await getWeatherApi();
+        if (!_.isEmpty(response)) {
+          console.log("[response]:", response);
+          const { list } = response[0];
+          console.log(list[0]);
+          setWeatherData(list[0]);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getWeather();
+  }, []);
+
   // tính năm nhuận
   function isLeap(year) {
     if (year % 4 || (year % 100 === 0 && year % 400)) return 0;
@@ -425,8 +445,11 @@ const CalendarScreen = () => {
                       <IconWeather />
                     </span>
                     <div className={"name-year"}>
-                      <p className={"temperature"}> 24 - 30°C </p>
-                      <p className={"name-y"}>Ấm</p>
+                      <p className={"temperature"}>
+                        {" "}
+                        {weatherData?.minTemp} - {weatherData?.maxTemp}°C{" "}
+                      </p>
+                      <p className={"name-y"}>{weatherData?.description}</p>
                     </div>
                   </div>
                 </div>
