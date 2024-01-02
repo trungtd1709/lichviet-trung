@@ -440,18 +440,20 @@ const CalendarScreen = () => {
                     Tháng {lichNgay.duong.m} năm {lichNgay.duong.y}
                   </p>
                   <div className={"day-cl"}>{lichNgay.duong.d}</div>
-                  <div className={"weather"}>
-                    <span>
-                      <IconWeather />
-                    </span>
-                    <div className={"name-year"}>
-                      <p className={"temperature"}>
-                        {" "}
-                        {weatherData?.minTemp} - {weatherData?.maxTemp}°C{" "}
-                      </p>
-                      <p className={"name-y"}>{weatherData?.description}</p>
+                  {!_.isEmpty(weatherData) && (
+                    <div className={"weather"}>
+                      <span>
+                        <IconWeather />
+                      </span>
+                      <div className={"name-year"}>
+                        <p className={"temperature"}>
+                          {" "}
+                          {weatherData?.minTemp} - {weatherData?.maxTemp}°C{" "}
+                        </p>
+                        <p className={"name-y"}>{weatherData?.description}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </Col>
               <Col md={6} className={"m-0 p-0"}>
