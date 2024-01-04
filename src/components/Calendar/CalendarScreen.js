@@ -176,6 +176,21 @@ const CalendarScreen = () => {
   };
   const [forcus, setForcus] = useState({});
 
+  const onMenuYearOpen = () => {
+    setTimeout(() => {
+      const selectedEl = document.getElementsByClassName(
+        "css-tr4s17-option"
+      )[0];
+      if (selectedEl) {
+        selectedEl.scrollIntoView({
+          behavior: "auto",
+          block: "center",
+          inline: "start",
+        });
+      }
+    }, 15);
+  };
+
   //event page
   const clickLichNgay = (i) => {
     let newDate = new Date(
@@ -677,6 +692,8 @@ const CalendarScreen = () => {
                   }}
                   components={{ IndicatorSeparator: null }}
                   value={valueSelectYear}
+                  onMenuOpen={onMenuYearOpen}
+                  // defaultValue={valueSelectYear}
                   onChange={(e) => onChangeSelect(e, 2)}
                 />
               </Col>
