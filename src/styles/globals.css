@@ -3922,6 +3922,11 @@ svg {
 }
 
 @media screen and (max-width: 547px) {
+  .weather {
+    flex-direction: column;
+  }
+
+
   .navbar {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -4453,7 +4458,8 @@ svg {
   }
 
   .name-year {
-    margin-left: 5px !important;
+    margin-left: 5px;
+    text-align: center;
   }
 
   .temperature {

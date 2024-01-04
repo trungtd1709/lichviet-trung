@@ -178,9 +178,8 @@ const CalendarScreen = () => {
 
   const onMenuYearOpen = () => {
     setTimeout(() => {
-      const selectedEl = document.getElementsByClassName(
-        "css-tr4s17-option"
-      )[0];
+      const selectedEl =
+        document.getElementsByClassName("css-tr4s17-option")[0];
       if (selectedEl) {
         selectedEl.scrollIntoView({
           behavior: "auto",
@@ -457,9 +456,7 @@ const CalendarScreen = () => {
                   <div className={"day-cl"}>{lichNgay.duong.d}</div>
                   {!_.isEmpty(weatherData) && (
                     <div className={"weather"}>
-                      <span>
-                        <IconWeather />
-                      </span>
+                      <IconWeather />
                       <div className={"name-year"}>
                         <p className={"temperature"}>
                           {" "}
