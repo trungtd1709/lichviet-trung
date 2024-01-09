@@ -17,4 +17,16 @@ export const imgSrc = {
   iconPlay: "/images/icon_play.png",
   backgroundFooterKbank: "/images/background_footer_kbank.png",
   lichVietQr: "/images/lich_viet_qr.png",
+  muaLichVietProBanner: "/images/mua_lich_viet_pro_banner.png",
+  nangCapChonNgayTot: "/images/nang_cap_chon_ngay_tot.png",
+  nangCapGiaiMaNgaySinh: "/images/nang_cap_giai_ma_ngay_sinh.png",
+  nangCapGieoQueHoiViec: "/images/nang_cap_gieo_que_hoi_viec.png",
+  nangCapTronBoLichViet: "/images/nang_cap_tron_bo_lich_viet.png",
+  nangCapXemNgayTotChuyenGia: "/images/nang_cap_xem_ngay_tot_chuyen_gia.png",
+  nangCapXemPhongThuy: "/images/nang_cap_xem_phong_thuy.png",
+  nangCapXemTuVi: "/images/nang_cap_xem_tu_vi.png",
+  nangCapXemTuViChuyenGia: "/images/nang_cap_xem_tu_vi_chuyen_gia.png",
+  contactLichVietProBoyBackground: "/images/contact_lich_viet_pro_boy_background.png",
+  contactLichVietProGirlBackground: "/images/contact_lich_viet_pro_girl_background.png",
+
 };

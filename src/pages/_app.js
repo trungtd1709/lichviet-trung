@@ -9,6 +9,7 @@ import "@/layout/Card/card.css";
 import "@/pages/chinh-sach-bao-mat/csbm.css";
 import "@/pages/mo-tai-khoan-tiet-kiem-sieu-lai-suat/kbank.css";
 import "@/styles/globals.css";
+import "@/components/Buttons/customButton.css";
 // import "bootstrap/dist/js/bootstrap.js";
 import Footers from "@/components/Footer";
 import { AppProvider } from "@/context/authContext";

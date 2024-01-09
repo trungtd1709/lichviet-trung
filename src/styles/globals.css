@@ -1897,7 +1897,7 @@ img.avatar {
   align-items: center;
 }
 
-#download-app-qr{
+#download-app-qr {
   width: 150px;
 }
 
@@ -3926,7 +3926,6 @@ svg {
     flex-direction: column;
   }
 
-
   .navbar {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -5025,3 +5024,23 @@ svg {
   color: #2470f2 !important;
   white-space: nowrap;
 }
+
+.img-lich-viet-pro-services {
+  width: 160px;
+  cursor: pointer;
+}
+
+.img-lich-viet-pro-services-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 10px 0px 20px 0px;
+  flex-wrap: wrap;
+}
+
+.nang-cap-pro-card {
+  padding: 20px 20% 20px 20%;
+}
+
+

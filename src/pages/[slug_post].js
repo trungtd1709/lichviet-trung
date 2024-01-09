@@ -1,8 +1,6 @@
 import { getPostDetail, getTopPosts } from "@/api/apiRequest";
 import PostsDetail from "@/components/Posts/detail";
 import { Inter } from "next/font/google";
-import Head from "next/head";
-import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
