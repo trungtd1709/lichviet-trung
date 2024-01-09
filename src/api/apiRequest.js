@@ -119,6 +119,7 @@ export const CallApiServerSide = (data, url, method, type = 1) => {
     // data: formData,
   });
   out.catch(function (error) {
+    console.log("[Error Call API Server Side]:", error);
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";

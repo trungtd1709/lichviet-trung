@@ -1,47 +1,37 @@
 import { imgSrc } from "@/const/AppResource";
+import { useRouter } from "next/router";
+
+const ImgLichVietProService = ({ src, onClick }) => {
+  return (
+    <img onClick={onClick} className="img-lich-viet-pro-services" src={src} />
+  );
+};
 
 export const LichVietProServices = () => {
+  const router = useRouter();
+
+  const moveRoute = (url) => {
+    router.push(url);
+  };
+
   return (
-    <div className="d-flex flex-column mt-5">
-      <span style={{ fontSize: "24px", fontWeight: "600", color: "#2F281E" }}>
-        Các gói Lịch Việt Pro
-      </span>
+    <div className="d-flex flex-column mt-4">
+      <span className="nang-cap-pro-title">Các gói Lịch Việt Pro</span>
       <div className="nang-cap-pro-card">
         <div className="img-lich-viet-pro-services-container">
-          <img
-            className="img-lich-viet-pro-services"
+          <ImgLichVietProService
             src={imgSrc.nangCapChonNgayTot}
+            onClick={() => {
+              moveRoute("/lich-van-nien/chon-ngay-tot");
+            }}
           />
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapXemNgayTotChuyenGia}
-          />
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapGiaiMaNgaySinh}
-          />
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapXemPhongThuy}
-          />
-        </div>
-        <div className="img-lich-viet-pro-services-container">
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapGieoQueHoiViec}
-          />
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapXemTuVi}
-          />
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapXemTuViChuyenGia}
-          />{" "}
-          <img
-            className="img-lich-viet-pro-services"
-            src={imgSrc.nangCapTronBoLichViet}
-          />
+          <ImgLichVietProService src={imgSrc.nangCapXemNgayTotChuyenGia} />
+          <ImgLichVietProService src={imgSrc.nangCapGiaiMaNgaySinh} />
+          <ImgLichVietProService src={imgSrc.nangCapXemPhongThuy} />
+          <ImgLichVietProService src={imgSrc.nangCapGieoQueHoiViec} />
+          <ImgLichVietProService src={imgSrc.nangCapXemTuVi} />
+          <ImgLichVietProService src={imgSrc.nangCapXemTuViChuyenGia} />
+          <ImgLichVietProService src={imgSrc.nangCapTronBoLichViet} />
         </div>
       </div>
     </div>

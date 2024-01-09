@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
 // import './posts.css';
 import Link from "next/link";
-import { useRouter } from "next/router";
 import MetaHead from "../MetaHead";
 import LoaderData from "../Ui/Loader";
 import Widget from "./widget";
@@ -12,9 +11,8 @@ const PostsDetail = (props) => {
   const postDetail = postData?.item ?? null;
   const postOther = postData?.other ?? null;
   const { item } = postData;
-  const { title, subtitle, image } = item;
+  // const { title, subtitle, image } = item;
 
-  const router = useRouter();
   // const [postDetail, setPostDetail] = useState(false);
   const [load, setLoad] = useState(false);
   // const [postOther, setPostOther] = useState(null);

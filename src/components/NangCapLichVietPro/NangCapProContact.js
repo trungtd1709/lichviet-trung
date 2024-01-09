@@ -4,10 +4,10 @@ import CustomButton from "../Buttons/CustomButton";
 export const NangCapProContact = () => {
   return (
     <div style={{}}>
-      <span style={{ fontSize: "24px", fontWeight: "600", color: "#2F281E" }}>
+      <span className="nang-cap-pro-title">
         Quý khách cần hỗ trợ?
       </span>
-      <div className=" nang-cap-pro-card">
+      <div className="nang-cap-pro-card">
         <div
           className="d-flex flex-column"
           style={{
@@ -38,12 +38,12 @@ export const NangCapProContact = () => {
           <div className="d-flex flex-column align-items-center mt-2">
             <div
               className="form-group"
-              style={{ height: "40px", width: "330px" }}
+              // style={{ height: "40px", width: "330px" }}
             >
               <label htmlFor="phone" className="placeholder-input">
                 <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
                 <p className="text-placeholder" id={"phone-hidden-input"}>
-                  Số điện thoại <span className="text-red">*</span>
+                  Số điện thoại
                 </p>
               </label>
               <input
@@ -61,18 +61,18 @@ export const NangCapProContact = () => {
               text="KÍCH HOẠT"
               color="white"
               showBorder={false}
-              width="160px"
+              width="150px"
               background="linear-gradient(0deg, #64994D -27.61%, #028042 100%)"
             />
           </div>
           <div className="d-flex flex-row justify-content-between">
             <img
               src={imgSrc.contactLichVietProBoyBackground}
-              style={{ width: "40%" }}
+              style={{ width: "45%" }}
             />
             <img
               src={imgSrc.contactLichVietProGirlBackground}
-              style={{ width: "50%" }}
+              style={{ width: "54%" }}
             />
           </div>
         </div>
