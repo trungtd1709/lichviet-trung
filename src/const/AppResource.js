@@ -38,10 +38,13 @@ export const imgSrc = {
   chonNgayTotBanner6: `/images/chon_ngay_tot_banner_6.png`,
   chonNgayTotBanner7: `/images/chon_ngay_tot_banner_7.png`,
   chonNgayTotVideoTitle: `/images/chon_ngay_tot_video_title.png`,
-
   imgChuyenGia: `/images/img_chuyen_gia.png`,
   quyTrinhChamSocKhachHang: `/images/quy_trinh_cham_soc_khach_hang.png`,
   iconPhone: `/images/icon_phone.png`,
   iconZalo: `/images/icon_zalo.png`,
   imgUuDaiContactChuyenGia: `/images/img_uu_dai_contact_chuyen_gia.png`,
+  iconGoiBaThang: `/images/img_goi_3_thang.png`,
+  iconGoiSauThang: `/images/img_goi_6_thang.png`,
+  iconGoiMotNam: `/images/img_goi_1_nam.png`,
+
 };
