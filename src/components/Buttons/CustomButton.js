@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 CustomButton.propTypes = {
   marginLeft: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  background: PropTypes.string,
   borderColor: PropTypes.string,
   borderRadius: PropTypes.string,
   color: PropTypes.string,
@@ -18,11 +18,16 @@ CustomButton.propTypes = {
   fontSize: PropTypes.string,
   loading: PropTypes.bool,
   spinnerColorClassName: PropTypes.string,
+  imgSrc: PropTypes.string,
+  textClassName: PropTypes.string,
+  paddingLeft: PropTypes.string,
+  paddingRight: PropTypes.string,
+  backgroundColor: PropTypes.string,
 };
 
 CustomButton.defaultProps = {
   marginLeft: "",
-  backgroundColor: "white",
+  background: "white",
   borderColor: "#304FFD",
   borderRadius: "4px",
   height: "38px",
@@ -32,6 +37,10 @@ CustomButton.defaultProps = {
   fontSize: "14px",
   loading: false,
   spinnerColorClassName: "text-dark",
+  imgSrc: "",
+  textClassName: "",
+  paddingLeft: "8px",
+  paddingRight: "8px",
 };
 
 function CustomButton(props) {
@@ -48,13 +57,16 @@ function CustomButton(props) {
     disabled,
     backgroundColor,
     spinnerColorClassName,
+    imgSrc,
+    textClassName,
+    padding,
   } = props;
   return (
     <button
       // {...props}
       disabled={loading ? disabled : false}
       id={id}
-      className={`custom-button ${className} font-sfpro-regular `}
+      className={`custom-button ${className} d-flex flex-row justify-content-center align-items-center`}
       onClick={onClick}
       style={{
         ...props,
@@ -81,8 +93,9 @@ function CustomButton(props) {
           className={icon}
         ></i>
       )}
+      {imgSrc && <img src={imgSrc} />}
       <span
-        className="text-truncate"
+        className={`text-truncate ${" "} ${textClassName}`}
         title={props.text}
         style={{ fontWeight: "500", fontSize: fontSize }}
       >

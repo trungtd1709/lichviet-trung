@@ -1,0 +1,184 @@
+.chon-ngay-tot-container {
+  margin-top: 30px;
+  padding-left: 20%;
+  padding-right: 20%;
+
+  .chon-ngay-tot-video-block {
+    padding: 20px 0 20px 0 !important;
+  }
+
+  .chon-ngay-tot-block{
+    padding: 20px 5% 20px 5% !important;
+  }
+
+  .video-container {
+    background-color: #a6b573;
+    padding: 8px;
+    margin-top: 20px;
+    border-radius: 6px;
+    width: 60%;
+    height: 400px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .video-block-title {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+    margin-top: 0;
+
+    .chon-ngay-tot-video-block {
+      padding: 10px 0 10px 0 !important;
+    }
+
+    .video-block-title {
+      width: 60%;
+    }
+
+    .video-container {
+      padding: 6px;
+      margin-top: 10px;
+      border-radius: 6px;
+      width: 80%;
+      height: 140px;
+    }
+  }
+
+  .xem-ngay-tot-cung-chuyen-gia {
+    border-top: 1px solid #ccc;
+    background: linear-gradient(180deg, #fbfff6 0%, #faffef 100%);
+
+    // @media (max-width: 768px) {
+    //   gap: 8px;
+    // }
+
+    .img-chuyen-gia {
+      width: 15%;
+
+      @media (max-width: 768px) {
+        width: 22%;
+      }
+    }
+
+    .contact-chuyen-gia-container {
+      width: 55%;
+      gap: 8px;
+
+      button {
+        height: 55px !important;
+        padding: 10px 12px 10px 12px !important;
+      }
+
+      img {
+        height: 80% !important;
+      }
+
+      .contact-button-container {
+        gap: 20px;
+
+        @media (max-width: 768px) {
+          gap: 6px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        width: 60%;
+        gap: 3px;
+
+        button {
+          height: 25px !important;
+          padding: 5px 4px 5px 4px !important;
+        }
+
+        img {
+          height: 100% !important;
+        }
+      }
+    }
+
+    .xem-ngay-tot-cung-chuyen-gia-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-top: 10px;
+      padding: 10px 30px 10px 30px;
+      width: 80%;
+      background-color: #e1f8c0;
+
+      .img-uu-dai-contact-chuyen-gia {
+        width: 45%;
+      }
+
+      .send-phone-container {
+        width: 50%;
+      }
+
+      .form-group {
+        height: 40px;
+        margin-bottom: 12px;
+      }
+
+      button {
+        width: 170px;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+
+        width: 100%;
+        padding: 5px 10px 5px 10px;
+
+        .form-group {
+          width: 100%;
+          height: 32px;
+          margin-bottom: 12px;
+        }
+
+        .img-uu-dai-contact-chuyen-gia {
+          width: 60%;
+        }
+
+        .send-phone-container {
+          margin-top: 8px;
+          height: 32px;
+
+          width: 100%;
+          gap: 8px;
+
+          button {
+            height: 29px !important;
+            width: 120px;
+          }
+
+          .input-edit {
+            padding-left: 22px;
+            color: #2f281e;
+            height: 30px !important;
+          }
+
+          .input-edit::placeholder {
+            color: #787878;
+            font-family: "Mulish", sans-serif !important;
+            font-size: 12px;
+          }
+        }
+
+        .form-group {
+          height: 32px !important;
+          margin-bottom: 0px;
+          i {
+            font-size: 10px;
+          }
+        }
+
+        .placeholder-input {
+          left: 8px;
+        }
+      }
+    }
+  }
+}

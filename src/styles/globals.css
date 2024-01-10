@@ -2386,10 +2386,9 @@ table#calendar-day {
   width: 100%;
 }
 
-
 .input-edit {
   border: 1px solid #ced4da;
-  padding-left: 52px;
+  padding-left: 40px;
   color: #2f281e;
   width: 100%;
   height: 100%;
@@ -4805,11 +4804,11 @@ svg {
     padding: 10px !important;
   }
 
-  .nang-cap-pro-card .form-group{
+  .nang-cap-pro-card .form-group {
     width: 100% !important;
   }
 
-  .nang-cap-pro-title{
+  .nang-cap-pro-title {
     font-size: 20px !important;
   }
 
@@ -5069,7 +5068,7 @@ svg {
   color: #2f281e;
 }
 
-.nang-cap-pro-card .form-group{
+.nang-cap-pro-card .form-group {
   width: 330px;
   height: 40px;
 }

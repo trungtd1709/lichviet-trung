@@ -8,15 +8,16 @@ import "@/components/Title/title.css";
 import "@/layout/Card/card.css";
 import "@/pages/chinh-sach-bao-mat/csbm.css";
 import "@/pages/mo-tai-khoan-tiet-kiem-sieu-lai-suat/kbank.css";
+import "@/styles/chonNgayTot.scss";
+import "@/styles/fonts.scss";
 import "@/styles/globals.css";
+
 import "@/components/Buttons/customButton.css";
 // import "bootstrap/dist/js/bootstrap.js";
 import Footers from "@/components/Footer";
 import { AppProvider } from "@/context/authContext";
 import store from "@/redux/AppStore";
-import { setAppLoading } from "@/redux/slices/appSlice";
 import "bootstrap/dist/css/bootstrap.css";
-import Router from "next/router";
 import { Provider } from "react-redux";
 import "../../public/fontawesome/css/all.css";
 
