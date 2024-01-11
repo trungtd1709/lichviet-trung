@@ -43,8 +43,8 @@ export const imgSrc = {
   iconPhone: `/images/icon_phone.png`,
   iconZalo: `/images/icon_zalo.png`,
   imgUuDaiContactChuyenGia: `/images/img_uu_dai_contact_chuyen_gia.png`,
-  iconGoiBaThang: `/images/img_goi_3_thang.png`,
-  iconGoiSauThang: `/images/img_goi_6_thang.png`,
-  iconGoiMotNam: `/images/img_goi_1_nam.png`,
+  imgGoiBaThang: `/images/img_goi_3_thang.png`,
+  imgGoiSauThang: `/images/img_goi_6_thang.png`,
+  imgGoiMotNam: `/images/img_goi_1_nam.png`,
 
 };

@@ -1,3 +1,4 @@
+import { ChonGoiPro } from "@/components/ChonNgayTot/ChonGoiPro";
 import { ContactChuyenGia } from "@/components/ChonNgayTot/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
@@ -81,11 +82,15 @@ export default function Home({}) {
           imgSrc={imgSrc.chonNgayTotBanner5}
           showBorderTop={true}
         />
-        <ChonNgayTotBlock
+        {/* <ChonNgayTotBlock
           imgSrc={imgSrc.chonNgayTotBanner6}
           background="linear-gradient(180deg, #FBFFF6 0%, #FAFFEF 100%)"
           showBorderTop={true}
-        />
+        /> */}
+
+        <ChonGoiPro />
+
+        {/* ưu đãi đi kèm */}
         <ChonNgayTotBlock
           imgSrc={imgSrc.chonNgayTotBanner7}
           addtionalStyle={{ paddingBottom: "15px" }}
