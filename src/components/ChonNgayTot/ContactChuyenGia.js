@@ -25,7 +25,7 @@ export const ContactChuyenGia = () => {
             style={{ color: "#606241" }}
           >
             Nếu bạn cần xem ngày gấp hoặc muốn nghe tư vấn trực tiếp, đăng ký
-            ngay dịch vụ "Xem ngày tốt 1-1 cùng chuyên gia" qua 2 hình thức:
+            ngay dịch vụ &quot;Xem ngày tốt 1-1 cùng chuyên gia&quot; qua 2 hình thức:
           </span>
           <div className="d-flex flex-row contact-button-container">
             <CustomButton
