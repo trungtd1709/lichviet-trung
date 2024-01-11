@@ -9,6 +9,8 @@ import IconCrown from "../../../public/icons/IconCrown";
 import LoginPC from "./layout/LoginPC";
 import { useSelector } from "react-redux";
 import LoaderData from "../Ui/Loader";
+import { getLoggedUserData } from "@/shared/utils";
+import _ from "lodash";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
@@ -166,7 +168,12 @@ const Header = () => {
           <Nav className={"button-nav align-items-end"}>
             <div className="align-items-center d-flex">
               <Link
-                href="/kich-hoat-pro"
+                // href="/kich-hoat-pro"
+                href={
+                  _.isEmpty(getLoggedUserData())
+                    ? "/login"
+                    : "/lich-van-nien/nang-cap-lich-viet-pro"
+                }
                 className={"button-active-pro hidden-xs"}
               >
                 <span
@@ -207,7 +214,7 @@ const Header = () => {
                     data-href={item.link.replace("/", "")}
                     className="nav-link pr-0 pl-0"
                   >
-                    <span  className="pr-0 pl-0">{item.name}</span>
+                    <span className="pr-0 pl-0">{item.name}</span>
                   </Link>
                 ) : (
                   <>

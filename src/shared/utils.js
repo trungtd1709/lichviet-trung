@@ -41,3 +41,14 @@ export const findConSoByEnName = (enName) => {
 
   return foundConSo || null;
 };
+
+export const getLoggedUserData = () => {
+  if (typeof window !== "undefined") {
+    if (localStorage.getItem("user")) {
+      return localStorage.getItem("user");
+    } else {
+      return {};
+    }
+  }
+  return {};
+};

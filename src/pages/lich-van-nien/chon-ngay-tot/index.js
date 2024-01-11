@@ -2,13 +2,10 @@ import { ChonGoiPro } from "@/components/ChonNgayTot/ChonGoiPro";
 import { ContactChuyenGia } from "@/components/ChonNgayTot/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
-import { Container } from "react-bootstrap";
+import useAuth from "@/shared/customHooks/useAuth";
 
 const sharedStyle = {
   background: "#FDF9EE",
-  // paddingLeft: "5%",
-  // paddingRight: "5%",
-  // paddingTop: "10px",
 };
 
 const ChonNgayTotBlock = ({
@@ -66,7 +63,8 @@ const ChonNgayTotVideoBlock = ({ background }) => {
   );
 };
 
-export default function Home({}) {
+export default function ChonNgayTot({}) {
+  const { user } = useAuth();
   return (
     <>
       <MetaHead />
