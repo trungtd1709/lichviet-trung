@@ -1,4 +1,6 @@
+import Link from "next/link";
 import CustomButton from "../Buttons/CustomButton";
+import { useRouter } from "next/router";
 
 const { imgSrc } = require("@/const/AppResource");
 
@@ -7,6 +9,7 @@ const ImgChonGoi = ({ imgSrc }) => {
 };
 
 export const ChonGoiPro = () => {
+  const router = useRouter();
   return (
     <div
       className="chon-ngay-tot-block d-flex flex-column"
@@ -51,6 +54,36 @@ export const ChonGoiPro = () => {
       >
         Xem hướng dẫn tại đây
       </span>
+      <div className="d-flex flex-row justify-content-between">
+        <span
+          onClick={() => {
+            router.push("/dieu-khoan-su-dung");
+          }}
+          className="mulish pc-16px normal"
+          style={{
+            color: "#239A2F",
+            textAlign: "center",
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+        >
+          Điều khoản sử dụng
+        </span>
+        <span
+          className="mulish pc-16px normal"
+          style={{
+            color: "#239A2F",
+            textAlign: "center",
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            router.push("/chinh-sach-bao-mat");
+          }}
+        >
+          Chính sách bảo mật
+        </span>
+      </div>
     </div>
   );
 };
