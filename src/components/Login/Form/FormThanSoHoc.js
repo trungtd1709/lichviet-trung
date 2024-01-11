@@ -1,4 +1,5 @@
 import { CustomSelect } from "@/components/CustomSelect";
+import CustomInput from "@/components/Input/CustomInput";
 import { dayOptions, monthOptions } from "@/const/const";
 import { AuthContext } from "@/context/authContext";
 import {
@@ -9,19 +10,16 @@ import {
 } from "@/redux/slices/thanSoHocSlice";
 import { getDayjsObj } from "@/shared/utils";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { Form, Input } from "antd";
+import { Input } from "antd";
 import { useFormik } from "formik";
 import _ from "lodash";
 import { useRouter } from "next/router";
 import { useContext, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import Select from "react-select";
-
 
 export const FormThanSoHoc = ({}) => {
   const { userData } = useContext(AuthContext);
-  const [form] = Form.useForm();
   const router = useRouter();
   const dispatch = useDispatch();
   // const [name, setName] = useState(null);
@@ -174,7 +172,7 @@ export const FormThanSoHoc = ({}) => {
         style={{ gap: "10px" }}
       >
         <div className="d-flex flex-column w-100">
-          <Input
+          {/* <Input
             className="w-100"
             prefix={<i style={{ color: "#3F85FB" }} className="fal fa-user" />}
             placeholder="Họ tên khai sinh (đầy đủ)"
@@ -193,32 +191,30 @@ export const FormThanSoHoc = ({}) => {
               formik.setFieldValue("name", value);
             }}
 
-            // value={formik.values.name}
           />
           {formik.touched.name && formik.errors.name ? (
             <div style={{ color: "red", fontSize: "13px" }}>
               {formik.errors.name}
             </div>
-          ) : null}
-        </div>
-        {/* <Form.Item
-          className="w-100"
-          name="birthday"
-          rules={[
-            {
-              required: true,
-              message: "Vui lòng nhập ngày tháng năm sinh",
-            },
-          ]}
-        >
-          <Input
-            className="w-100"
-            prefix={
-              <i style={{ color: "#3F85FB" }} className="fal fa-calendar" />
+          ) : null} */}
+          <CustomInput
+            placeholder="Họ tên khai sinh (đầy đủ)"
+            prefix={<i style={{ color: "#3F85FB" }} className="fal fa-user" />}
+            suffix={
+              <i
+                style={{ color: "#B8B8B8", cursor: "pointer" }}
+                className="fas fa-times-circle"
+                onClick={() => {
+                  formik.setFieldValue("name", "");
+                }}
+              />
             }
-            placeholder="Nhập ngày tháng năm sinh (dương lịch)"
+            fieldMeta={formik.getFieldMeta("name")}
+            fieldHelper={formik.getFieldHelpers("name")}
+            fieldProps={formik.getFieldProps("name")}
           />
-        </Form.Item> */}{" "}
+        </div>
+
         <div
           className=" date-input-container"
           style={{
@@ -249,13 +245,12 @@ export const FormThanSoHoc = ({}) => {
                 formik.setFieldValue("month", value);
               }}
             />
-            
           </div>
           {/* <div className="date-input-holder">
             <Select />
           </div> */}
           <div className="date-input-holder">
-            <Input
+            {/* <Input
               className="w-100"
               type="number"
               prefix={
@@ -281,7 +276,26 @@ export const FormThanSoHoc = ({}) => {
               <div style={{ color: "red", fontSize: "13px" }}>
                 {formik.errors.year}
               </div>
-            ) : null}
+            ) : null} */}
+            <CustomInput
+              type="number"
+              placeholder="Nhập năm sinh (dương lịch)"
+              prefix={
+                <i style={{ color: "#3F85FB" }} className="fal fa-calendar" />
+              }
+              suffix={
+                <i
+                  style={{ color: "#B8B8B8", cursor: "pointer" }}
+                  className="fas fa-times-circle"
+                  onClick={() => {
+                    formik.setFieldValue("year", "");
+                  }}
+                />
+              }
+              fieldMeta={formik.getFieldMeta("year")}
+              fieldHelper={formik.getFieldHelpers("year")}
+              fieldProps={formik.getFieldProps("year")}
+            />
           </div>
         </div>
         {/* <InputGroup className="mb-3">

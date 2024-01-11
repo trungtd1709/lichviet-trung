@@ -1,12 +1,28 @@
 import { imgSrc } from "@/const/AppResource";
 import CustomButton from "../Buttons/CustomButton";
+import CustomInput from "../Input/CustomInput";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export const NangCapProContact = () => {
+  const validationSchema = Yup.object().shape({
+    phone: Yup.string()
+      .required("Vui lòng nhập số điện thoại")
+      .matches(/^[0-9]+$/, "Số điện thoại chỉ được chứa các số")
+      .min(10, "Số điện thoại không hợp lệ")
+      .max(10, "Số điện thoại không hợp lệ"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      phone: "",
+    },
+    validationSchema,
+    enableReinitialize: true,
+    onSubmit: async (values) => {},
+  });
   return (
     <div style={{}}>
-      <span className="nang-cap-pro-title">
-        Quý khách cần hỗ trợ?
-      </span>
+      <span className="nang-cap-pro-title">Quý khách cần hỗ trợ?</span>
       <div className="nang-cap-pro-card">
         <div
           className="d-flex flex-column"
@@ -37,10 +53,10 @@ export const NangCapProContact = () => {
           </span>
           <div className="d-flex flex-column align-items-center mt-2">
             <div
-              className="form-group"
+              className="input-container"
               // style={{ height: "40px", width: "330px" }}
             >
-              <label htmlFor="phone" className="placeholder-input">
+              {/* <label htmlFor="phone" className="placeholder-input">
                 <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
                 <p className="text-placeholder" id={"phone-hidden-input"}>
                   Số điện thoại
@@ -53,6 +69,28 @@ export const NangCapProContact = () => {
                 id="phone"
                 className="input-edit"
                 required
+              /> */}
+              <CustomInput
+                className="h-100"
+                placeholder="Số điện thoại"
+                prefix={
+                  <i
+                    className="fas fa-phone-alt"
+                    style={{ color: "#35C03C" }}
+                  />
+                }
+                suffix={
+                  <i
+                    style={{ color: "#B8B8B8", cursor: "pointer" }}
+                    className="fas fa-times-circle"
+                    onClick={() => {
+                      formik.setFieldValue("phone", "");
+                    }}
+                  />
+                }
+                fieldMeta={formik.getFieldMeta("phone")}
+                fieldHelper={formik.getFieldHelpers("phone")}
+                fieldProps={formik.getFieldProps("phone")}
               />
             </div>
             <CustomButton

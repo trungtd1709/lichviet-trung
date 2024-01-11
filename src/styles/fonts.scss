@@ -57,6 +57,19 @@
   font-weight: 800 !important;
 }
 
+.pc-12px {
+  font-size: 12px !important;
+  line-height: normal;
+
+  // @media (max-width: 768px) {
+  //   font-size: 10px !important;
+  // }
+
+  // @media (max-width: 576px) {
+  //   font-size: 8px !important;
+  // }
+}
+
 .pc-16px {
   font-size: 16px !important;
 

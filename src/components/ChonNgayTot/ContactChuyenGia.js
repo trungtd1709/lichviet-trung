@@ -1,8 +1,26 @@
 import CustomButton from "../Buttons/CustomButton";
-
+import CustomInput from "../Input/CustomInput";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 const { imgSrc } = require("@/const/AppResource");
 
 export const ContactChuyenGia = () => {
+  const validationSchema = Yup.object().shape({
+    phone: Yup.string()
+      .required("Vui lòng nhập số điện thoại")
+      .matches(/^[0-9]+$/, "Số điện thoại chỉ được chứa các số")
+      .min(10, "Số điện thoại không hợp lệ")
+      .max(10, "Số điện thoại không hợp lệ"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      phone: "",
+    },
+    validationSchema,
+    enableReinitialize: true,
+    onSubmit: async (values) => {},
+  });
+
   return (
     <div className="d-flex flex-column align-items-center chon-ngay-tot-video-block xem-ngay-tot-cung-chuyen-gia">
       <div className="d-flex flex-row justify-content-center ">
@@ -25,7 +43,8 @@ export const ContactChuyenGia = () => {
             style={{ color: "#606241" }}
           >
             Nếu bạn cần xem ngày gấp hoặc muốn nghe tư vấn trực tiếp, đăng ký
-            ngay dịch vụ &quot;Xem ngày tốt 1-1 cùng chuyên gia&quot; qua 2 hình thức:
+            ngay dịch vụ &quot;Xem ngày tốt 1-1 cùng chuyên gia&quot; qua 2 hình
+            thức:
           </span>
           <div className="d-flex flex-row contact-button-container">
             <CustomButton
@@ -62,19 +81,37 @@ export const ContactChuyenGia = () => {
           className="col-md-6 px-0"
           src={imgSrc.imgUuDaiContactChuyenGia}
         />
-        <div className="send-phone-container col-md-6 d-flex flex-row align-items-center justify-content-center flex-md-column">
-          <div className="form-group">
-            <label htmlFor="phone" className="placeholder-input">
+        <div className="send-phone-container col-md-6 d-flex flex-row align-items-md-center align-items-start justify-content-center flex-md-column">
+          <div className="input-container">
+            {/* <label htmlFor="phone" className="placeholder-input">
               <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
             </label>
             <input
-              //   onChange={InputHiddenPlaceholder}
               type="text"
               name="phone"
               id="phone"
               className="input-edit"
               required
               placeholder="Nhập số điện thoại"
+            /> */}
+            <CustomInput
+              className="h-100"
+              placeholder="Nhập số điện thoại"
+              prefix={
+                <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
+              }
+              suffix={
+                <i
+                  style={{ color: "#B8B8B8", cursor: "pointer" }}
+                  className="fas fa-times-circle"
+                  onClick={() => {
+                    formik.setFieldValue("phone", "");
+                  }}
+                />
+              }
+              fieldMeta={formik.getFieldMeta("phone")}
+              fieldHelper={formik.getFieldHelpers("phone")}
+              fieldProps={formik.getFieldProps("phone")}
             />
           </div>
           <CustomButton
