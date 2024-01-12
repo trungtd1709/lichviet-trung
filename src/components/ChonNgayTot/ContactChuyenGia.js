@@ -1,3 +1,4 @@
+import { postPremiumAddOrder } from "@/api/apiRequest";
 import CustomButton from "../Buttons/CustomButton";
 import CustomInput from "../Input/CustomInput";
 import { useFormik } from "formik";
@@ -12,13 +13,18 @@ export const ContactChuyenGia = () => {
       .min(10, "Số điện thoại không hợp lệ")
       .max(10, "Số điện thoại không hợp lệ"),
   });
+
   const formik = useFormik({
     initialValues: {
       phone: "",
     },
     validationSchema,
     enableReinitialize: true,
-    onSubmit: async (values) => {},
+    onSubmit: async (values) => {
+      const { phone } = values;
+      const response = await postPremiumAddOrder({ phone });
+      console.log(response);
+    },
   });
 
   return (
@@ -83,17 +89,6 @@ export const ContactChuyenGia = () => {
         />
         <div className="send-phone-container col-md-6 d-flex flex-row align-items-md-center align-items-start justify-content-center flex-md-column">
           <div className="input-container">
-            {/* <label htmlFor="phone" className="placeholder-input">
-              <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
-            </label>
-            <input
-              type="text"
-              name="phone"
-              id="phone"
-              className="input-edit"
-              required
-              placeholder="Nhập số điện thoại"
-            /> */}
             <CustomInput
               className="h-100"
               placeholder="Nhập số điện thoại"
@@ -113,6 +108,17 @@ export const ContactChuyenGia = () => {
               fieldHelper={formik.getFieldHelpers("phone")}
               fieldProps={formik.getFieldProps("phone")}
             />
+            {/* <label htmlFor="phone" className="placeholder-input">
+              <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
+            </label>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              className="input-edit"
+              required
+              placeholder="Nhập số điện thoại"
+            /> */}
           </div>
           <CustomButton
             background="linear-gradient(0deg, #64994D -27.61%, #028042 100%)"
@@ -121,6 +127,7 @@ export const ContactChuyenGia = () => {
             color="white"
             textClassName="mulish pc-16px bold"
             height="34px"
+            onClick={formik.handleSubmit}
           />
         </div>
       </div>

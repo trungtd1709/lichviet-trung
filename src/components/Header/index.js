@@ -12,7 +12,7 @@ import LoaderData from "../Ui/Loader";
 import { getLoggedUserData } from "@/shared/utils";
 import _ from "lodash";
 
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 
 const MenuTabBar = [
   {

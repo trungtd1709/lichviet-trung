@@ -1,5 +1,5 @@
 import React from "react";
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE
 export default function AvatarUser({size,avatar,premium,sizePremium=35}){
     return (
         <div className="position-relative d-inline">

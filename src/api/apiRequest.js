@@ -25,9 +25,9 @@ export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
     localStorage.setItem("device_id", device_id);
   }
   let headers = {
-    apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
+    // apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
     accept: "application/json",
-    "device-id": device_id,
+    device_id: device_id,
   };
   let formData = new FormData();
 
@@ -237,4 +237,31 @@ export const getWeatherApi = async () => {
   } else {
     return {};
   }
+};
+
+export const fetchServicesList = async () => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
+  const res = await CallApiBackend(
+    { platform: "1" },
+    "/services/list",
+    "POST",
+    1,
+    baseUrl
+  );
+  console.log("[res]:", res.data.status === 1);
+  if (res?.data?.status === 1) {
+    console.log(res.data.data);
+    return res.data.data;
+  } else {
+    return [];
+  }
+};
+
+export const postPremiumAddOrder = async ({ phone }) => {
+  const res = await CallApiBackend(
+    { phone, features_id: "9" },
+    "/premium/addorder",
+    "POST"
+  );
+  return res;
 };

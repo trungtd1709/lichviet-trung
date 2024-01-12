@@ -3,6 +3,7 @@ import CustomButton from "../Buttons/CustomButton";
 import CustomInput from "../Input/CustomInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { postPremiumAddOrder } from "@/api/apiRequest";
 
 export const NangCapProContact = () => {
   const validationSchema = Yup.object().shape({
@@ -12,13 +13,21 @@ export const NangCapProContact = () => {
       .min(10, "Số điện thoại không hợp lệ")
       .max(10, "Số điện thoại không hợp lệ"),
   });
+
+  const sendPhoneContact = ({ phone }) => {
+    const res = postPremiumAddOrder({ phone });
+    console.log("[postPremiumAddOrderRES]:", res);
+  };
+
   const formik = useFormik({
     initialValues: {
       phone: "",
     },
     validationSchema,
     enableReinitialize: true,
-    onSubmit: async (values) => {},
+    onSubmit: async (values) => {
+      sendPhoneContact(values);
+    },
   });
   return (
     <div style={{}}>
@@ -56,23 +65,9 @@ export const NangCapProContact = () => {
               className="input-container"
               // style={{ height: "40px", width: "330px" }}
             >
-              {/* <label htmlFor="phone" className="placeholder-input">
-                <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
-                <p className="text-placeholder" id={"phone-hidden-input"}>
-                  Số điện thoại
-                </p>
-              </label>
-              <input
-                //   onChange={InputHiddenPlaceholder}
-                type="text"
-                name="phone"
-                id="phone"
-                className="input-edit"
-                required
-              /> */}
               <CustomInput
                 className="h-100"
-                placeholder="Số điện thoại"
+                placeholder="Nhập số điện thoại"
                 prefix={
                   <i
                     className="fas fa-phone-alt"
@@ -92,6 +87,20 @@ export const NangCapProContact = () => {
                 fieldHelper={formik.getFieldHelpers("phone")}
                 fieldProps={formik.getFieldProps("phone")}
               />
+              {/* <label htmlFor="phone" className="placeholder-input">
+                <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
+                <p className="text-placeholder" id={"phone-hidden-input"}>
+                  Số điện thoại
+                </p>
+              </label>
+              <input
+                //   onChange={InputHiddenPlaceholder}
+                type="text"
+                name="phone"
+                id="phone"
+                className="input-edit"
+                required
+              /> */}
             </div>
             <CustomButton
               className="mt-2"

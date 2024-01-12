@@ -52,3 +52,12 @@ export const getLoggedUserData = () => {
   }
   return {};
 };
+
+/**
+ * Dinh dang number: 100.300,345
+ * @param {number} iNumber So can dinh dang
+ * @returns
+ */
+export const formatNumber = (iNumber) => {
+  return new Intl.NumberFormat("de-DE").format(parseFloat(iNumber));
+};

@@ -1,14 +1,21 @@
-import { imgSrc } from "@/const/AppResource";
+import { fetchServicesList } from "@/api/apiRequest";
 import { useRouter } from "next/router";
-
-const ImgLichVietProService = ({ src, onClick }) => {
-  return (
-    <img onClick={onClick} className="img-lich-viet-pro-services" src={src} />
-  );
-};
+import { useEffect, useState } from "react";
 
 export const LichVietProServices = () => {
   const router = useRouter();
+  const baseUrlImg = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+
+  const [proServicesData, setProServicesData] = useState([]);
+
+  useEffect(() => {
+    const getServicesList = async () => {
+      const data = await fetchServicesList();
+      console.log("[data]:", data);
+      setProServicesData(data);
+    };
+    getServicesList();
+  }, []);
 
   const moveRoute = (url) => {
     router.push(url);
@@ -19,19 +26,19 @@ export const LichVietProServices = () => {
       <span className="nang-cap-pro-title">Các gói Lịch Việt Pro</span>
       <div className="nang-cap-pro-card">
         <div className="img-lich-viet-pro-services-container">
-          <ImgLichVietProService
-            src={imgSrc.nangCapChonNgayTot}
-            onClick={() => {
-              moveRoute("/lich-van-nien/chon-ngay-tot");
-            }}
-          />
-          <ImgLichVietProService src={imgSrc.nangCapXemNgayTotChuyenGia} />
-          <ImgLichVietProService src={imgSrc.nangCapGiaiMaNgaySinh} />
-          <ImgLichVietProService src={imgSrc.nangCapXemPhongThuy} />
-          <ImgLichVietProService src={imgSrc.nangCapGieoQueHoiViec} />
-          <ImgLichVietProService src={imgSrc.nangCapXemTuVi} />
-          <ImgLichVietProService src={imgSrc.nangCapXemTuViChuyenGia} />
-          <ImgLichVietProService src={imgSrc.nangCapTronBoLichViet} />
+          {proServicesData.map((proService, index) => {
+            const { icon } = proService;
+            return (
+              <img
+                key={index}
+                className="img-lich-viet-pro-services"
+                src={baseUrlImg + icon}
+                onClick={() => {
+                  moveRoute("/lich-van-nien/chon-ngay-tot");
+                }}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

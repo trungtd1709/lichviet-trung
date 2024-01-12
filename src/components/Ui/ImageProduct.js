@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Col, Row } from "react-bootstrap";
 
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 const arr = [
   "ỨNG DỤNG LỊCH VẠN NIÊN 2024 PHỔ BIẾN, ĐẦY ĐỦ NHẤT",
   "TRANG CHỦ THÂN THIỆN, TRỰC QUAN, HIỆN ĐẠI",

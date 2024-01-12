@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 // import LoaderData from "../Ui/Loader";
 
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 const Contact = () => {
   const [modalIsOpen, setmodalIsOpen] = useState(false);
   const [load, setLoad] = useState(false);

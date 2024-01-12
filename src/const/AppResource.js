@@ -46,5 +46,5 @@ export const imgSrc = {
   imgGoiBaThang: `/images/img_goi_3_thang.png`,
   imgGoiSauThang: `/images/img_goi_6_thang.png`,
   imgGoiMotNam: `/images/img_goi_1_nam.png`,
-
+  imgPaymentSuccessBackground: `/images/img_payment_success_background.png`,
 };

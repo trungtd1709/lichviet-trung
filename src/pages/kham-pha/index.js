@@ -3,7 +3,7 @@ import Slider from "@/components/Ui/Slider";
 import Link from "next/link";
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 
 const KhamPha = () => {
   const arr = [

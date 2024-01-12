@@ -13,7 +13,7 @@ import { imgSrc } from "@/const/AppResource";
 import { AuthContext } from "@/context/authContext";
 import MetaHead from "../MetaHead";
 
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 const ZALO_APP_ID = process.env.NEXT_PUBLIC_ZALO_APP_ID;
 const ZALO_CALLBACK_URL = process.env.NEXT_PUBLIC_ZALO_CALLBACK_URL;
 const APPLE_CLIENT_ID = process.env.NEXT_PUBLIC_APPLE_CLIENT_ID;

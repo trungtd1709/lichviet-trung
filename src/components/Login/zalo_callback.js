@@ -7,7 +7,7 @@ import Popup from "../Ui/Popup";
 import { CallApi, CallApiBackend } from "@/api/apiRequest";
 // import {AuthContext} from "../../Context/AuthContext";
 
-const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 const ZALO_APP_ID = process.env.NEXT_PUBLIC_ZALO_APP_ID
 const ZALO_CALLBACK_URL = process.env.NEXT_PUBLIC_ZALO_CALLBACK_URL
 const ZALO_SECRET_KEY = process.env.NEXT_PUBLIC_ZALO_SECRET_KEY

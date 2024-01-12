@@ -11,6 +11,8 @@ import "@/pages/mo-tai-khoan-tiet-kiem-sieu-lai-suat/kbank.css";
 import "@/styles/chonNgayTot.scss";
 import "@/styles/fonts.scss";
 import "@/styles/globals.css";
+import "@/styles/global.scss";
+import "@/components/Modal/modal-after-payment.scss";
 
 import "@/components/Buttons/customButton.css";
 // import "bootstrap/dist/js/bootstrap.js";

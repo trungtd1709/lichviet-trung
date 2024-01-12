@@ -1,0 +1,21 @@
+.modal-after-payment {
+  .modal-dialog {
+    min-width: 700px;
+  }
+
+  .modal-content{
+    padding: 32px;
+
+    .service-info-container{
+      gap: 12px;
+
+      .after-payment-background{
+        width: 170px;
+      }
+    }
+
+    .image-purchase{
+      width: 170px;
+    }
+  }
+}

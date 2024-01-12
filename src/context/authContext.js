@@ -20,7 +20,7 @@ export const AppProvider = ({children}) => {
                 }else if (link){
                     return link;
                 }
-                const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_BASE_URL_IMAGE
+                const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE
                 return BASE_URL_IMAGE + "/images/icon/default-profile.png";
             }
             let dataLocal = data;
