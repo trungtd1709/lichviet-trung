@@ -6,11 +6,16 @@ import { isEmpty } from "lodash";
 import { getLoggedUserData } from "@/shared/utils";
 import ModalAfterPayment from "../Modal/ModalAfterPayment";
 import { useState } from "react";
+import axios from "axios";
+import { apiListServicesReponseExample } from "@/const/const";
 
 const { imgSrc } = require("@/const/AppResource");
 
 export const ChonGoiPro = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [cacGoiNgayTot, SetCacGoiNgayTot] = useState(
+    apiListServicesReponseExample.data[0].premiumTypes
+  );
   const router = useRouter();
 
   const createPaymentTransaction = (premiumTypeId) => {
@@ -18,10 +23,13 @@ export const ChonGoiPro = () => {
       window.localStorage.setItem("link_redirect", "/mua-goi");
       router.push("/login");
     } else {
+      const user = getLoggedUserData();
+      const { token_login } = user;
+      console.log(token_login);
       if (premiumTypeId) {
         CallApiBackend(
-          { premium_type_id: premiumTypeId, channel: "onepay" },
-          "/payment/create_transaction",
+          { premium_type_id: premiumTypeId, channel: "onepay", token_login },
+          "/api/payment/create_transaction",
           "POST",
           true
         ).then(function (response) {
@@ -35,14 +43,14 @@ export const ChonGoiPro = () => {
     }
   };
 
-  const ImgChonGoi = ({ imgSrc }) => {
+  const ImgChonGoi = ({ imgSrc, premium_type_id }) => {
     return (
       <img
         className="col-4"
         src={imgSrc}
         style={{ cursor: "pointer" }}
         onClick={() => {
-          createPaymentTransaction("1");
+          createPaymentTransaction(premium_type_id);
         }}
       />
     );
@@ -50,7 +58,7 @@ export const ChonGoiPro = () => {
 
   return (
     <>
-      <ModalAfterPayment show={modalShow} />
+      <ModalAfterPayment show={modalShow} setShow={setModalShow}  />
       <button
         onClick={() => {
           setModalShow(true);
@@ -80,9 +88,14 @@ export const ChonGoiPro = () => {
           SỐ LƯỢNG CÓ HẠN
         </span>
         <div className="d-flex flex-row mt-2">
-          <ImgChonGoi imgSrc={imgSrc.imgGoiBaThang} />
-          <ImgChonGoi imgSrc={imgSrc.imgGoiSauThang} />
-          <ImgChonGoi imgSrc={imgSrc.imgGoiMotNam} />
+          {cacGoiNgayTot.map((goi, key) => {
+            const { id, image_purchased, image_nopurchase } = goi;
+            const baseImgUrl = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+            const imgUrl = baseImgUrl + image_nopurchase;
+            return (
+              <ImgChonGoi key={key} premium_type_id={id} imgSrc={imgUrl} />
+            );
+          })}
         </div>
         <span
           className="mulish pc-16px normal mt-3"

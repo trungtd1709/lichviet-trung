@@ -33,6 +33,41 @@
   src: url("/fonts/Mulish/static/Mulish-ExtraBold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SF UI Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/SF_UI_Display/SFUIText-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/SF_UI_Display/SFUIText-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/SF_UI_Display/SFUIText-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/SF_UI_Display/SFUIText-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/SF_UI_Display/SFUIText-Heavy.ttf") format("truetype");
+}
+
 .mulish {
   font-family: "Mulish", sans-serif !important;
 }
@@ -59,7 +94,7 @@
 
 .pc-12px {
   font-size: 12px !important;
-  line-height: normal;
+  line-height: 16px;
 
   // @media (max-width: 768px) {
   //   font-size: 10px !important;
@@ -72,24 +107,40 @@
 
 .pc-16px {
   font-size: 16px !important;
+  line-height: 21px;
 
   @media (max-width: 768px) {
     font-size: 12px !important;
+    line-height: 16px;
   }
 
   @media (max-width: 576px) {
     font-size: 8px !important;
+    line-height: 13px;
+  }
+}
+
+.pc-18px {
+  font-size: 18px !important;
+  line-height: 23px;
+
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+    line-height: 18px;
   }
 }
 
 .pc-20px {
   font-size: 20px !important;
+  line-height: 27px;
 
   @media (max-width: 768px) {
     font-size: 12px !important;
+    line-height: 16px;
   }
 
   @media (max-width: 576px) {
     font-size: 10px !important;
+    line-height: 14px;
   }
 }

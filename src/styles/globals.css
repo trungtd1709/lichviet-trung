@@ -2274,23 +2274,23 @@ table#calendar-day {
   margin-bottom: 0;
 }
 
-.modal-content .thank-kiu {
+.modal-send-contact-success .modal-content .thank-kiu {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
 }
 
-.modal-content .lh {
+.modal-send-contact-success .modal-content .lh {
   font-size: 14px;
   text-align: center;
   margin: 18px 0;
 }
 
-.modal-content {
+.modal-send-contact-success .modal-content {
   padding: 50px 20px;
 }
 
-.modal-content button {
+.modal-send-contact-success .modal-content button {
   border: none;
   display: inline;
   width: 120px;

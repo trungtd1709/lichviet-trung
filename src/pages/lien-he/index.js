@@ -216,9 +216,10 @@ const Contact = () => {
         </div>
       </div>
       <Modal
-        show={modalIsOpen}
+        show={true}
         onHide={closeModal}
         aria-labelledby="contained-modal-title-vcenter"
+        className="modal-send-contact-success"
         centered
       >
         <Modal.Body>

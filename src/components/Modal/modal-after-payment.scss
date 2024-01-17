@@ -1,21 +1,23 @@
 .modal-after-payment {
   .modal-dialog {
-    min-width: 700px;
+    min-width: 770px;
   }
 
-  .modal-content{
+  .modal-content {
     padding: 32px;
 
-    .service-info-container{
+    .service-info-container {
       gap: 12px;
 
-      .after-payment-background{
+      .img-after-payment-background {
         width: 170px;
       }
     }
 
-    .image-purchase{
+    .image-purchase-container {
+      color: #333;
       width: 170px;
+      gap: 3px;
     }
   }
 }

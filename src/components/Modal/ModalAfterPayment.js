@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import CustomButton from "../Buttons/CustomButton";
 
 function ModalAfterPayment(props) {
-  const { show, handleClose } = props;
+  const { show, setShow } = props;
   const baseUrlImg = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
 
   const proServiceData = {
@@ -48,62 +48,102 @@ function ModalAfterPayment(props) {
     img_width_promote_purchased: null,
   };
 
+  const handleClose = () => {
+    setShow(false);
+  };
+
   return (
-    <Modal className="modal-after-payment" show={show} onHide={handleClose}>
+    <Modal
+      className="modal-after-payment"
+      show={show}
+      onHide={handleClose}
+      centered
+    >
       <div
         className="pc-18px bold"
-        style={{ textAlign: "center", textTransform: "uppercase" }}
+        style={{
+          textAlign: "center",
+          textTransform: "uppercase",
+          marginBottom: "40px",
+        }}
       >
-        Modal title
+        ĐĂNG KÝ DỊCH VỤ THÀNH CÔNG
       </div>
-      <div className="d-flex flex-row justify-content-between">
+      <div className="d-flex flex-row justify-content-between w-100">
         <div
           className="d-flex flex-column service-info-container"
           // style={{ gap: "5px", color: "#000" }}
         >
           <div>
-            Mã đăng ký: <span className="bold">LV1683175647309</span>
+            Mã đăng ký: <span className="semi-bold">LV1683175647309</span>
           </div>
           <div>
-            Gói dịch vụ: <span className="bold">{proServiceData.name}</span>
+            Gói dịch vụ:{" "}
+            <span className="semi-bold">{proServiceData.name}</span>
           </div>
           <div>
             Giá dịch vụ:{" "}
-            <span className="bold">{formatNumber(proServiceData.price)}</span>
+            <span className="semi-bold">
+              {formatNumber(proServiceData.price)}
+            </span>
           </div>
           <div>
-            Hạn sử dụng: <span className="bold">{}</span>
+            Hạn sử dụng: <span className="semi-bold">{}</span>
           </div>
           <div>
-            Hình thức thanh toán: <span className="bold">ONEPAY</span>
+            Hình thức thanh toán: <span className="semi-bold">ONEPAY</span>
           </div>
           <div>
             Trạng thái thanh toán:{" "}
-            <span className="bold" style={{ color: "#27BE84" }}>
+            <span className="semi-bold" style={{ color: "#27BE84" }}>
               Thành công
             </span>
           </div>
           <img
-            className="after-payment-background"
+            className="img-after-payment-background"
             src={imgSrc.imgPaymentSuccessBackground}
           />
         </div>
-        <div className="d-flex flex-column align-items-end flex-grow-1" style={{ width: "170px" }}>
-          <img className="image-purchase" src={baseUrlImg + proServiceData.image_purchased} />
-          <span className="regular">{formatNumber(proServiceData.price)}</span>
-          <span className="regular">Chọn ngày tốt</span>
-          <span className="regular">99.000</span>
-          <div className="d-flex flex-row w-100">
+        <div
+          className="d-flex flex-column align-items-end flex-grow-1"
+          style={{ gap: "8px" }}
+        >
+          <div className="d-flex flex-column image-purchase-container">
+            <img
+              className="image-purchase"
+              src={baseUrlImg + proServiceData.image_purchased}
+            />
+            <span className="semi-bold pc-20px mt-2">
+              {formatNumber(proServiceData.price)}
+            </span>
+
+            <span className="semi-bold pc-16px">Chọn ngày tốt</span>
+            <span className="regular pc-14px">Thời hạn gói: 3 tháng</span>
+          </div>
+          <div className="d-flex flex-row mt-4" style={{ gap: "40px" }}>
             <CustomButton
               borderRadius="4px"
               background="#35C03C"
               showBorder={false}
-              // width="150px"
+              width="200px"
               // paddingLeft="20px"
               // paddingRight="20px"
               height="40px"
               color="white"
-              text="XEM GÓI KHÁC"
+              text="QUAY LẠI TRANG CHỦ"
+              onClick={handleClose}
+            />
+            <CustomButton
+              borderRadius="4px"
+              background="#35C03C"
+              showBorder={false}
+              width="200px"
+              // paddingLeft="20px"
+              // paddingRight="20px"
+              height="40px"
+              color="white"
+              text="SỬ DỤNG NGAY"
+              onClick={handleClose}
             />
           </div>
         </div>

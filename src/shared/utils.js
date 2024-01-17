@@ -45,7 +45,7 @@ export const findConSoByEnName = (enName) => {
 export const getLoggedUserData = () => {
   if (typeof window !== "undefined") {
     if (localStorage.getItem("user")) {
-      return localStorage.getItem("user");
+      return JSON.parse(localStorage.getItem("user"));
     } else {
       return {};
     }

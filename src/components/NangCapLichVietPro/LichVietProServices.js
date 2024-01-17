@@ -1,4 +1,5 @@
 import { fetchServicesList } from "@/api/apiRequest";
+import { apiListServicesReponseExample } from "@/const/const";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -11,7 +12,6 @@ export const LichVietProServices = () => {
   useEffect(() => {
     const getServicesList = async () => {
       const data = await fetchServicesList();
-      console.log("[data]:", data);
       setProServicesData(data);
     };
     getServicesList();
@@ -27,16 +27,18 @@ export const LichVietProServices = () => {
       <div className="nang-cap-pro-card">
         <div className="img-lich-viet-pro-services-container">
           {proServicesData.map((proService, index) => {
-            const { icon } = proService;
+            const { icon, show_in_service_block } = proService;
             return (
-              <img
-                key={index}
-                className="img-lich-viet-pro-services"
-                src={baseUrlImg + icon}
-                onClick={() => {
-                  moveRoute("/lich-van-nien/chon-ngay-tot");
-                }}
-              />
+              show_in_service_block === "1" && (
+                <img
+                  key={index}
+                  className="img-lich-viet-pro-services"
+                  src={baseUrlImg + icon}
+                  onClick={() => {
+                    moveRoute("/lich-van-nien/chon-ngay-tot");
+                  }}
+                />
+              )
             );
           })}
         </div>

@@ -1,3 +1,4 @@
+import { appVersion } from "@/const/const";
 import axios from "axios";
 import qs from "qs";
 
@@ -16,6 +17,7 @@ function makeid(length) {
 
 export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
   const BASE_URL = baseUrl ?? process.env.NEXT_PUBLIC_URL_API;
+
   // const BASE_URL = "http://next.lichviet.org";
 
   // console.log("[BASE_URL]:", BASE_URL);
@@ -28,6 +30,7 @@ export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
     // apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
     accept: "application/json",
     device_id: device_id,
+    app_version: appVersion,
   };
   let formData = new FormData();
 
@@ -242,7 +245,7 @@ export const getWeatherApi = async () => {
 export const fetchServicesList = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
   const res = await CallApiBackend(
-    { platform: "1" },
+    { platform: "3" },
     "/services/list",
     "POST",
     1,
