@@ -1,23 +1,88 @@
 .modal-after-payment {
   .modal-dialog {
-    min-width: 770px;
+    min-width: 720px;
+
+    @media (max-width: 768px) {
+      min-width: 0;
+      width: 95vw;
+    }
   }
 
   .modal-content {
+    .modal-title {
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      font-size: 18px;
+
+      @media (max-width: 768px) {
+        font-size: 16px !important;
+        margin-bottom: 30px !important;
+      }
+    }
+
     padding: 32px;
 
+    .image-purchase {
+      width: 100%;
+
+      @media (max-width: 768px) {
+        width: 150px !important;
+      }
+    }
+
+    .img-after-payment-background {
+      width: 170px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
     .service-info-container {
+      display: flex;
+      flex-direction: column;
       gap: 12px;
 
-      .img-after-payment-background {
-        width: 170px;
+      @media (max-width: 768px) {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #ebebeb;
       }
     }
 
     .image-purchase-container {
+      display: flex;
+      flex-direction: column;
+
       color: #333;
       width: 170px;
       gap: 3px;
+
+      @media (max-width: 768px) {
+        flex-direction: row;
+        width: 100%;
+        gap: 20px;
+      }
+    }
+
+    .modal-payment-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        width: 200px;
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 20px;
+
+        button {
+          width: 140px !important;
+        }
+      }
     }
   }
 }

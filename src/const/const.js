@@ -1,5 +1,10 @@
 export const appVersion = "9.4.3 - 122";
 
+export const onepayResult = {
+  failure: "failure",
+  success: "success",
+};
+
 export const systemMetaData = {
   default: {
     title: "Lịch Vạn Niên 2024 - Xem lịch âm, lịch dương chính xác",

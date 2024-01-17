@@ -17,7 +17,7 @@ function makeid(length) {
 
 export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
   const BASE_URL = baseUrl ?? process.env.NEXT_PUBLIC_URL_API;
-
+  debugger;
   // const BASE_URL = "http://next.lichviet.org";
 
   // console.log("[BASE_URL]:", BASE_URL);

@@ -59,7 +59,6 @@ export const ChonGoiPro = () => {
 
   return (
     <>
-      <ModalAfterPayment show={modalShow} setShow={setModalShow} />
       <button
         onClick={() => {
           setModalShow(true);
