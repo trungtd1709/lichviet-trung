@@ -1,21 +1,22 @@
-import Link from "next/link";
-import CustomButton from "../Buttons/CustomButton";
-import { useRouter } from "next/router";
-import { CallApiBackend } from "@/api/apiRequest";
-import { isEmpty } from "lodash";
+import { CallApiBackend, fetchServicesList } from "@/api/apiRequest";
 import { getLoggedUserData } from "@/shared/utils";
+import { isEmpty } from "lodash";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import ModalAfterPayment from "../Modal/ModalAfterPayment";
-import { useState } from "react";
-import axios from "axios";
-import { apiListServicesReponseExample } from "@/const/const";
 
 const { imgSrc } = require("@/const/AppResource");
 
 export const ChonGoiPro = () => {
   const [modalShow, setModalShow] = useState(false);
-  const [cacGoiNgayTot, SetCacGoiNgayTot] = useState(
-    apiListServicesReponseExample.data[0].premiumTypes
-  );
+  const [cacGoiNgayTot, setCacGoiNgayTot] = useState([]);
+  useEffect(() => {
+    const getServicesList = async () => {
+      const data = await fetchServicesList();
+      setCacGoiNgayTot(data[0]?.premiumTypes);
+    };
+    getServicesList();
+  }, []);
   const router = useRouter();
 
   const createPaymentTransaction = (premiumTypeId) => {
@@ -58,7 +59,7 @@ export const ChonGoiPro = () => {
 
   return (
     <>
-      <ModalAfterPayment show={modalShow} setShow={setModalShow}  />
+      <ModalAfterPayment show={modalShow} setShow={setModalShow} />
       <button
         onClick={() => {
           setModalShow(true);
