@@ -1,22 +1,27 @@
 import { CallApiBackend, fetchServicesList } from "@/api/apiRequest";
 import { getLoggedUserData } from "@/shared/utils";
-import { isEmpty } from "lodash";
+import _, { isEmpty } from "lodash";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ModalAfterPayment from "../Modal/ModalAfterPayment";
 
 const { imgSrc } = require("@/const/AppResource");
 
 export const ChonGoiPro = () => {
-  const [modalShow, setModalShow] = useState(false);
   const [cacGoiNgayTot, setCacGoiNgayTot] = useState([]);
   useEffect(() => {
     const getServicesList = async () => {
-      const data = await fetchServicesList();
-      setCacGoiNgayTot(data[0]?.premiumTypes);
+      const allServiceList = await fetchServicesList();
+      // để tạm
+      setCacGoiNgayTot(allServiceList[0]?.premiumTypes);
     };
     getServicesList();
   }, []);
+
+  const userData = useMemo(() => {
+    return getLoggedUserData();
+  }, []);
+
   const router = useRouter();
 
   const createPaymentTransaction = (premiumTypeId) => {
@@ -24,9 +29,8 @@ export const ChonGoiPro = () => {
       window.localStorage.setItem("link_redirect", "/mua-goi");
       router.push("/login");
     } else {
-      const user = getLoggedUserData();
-      const { token_login } = user;
-      console.log(token_login);
+      const { token_login } = userData;
+      // console.log(token_login);
       if (premiumTypeId) {
         CallApiBackend(
           { premium_type_id: premiumTypeId, channel: "onepay", token_login },
@@ -38,35 +42,26 @@ export const ChonGoiPro = () => {
             localStorage.setItem("premiumTypeId", premiumTypeId);
             window.location.href = response.data.data;
           } else {
-            alert(response.data.message);
+            alert(response.data.message ?? response.data.msg);
           }
         });
       }
     }
   };
 
-  const ImgChonGoi = ({ imgSrc, premium_type_id }) => {
+  const ImgChonGoi = ({ imgSrc, premium_type_id, onClick }) => {
     return (
       <img
         className="col-4"
         src={imgSrc}
-        style={{ cursor: "pointer" }}
-        onClick={() => {
-          createPaymentTransaction(premium_type_id);
-        }}
+        style={{ cursor: "pointer"}}
+        onClick={onClick}
       />
     );
   };
 
   return (
     <>
-      <button
-        onClick={() => {
-          setModalShow(true);
-        }}
-      >
-        test modal
-      </button>
       <div
         className="chon-ngay-tot-block d-flex flex-column"
         style={{
@@ -88,17 +83,34 @@ export const ChonGoiPro = () => {
         >
           SỐ LƯỢNG CÓ HẠN
         </span>
-        <div className="d-flex flex-row mt-2">
+        <div className="d-flex flex-row my-4">
           {cacGoiNgayTot.map((goi, key) => {
             const { id, image_purchased, image_nopurchase } = goi;
+            const { premiums = [] } = userData;
+            const isPremiumActive = !!_.find(premiums, { premium_type_id: id });
             const baseImgUrl = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
-            const imgUrl = baseImgUrl + image_nopurchase;
+            const imgPath = isPremiumActive
+              ? image_purchased
+              : image_nopurchase;
+            const fullImgUrl = baseImgUrl + imgPath;
             return (
-              <ImgChonGoi key={key} premium_type_id={id} imgSrc={imgUrl} />
+              <ImgChonGoi
+                key={key}
+                // premium_type_id={id}
+                imgSrc={fullImgUrl}
+                // onClick={() => {
+                //   isPremiumActive
+                //     ? alert("Bạn đã đăng ký gói này")
+                //     : createPaymentTransaction(id);
+                // }}
+                onClick={() => {
+                  createPaymentTransaction(id);
+                }}
+              />
             );
           })}
         </div>
-        <span
+        {/* <span
           className="mulish pc-16px normal mt-3"
           style={{ color: "#606241", textAlign: "center" }}
         >
@@ -114,8 +126,8 @@ export const ChonGoiPro = () => {
           }}
         >
           Xem hướng dẫn tại đây
-        </span>
-        <div className="d-flex flex-row justify-content-between">
+        </span> */}
+        {/* <div className="d-flex flex-row justify-content-between">
           <span
             onClick={() => {
               router.push("/dieu-khoan-su-dung");
@@ -144,7 +156,7 @@ export const ChonGoiPro = () => {
           >
             Chính sách bảo mật
           </span>
-        </div>
+        </div> */}
       </div>
     </>
   );

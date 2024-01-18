@@ -12,7 +12,11 @@
   }
 
   .chon-ngay-tot-block {
-    padding: 20px 5% 20px 5% !important;
+    padding: 30px 5% 30px 5%;
+
+    @media (max-width: 768px) {
+      padding: 10px 5% 10px 5%;
+    }
   }
 
   .video-container {
@@ -143,8 +147,6 @@
           }
         }
       }
-
-      
 
       button {
         width: 170px;

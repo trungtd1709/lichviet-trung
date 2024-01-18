@@ -21,3 +21,15 @@
     }
   }
 }
+
+.disapear-md {
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.disapear-sm {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}

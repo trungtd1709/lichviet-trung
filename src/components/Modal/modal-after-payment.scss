@@ -15,6 +15,24 @@
       padding: 24px 16px 24px 16px;
     }
 
+    .service-info {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      @media (max-width: 768px) {
+        gap: 6px;
+      }
+    }
+
+    .addtional-service-info {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: end;
+      flex-grow: 1;
+    }
+
     .modal-title {
       text-align: center;
       text-transform: uppercase;
@@ -36,7 +54,7 @@
     }
 
     .img-after-payment-background {
-      width: 170px;
+      width: 160px;
 
       @media (max-width: 768px) {
         display: none;
@@ -61,7 +79,7 @@
       flex-direction: column;
 
       color: #333;
-      width: 170px;
+      width: 180px;
       gap: 3px;
 
       @media (max-width: 768px) {
@@ -75,13 +93,22 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: start;
+      margin-top: 6px;
+
+      .button-container {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+      }
 
       button {
         width: 200px;
       }
 
       @media (max-width: 768px) {
+        justify-content: center;
+        gap: 20px;
         margin-top: 20px;
 
         button {

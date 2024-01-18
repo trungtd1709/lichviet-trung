@@ -15,9 +15,8 @@ function makeid(length) {
   return result;
 }
 
-export const CallApiBackend = (data, url, method, type = 1, baseUrl) => {
-  const BASE_URL = baseUrl ?? process.env.NEXT_PUBLIC_URL_API;
-  debugger;
+export const CallApiBackend = (data, url, method, type = 1) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
   // const BASE_URL = "http://next.lichviet.org";
 
   // console.log("[BASE_URL]:", BASE_URL);
@@ -98,9 +97,7 @@ export const CallApi = (url, headers, data, method) => {
 
 export const CallApiServerSide = (data, url, method, type = 1) => {
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
-  // const BASE_URL = "http://next.lichviet.org";
 
-  // console.log("[BASE_URL]:", BASE_URL);
   let headers = {
     apikey: "TCwrU5V2DBQtfa8pgNkTUgN6FGNsAkQA8181Suf2uNU1A3OeQa",
     accept: "application/json",
@@ -190,10 +187,9 @@ export const getPostDetail = async (slug_post) => {
   }
 };
 
-const makePostRequest = async (params, url) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
+const makePostRequestBodyRaw = async (params, url) => {
+  const baseUrl = process.env.NEXT_PUBLIC_URL_API;
   const fullUrl = baseUrl + url;
-  debugger
   try {
     const response = await axios.post(fullUrl, params);
     console.log("Response:", response.data);
@@ -209,7 +205,7 @@ const makePostRequest = async (params, url) => {
 
 export const getTSHTopics = async (params) => {
   const url = "/json/tsh/get-topics";
-  const res = await makePostRequest(params, url);
+  const res = await makePostRequestBodyRaw(params, url);
   if (res) {
     return res?.data;
   } else {
@@ -219,7 +215,7 @@ export const getTSHTopics = async (params) => {
 
 export const getTSHDetail = async (params) => {
   const url = "/json/tsh/get-detail";
-  const res = await makePostRequest(params, url);
+  const res = await makePostRequestBodyRaw(params, url);
   if (res) {
     return res?.data;
   } else {
@@ -235,7 +231,7 @@ export const getWeatherApi = async () => {
     deviceType: 1,
   };
 
-  const res = await makePostRequest(params, url);
+  const res = await makePostRequestBodyRaw(params, url);
   if (res) {
     return res?.data;
   } else {
@@ -244,13 +240,11 @@ export const getWeatherApi = async () => {
 };
 
 export const fetchServicesList = async () => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
   const res = await CallApiBackend(
     { platform: "3" },
     "/services/list",
     "POST",
-    1,
-    baseUrl
+    1
   );
   console.log("[res]:", res.data.status === 1);
   if (res?.data?.status === 1) {
@@ -262,8 +256,8 @@ export const fetchServicesList = async () => {
 };
 
 export const postPremiumAddOrder = async ({ phone }) => {
-  const res = await makePostRequest(
-    { phone, content: "Cần hỗ trợ đăng ký dịch vụ trên web" },
+  const res = await makePostRequestBodyRaw(
+    { phone, content: "Cần hỗ trợ đăng ký dịch vụ trên web", features_id: 9 },
     "/premium/addorder"
   );
   return res;
