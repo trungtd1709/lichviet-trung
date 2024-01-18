@@ -242,7 +242,8 @@ export const getWeatherApi = async () => {
 export const fetchServicesList = async () => {
   const res = await CallApiBackend(
     { platform: "3" },
-    "/services/list",
+    // "/services/list",
+    "/api/services/list",
     "POST",
     1
   );
