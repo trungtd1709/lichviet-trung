@@ -193,11 +193,12 @@ export const getPostDetail = async (slug_post) => {
 const makePostRequest = async (params, url) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_API_THAN_SO_HOC_URL;
   const fullUrl = baseUrl + url;
+  debugger
   try {
     const response = await axios.post(fullUrl, params);
     console.log("Response:", response.data);
     if (response?.data?.status == 1) {
-      return response.data.data;
+      return response.data;
     } else {
       return null;
     }
@@ -210,7 +211,7 @@ export const getTSHTopics = async (params) => {
   const url = "/json/tsh/get-topics";
   const res = await makePostRequest(params, url);
   if (res) {
-    return res;
+    return res?.data;
   } else {
     return [];
   }
@@ -220,7 +221,7 @@ export const getTSHDetail = async (params) => {
   const url = "/json/tsh/get-detail";
   const res = await makePostRequest(params, url);
   if (res) {
-    return res;
+    return res?.data;
   } else {
     return [];
   }
@@ -236,7 +237,7 @@ export const getWeatherApi = async () => {
 
   const res = await makePostRequest(params, url);
   if (res) {
-    return res;
+    return res?.data;
   } else {
     return {};
   }
@@ -261,10 +262,9 @@ export const fetchServicesList = async () => {
 };
 
 export const postPremiumAddOrder = async ({ phone }) => {
-  const res = await CallApiBackend(
-    { phone, features_id: "9" },
-    "/premium/addorder",
-    "POST"
+  const res = await makePostRequest(
+    { phone, content: "Cần hỗ trợ đăng ký dịch vụ trên web" },
+    "/premium/addorder"
   );
   return res;
 };

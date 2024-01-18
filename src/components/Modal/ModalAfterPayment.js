@@ -2,12 +2,24 @@ import { imgSrc } from "@/const/AppResource";
 import { formatNumber } from "@/shared/utils";
 import { Modal } from "react-bootstrap";
 import CustomButton from "../Buttons/CustomButton";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { onepayResult } from "@/const/const";
+import { useRouter } from "next/router";
+import { fetchServicesList } from "@/api/apiRequest";
 
 function ModalAfterPayment(props) {
-  const { show, setShow, result } = props;
+  const { show, result } = props;
   const baseUrlImg = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const getServicesList = async () => {
+      const data = await fetchServicesList();
+      setCacGoiNgayTot(data[0]?.premiumTypes);
+    };
+    getServicesList();
+  }, []);
 
   const isPaymentSuccess = useMemo(() => {
     if (result === onepayResult.success) {
@@ -161,17 +173,8 @@ function ModalAfterPayment(props) {
     ],
   };
 
-  const handleClose = () => {
-    setShow(false);
-  };
-
   return (
-    <Modal
-      className="modal-after-payment"
-      show={show}
-      onHide={handleClose}
-      centered
-    >
+    <Modal className="modal-after-payment" show={show} centered>
       <div className="modal-title bold">
         {isPaymentSuccess
           ? "ĐĂNG KÝ DỊCH VỤ THÀNH CÔNG"
@@ -260,7 +263,9 @@ function ModalAfterPayment(props) {
           color="white"
           // text="QUAY LẠI TRANG CHỦ"
           text="XEM GÓI KHÁC"
-          onClick={handleClose}
+          onClick={() => {
+            router.push("/lich-van-nien/nang-cap-lich-viet-pro");
+          }}
         />
         <CustomButton
           borderRadius="4px"
@@ -269,7 +274,7 @@ function ModalAfterPayment(props) {
           height="40px"
           color="white"
           text={isPaymentSuccess ? "SỬ DỤNG NGAY" : "ĐĂNG KÝ LẠI"}
-          onClick={handleClose}
+          // onClick={handleClose}
         />
       </div>
     </Modal>

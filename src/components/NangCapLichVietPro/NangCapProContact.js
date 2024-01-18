@@ -4,8 +4,13 @@ import CustomInput from "../Input/CustomInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { postPremiumAddOrder } from "@/api/apiRequest";
+import { ModalReceiveContact } from "../Modal/ModalReceiveContact";
+import { useState } from "react";
+import { isEmpty } from "lodash";
 
 export const NangCapProContact = () => {
+  const [modalReceiveContactShow, setModalReceiveContactShow] = useState(false);
+
   const validationSchema = Yup.object().shape({
     phone: Yup.string()
       .required("Vui lòng nhập số điện thoại")
@@ -14,9 +19,11 @@ export const NangCapProContact = () => {
       .max(10, "Số điện thoại không hợp lệ"),
   });
 
-  const sendPhoneContact = ({ phone }) => {
-    const res = postPremiumAddOrder({ phone });
-    console.log("[postPremiumAddOrderRES]:", res);
+  const sendPhoneContact = async ({ phone }) => {
+    const res = await postPremiumAddOrder({ phone });
+    if (!isEmpty(res)) {
+      setModalReceiveContactShow(true);
+    }
   };
 
   const formik = useFormik({
@@ -26,7 +33,7 @@ export const NangCapProContact = () => {
     validationSchema,
     enableReinitialize: true,
     onSubmit: async (values) => {
-      sendPhoneContact(values);
+      await sendPhoneContact(values);
     },
   });
   return (
@@ -110,6 +117,7 @@ export const NangCapProContact = () => {
               showBorder={false}
               width="150px"
               background="linear-gradient(0deg, #64994D -27.61%, #028042 100%)"
+              onClick={formik.handleSubmit}
             />
           </div>
           <div className="d-flex flex-row justify-content-between">
@@ -124,6 +132,10 @@ export const NangCapProContact = () => {
           </div>
         </div>
       </div>
+      <ModalReceiveContact
+        show={modalReceiveContactShow}
+        setShow={setModalReceiveContactShow}
+      />
     </div>
   );
 };

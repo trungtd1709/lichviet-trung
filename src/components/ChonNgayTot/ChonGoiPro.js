@@ -35,6 +35,7 @@ export const ChonGoiPro = () => {
           true
         ).then(function (response) {
           if (response.data.status == 1) {
+            localStorage.setItem("premiumTypeId", premiumTypeId);
             window.location.href = response.data.data;
           } else {
             alert(response.data.message);

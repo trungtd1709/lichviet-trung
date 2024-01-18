@@ -3,9 +3,14 @@ import CustomButton from "../Buttons/CustomButton";
 import CustomInput from "../Input/CustomInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { ModalReceiveContact } from "../Modal/ModalReceiveContact";
+import { useState } from "react";
+import { isEmpty } from "lodash";
 const { imgSrc } = require("@/const/AppResource");
 
 export const ContactChuyenGia = () => {
+  const [modalReceiveContactShow, setModalReceiveContactShow] = useState(false);
+
   const validationSchema = Yup.object().shape({
     phone: Yup.string()
       .required("Vui lòng nhập số điện thoại")
@@ -21,11 +26,16 @@ export const ContactChuyenGia = () => {
     validationSchema,
     enableReinitialize: true,
     onSubmit: async (values) => {
-      const { phone } = values;
-      const response = await postPremiumAddOrder({ phone });
-      console.log(response);
+      await sendPhoneContact(values);
     },
   });
+
+  const sendPhoneContact = async ({ phone }) => {
+    const res = await postPremiumAddOrder({ phone });
+    if (!isEmpty(res)) {
+      setModalReceiveContactShow(true);
+    }
+  };
 
   return (
     <div className="d-flex flex-column align-items-center chon-ngay-tot-video-block xem-ngay-tot-cung-chuyen-gia">
@@ -131,6 +141,10 @@ export const ContactChuyenGia = () => {
           />
         </div>
       </div>
+      <ModalReceiveContact
+        show={modalReceiveContactShow}
+        setShow={setModalReceiveContactShow}
+      />
     </div>
   );
 };
