@@ -1,5 +1,7 @@
 export const appVersion = "9.4.3 - 122";
 
+export const youtubeVideoUrl = "https://www.youtube.com/embed/k54ksX-L3AU"
+
 export const onepayResult = {
   failure: "failure",
   success: "success",

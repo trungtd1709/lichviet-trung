@@ -2,6 +2,7 @@ import { ChonGoiPro } from "@/components/ChonNgayTot/ChonGoiPro";
 import { ContactChuyenGia } from "@/components/ChonNgayTot/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
+import { youtubeVideoUrl } from "@/const/const";
 import useAuth from "@/shared/customHooks/useAuth";
 
 const sharedStyle = {
@@ -30,14 +31,13 @@ const ChonNgayTotBlock = ({
 };
 
 const YoutubeEmbed = ({ embedId }) => {
-  const videoSrc = "https://www.youtube.com/embed/iuhoiXknBQc";
   return (
     <div className="video-container">
       <iframe
         style={{ borderRadius: "6px" }}
         width={"100%"}
         height="100%"
-        src={videoSrc}
+        src={youtubeVideoUrl}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
