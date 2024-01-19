@@ -8,8 +8,8 @@ import TopPost from "@/components/Post/TopPost";
 import TuViPost from "@/components/Post/TuViPost";
 import Banners from "@/layout/Banners/banner";
 import Card from "@/layout/Card/Card";
+import { useEffect, useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-
 
 export default function Home({
   topPosts = [],
@@ -17,6 +17,14 @@ export default function Home({
   // conSoMayManHomNayPosts = [],
   // giaiMaGiacMoPosts = [],
 }) {
+  const element = useRef(null);
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    if (element.current) {
+      setWidth(element.current.getBoundingClientRect().width);
+    }
+  }, []);
+
   return (
     <>
       <MetaHead />
@@ -37,7 +45,7 @@ export default function Home({
                 isShowMore={"/tu-vi/kien-thuc-tu-vi"}
                 top={30}
               >
-                <TuViPost md={7} category={"kien-thuc-tu-vi"} delay={600} />
+                <TuViPost md={7} category={"kien-thuc-tu-vi"} />
               </Card>
               <Card
                 title="Kiến thức phong thuỷ"
@@ -72,7 +80,6 @@ export default function Home({
                       title="Mật ngữ chòm sao"
                       // isShowMore={"/tu-vi/con-so-may-man-hom-nay"}
                       isShowMore={"/cung-hoang-dao/mat-ngu-chom-sao"}
-                      
                     >
                       <TuViPost
                         md={12}
@@ -102,7 +109,7 @@ export default function Home({
           <Col lg={4} xl={4} className="pl-xl-3 p-xs-0">
             <aside>
               {/* <div ref={element} className={"top-post-list"}> */}
-              <div>
+              <div ref={element} >
                 <TopPost topPosts={topPosts} />
               </div>
               <div>

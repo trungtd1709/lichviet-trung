@@ -55,7 +55,6 @@ export default AppBreadcrumb;
 //   const breadcrumbData = _.map(pathSegments, (pathSegment, index) => {
 //     // Use Object.values to turn your object into an array for _.find
 //     const foundPage = pages[pathSegment];
-//     debugger;
 //     if (foundPage) {
 //       return {
 //         title: <Link href={foundPage.fullPathname}>{foundPage.vnName}</Link>,

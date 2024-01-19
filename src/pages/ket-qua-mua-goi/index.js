@@ -25,7 +25,7 @@ export default function ChonNgayTot({}) {
     <>
       <MetaHead />
       {isRouterReady && (
-        <div className="ket-qua-mua-goi-container">
+        <div className="ket-qua-mua-goi-container ">
           <ModalAfterPayment show={true} queryParams={queryParams} />
         </div>
       )}

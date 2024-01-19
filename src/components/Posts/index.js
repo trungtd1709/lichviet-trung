@@ -54,7 +54,6 @@ const Posts = (element) => {
       setCatePost(cateP);
       getPosts(pageInfo, 0, cateP);
     // }
-    debugger
   }, [category_child, element, getPosts]);
 
   const handlePageClick = (event) => {

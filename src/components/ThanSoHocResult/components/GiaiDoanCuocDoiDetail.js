@@ -11,7 +11,6 @@ const GiaiDoanCuocDoiDetail = (props) => {
   const { chart, data } = giaiDoanCuocDoiData;
   useEffect(() => {
     console.log(giaiDoanCuocDoiData);
-    debugger;
   }, [giaiDoanCuocDoiData]);
 
   return (

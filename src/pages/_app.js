@@ -37,10 +37,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <AppProvider>
-        <div
-          className="App d-flex flex-column justify-content-between"
-          style={{ height: "100vh" }}
-        >
+        <div className="App d-flex flex-column justify-content-between">
           <Header {...pageProps} />
           <Component {...pageProps} />
           <Footers />

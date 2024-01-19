@@ -80,7 +80,6 @@ export const FormThanSoHoc = ({}) => {
         const giaiMaNgaySinhData = unwrapResult(
           await dispatch(thunkGetGiaiMaNgaySinhData(params))
         );
-        debugger
         if (
           !_.isEmpty(thanSoHocData) &&
           !_.isEmpty(giaiDoanCuocDoiData) &&
