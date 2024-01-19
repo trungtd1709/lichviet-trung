@@ -1,8 +1,5 @@
 import { getPostDetail, getTopPosts } from "@/api/apiRequest";
 import PostsDetail from "@/components/Posts/detail";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Detail(props) {
   const { postData = {}, topPosts = [], pageUrl } = props;
