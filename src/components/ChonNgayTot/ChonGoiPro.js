@@ -51,12 +51,14 @@ export const ChonGoiPro = () => {
 
   const ImgChonGoi = ({ imgSrc, premium_type_id, onClick }) => {
     return (
-      <img
-        className="col-4"
-        src={imgSrc}
-        style={{ cursor: "pointer"}}
-        onClick={onClick}
-      />
+      <div className="col-4 img-chon-goi-wrapper">
+        <img
+          className="w-100"
+          src={imgSrc}
+          style={{ cursor: "pointer" }}
+          onClick={onClick}
+        />
+      </div>
     );
   };
 
@@ -83,7 +85,7 @@ export const ChonGoiPro = () => {
         >
           SỐ LƯỢNG CÓ HẠN
         </span>
-        <div className="d-flex flex-row my-4">
+        <div className="d-flex flex-row my-3 align-items-center">
           {cacGoiNgayTot.map((goi, key) => {
             const { id, image_purchased, image_nopurchase } = goi;
             const { premiums = [] } = userData;

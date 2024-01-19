@@ -3,6 +3,14 @@
   padding-left: 20%;
   padding-right: 20%;
 
+  .img-chon-goi-wrapper{
+    padding: 0 6% 0 6%;
+
+    @media (max-width: 768px) {
+      padding: 0 10px 0 10px ;
+    }
+  }
+
   .chon-ngay-tot-video-block {
     padding: 20px 0 20px 0 !important;
 

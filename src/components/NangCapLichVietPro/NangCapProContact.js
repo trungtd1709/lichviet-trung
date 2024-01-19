@@ -94,20 +94,6 @@ export const NangCapProContact = () => {
                 fieldHelper={formik.getFieldHelpers("phone")}
                 fieldProps={formik.getFieldProps("phone")}
               />
-              {/* <label htmlFor="phone" className="placeholder-input">
-                <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
-                <p className="text-placeholder" id={"phone-hidden-input"}>
-                  Số điện thoại
-                </p>
-              </label>
-              <input
-                //   onChange={InputHiddenPlaceholder}
-                type="text"
-                name="phone"
-                id="phone"
-                className="input-edit"
-                required
-              /> */}
             </div>
             <CustomButton
               className="mt-2"
