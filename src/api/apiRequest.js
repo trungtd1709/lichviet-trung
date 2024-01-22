@@ -136,7 +136,7 @@ export const CallApiServerSide = (data, url, method, type = 1) => {
 export const getTopPosts = async () => {
   const res = await CallApiServerSide(
     {},
-    "/api/blog/get-posts?home_page=1&slug_category=nhieu-nguoi-doc",
+    "/blog/get-posts?home_page=1&slug_category=nhieu-nguoi-doc",
     "GET"
   );
   if (res?.data?.status === 1) {
@@ -148,7 +148,7 @@ export const getTopPosts = async () => {
 };
 
 export const getBanners = async () => {
-  const res = await CallApiServerSide({}, "/api/get-banners", "GET");
+  const res = await CallApiServerSide({}, "/get-banners", "GET");
   if (res?.data?.status === 1) {
     const banners = res.data.data;
     return banners;
@@ -160,7 +160,7 @@ export const getBanners = async () => {
 export const getTuViPosts = async (category) => {
   const res = await CallApiServerSide(
     {},
-    "/api/blog/get-posts?home_page=1&slug_category=" + category,
+    "/blog/get-posts?home_page=1&slug_category=" + category,
     "GET"
   );
   if (res?.data?.status === 1) {
@@ -176,7 +176,7 @@ export const getPostDetail = async (slug_post) => {
     {
       slug_post,
     },
-    "/api/blog/get-detail-post",
+    "/blog/get-detail-post",
     "GET"
   );
   if (res?.data?.status === 1) {
