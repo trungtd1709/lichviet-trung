@@ -187,6 +187,17 @@ export const getPostDetail = async (slug_post) => {
   }
 };
 
+export const getUserDetail = async (login_token) => {
+  const res = await CallApiServerSide({ login_token }, "/user/detail", "GET");
+  if (res?.data?.status === 1) {
+    const userDetail = res.data.data;
+    debugger;
+    return userDetail;
+  } else {
+    return [];
+  }
+};
+
 const makePostRequestBodyRaw = async (params, url) => {
   const baseUrl = process.env.NEXT_PUBLIC_URL_API;
   const fullUrl = baseUrl + url;
@@ -242,8 +253,8 @@ export const getWeatherApi = async () => {
 export const fetchServicesList = async () => {
   const res = await CallApiBackend(
     { platform: "3" },
-    // "/services/list",
-    "/api/services/list",
+    "/services/list",
+    // "/api/services/list",
     "POST",
     1
   );

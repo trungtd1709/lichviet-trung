@@ -78,7 +78,7 @@ const Login = () => {
   useCallback(loginByQrCode, [updateUserData]);
 
   function loginByQrCode() {
-    CallApiBackend({}, "/api/auth/get-login-qr-code", "POST", 2).then(function (
+    CallApiBackend({}, "/auth/get-login-qr-code", "POST", 2).then(function (
       response
     ) {
       if (response.data.data) {
@@ -86,7 +86,7 @@ const Login = () => {
         setTime(60);
         CallApiBackend(
           { token: response.data.data },
-          "/api/auth/scan-qr-code",
+          "/auth/scan-qr-code",
           "POST",
           2
         ).then(function (response) {
@@ -107,6 +107,7 @@ const Login = () => {
       setDataLogin({ username: dataLogin.username, password: e.target.value });
     }
   };
+
   const submitLogin = (e) => {
     e.preventDefault(e);
     console.log(dataLogin);
@@ -114,7 +115,7 @@ const Login = () => {
       alert("Bạn chưa nhập số điện thoại hoặc mật khẩu!");
     } else {
       setLoad(true);
-      CallApiBackend(dataLogin, "/api/user/login", "POST", 2).then(
+      CallApiBackend(dataLogin, "/user/login", "POST", 2).then(
         function (response) {
           setLoad(false);
           if (Number(response.data.status) === 1) {
@@ -168,7 +169,7 @@ const Login = () => {
   //     }, {scope: 'email'});
   // }
   const zaloLogin = async () => {
-    CallApiBackend({}, "/api/get-challenge-zalo", "POST").then(function (req) {
+    CallApiBackend({}, "/get-challenge-zalo", "POST").then(function (req) {
       if (req.data.status === 1) {
         window.localStorage.setItem(
           "code_challenge",
@@ -206,7 +207,7 @@ const Login = () => {
           type: 2,
         };
         setLoad(true);
-        CallApiBackend(data, "/api/user/loginbysignal", "POST", 2)
+        CallApiBackend(data, "/user/loginbysignal", "POST", 2)
           .then(function (response) {
             setLoad(false);
             if (Number(response.data.status) !== 0) {
@@ -245,7 +246,7 @@ const Login = () => {
         type: 1,
       };
       setLoad(true);
-      CallApiBackend(data, "/api/user/loginbysignal_v2", "POST", 2).then(
+      CallApiBackend(data, "/user/loginbysignal_v2", "POST", 2).then(
         function (response) {
           setLoad(false);
           if (Number(response.data.status) !== 0) {

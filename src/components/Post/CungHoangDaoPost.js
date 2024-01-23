@@ -11,7 +11,8 @@ export default function CungHoangDaoPost({ category }) {
     if (category) {
       CallApiBackend(
         {},
-        "/api/blog/get-posts?home_page=1&slug_category=" + category,
+        // "/api/blog/get-posts?home_page=1&slug_category=" + category,
+        "/blog/get-posts?home_page=1&slug_category=" + category,
         "GET"
       ).then((req) => {
         setLoad(false);

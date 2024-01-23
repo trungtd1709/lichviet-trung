@@ -21,7 +21,7 @@ const TraCuuThanSoHoc = (element) => {
   const getPosts = useCallback((page = 0, changePage = 0, cateP = "") => {
     CallApiBackend(
       { slug_category: cateP, page: page },
-      "/api/blog/get-posts",
+      "/blog/get-posts",
       "GET"
     ).then(function (req) {
       if (req.data.status === 1) {

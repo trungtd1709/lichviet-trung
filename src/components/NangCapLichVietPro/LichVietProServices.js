@@ -1,5 +1,6 @@
 import { fetchServicesList } from "@/api/apiRequest";
 import { apiListServicesReponseExample } from "@/const/const";
+import _ from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -11,8 +12,14 @@ export const LichVietProServices = () => {
 
   useEffect(() => {
     const getServicesList = async () => {
-      const data = await fetchServicesList();
-      setProServicesData(data);
+      const allServices = await fetchServicesList();
+      if (_.isEmpty(allServices)) {
+        alert(
+          "Có lỗi khi lấy thông tin các gói Pro, vui lòng reload lại trang"
+        );
+      } else {
+        setProServicesData(allServices);
+      }
     };
     getServicesList();
   }, []);

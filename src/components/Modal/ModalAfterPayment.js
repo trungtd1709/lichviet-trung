@@ -1,11 +1,11 @@
 import { imgSrc } from "@/const/AppResource";
-import { formatNumber } from "@/shared/utils";
+import { formatNumber, getLoggedUserData } from "@/shared/utils";
 import { Modal } from "react-bootstrap";
 import CustomButton from "../Buttons/CustomButton";
 import { useEffect, useMemo, useState } from "react";
 import { onepayResult } from "@/const/const";
 import { useRouter } from "next/router";
-import { fetchServicesList } from "@/api/apiRequest";
+import { fetchServicesList, getUserDetail } from "@/api/apiRequest";
 import moment from "moment";
 
 function ModalAfterPayment(props) {
@@ -42,11 +42,18 @@ function ModalAfterPayment(props) {
 
   const isPaymentSuccess = useMemo(() => {
     if (result === onepayResult.success) {
+      const loggedInUserData = getLoggedUserData();
+      if (!_.isEmpty(loggedInUserData)) {
+        const { token_login } = loggedInUserData;
+        const res = getUserDetail(token_login);
+        debugger
+      }
+
       return true;
     } else {
       return false;
     }
-  });
+  }, []);
 
   const addtionalServiceInfo = ({ style, className }) => {
     return (
@@ -103,7 +110,10 @@ function ModalAfterPayment(props) {
             </span>
           </div>
           <div className="service-info">
-            Hạn sử dụng: <span className="semi-bold">{currentPremiumService?.expiryDate}</span>
+            Hạn sử dụng:{" "}
+            <span className="semi-bold">
+              {currentPremiumService?.expiryDate}
+            </span>
           </div>
           <div className="service-info">
             Hình thức thanh toán: <span className="semi-bold">ONEPAY</span>

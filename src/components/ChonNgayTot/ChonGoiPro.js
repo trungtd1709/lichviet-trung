@@ -30,11 +30,12 @@ export const ChonGoiPro = () => {
       router.push("/login");
     } else {
       const { token_login } = userData;
+      debugger
       // console.log(token_login);
       if (premiumTypeId) {
         CallApiBackend(
           { premium_type_id: premiumTypeId, channel: "onepay", token_login },
-          "/api/payment/create_transaction",
+          "/payment/create_transaction",
           "POST",
           true
         ).then(function (response) {
@@ -86,7 +87,7 @@ export const ChonGoiPro = () => {
           SỐ LƯỢNG CÓ HẠN
         </span>
         <div className="d-flex flex-row my-3 align-items-center">
-          {cacGoiNgayTot.map((goi, key) => {
+          {cacGoiNgayTot?.map((goi, key) => {
             const { id, image_purchased, image_nopurchase } = goi;
             const { premiums = [] } = userData;
             const isPremiumActive = !!_.find(premiums, { premium_type_id: id });

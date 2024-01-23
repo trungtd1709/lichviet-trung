@@ -118,17 +118,6 @@ export const ContactChuyenGia = () => {
               fieldHelper={formik.getFieldHelpers("phone")}
               fieldProps={formik.getFieldProps("phone")}
             />
-            {/* <label htmlFor="phone" className="placeholder-input">
-              <i className="fas fa-phone-alt" style={{ color: "#35C03C" }} />
-            </label>
-            <input
-              type="text"
-              name="phone"
-              id="phone"
-              className="input-edit"
-              required
-              placeholder="Nhập số điện thoại"
-            /> */}
           </div>
           <CustomButton
             background="linear-gradient(0deg, #64994D -27.61%, #028042 100%)"

@@ -19,7 +19,7 @@ const Contact = () => {
       content: e.target[3].value,
     };
     setLoad(true);
-    CallApiBackend(data, "/api/user/contact", "POST", 2).then(
+    CallApiBackend(data, "/user/contact", "POST", 2).then(
       (res) => {
         if (res.data.status === 1) {
           setmodalIsOpen(true);
@@ -47,7 +47,7 @@ const Contact = () => {
     <>
       <MetaHead title="Lịch Việt | Liên hệ" />
       <LoaderData size={"big page"} showLoad={load} fixed={true} />
-      
+
       <div className="container">
         <div className="position-relative" id="about-us">
           <div className="row">

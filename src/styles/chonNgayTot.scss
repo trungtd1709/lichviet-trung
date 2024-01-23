@@ -130,6 +130,10 @@
       .send-phone-container {
         width: 50%;
 
+        .input-container{
+          width: 100% !important;
+        }
+
         @media (max-width: 768px) {
           margin-top: 8px;
           // height: 32px;
