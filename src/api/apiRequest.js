@@ -191,7 +191,6 @@ export const getUserDetail = async (login_token) => {
   const res = await CallApiServerSide({ login_token }, "/user/detail", "GET");
   if (res?.data?.status === 1) {
     const userDetail = res.data.data;
-    debugger;
     return userDetail;
   } else {
     return [];
@@ -214,11 +213,31 @@ const makePostRequestBodyRaw = async (params, url) => {
   }
 };
 
+// export const getTSHTopics = async (params) => {
+//   const url = "/json/tsh/get-topics";
+//   const res = await makePostRequestBodyRaw(params, url);
+//   if (res) {
+//     return res?.data;
+//   } else {
+//     return [];
+//   }
+// };
+
+// export const getTSHDetail = async (params) => {
+//   const url = "/json/tsh/get-detail";
+//   const res = await makePostRequestBodyRaw(params, url);
+//   if (res) {
+//     return res?.data;
+//   } else {
+//     return [];
+//   }
+// };
+
 export const getTSHTopics = async (params) => {
   const url = "/json/tsh/get-topics";
-  const res = await makePostRequestBodyRaw(params, url);
-  if (res) {
-    return res?.data;
+  const res = await CallApiBackend(params, url, "POST", 1);
+  if (res?.data?.status == 1) {
+    return res.data.data;
   } else {
     return [];
   }
@@ -226,9 +245,9 @@ export const getTSHTopics = async (params) => {
 
 export const getTSHDetail = async (params) => {
   const url = "/json/tsh/get-detail";
-  const res = await makePostRequestBodyRaw(params, url);
-  if (res) {
-    return res?.data;
+  const res = await CallApiBackend(params, url, "POST");
+  if (res?.data?.status == 1) {
+    return res.data.data;
   } else {
     return [];
   }
@@ -236,7 +255,6 @@ export const getTSHDetail = async (params) => {
 
 export const getWeatherApi = async () => {
   const url = "/json/weather";
-  const baseUrl = "http://test.api.lichviet.org/json/weather";
   let params = {
     cityName: ["Auto"],
     deviceType: 1,
@@ -254,7 +272,6 @@ export const fetchServicesList = async () => {
   const res = await CallApiBackend(
     { platform: "3" },
     "/services/list",
-    // "/api/services/list",
     "POST",
     1
   );
@@ -267,10 +284,37 @@ export const fetchServicesList = async () => {
   }
 };
 
-export const postPremiumAddOrder = async ({ phone }) => {
-  const res = await makePostRequestBodyRaw(
-    { phone, content: "Cần hỗ trợ đăng ký dịch vụ trên web", features_id: 9 },
-    "/premium/addorder"
+export const fetchUserDetail = async ({ token_login }) => {
+  const res = await CallApiBackend(
+    { token_login },
+    "/user/detail",
+    "POST"
   );
-  return res;
+  console.log("[res]:", res.data.status === 1);
+  if (res?.data?.status === 1) {
+    console.log(res.data.data);
+    return res.data.data;
+  } else {
+    return {};
+  }
 };
+
+export const postPremiumAddOrder = async ({ phone }) => {
+  const content = "Cần hỗ trợ đăng ký dịch vụ trên web";
+  const url = "/premium/addorder";
+  const params = { phone, content, features_id: 9 };
+  const res = await CallApiBackend(params, url, "POST");
+  if (res?.data?.status == 1) {
+    return res.data;
+  } else {
+    return null;
+  }
+};
+
+// export const postPremiumAddOrder = async ({ phone }) => {
+//   const res = await makePostRequestBodyRaw(
+//     { phone, content: "Cần hỗ trợ đăng ký dịch vụ trên web", features_id: 9 },
+//     "/premium/addorder"
+//   );
+//   return res;
+// };

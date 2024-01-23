@@ -1,14 +1,14 @@
 import { CallApiBackend, fetchServicesList } from "@/api/apiRequest";
-import { getLoggedUserData } from "@/shared/utils";
+import { AuthContext } from "@/context/authContext";
 import _, { isEmpty } from "lodash";
 import { useRouter } from "next/router";
-import { useEffect, useMemo, useState } from "react";
-import ModalAfterPayment from "../Modal/ModalAfterPayment";
+import { useContext, useEffect, useState } from "react";
 
 const { imgSrc } = require("@/const/AppResource");
 
 export const ChonGoiPro = () => {
   const [cacGoiNgayTot, setCacGoiNgayTot] = useState([]);
+  const { updateUserData, userData } = useContext(AuthContext);
   useEffect(() => {
     const getServicesList = async () => {
       const allServiceList = await fetchServicesList();
@@ -18,19 +18,14 @@ export const ChonGoiPro = () => {
     getServicesList();
   }, []);
 
-  const userData = useMemo(() => {
-    return getLoggedUserData();
-  }, []);
-
   const router = useRouter();
 
   const createPaymentTransaction = (premiumTypeId) => {
-    if (isEmpty(getLoggedUserData())) {
+    if (isEmpty(userData)) {
       window.localStorage.setItem("link_redirect", "/mua-goi");
       router.push("/login");
     } else {
       const { token_login } = userData;
-      debugger
       // console.log(token_login);
       if (premiumTypeId) {
         CallApiBackend(

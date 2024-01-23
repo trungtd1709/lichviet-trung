@@ -1,15 +1,18 @@
+import { fetchServicesList, fetchUserDetail } from "@/api/apiRequest";
 import { imgSrc } from "@/const/AppResource";
-import { formatNumber, getLoggedUserData } from "@/shared/utils";
+import { onepayResult } from "@/const/const";
+import { AuthContext } from "@/context/authContext";
+import { formatNumber } from "@/shared/utils";
+import _ from "lodash";
+import moment from "moment";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Modal } from "react-bootstrap";
 import CustomButton from "../Buttons/CustomButton";
-import { useEffect, useMemo, useState } from "react";
-import { onepayResult } from "@/const/const";
-import { useRouter } from "next/router";
-import { fetchServicesList, getUserDetail } from "@/api/apiRequest";
-import moment from "moment";
 
 function ModalAfterPayment(props) {
   const { show, queryParams } = props;
+  const { updateUserData, userData } = useContext(AuthContext);
   const router = useRouter();
   const { result, vpc_MerchTxnRef } = queryParams;
   const [currentPremiumService, setCurrentPremiumService] = useState({});
@@ -42,18 +45,32 @@ function ModalAfterPayment(props) {
 
   const isPaymentSuccess = useMemo(() => {
     if (result === onepayResult.success) {
-      const loggedInUserData = getLoggedUserData();
-      if (!_.isEmpty(loggedInUserData)) {
-        const { token_login } = loggedInUserData;
-        const res = getUserDetail(token_login);
-        debugger
-      }
-
       return true;
     } else {
       return false;
     }
   }, []);
+
+  useEffect(() => {
+    const updateNewUserData = async () => {
+      const { token_login } = userData;
+      if (token_login) {
+        try {
+          const newUserData = await fetchUserDetail({ token_login });
+          if (!_.isEmpty(newUserData)) {
+            const tempData = { ...newUserData, token_login, test: "test" };
+            updateUserData(tempData);
+            // updateUserData(newUserData);
+          }
+        } catch (err) {
+          console.error("Failed to fetch user data:", err);
+        }
+      }
+    };
+    if (isPaymentSuccess) {
+      updateNewUserData();
+    }
+  }, [isPaymentSuccess, userData]);
 
   const addtionalServiceInfo = ({ style, className }) => {
     return (

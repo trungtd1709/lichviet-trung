@@ -4,13 +4,12 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 import { imgSrc } from "@/const/AppResource";
 import { AuthContext } from "@/context/authContext";
-import { useRouter } from "next/router";
-import IconCrown from "../../../public/icons/IconCrown";
-import LoginPC from "./layout/LoginPC";
-import { useSelector } from "react-redux";
-import LoaderData from "../Ui/Loader";
-import { getLoggedUserData } from "@/shared/utils";
 import _ from "lodash";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import IconCrown from "../../../public/icons/IconCrown";
+import LoaderData from "../Ui/Loader";
+import LoginPC from "./layout/LoginPC";
 
 const BASE_URL_IMAGE = process.env.NEXT_PUBLIC_URL_IMAGE;
 
@@ -90,7 +89,7 @@ const MenuTabBar = [
 const Header = () => {
   const route_link = useRef();
   const appLoading = useSelector((state) => state.app.appLoading);
-  const { userData, userLogout } = useContext(AuthContext);
+  const { userData, userLogout, updateUserData } = useContext(AuthContext);
   const router = useRouter();
   useEffect(() => {
     const url = window.location.pathname.replace("/", "").split("/");
@@ -170,7 +169,7 @@ const Header = () => {
               <Link
                 // href="/kich-hoat-pro"
                 href={
-                  _.isEmpty(getLoggedUserData())
+                  _.isEmpty(userData)
                     ? "/login"
                     : "/lich-van-nien/nang-cap-lich-viet-pro"
                 }
