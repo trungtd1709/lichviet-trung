@@ -38,7 +38,7 @@ export const ChonGoiPro = () => {
             localStorage.setItem("premiumTypeId", premiumTypeId);
             window.location.href = response.data.data;
           } else {
-            alert(response.data.message ?? response.data.msg);
+            alert(response.data?.message ?? response.data?.msg);
           }
         });
       }
@@ -84,7 +84,7 @@ export const ChonGoiPro = () => {
         <div className="d-flex flex-row my-3 align-items-center">
           {cacGoiNgayTot?.map((goi, key) => {
             const { id, image_purchased, image_nopurchase } = goi;
-            const { premiums = [] } = userData;
+            const { premiums = [] } = userData || {};
             const isPremiumActive = !!_.find(premiums, { premium_type_id: id });
             const baseImgUrl = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
             const imgPath = isPremiumActive

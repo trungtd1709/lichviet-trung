@@ -1,6 +1,7 @@
 export const appVersion = "9.4.3 - 122";
+export const deeplink = "https://deeplink.lichviet.app/installapp";
 
-export const youtubeVideoUrl = "https://www.youtube.com/embed/k54ksX-L3AU"
+export const youtubeVideoUrl = "https://www.youtube.com/embed/k54ksX-L3AU";
 
 export const onepayResult = {
   failure: "failure",

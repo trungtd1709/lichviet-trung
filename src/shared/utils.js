@@ -1,4 +1,4 @@
-import { conSoMetaData, systemMetaData } from "@/const/const";
+import { conSoMetaData, deeplink, systemMetaData } from "@/const/const";
 import dayjs from "dayjs";
 import _ from "lodash";
 
@@ -40,6 +40,10 @@ export const findConSoByEnName = (enName) => {
   const foundConSo = _.find(values, { enName });
 
   return foundConSo || null;
+};
+
+export const openDeepLinkApp = () => {
+  window.open(deeplink, "_blank");
 };
 
 export const getLoggedUserData = () => {

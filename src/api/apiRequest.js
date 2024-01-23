@@ -15,7 +15,7 @@ function makeid(length) {
   return result;
 }
 
-export const CallApiBackend = (data, url, method, type = 1) => {
+export const CallApiBackend = async (data, url, method, type = 1) => {
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
   // const BASE_URL = "http://next.lichviet.org";
 
@@ -44,13 +44,21 @@ export const CallApiBackend = (data, url, method, type = 1) => {
     }
     params = params.slice(0, -1);
   }
-  const out = axios({
-    method: method,
-    headers: headers,
-    url: BASE_URL + url + params,
-    data: formData,
-  });
-  out.catch(function (error) {
+
+  try {
+    const response = await axios({
+      method: method,
+      headers: headers,
+      url: BASE_URL + url + params,
+      data: formData,
+    });
+
+    console.log("[response]:", response);
+    if (response?.data?.status === -2) {
+      alert("Phiên đăng nhập hết hạn");
+    }
+    return response;
+  } catch (error) {
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";
@@ -60,8 +68,7 @@ export const CallApiBackend = (data, url, method, type = 1) => {
         window.location.reload();
       }
     }
-  });
-  return out;
+  }
 };
 
 export const CallApi = (url, headers, data, method) => {
@@ -285,12 +292,22 @@ export const fetchServicesList = async () => {
 };
 
 export const fetchUserDetail = async ({ token_login }) => {
+  const res = await CallApiBackend({ token_login }, "/user/detail", "POST");
+  if (res?.data?.status === 1) {
+    console.log(res.data.data);
+    return res.data.data;
+  } else {
+    return {};
+  }
+};
+
+export const refreshExpriedToken = async ({ refreshToken }) => {
   const res = await CallApiBackend(
-    { token_login },
-    "/user/detail",
+    { refreshToken },
+    "/user/refreshsession",
     "POST"
   );
-  console.log("[res]:", res.data.status === 1);
+  console.log("[res]:", res);
   if (res?.data?.status === 1) {
     console.log(res.data.data);
     return res.data.data;

@@ -2,7 +2,7 @@ import { fetchServicesList, fetchUserDetail } from "@/api/apiRequest";
 import { imgSrc } from "@/const/AppResource";
 import { onepayResult } from "@/const/const";
 import { AuthContext } from "@/context/authContext";
-import { formatNumber } from "@/shared/utils";
+import { formatNumber, openDeepLinkApp } from "@/shared/utils";
 import _ from "lodash";
 import moment from "moment";
 import { useRouter } from "next/router";
@@ -17,6 +17,10 @@ function ModalAfterPayment(props) {
   const { result, vpc_MerchTxnRef } = queryParams;
   const [currentPremiumService, setCurrentPremiumService] = useState({});
   const baseUrlImg = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+
+  const moveToServicesPage = () => {
+    router.push("/lich-van-nien/nang-cap-lich-viet-pro");
+  };
 
   useEffect(() => {
     const getPremiumServiceInfo = async () => {
@@ -58,7 +62,7 @@ function ModalAfterPayment(props) {
         try {
           const newUserData = await fetchUserDetail({ token_login });
           if (!_.isEmpty(newUserData)) {
-            const tempData = { ...newUserData, token_login, test: "test" };
+            const tempData = { ...newUserData, token_login };
             updateUserData(tempData);
             // updateUserData(newUserData);
           }
@@ -186,9 +190,7 @@ function ModalAfterPayment(props) {
               color="white"
               // text="QUAY LẠI TRANG CHỦ"
               text="XEM GÓI KHÁC"
-              onClick={() => {
-                router.push("/lich-van-nien/nang-cap-lich-viet-pro");
-              }}
+              onClick={moveToServicesPage}
             />
             <CustomButton
               borderRadius="4px"
@@ -197,7 +199,7 @@ function ModalAfterPayment(props) {
               height="40px"
               color="white"
               text={isPaymentSuccess ? "SỬ DỤNG NGAY" : "ĐĂNG KÝ LẠI"}
-              // onClick={handleClose}
+              onClick={isPaymentSuccess ? openDeepLinkApp : moveToServicesPage}
             />
           </div>
         </div>

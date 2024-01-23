@@ -128,6 +128,7 @@
       }
 
       .send-phone-container {
+        padding-right: 0;
         width: 50%;
 
         .input-container{
@@ -135,6 +136,7 @@
         }
 
         @media (max-width: 768px) {
+          padding-right: 15px;
           margin-top: 8px;
           // height: 32px;
 

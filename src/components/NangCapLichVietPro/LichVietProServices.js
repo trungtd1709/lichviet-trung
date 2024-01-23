@@ -15,7 +15,7 @@ export const LichVietProServices = () => {
       const allServices = await fetchServicesList();
       if (_.isEmpty(allServices)) {
         alert(
-          "Có lỗi khi lấy thông tin các gói Pro, vui lòng reload lại trang"
+          "Có lỗi khi lấy thông tin các gói Pro, vui lòng reload lại trang hoặc đăng nhập lại"
         );
       } else {
         setProServicesData(allServices);
