@@ -1,5 +1,6 @@
 import { appVersion } from "@/const/const";
 import axios from "axios";
+import { isEmpty } from "lodash";
 import qs from "qs";
 
 function makeid(length) {
@@ -194,16 +195,6 @@ export const getPostDetail = async (slug_post) => {
   }
 };
 
-export const getUserDetail = async (login_token) => {
-  const res = await CallApiServerSide({ login_token }, "/user/detail", "GET");
-  if (res?.data?.status === 1) {
-    const userDetail = res.data.data;
-    return userDetail;
-  } else {
-    return [];
-  }
-};
-
 const makePostRequestBodyRaw = async (params, url) => {
   const baseUrl = process.env.NEXT_PUBLIC_URL_API;
   const fullUrl = baseUrl + url;
@@ -335,3 +326,32 @@ export const postPremiumAddOrder = async ({ phone }) => {
 //   );
 //   return res;
 // };
+
+export const createPaymentTransaction = ({
+  premiumTypeId,
+  router,
+  userData,
+}) => {
+  if (isEmpty(userData)) {
+    window.localStorage.setItem("link_redirect", "/mua-goi");
+    router.push("/login");
+  } else {
+    const { token_login } = userData;
+    // console.log(token_login);
+    if (premiumTypeId) {
+      CallApiBackend(
+        { premium_type_id: premiumTypeId, channel: "onepay", token_login },
+        "/payment/create_transaction",
+        "POST",
+        true
+      ).then(function (response) {
+        if (response.data.status == 1) {
+          localStorage.setItem("premiumTypeId", premiumTypeId);
+          window.location.href = response.data.data;
+        } else {
+          alert(response.data?.message ?? response.data?.msg);
+        }
+      });
+    }
+  }
+};

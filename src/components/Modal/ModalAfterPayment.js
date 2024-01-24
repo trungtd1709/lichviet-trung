@@ -1,4 +1,4 @@
-import { fetchServicesList, fetchUserDetail } from "@/api/apiRequest";
+import { createPaymentTransaction, fetchServicesList } from "@/api/apiRequest";
 import { imgSrc } from "@/const/AppResource";
 import { onepayResult } from "@/const/const";
 import { AuthContext } from "@/context/authContext";
@@ -17,6 +17,7 @@ function ModalAfterPayment(props) {
   const { result, vpc_MerchTxnRef } = queryParams;
   const [currentPremiumService, setCurrentPremiumService] = useState({});
   const baseUrlImg = process.env.NEXT_PUBLIC_BASE_URL_IMAGE;
+  const premiumTypeId = localStorage.getItem("premiumTypeId");
 
   const moveToServicesPage = () => {
     router.push("/lich-van-nien/nang-cap-lich-viet-pro");
@@ -24,11 +25,10 @@ function ModalAfterPayment(props) {
 
   useEffect(() => {
     const getPremiumServiceInfo = async () => {
-      const premiumTypeId = localStorage.getItem("premiumTypeId");
       if (!premiumTypeId) {
         router.push("/");
       }
-
+      debugger;
       const services = await fetchServicesList();
       const allPremiumServices = services.flatMap((service) => {
         const { icon, premiumTypes } = service;
@@ -37,8 +37,11 @@ function ModalAfterPayment(props) {
       let premiumService = _.find(allPremiumServices, {
         id: premiumTypeId,
       });
+      const { numb_m } = premiumService;
       const today = moment();
-      const expiryDate = today.add(3, "months").format("DD-MM-YYYY");
+      const expiryDate = today
+        .add(parseInt(numb_m), "months")
+        .format("DD-MM-YYYY");
       premiumService.expiryDate = expiryDate;
       if (!_.isEmpty(premiumService)) {
         setCurrentPremiumService(premiumService);
@@ -55,26 +58,26 @@ function ModalAfterPayment(props) {
     }
   }, []);
 
-  useEffect(() => {
-    const updateNewUserData = async () => {
-      const { token_login } = userData;
-      if (token_login) {
-        try {
-          const newUserData = await fetchUserDetail({ token_login });
-          if (!_.isEmpty(newUserData)) {
-            const tempData = { ...newUserData, token_login };
-            updateUserData(tempData);
-            // updateUserData(newUserData);
-          }
-        } catch (err) {
-          console.error("Failed to fetch user data:", err);
-        }
-      }
-    };
-    if (isPaymentSuccess) {
-      updateNewUserData();
-    }
-  }, [isPaymentSuccess, userData]);
+  // useEffect(() => {
+  //   const updateNewUserData = async () => {
+  //     const { token_login } = userData;
+  //     if (token_login) {
+  //       try {
+  //         const newUserData = await fetchUserDetail({ token_login });
+  //         if (!_.isEmpty(newUserData)) {
+  //           const tempData = { ...newUserData, token_login };
+  //           updateUserData(tempData);
+  //           // updateUserData(newUserData);
+  //         }
+  //       } catch (err) {
+  //         console.error("Failed to fetch user data:", err);
+  //       }
+  //     }
+  //   };
+  //   if (isPaymentSuccess) {
+  //     updateNewUserData();
+  //   }
+  // }, [isPaymentSuccess, userData]);
 
   const addtionalServiceInfo = ({ style, className }) => {
     return (
@@ -130,12 +133,15 @@ function ModalAfterPayment(props) {
               {formatNumber(currentPremiumService?.price)} đ
             </span>
           </div>
-          <div className="service-info">
-            Hạn sử dụng:{" "}
-            <span className="semi-bold">
-              {currentPremiumService?.expiryDate}
-            </span>
-          </div>
+          {isPaymentSuccess && (
+            <div className="service-info">
+              Hạn sử dụng:{" "}
+              <span className="semi-bold">
+                {currentPremiumService?.expiryDate}
+              </span>
+            </div>
+          )}
+
           <div className="service-info">
             Hình thức thanh toán: <span className="semi-bold">ONEPAY</span>
           </div>
@@ -199,7 +205,17 @@ function ModalAfterPayment(props) {
               height="40px"
               color="white"
               text={isPaymentSuccess ? "SỬ DỤNG NGAY" : "ĐĂNG KÝ LẠI"}
-              onClick={isPaymentSuccess ? openDeepLinkApp : moveToServicesPage}
+              onClick={
+                isPaymentSuccess
+                  ? openDeepLinkApp
+                  : () => {
+                      createPaymentTransaction({
+                        premiumTypeId,
+                        userData,
+                        router,
+                      });
+                    }
+              }
             />
           </div>
         </div>

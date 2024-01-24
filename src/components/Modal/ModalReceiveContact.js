@@ -14,7 +14,10 @@ export const ModalReceiveContact = ({ show, setShow }) => {
       centered
     >
       <Modal.Body>
-        <div className="thank-kiu">Chúng tôi đã nhận được liên hệ của bạn.</div>
+        <div className="thank-kiu">
+          Chúng tôi đã nhận được yêu cầu liên hệ của bạn và sẽ liên lạc với bạn
+          trong vòng 24h!.
+        </div>
         <div className="lh">Cám ơn!</div>
         <button
           data-dismiss="modal"

@@ -1,4 +1,8 @@
-import { CallApiBackend, fetchServicesList } from "@/api/apiRequest";
+import {
+  CallApiBackend,
+  createPaymentTransaction,
+  fetchServicesList,
+} from "@/api/apiRequest";
 import { AuthContext } from "@/context/authContext";
 import _, { isEmpty } from "lodash";
 import { useRouter } from "next/router";
@@ -19,31 +23,6 @@ export const ChonGoiPro = () => {
   }, []);
 
   const router = useRouter();
-
-  const createPaymentTransaction = (premiumTypeId) => {
-    if (isEmpty(userData)) {
-      window.localStorage.setItem("link_redirect", "/mua-goi");
-      router.push("/login");
-    } else {
-      const { token_login } = userData;
-      // console.log(token_login);
-      if (premiumTypeId) {
-        CallApiBackend(
-          { premium_type_id: premiumTypeId, channel: "onepay", token_login },
-          "/payment/create_transaction",
-          "POST",
-          true
-        ).then(function (response) {
-          if (response.data.status == 1) {
-            localStorage.setItem("premiumTypeId", premiumTypeId);
-            window.location.href = response.data.data;
-          } else {
-            alert(response.data?.message ?? response.data?.msg);
-          }
-        });
-      }
-    }
-  };
 
   const ImgChonGoi = ({ imgSrc, premium_type_id, onClick }) => {
     return (
@@ -102,7 +81,12 @@ export const ChonGoiPro = () => {
                 //     : createPaymentTransaction(id);
                 // }}
                 onClick={() => {
-                  createPaymentTransaction(id);
+                  // createPaymentTransaction(id);
+                  createPaymentTransaction({
+                    premiumTypeId: id,
+                    userData,
+                    router,
+                  });
                 }}
               />
             );

@@ -11,5 +11,5 @@ export const useAuth = () => {
     if (isEmpty(userData)) {
       router.push("/login");
     }
-  }, []);
+  }, [userData]);
 };

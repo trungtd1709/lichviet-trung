@@ -13,9 +13,9 @@ export default function ChonNgayTot({}) {
 
   useEffect(() => {
     if (router.isReady) {
-      if (_.isEmpty(router.query)) {
-        router.push("/");
-      }
+      // if (_.isEmpty(router.query)) {
+      //   router.push("/");
+      // }
       setQueryParams(router.query);
       setIsRouterReady(true);
     }
