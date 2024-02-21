@@ -1,15 +1,15 @@
-const { AuthContext } = require("@/context/authContext");
-const { isEmpty } = require("lodash");
-const { useRouter } = require("next/router");
-const { useContext, useEffect } = require("react");
+import { isEmpty } from "lodash";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export const useAuth = () => {
-  const { userData } = useContext(AuthContext);
   const router = useRouter();
 
   useEffect(() => {
-    if (isEmpty(userData)) {
+    let userLocal = localStorage.getItem("user");
+
+    if (isEmpty(userLocal)) {
       router.push("/login");
     }
-  }, [userData]);
+  }, [router]);
 };

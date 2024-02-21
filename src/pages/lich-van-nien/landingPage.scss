@@ -1,0 +1,83 @@
+.landingPageImgBanner {
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
+}
+
+.tu-vi-chuyen-gia-lien-he {
+  padding: 25px 40px 25px 40px;
+
+  @media (max-width: 768px) {
+    padding: 15px 30px 15px 30px;
+  }
+}
+
+.send-contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-top: 10px;
+  padding: 10px 30px 10px 30px;
+  width: 80%;
+  background-color: #e1f8c0;
+
+  .img-uu-dai-contact-chuyen-gia {
+    width: 45%;
+
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+  }
+
+  .send-phone-container {
+    padding-right: 0;
+    width: 50%;
+
+    .input-container {
+      width: 100% !important;
+    }
+
+    @media (max-width: 768px) {
+      padding-right: 15px;
+      margin-top: 8px;
+      // height: 32px;
+
+      width: 100%;
+      gap: 8px;
+
+      button {
+        height: 32px !important;
+        width: 120px;
+      }
+
+      .input-edit {
+        padding-left: 22px;
+        color: #2f281e;
+        height: 30px !important;
+      }
+
+      .input-edit::placeholder {
+        color: #787878;
+        font-family: "Mulish", sans-serif !important;
+        font-size: 12px;
+      }
+    }
+  }
+
+  button {
+    width: 170px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+
+    .placeholder-input {
+      left: 8px;
+    }
+  }
+}

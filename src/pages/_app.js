@@ -13,6 +13,8 @@ import "@/styles/fonts.scss";
 import "@/styles/globals.css";
 import "@/styles/global.scss";
 import "@/components/Modal/modal-after-payment.scss";
+import "@/pages/lich-van-nien/giai-ma-ngay-sinh/giaiMaNgaySinh.scss";
+import "@/pages/lich-van-nien/landingPage.scss";
 
 import "@/components/Buttons/customButton.css";
 // import "bootstrap/dist/js/bootstrap.js";

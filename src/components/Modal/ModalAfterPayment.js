@@ -104,9 +104,11 @@ function ModalAfterPayment(props) {
         <span className="semi-bold" style={{ fontSize: "16px" }}>
           {currentPremiumService?.name}
         </span>
-        <span className="regular" style={{ fontSize: "14px" }}>
-          HSD: {currentPremiumService?.expiryDate}
-        </span>
+        {isPaymentSuccess && (
+          <span className="regular" style={{ fontSize: "14px" }}>
+            HSD: {currentPremiumService?.expiryDate}
+          </span>
+        )}
       </div>
     );
   };

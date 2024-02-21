@@ -1,13 +1,9 @@
-import { ChonGoiPro } from "@/components/ChonNgayTot/ChonGoiPro";
-import { ContactChuyenGia } from "@/components/ChonNgayTot/ContactChuyenGia";
+import { ChonGoiPro } from "@/components/LandingPage/ChonGoiPro";
+import { ContactChuyenGia } from "@/components/LandingPage/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
 import { youtubeVideoUrl } from "@/const/const";
-import { AuthContext } from "@/context/authContext";
 import { useAuth } from "@/shared/customHooks/useAuth";
-import { isEmpty } from "lodash";
-import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
 
 const sharedStyle = {
   background: "#FDF9EE",
@@ -68,7 +64,7 @@ const ChonNgayTotVideoBlock = ({ background }) => {
 };
 
 export default function ChonNgayTot({}) {
-  useAuth();
+  // useAuth();
 
   return (
     <>
