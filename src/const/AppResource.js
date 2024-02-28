@@ -27,9 +27,11 @@ export const imgSrc = {
   nangCapXemNgayTotChuyenGia: `/images/nang_cap_xem_ngay_tot_chuyen_gia.png`,
   nangCapXemPhongThuy: `/images/nang_cap_xem_phong_thuy.png`,
   nangCapXemTuVi: `/images/nang_cap_xem_tu_vi.png`,
+  trangTri1: `/images/trang_tri_1.png`,
   nangCapXemTuViChuyenGia: `/images/nang_cap_xem_tu_vi_chuyen_gia.png`,
   contactLichVietProBoyBackground: `/images/contact_lich_viet_pro_boy_background.png`,
   contactLichVietProGirlBackground: `/images/contact_lich_viet_pro_girl_background.png`,
+
   chonNgayTotBanner1: `/images/chon_ngay_tot_banner_1.png`,
   chonNgayTotBanner2: `/images/chon_ngay_tot_banner_2.png`,
   chonNgayTotBanner3: `/images/chon_ngay_tot_banner_3.png`,
@@ -37,6 +39,10 @@ export const imgSrc = {
   chonNgayTotBanner5: `/images/chon_ngay_tot_banner_5.png`,
   chonNgayTotBanner6: `/images/chon_ngay_tot_banner_6.png`,
   chonNgayTotBanner7: `/images/chon_ngay_tot_banner_7.png`,
+  chonNgayTotBannerChuyenGia: `/images/chon_ngay_tot_banner_chuyen_gia.png`,
+  chonNgayTotChuyenGia: `/images/chon_ngay_tot_chuyen_gia.png`,
+
+
   chonNgayTotVideoTitle: `/images/chon_ngay_tot_video_title.png`,
   imgChuyenGia: `/images/img_chuyen_gia.png`,
   quyTrinhChamSocKhachHang: `/images/quy_trinh_cham_soc_khach_hang.png`,

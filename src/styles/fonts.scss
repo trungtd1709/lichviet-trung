@@ -1,6 +1,13 @@
 @font-face {
   font-family: "Mulish";
   font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Mulish/static/Mulish-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
   font-weight: 400;
   src: url("/fonts/Mulish/static/Mulish-Regular.ttf") format("truetype");
 }
@@ -105,6 +112,10 @@
 
 .mulish {
   font-family: "Mulish", sans-serif !important;
+}
+
+.light {
+  font-weight: 300 !important;
 }
 
 .normal {

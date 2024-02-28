@@ -1,4 +1,5 @@
 import { ChonGoiPro } from "@/components/LandingPage/ChonGoiPro";
+// import { DoiNguChuyenGia } from "@/components/LandingPage/ChonNgayTot/doiNguChuyenGia";
 import { ContactChuyenGia } from "@/components/LandingPage/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
@@ -63,13 +64,89 @@ const ChonNgayTotVideoBlock = ({ background }) => {
   );
 };
 
+const DoiNguChuyenGia = () => {
+  return (
+    <div className="row px-3 mx-0">
+      <div
+        className="d-flex flex-column align-items-center col-md-6"
+        style={{ gap: "10px" }}
+      >
+        <span
+          className="extra-bold"
+          style={{ color: "#606241", fontSize: "20px" }}
+        >
+          ĐỘI NGŨ CHUYÊN GIA
+        </span>
+        <div
+          style={{
+            borderRadius: "38px",
+            backgroundColor: "#E7E6C8",
+            color: "#606241",
+          }}
+          className="py-1 px-4"
+        >
+          Hỗ trợ 24/7
+        </div>
+        <div>
+          <ul className="pl-0" style={{ color: "#606241" }}>
+            <li className="mt-1">
+              Lịch Việt có đội ngũ chuyên gia đứng sau đảm bảo chất lượng phần
+              mềm.
+            </li>
+            <li className="mt-2">
+              Nếu vì bất cứ một lý do nào khiến bạn không hài lòng hoặc chưa có
+              được kết quả như mong muốn, chuyên gia Lịch Việt cam kết sẽ hỗ trợ
+              MIỄN PHÍ 24/7!
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="col-md-6 d-flex align-items-center">
+        <img src={imgSrc.chonNgayTotBannerChuyenGia} className="w-100" />
+      </div>
+    </div>
+  );
+};
+
+const Description = () => {
+  return (
+    <div className="row px-5 mx-0">
+      <div className="col-md-3 d-flex align-items-center">
+        <img src={imgSrc.chonNgayTotChuyenGia} className="w-100" />
+      </div>
+      <div
+        className="d-flex flex-column align-items-center justify-content-center col-md-9"
+      >
+        <span
+          // className="extra-bold"
+          style={{ color: "#4F4F4F", fontSize: "16px",textAlign:'center',fontStyle:"italic", fontWeight:'300' }}
+        >
+          Được nghiên cứu & phát triển bởi đội ngũ chuyên gia trên 15 năm kinh
+          nghiệm,
+        </span>
+        <span
+          // className="extra-bold"
+          style={{ color: "#4F4F4F", fontSize: "16px", textAlign:'center', fontStyle:"italic", fontWeight:'300' }}
+        >
+          tính năng <span className="normal">"Xem Ngày Tốt"</span> giúp bạn xác định được <span className="normal">GIỜ ĐẸP - NGÀY TỐT</span> để
+          tiến hành việc đại sự.
+        </span>
+        <img src={imgSrc.trangTri1} className="w-50 mt-3"/>
+      </div>
+    </div>
+  );
+};
+
 export default function ChonNgayTot({}) {
   // useAuth();
 
   return (
     <>
       <MetaHead />
-      <div className="chon-ngay-tot-container">
+      <div className="chon-ngay-tot-container" >
+        <div style={{backgroundColor:"#FCF6E6"}}>
+        <DoiNguChuyenGia />
+        <Description />
         <img src={imgSrc.chonNgayTotBanner1} className="w-100" />
         <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner2} />
         <ChonNgayTotBlock
@@ -106,6 +183,7 @@ export default function ChonNgayTot({}) {
             paddingRight: "10%",
           }}
         />
+        </div>
       </div>
     </>
   );
