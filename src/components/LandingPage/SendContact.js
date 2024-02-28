@@ -11,6 +11,8 @@ const { imgSrc } = require("@/const/AppResource");
 export const SendContact = ({
   bannerImg = imgSrc.imgUuDaiContactChuyenGia,
   className,
+  backgroundColor = "#e1f8c0",
+  buttonTitle = "GỬI SĐT"
 }) => {
   const [modalReceiveContactShow, setModalReceiveContactShow] = useState(false);
 
@@ -42,7 +44,7 @@ export const SendContact = ({
 
   return (
     <>
-      <div className={`send-contact-container row ${className}`}>
+      <div className={`send-contact-container row ${className}`} style={{backgroundColor: backgroundColor}}>
         <img
           //   className="img-uu-dai-contact-chuyen-gia"
           className="col-md-6 px-0"
@@ -73,7 +75,7 @@ export const SendContact = ({
           <CustomButton
             background="linear-gradient(0deg, #64994D -27.61%, #028042 100%)"
             showBorder={false}
-            text="GỬI SĐT"
+            text={buttonTitle}
             color="white"
             textClassName="mulish pc-16px bold"
             height="34px"

@@ -65,5 +65,13 @@ export const imgSrc = {
   phongThuyBanner1: `/images/phong_thuy_banner_1.png`,
   phongThuyBanner2: `/images/phong_thuy_banner_2.png`,
   phongThuyBanner3: `/images/phong_thuy_banner_3.png`,
+  phongThuyBanner4: `/images/phong_thuy_banner_4.jpg`,
+
+  lucHaoBanner1: `/images/luc_hao_banner_1.png`,
+  lucHaoBanner2: `/images/luc_hao_banner_2.png`,
+  lucHaoBanner3: `/images/luc_hao_banner_3.png`,
+
+  combo1: `/images/combo_1.png`,
+
 
 };
