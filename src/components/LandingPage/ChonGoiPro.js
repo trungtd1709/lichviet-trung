@@ -10,11 +10,13 @@ import { useContext, useEffect, useState } from "react";
 
 const { imgSrc } = require("@/const/AppResource");
 
-export const ChonGoiPro = ({
-  showBorderTop,
-  background = "linear-gradient(180deg, #FBFFF6 0%, #FAFFEF 100%)",
-  backgroundImage = imgSrc.flowerBg,
-}) => {
+export const ChonGoiPro = (props) => {
+  const {
+    showBorderTop,
+    background = "linear-gradient(180deg, #FBFFF6 0%, #FAFFEF 100%)",
+    backgroundImage = imgSrc.flowerBg,
+    ...restProps
+  } = props;
   const [cacGoiNgayTot, setCacGoiNgayTot] = useState([]);
   const { updateUserData, userData } = useContext(AuthContext);
 
@@ -57,6 +59,7 @@ export const ChonGoiPro = ({
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
+        {...restProps}
       >
         <span
           className="mulish pc-20px extra-bold"

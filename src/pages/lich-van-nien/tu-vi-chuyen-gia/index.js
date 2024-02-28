@@ -5,6 +5,7 @@ import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { postPremiumAddOrder } from "@/api/apiRequest";
 
 export default function TuViChuyenGia({}) {
   return (
@@ -24,7 +25,7 @@ export default function TuViChuyenGia({}) {
 
 const LienHeChuyenGia = () => {
   const sendPhoneContact = async ({ phone }) => {
-    const res = await postPremiumAddOrder({ phone });
+    const res = await postPremiumAddOrder({ phone, features_id : 8 });
     if (!isEmpty(res)) {
       setModalReceiveContactShow(true);
     }

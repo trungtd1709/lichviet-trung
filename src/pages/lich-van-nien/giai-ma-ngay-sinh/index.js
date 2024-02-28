@@ -1,10 +1,7 @@
 import { ChonGoiPro } from "@/components/LandingPage/ChonGoiPro";
-import { ContactChuyenGia } from "@/components/LandingPage/ContactChuyenGia";
 import MetaHead from "@/components/MetaHead";
 import { imgSrc } from "@/const/AppResource";
 import { appColor } from "@/const/appColor";
-import { youtubeVideoUrl } from "@/const/const";
-import { useAuth } from "@/shared/customHooks/useAuth";
 
 const SeperateLine = ({ style }) => {
   return (
@@ -19,12 +16,22 @@ const SeperateLine = ({ style }) => {
   );
 };
 
-const landingPageImgBanner = () =>{
-    return <div></div>;
-}
+const landingPageImgBanner = () => {
+  return <div></div>;
+};
 
 export default function GiaiMaNgaySinh({}) {
   //   useAuth();
+
+  const chonGoiProDivId = "chon-goi-pro";
+
+  const btnDkyNgayOnClick = () => {
+    const element = document.getElementById(chonGoiProDivId);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <>
@@ -36,21 +43,33 @@ export default function GiaiMaNgaySinh({}) {
             className="d-flex flex-column align-items-center justify-content-center"
             style={{ marginBottom: "15px", marginTop: "15px" }}
           >
-            <img style={{ height: "50px" }} src={imgSrc.btnDangKyNgayYellow} />
+            <img
+              style={{ height: "50px", cursor: "pointer" }}
+              src={imgSrc.btnDangKyNgayYellow}
+              onClick={btnDkyNgayOnClick}
+            />
             <SeperateLine style={{ marginTop: "30px" }} />
           </div>
           <div
             className="d-flex justify-content-center"
             style={{ marginTop: "30px" }}
           >
-            <img className="landingPageImgBanner" src={imgSrc.landingPageImgBanner2} style={{ width: "80%" }} />
+            <img
+              className="landingPageImgBanner"
+              src={imgSrc.landingPageImgBanner2}
+              style={{ width: "80%" }}
+            />
           </div>
           <div
             className="d-flex flex-column align-items-center justify-content-start"
             style={{ marginTop: "20px" }}
           >
             <SeperateLine style={{ marginBottom: "25px" }} />
-            <img className="landingPageImgBanner" src={imgSrc.landingPageImgBanner3} style={{ width: "70%" }} />
+            <img
+              className="landingPageImgBanner"
+              src={imgSrc.landingPageImgBanner3}
+              style={{ width: "70%" }}
+            />
           </div>
           <div
             className="d-flex flex-column align-items-center justify-content-start"
@@ -59,11 +78,11 @@ export default function GiaiMaNgaySinh({}) {
               backgroundSize: "100% auto",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
-            //   marginTop: "40px",
+              //   marginTop: "40px",
             }}
           >
             <SeperateLine style={{ marginTop: "30px" }} />
-            <ChonGoiPro background="transparent" />
+            <ChonGoiPro background="transparent" id={chonGoiProDivId} />
           </div>
         </div>
       </div>

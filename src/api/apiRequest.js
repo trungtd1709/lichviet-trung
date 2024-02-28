@@ -27,7 +27,7 @@ export const CallApiBackend = async (
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
   let userLocal = JSON.parse(localStorage.getItem("user")) ?? {};
   const { token_login } = userLocal;
-  data.token_login = token_login;
+  // data.token_login = token_login;
 
   let device_id = localStorage.getItem("device_id");
   if (!device_id) {
@@ -45,6 +45,7 @@ export const CallApiBackend = async (
   for (const [key, value] of Object.entries(data)) {
     formData.append(key, value);
   }
+  formData.append("token_login", token_login);
   let params = "";
   if (method.toUpperCase() === "GET") {
     params = "?";
@@ -72,8 +73,11 @@ export const CallApiBackend = async (
         retryCount + 1
       );
       return newResponse;
-      alert("Phiên đăng nhập hết hạn");
+      
     }
+    // if(response.data.status === -2 && retryCount >=1){
+    //   alert("Phiên đăng nhập hết hạn");
+    // }
     return response;
   } catch (error) {
     console.log("[error]:", error);
@@ -300,7 +304,7 @@ export const fetchServicesList = async () => {
 };
 
 export const fetchUserDetail = async ({ token_login }) => {
-  const res = await CallApiBackend({ token_login }, "/user/detail", "POST");
+  const res = await CallApiBackend({ }, "/user/detail", "POST");
   if (res?.data?.status === 1) {
     console.log(res.data.data);
     return res.data.data;
@@ -309,10 +313,10 @@ export const fetchUserDetail = async ({ token_login }) => {
   }
 };
 
-export const postPremiumAddOrder = async ({ phone }) => {
+export const postPremiumAddOrder = async ({ phone, features_id }) => {
   const content = "Cần hỗ trợ đăng ký dịch vụ trên web";
   const url = "/premium/addorder";
-  const params = { phone, content, features_id: 9 };
+  const params = { phone, content, features_id };
   const res = await CallApiBackend(params, url, "POST");
   if (res?.data?.status == 1) {
     return res.data;
