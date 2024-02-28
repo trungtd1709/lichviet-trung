@@ -54,24 +54,33 @@ export const imgSrc = {
   landingPageImgBanner4: `/images/giai_ma_ngay_sinh_banner_4.png`,
   tuVi1: `/images/tu_vi_banner_1.png`,
   tuVi2: `/images/tu_vi_banner_2.png`,
+
   tuViChuyenGia1: `/images/tu_vi_chuyen_gia_banner_1.png`,
   tuViChuyenGia2: `/images/tu_vi_chuyen_gia_banner_2.png`,
   tuViChuyenGia3: `/images/tu_vi_chuyen_gia_banner_3.png`,
   tuViChuyenGia3: `/images/tu_vi_chuyen_gia_banner_3.png`,
   tuViChuyenGiaUuDai: `/images/tu_vi_chuyen_gia_uu_dai.png`,
   tuViChuyenGiaTextUuDai: `/images/tu-vi-chuyen-gia-text-uu-dai.png`,
+
   flowerBg: `/images/flower_bg.png`,
   btnDangKyNgayYellow: `/images/btn_dang_ky_ngay_yellow.png`,
-  phongThuyBanner1: `/images/phong_thuy_banner_1.png`,
-  phongThuyBanner2: `/images/phong_thuy_banner_2.png`,
-  phongThuyBanner3: `/images/phong_thuy_banner_3.png`,
-  phongThuyBanner4: `/images/phong_thuy_banner_4.jpg`,
+
+  phongThuyChuyenGiaBanner1: `/images/phong_thuy_chuyen_gia_banner_1.png`,
+  phongThuyChuyenGiaBanner2: `/images/phong_thuy_chuyen_gia_banner_2.png`,
+  phongThuyChuyenGiaBanner3: `/images/phong_thuy_chuyen_gia_banner_3.png`,
+  phongThuyChuyenGiaBanner4: `/images/phong_thuy_chuyen_gia_banner_4.jpg`,
 
   lucHaoBanner1: `/images/luc_hao_banner_1.png`,
   lucHaoBanner2: `/images/luc_hao_banner_2.png`,
   lucHaoBanner3: `/images/luc_hao_banner_3.png`,
 
-  combo1: `/images/combo_1.png`,
+  comboBanner1: `/images/combo_banner_1.png`,
+  comboBanner2: `/images/combo_banner_2.png`,
+  comboBanner3: `/images/combo_banner_3.png`,
+  cloudBackGround: `/images/cloud_background.png`,
 
+  phongThuyBanner1: `/images/phong_thuy_banner_1.png`,
+  phongThuyBanner2: `/images/phong_thuy_banner_2.png`,
+  phongThuyBanner3: `/images/phong_thuy_banner_3.png`,
 
 };

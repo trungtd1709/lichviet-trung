@@ -1,4 +1,4 @@
-import { createPaymentTransaction, fetchServicesList } from "@/api/apiRequest";
+import { createPaymentTransaction, fetchServicesList, fetchUserDetail } from "@/api/apiRequest";
 import { imgSrc } from "@/const/AppResource";
 import { onepayResult } from "@/const/const";
 import { AuthContext } from "@/context/authContext";
@@ -28,7 +28,6 @@ function ModalAfterPayment(props) {
       if (!premiumTypeId) {
         router.push("/");
       }
-      debugger;
       const services = await fetchServicesList();
       const allPremiumServices = services.flatMap((service) => {
         const { icon, premiumTypes } = service;
@@ -58,26 +57,31 @@ function ModalAfterPayment(props) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const updateNewUserData = async () => {
-  //     const { token_login } = userData;
-  //     if (token_login) {
-  //       try {
-  //         const newUserData = await fetchUserDetail({ token_login });
-  //         if (!_.isEmpty(newUserData)) {
-  //           const tempData = { ...newUserData, token_login };
-  //           updateUserData(tempData);
-  //           // updateUserData(newUserData);
-  //         }
-  //       } catch (err) {
-  //         console.error("Failed to fetch user data:", err);
-  //       }
-  //     }
-  //   };
-  //   if (isPaymentSuccess) {
-  //     updateNewUserData();
-  //   }
-  // }, [isPaymentSuccess, userData]);
+  useEffect(() => {
+    const updateNewUserData = async () => {
+      const { token_login } = userData;
+      console.log("[userData]:", userData);
+      
+      if (token_login) {
+        try {
+          const newUserData = await fetchUserDetail({ token_login });
+          if (!_.isEmpty(newUserData)) {
+            const tempData = { ...newUserData, token_login };
+            console.log("[tempData]:",tempData);
+            updateUserData(tempData);
+            // updateUserData(newUserData);
+          }
+        } catch (err) {
+          console.error("Failed to fetch user data:", err);
+        }
+      }
+    };
+
+    // thanh toan thanh cong thi cap nhat thong tin goi moi
+    if (isPaymentSuccess) {
+      updateNewUserData();
+    }
+  }, [isPaymentSuccess]);
 
   const addtionalServiceInfo = ({ style, className }) => {
     return (
@@ -227,3 +231,6 @@ function ModalAfterPayment(props) {
 }
 
 export default ModalAfterPayment;
+
+// http://next.lichviet.org/ket-qua-mua-goi?vpc_SecureHash=280235FAF633076EE3DAEAE0E4C52A823C87142B9B67B72FA1ADE2A4D9E50956&vpc_MerchTxnRef=LV1709116026762&result=success&package_name=G%C3%B3i%20xem%20ng%C3%A0y%20t%E1%BB%91t%206%20th%C3%A1ng%20web&price=168000&channel=ONEPAY&service_id=2&image_purchased=%2Fupload%2Flichviet%2F2023-06%2F07%2Fpremium_type%2F1686107368_M3GCG.png&original_price=290000&numb_m=6&numb=0&service_name=L%E1%BB%8Bch%20Vi%E1%BB%87t%20Pro%20-%20Ng%C3%A0y%20t%E1%BB%91t&end_time=2040-05-27%2014:39:45
+// http://next.lichviet.org/ket-qua-mua-goi?vpc_SecureHash=79CA1AE73E4BC6B10BA742CC56244DAC10A38CFABFA46C91C3B9595E5CE291AD&vpc_MerchTxnRef=LV1709116538321&result=success&package_name=G%C3%B3i%20xem%20ng%C3%A0y%20t%E1%BB%91t%201%20n%C4%83m%20web&price=230000&channel=ONEPAY&service_id=2&image_purchased=%2Fupload%2Flichviet%2F2023-06%2F07%2Fpremium_type%2F1686107415_VaY1L.png&original_price=490000&numb_m=12&numb=0&service_name=L%E1%BB%8Bch%20Vi%E1%BB%87t%20Pro%20-%20Ng%C3%A0y%20t%E1%BB%91t&end_time=2041-05-27%2014:39:45

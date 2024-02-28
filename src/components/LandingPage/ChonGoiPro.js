@@ -13,10 +13,13 @@ const { imgSrc } = require("@/const/AppResource");
 export const ChonGoiPro = ({
   showBorderTop,
   background = "linear-gradient(180deg, #FBFFF6 0%, #FAFFEF 100%)",
+  backgroundImage = imgSrc.flowerBg,
 }) => {
   const [cacGoiNgayTot, setCacGoiNgayTot] = useState([]);
   const { updateUserData, userData } = useContext(AuthContext);
-  
+
+  console.log("[backgroundImage:]", backgroundImage);
+
   useEffect(() => {
     const getServicesList = async () => {
       const allServiceList = await fetchServicesList();
@@ -47,14 +50,12 @@ export const ChonGoiPro = ({
         className="chon-ngay-tot-block d-flex flex-column"
         style={{
           borderTop: showBorderTop ? "1px solid #CCC" : "0px solid #CCC",
-          background: background,
-          backgroundImage: `url(${imgSrc.flowerBg})`,
-          // ...sharedStyle,
-          // background: `url(${imgSrc.landingPageImgBanner4})`,
+          // background: background,
+          backgroundImage: `url(${backgroundImage})`,
+          // backgroundImage: backgroundImage,
           backgroundSize: "100% auto",
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          // ...addtionalStyle,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         <span
@@ -90,10 +91,8 @@ export const ChonGoiPro = ({
                 //     : createPaymentTransaction(id);
                 // }}
                 onClick={() => {
-                  // createPaymentTransaction(id);
                   createPaymentTransaction({
                     premiumTypeId: id,
-                    userData,
                     router,
                   });
                 }}

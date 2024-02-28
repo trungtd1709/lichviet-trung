@@ -16,11 +16,19 @@ function makeid(length) {
   return result;
 }
 
-export const CallApiBackend = async (data, url, method, type = 1) => {
+export const CallApiBackend = async (
+  data,
+  url,
+  method,
+  type = 1,
+  retryCount = 0
+) => {
+  // retry count là số lần gọi api
   const BASE_URL = process.env.NEXT_PUBLIC_URL_API;
-  // const BASE_URL = "http://next.lichviet.org";
+  let userLocal = JSON.parse(localStorage.getItem("user")) ?? {};
+  const { token_login } = userLocal;
+  data.token_login = token_login;
 
-  // console.log("[BASE_URL]:", BASE_URL);
   let device_id = localStorage.getItem("device_id");
   if (!device_id) {
     device_id = makeid(40);
@@ -53,13 +61,22 @@ export const CallApiBackend = async (data, url, method, type = 1) => {
       url: BASE_URL + url + params,
       data: formData,
     });
-
     console.log("[response]:", response);
-    if (response?.data?.status === -2) {
+    if (response?.data?.status === -2 && retryCount < 1) {
+      await refreshExpriedToken();
+      const newResponse = await CallApiBackend(
+        data,
+        url,
+        method,
+        type,
+        retryCount + 1
+      );
+      return newResponse;
       alert("Phiên đăng nhập hết hạn");
     }
     return response;
   } catch (error) {
+    console.log("[error]:", error);
     if (error?.response?.status === 401) {
       localStorage.removeItem("user");
       let mess = "Vui lòng đăng nhập để sử dụng chức năng này!";
@@ -292,21 +309,6 @@ export const fetchUserDetail = async ({ token_login }) => {
   }
 };
 
-export const refreshExpriedToken = async ({ refreshToken }) => {
-  const res = await CallApiBackend(
-    { refreshToken },
-    "/user/refreshsession",
-    "POST"
-  );
-  console.log("[res]:", res);
-  if (res?.data?.status === 1) {
-    console.log(res.data.data);
-    return res.data.data;
-  } else {
-    return {};
-  }
-};
-
 export const postPremiumAddOrder = async ({ phone }) => {
   const content = "Cần hỗ trợ đăng ký dịch vụ trên web";
   const url = "/premium/addorder";
@@ -327,20 +329,15 @@ export const postPremiumAddOrder = async ({ phone }) => {
 //   return res;
 // };
 
-export const createPaymentTransaction = ({
-  premiumTypeId,
-  router,
-  userData,
-}) => {
-  if (isEmpty(userData)) {
+export const createPaymentTransaction = ({ premiumTypeId, router }) => {
+  let userLocal = JSON.parse(localStorage.getItem("user"));
+  if (isEmpty(userLocal)) {
     window.localStorage.setItem("link_redirect", "/mua-goi");
     router.push("/login");
   } else {
-    const { token_login } = userData;
-    // console.log(token_login);
     if (premiumTypeId) {
       CallApiBackend(
-        { premium_type_id: premiumTypeId, channel: "onepay", token_login },
+        { premium_type_id: premiumTypeId, channel: "onepay" },
         "/payment/create_transaction",
         "POST",
         true
@@ -353,5 +350,31 @@ export const createPaymentTransaction = ({
         }
       });
     }
+  }
+};
+
+export const refreshExpriedToken = async () => {
+  let userLocal = JSON.parse(localStorage.getItem("user"));
+  const refreshToken = userLocal.refresh_token;
+  const res = await CallApiBackend(
+    { refreshToken },
+    "/user/refreshsession",
+    "POST"
+  );
+  console.log("[refreshExpriedTokenResponse]:", res);
+  if (res?.data?.status === 1) {
+    const data = res?.data?.data;
+    const newTokenLogin = data?.token_login;
+    const newPremiums = data?.premiums; // danh sách các gói pro
+
+    userLocal.token_login = newTokenLogin;
+    userLocal.premiums = newPremiums;
+
+    localStorage.setItem("user", JSON.stringify(userLocal));
+    // cập nhật thông tin mới vào local storage
+
+    return res.data.data;
+  } else {
+    return {};
   }
 };
