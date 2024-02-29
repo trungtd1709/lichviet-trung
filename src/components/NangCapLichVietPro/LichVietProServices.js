@@ -34,7 +34,11 @@ export const LichVietProServices = () => {
       <div className="nang-cap-pro-card">
         <div className="img-lich-viet-pro-services-container">
           {proServicesData.map((proService, index) => {
-            const { icon, show_in_service_block } = proService;
+            const { icon, show_in_service_block, link } = proService;
+            // const urlString = "lichviet://?screen=chon_ngay_tot";
+            const url = new URL(link, "http://example.com");
+            const screenPath = url.searchParams.get("screen");
+            
             return (
               show_in_service_block === "1" && (
                 <img
@@ -42,7 +46,7 @@ export const LichVietProServices = () => {
                   className="img-lich-viet-pro-services"
                   src={baseUrlImg + icon}
                   onClick={() => {
-                    moveRoute("/lich-van-nien/chon-ngay-tot");
+                    moveRoute(`/lich-van-nien/${screenPath}`);
                   }}
                 />
               )

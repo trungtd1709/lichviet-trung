@@ -13,15 +13,15 @@ export default function PhongThuyChuyenGia({}) {
           {/* <img src={imgSrc.phongThuyBanner2} className="w-100" /> */}
 
           <SendContact
-            // bannerImg={imgSrc.phongThuyChuyenGiaBanner4}
+            bannerImg={imgSrc.phongThuyChuyenGiaBanner4}
             className="w-100 mx-0"
             backgroundColor="#FFFFE9"
             buttonTitle="ĐĂNG KÝ TƯ VẤN"
           />
           <div className="w-100 px-3 pt-3 pb-3">
-            <img src={imgSrc.phongThuyBanner3} className="w-100" />
+            <img src={imgSrc.phongThuyChuyenGiaBanner3} className="w-100" />
           </div>
-          <YeuToPhongThuy />
+          {/* <YeuToPhongThuy/> */}
         </div>
       </div>
     </>

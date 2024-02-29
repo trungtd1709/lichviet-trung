@@ -145,8 +145,8 @@ export default function ChonNgayTot({}) {
       <MetaHead />
       <div className="chon-ngay-tot-container" >
         <div style={{backgroundColor:"#FCF6E6"}}>
-        <DoiNguChuyenGia />
-        <Description />
+        {/* <DoiNguChuyenGia />
+        <Description /> */}
         <img src={imgSrc.chonNgayTotBanner1} className="w-100" />
         <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner2} />
         <ChonNgayTotBlock
