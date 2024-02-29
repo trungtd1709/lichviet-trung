@@ -847,6 +847,17 @@ const CalendarScreen = () => {
                             hienLichNgay(i.ngayduong, i.thang, i.nam, i.m);
                             setForcus({ d: i.ngayduong, m: i.thang, y: i.nam });
                             // window.location.href = "#calender-day-href";
+                            console.log("[i.ngayduong]:", i.ngayduong);
+                            console.log("[i.thang]:", i.thang);
+                            console.log("[i.nam]:", i.nam);
+                            setValueSelectMonth({
+                              value: i.thang,
+                              label: "Tháng " + i.thang,
+                            });
+                            setValueSelectYear({
+                              value: i.nam,
+                              label: "Năm " + i.nam,
+                            });
                           }}
                           key={n}
                           className={
