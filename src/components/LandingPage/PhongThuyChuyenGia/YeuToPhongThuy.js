@@ -4,8 +4,8 @@
 export const YeuToPhongThuy = () => {
   return (
     <div className="row px-3 mx-0">
-      {data.map((item) => {
-        return <YeuToPhongThuyItem item={item} />;
+      {data.map((item, key) => {
+        return <YeuToPhongThuyItem key={key} item={item} />;
       })}
     </div>
   );
@@ -37,8 +37,8 @@ const YeuToPhongThuyContent = ({ content = [] }) => {
       className="d-flex flex-column pl-3"
       style={{ color: "#253026", fontSize: "20px" }}
     >
-      {content.map((itemContent) => {
-        return <li>{itemContent}</li>;
+      {content.map((itemContent, key) => {
+        return <li key={key}>{itemContent}</li>;
       })}
     </ul>
     // </div>

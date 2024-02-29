@@ -114,24 +114,36 @@ const Description = () => {
       <div className="col-md-3 d-flex align-items-center">
         <img src={imgSrc.chonNgayTotChuyenGia} className="w-100" />
       </div>
-      <div
-        className="d-flex flex-column align-items-center justify-content-center col-md-9"
-      >
+      <div className="d-flex flex-column align-items-center justify-content-center col-md-9">
         <span
           // className="extra-bold"
-          style={{ color: "#4F4F4F", fontSize: "16px",textAlign:'center',fontStyle:"italic", fontWeight:'300' }}
+          style={{
+            color: "#4F4F4F",
+            fontSize: "16px",
+            textAlign: "center",
+            fontStyle: "italic",
+            fontWeight: "300",
+          }}
         >
           Được nghiên cứu & phát triển bởi đội ngũ chuyên gia trên 15 năm kinh
           nghiệm,
         </span>
         <span
-          // className="extra-bold"
-          style={{ color: "#4F4F4F", fontSize: "16px", textAlign:'center', fontStyle:"italic", fontWeight:'300' }}
+          style={{
+            color: "#4F4F4F",
+            fontSize: "16px",
+            textAlign: "center",
+            fontStyle: "italic",
+            fontWeight: "300",
+          }}
         >
-          tính năng <span className="normal">"Xem Ngày Tốt"</span> giúp bạn xác định được <span className="normal">GIỜ ĐẸP - NGÀY TỐT</span> để
-          tiến hành việc đại sự.
+          tính năng <span className="normal">&quot;Xem Ngày Tốt&quot;</span>{" "}
+          giúp bạn xác định được{" "}
+          <span className="normal">GIỜ ĐẸP - NGÀY TỐT</span> để tiến hành việc
+          đại sự.
         </span>
-        <img src={imgSrc.trangTri1} className="w-50 mt-3"/>
+
+        <img src={imgSrc.trangTri1} className="w-50 mt-3" />
       </div>
     </div>
   );
@@ -143,46 +155,46 @@ export default function ChonNgayTot({}) {
   return (
     <>
       <MetaHead />
-      <div className="chon-ngay-tot-container" >
-        <div style={{backgroundColor:"#FCF6E6"}}>
-        {/* <DoiNguChuyenGia />
+      <div className="chon-ngay-tot-container">
+        <div style={{ backgroundColor: "#FCF6E6" }}>
+          {/* <DoiNguChuyenGia />
         <Description /> */}
-        <img src={imgSrc.chonNgayTotBanner1} className="w-100" />
-        <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner2} />
-        <ChonNgayTotBlock
-          imgSrc={imgSrc.chonNgayTotBanner3}
-          background="#FCF6E6"
-        />
-        <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner4} />
-        <ChonNgayTotBlock
-          imgSrc={imgSrc.chonNgayTotBanner5}
-          showBorderTop={true}
-        />
-        {/* <ChonNgayTotBlock
+          <img src={imgSrc.chonNgayTotBanner1} className="w-100" />
+          <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner2} />
+          <ChonNgayTotBlock
+            imgSrc={imgSrc.chonNgayTotBanner3}
+            background="#FCF6E6"
+          />
+          <ChonNgayTotBlock imgSrc={imgSrc.chonNgayTotBanner4} />
+          <ChonNgayTotBlock
+            imgSrc={imgSrc.chonNgayTotBanner5}
+            showBorderTop={true}
+          />
+          {/* <ChonNgayTotBlock
           imgSrc={imgSrc.chonNgayTotBanner6}
           background="linear-gradient(180deg, #FBFFF6 0%, #FAFFEF 100%)"
           showBorderTop={true}
         /> */}
 
-        <ChonGoiPro />
+          <ChonGoiPro />
 
-        {/* ưu đãi đi kèm */}
-        <ChonNgayTotBlock
-          imgSrc={imgSrc.chonNgayTotBanner7}
-          addtionalStyle={{ paddingBottom: "15px" }}
-          showBorderTop={true}
-        />
-        <ContactChuyenGia />
-        <ChonNgayTotVideoBlock showBorderTop={true} />
-        <ChonNgayTotBlock
-          showBorderTop={true}
-          imgSrc={imgSrc.quyTrinhChamSocKhachHang}
-          addtionalStyle={{
-            paddingBottom: "15px",
-            paddingLeft: "10%",
-            paddingRight: "10%",
-          }}
-        />
+          {/* ưu đãi đi kèm */}
+          <ChonNgayTotBlock
+            imgSrc={imgSrc.chonNgayTotBanner7}
+            addtionalStyle={{ paddingBottom: "15px" }}
+            showBorderTop={true}
+          />
+          <ContactChuyenGia />
+          <ChonNgayTotVideoBlock showBorderTop={true} />
+          <ChonNgayTotBlock
+            showBorderTop={true}
+            imgSrc={imgSrc.quyTrinhChamSocKhachHang}
+            addtionalStyle={{
+              paddingBottom: "15px",
+              paddingLeft: "10%",
+              paddingRight: "10%",
+            }}
+          />
         </div>
       </div>
     </>
